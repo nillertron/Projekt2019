@@ -12,7 +12,7 @@ namespace ProjektOpgave1Sem2019
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()//karl
+        static void Main()//karl //martin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
