@@ -13,10 +13,11 @@ namespace ProjektOpgave1Sem2019.Model
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBHelper.Conn;
-            cmd.CommandText = "SELECT * FROM Egendomsmægler";
+            cmd.CommandText = "SELECT * FROM Ejendomsmægler";
 
             List<Ejendomsmægler> returnList = new List<Ejendomsmægler>();
 
+            DBHelper.Conn.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 
@@ -25,12 +26,12 @@ namespace ProjektOpgave1Sem2019.Model
                     returnList.Add(new Ejendomsmægler(reader.GetInt32(0),
                                                         reader.GetString(1),
                                                         reader.GetString(2),
-                                                        reader.GetString(3),
-                                                        reader.GetString(4),
-                                                        reader.GetDateTime(5)));
+                                                        reader.GetInt32(3).ToString(),
+                                                        reader.GetString(5),
+                                                        reader.GetDateTime(4)));
                 }
             }
-
+            DBHelper.Conn.Close();
             return returnList;
         }
     }
