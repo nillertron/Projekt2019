@@ -17,7 +17,9 @@ namespace ProjektOpgave1Sem2019
         {
             InitializeComponent();
             ViewModel = new Form1ViewModel(this);
-            
+            button1.MouseEnter += (o, e) => button1.BackColor = Color.White;
+            button1.MouseLeave += (o, e) => button1.BackColor = Color.Transparent;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
