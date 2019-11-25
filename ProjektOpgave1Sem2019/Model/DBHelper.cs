@@ -8,5 +8,7 @@ namespace ProjektOpgave1Sem2019.Model
 {
     class DBHelper
     {
+
+
     }
 }
