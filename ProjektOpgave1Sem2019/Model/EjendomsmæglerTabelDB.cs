@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace ProjektOpgave1Sem2019.Model
 {
-    class EgendomsmæglerTabelDB
+    class EjendomsmæglerTabelDB
     {
         public static List<Ejendomsmægler> GetAllEgendomsmæglere()
         {
