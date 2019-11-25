@@ -11,7 +11,11 @@ namespace ProjektOpgave1Sem2019.Model
         public DateTime Fødseldato { private set; get; }
         public Ejendomsmægler(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr, DateTime Fødselsdato ) : base (Id, Navn, Efternavn, TelefonNr, KontoNr)
         {
-            this.Fødseldato = Fødseldato; 
+            this.Fødseldato = Fødselsdato; 
+        }
+        public Ejendomsmægler(string Navn, string Efternavn, string TelefonNr, string KontoNr, DateTime Fødselsdato) : base(Navn, Efternavn, TelefonNr, KontoNr)
+        {
+            this.Fødseldato = Fødselsdato;
         }
     }
 }

@@ -22,5 +22,12 @@ namespace ProjektOpgave1Sem2019.Model
             this.TelefonNr = TelefonNr;
             this.KontoNr = KontoNr;
         }
+        public Person(string Navn, string Efternavn, string TelefonNr, string KontoNr)
+        {
+            this.Navn = Navn;
+            this.Efternavn = Efternavn;
+            this.TelefonNr = TelefonNr;
+            this.KontoNr = KontoNr;
+        }
     }
 }

@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Bolig.cs" />
-    <Compile Include="Model\Ejendomsmægler.cs" />
-    <Compile Include="Model\Køber.cs" />
-    <Compile Include="Model\Sælger.cs" />
-    <Compile Include="Model\EjendomsmæglerTabelDB.cs" />
+    <Compile Include="Model\Bolig\Bolig.cs" />
+    <Compile Include="Model\Ejendomsmægler\Ejendomsmægler.cs" />
+    <Compile Include="Model\Kunde\Køber.cs" />
+    <Compile Include="Model\Kunde\Sælger.cs" />
+    <Compile Include="Model\Ejendomsmægler\EjendomsmæglerTabelDB.cs" />
     <Compile Include="View Model\Form1ViewModel.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
@@ -73,6 +73,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -88,5 +89,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="husikon.png" />
+    <None Include="Resources\house_home_fire_burning_burn_smoke-512.png" />
+    <None Include="Resources\husikon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
