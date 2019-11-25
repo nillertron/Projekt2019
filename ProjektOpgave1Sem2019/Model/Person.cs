@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektOpgave1Sem2019.Model
 {
+    //Nichlas
     public abstract class Person
     {
         public int Id { get; }

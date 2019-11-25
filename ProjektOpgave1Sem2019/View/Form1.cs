@@ -12,9 +12,12 @@ namespace ProjektOpgave1Sem2019
 {
     public partial class Form1 : Form
     {
+        Form1ViewModel ViewModel;
         public Form1()
         {
             InitializeComponent();
+            ViewModel = new Form1ViewModel(this);
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
