@@ -8,5 +8,11 @@ namespace ProjektOpgave1Sem2019
 {
     class Form1ViewModel
     {
+        Form1 form;
+        public Form1ViewModel(Form1 form)
+        {
+            this.form = form;
+            
+        }
     }
 }
