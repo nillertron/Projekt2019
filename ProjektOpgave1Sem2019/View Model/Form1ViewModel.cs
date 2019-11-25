@@ -14,5 +14,10 @@ namespace ProjektOpgave1Sem2019
             this.form = form;
             
         }
+
+        public void fyldliste()
+        {
+         
+        }
     }
 }
