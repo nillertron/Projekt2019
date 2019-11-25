@@ -11,5 +11,12 @@ namespace ProjektOpgave1Sem2019.Model
     {
         private static string connString = "Data Source = DESKTOP-TEM8DQC\\MARTINSQL; Initial Catalog = RealBoligDB; Integrated Security = SSPI";
         private static SqlConnection conn = new SqlConnection(connString);
+        public static SqlConnection Conn
+        {
+            get
+            {
+                return conn;
+            }
+        }
     }
 }

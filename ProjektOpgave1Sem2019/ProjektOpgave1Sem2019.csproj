@@ -50,6 +50,7 @@
     <Compile Include="Model\Ejendomsmægler.cs" />
     <Compile Include="Model\Køber.cs" />
     <Compile Include="Model\Sælger.cs" />
+    <Compile Include="Model\EgendomsmæglerTabelDB.cs" />
     <Compile Include="View Model\Form1ViewModel.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
