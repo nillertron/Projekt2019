@@ -12,7 +12,7 @@ namespace ProjektOpgave1Sem2019
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()//karl //martin
+        static void Main()//karl //martin Nillertron of doom
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
