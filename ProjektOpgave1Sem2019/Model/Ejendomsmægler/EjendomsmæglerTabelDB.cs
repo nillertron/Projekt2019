@@ -36,10 +36,11 @@ namespace ProjektOpgave1Sem2019.Model
             return returnList;
         }
 
+
         //prøvede lige at lave et par metoder til at læse og oprette fra DB
         //Husk at ændre db brugeren til at være fra DK for at kunne bruge datetime fra c#!
         //Security -> logins -> bruger, højreklik -> properties -> nederst ændre default language til dansk
-        public static async Task OpretEjendomsmægler(Ejendomsmægler data)
+        public static void OpretEjendomsmægler(Ejendomsmægler data)
         {
             try
             {
@@ -51,7 +52,7 @@ namespace ProjektOpgave1Sem2019.Model
                     using (SqlCommand command = new SqlCommand("Insert into Ejendomsmægler (Fornavn, Efternavn, Tlf, Fødselsdato, KontoNr) values ('" + data.Navn + "', '" + data.Efternavn + "','" + data.TelefonNr + "', '"+ data.Fødseldato + "', '"+data.KontoNr+"')"))
                     {
                         command.Connection = conn;
-                        await command.ExecuteNonQueryAsync();
+                        command.ExecuteNonQuery();
                     }
 
                     MessageBox.Show("Done!");
@@ -63,7 +64,7 @@ namespace ProjektOpgave1Sem2019.Model
             }
         }
 
-        public static async Task<List<Ejendomsmægler>> GetAllEjendomsmæglere()
+        public static List<Ejendomsmægler> GetAllEjendomsmæglere()
         {
             var liste = new List<Ejendomsmægler>();
             try
@@ -74,7 +75,7 @@ namespace ProjektOpgave1Sem2019.Model
                     SqlDataReader dataReader;
                     using (SqlCommand command = new SqlCommand("Select Id, Fornavn, Efternavn, Tlf, KontoNr, Fødselsdato From ejendomsmægler", conn))
                     {
-                        dataReader = await command.ExecuteReaderAsync();
+                        dataReader = command.ExecuteReader();
                         while (dataReader.Read())
                         {
                             liste.Add(new Ejendomsmægler(Convert.ToInt32(dataReader.GetValue(0)), dataReader.GetValue(1).ToString(), dataReader.GetValue(2).ToString(), dataReader.GetValue(3).ToString(), dataReader.GetValue(4).ToString(), Convert.ToDateTime(dataReader.GetValue(5))));
