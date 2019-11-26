@@ -72,6 +72,12 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\ValgtEjendomsMæglerDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ValgtEjendomsMæglerDetails.Designer.cs">
+      <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\EjendomsmæglereForm.resx">
       <DependentUpon>EjendomsmæglereForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +94,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\ValgtEjendomsMæglerDetails.resx">
+      <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

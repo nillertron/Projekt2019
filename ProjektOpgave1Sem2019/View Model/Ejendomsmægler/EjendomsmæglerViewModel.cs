@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjektOpgave1Sem2019.View;
 
 namespace ProjektOpgave1Sem2019.View_Model
 {
@@ -34,7 +35,8 @@ namespace ProjektOpgave1Sem2019.View_Model
                 if (e.Id.ToString() == ParentForm.SearchResults.FocusedItem.Name)
                     ValgtEjendomsmægler = e;
 
-
+            var valgtejendomsmæglerdetail = new ValgtEjendomsMæglerDetails(ValgtEjendomsmægler);
+            
         }
         public void GetAll()
         {
