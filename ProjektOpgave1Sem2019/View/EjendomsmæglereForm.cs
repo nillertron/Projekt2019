@@ -7,17 +7,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjektOpgave1Sem2019.View_Model;
 
 namespace ProjektOpgave1Sem2019
 {
     public partial class EjendomsmæglereForm : UserControl
     {
-        Form1 ParentForm;
-        public EjendomsmæglereForm(Form1 ParentForm)
+        EjendomsmæglerViewModel ViewModel;
+        public ComboBox Kriterie;
+        public ListView SearchResults;
+       public TextBox  Input;
+        public EjendomsmæglereForm()
         {
-            this.ParentForm = ParentForm;
+            
             InitializeComponent();
             
+            LoadFields();
+        }
+        private void LoadFields()
+        {
+            this.ViewModel = new EjendomsmæglerViewModel(this);
+            this.Kriterie = CBKriterie;
+            this.SearchResults = LWSearchResults;
+            this.Input = TBInput;
+
+        }
+
+        private void TBInput_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+            ViewModel.DisplaySearchResults();
+
+            }
+            catch (Exception error)
+            {
+                System.Diagnostics.Debug.WriteLine(error);
+            }
+            
+        }
+        private void wr(string s)
+        {
+            System.Diagnostics.Debug.WriteLine(s);
+        }
+
+        private void LWSearchResults_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ViewModel.ShowEjendomsmægler();
         }
     }
 }
+

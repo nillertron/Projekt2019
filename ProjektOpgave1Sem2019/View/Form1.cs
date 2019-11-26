@@ -26,35 +26,32 @@ namespace ProjektOpgave1Sem2019
             button1.MouseLeave += (o, e) => button1.BackColor = Color.Transparent;
             button2.MouseEnter += (o, e) => button2.BackColor = Color.FromArgb(185, 55, 55);
             button2.MouseLeave += (o, e) => button2.BackColor = Color.Transparent;
-            button3.MouseEnter += (o, e) => button3.BackColor = Color.FromArgb(185, 55, 55);
-            button3.MouseLeave += (o, e) => button3.BackColor = Color.Transparent;
+            BTNEjendomsmæglere.MouseEnter += (o, e) => BTNEjendomsmæglere.BackColor = Color.FromArgb(185, 55, 55);
+            BTNEjendomsmæglere.MouseLeave += (o, e) => BTNEjendomsmæglere.BackColor = Color.Transparent;
             button4.MouseEnter += (o, e) => button4.BackColor = Color.FromArgb(185, 55, 55);
             button4.MouseLeave += (o, e) => button4.BackColor = Color.Transparent;
             button1.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.BorderSize = 0;
+            BTNEjendomsmæglere.FlatAppearance.BorderSize = 0;
             button4.FlatAppearance.BorderSize = 0;
             #endregion
            //Test indstilling af knapper
-            //button1.Click += async(o, e) => await ViewModel.OpretEjendomsmægler();
-            //button2.Click += async(o, e) => { await ViewModel.GetEjendomsmæglere(); SetBinding(); };
 
         }
-        private void SetBinding()
-        {
-            //listboxenns datasource skal sættes til null for at opdatere indholdet
-            //listBox1.DataSource = null;
-            //listBox1.DataSource = ViewModel.EjendomsmæglerListe;
-            //listBox1.DisplayMember = "Navn";
-        }
+     
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            //FileWriter.BoligerTilSalgToFile(); //Indeholder sti der kun virker på Martins PC (Ændres i FileWriter klassen)
+        { 
+
             
         }
 
+        private void BTNEjendomsmæglere_Click(object sender, EventArgs e)
+        {
+            EjendomsmæglereForm eForm = new EjendomsmæglereForm();
+            if (!this.Controls.Contains(eForm))
+                this.Controls.Add(eForm);
 
-
+        }
     }
 }

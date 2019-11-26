@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.EjendomsmæglereKnap = new System.Windows.Forms.Button();
+            this.BTNEjendomsmæglere = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.EjendomsmæglereKnap);
+            this.panel1.Controls.Add(this.BTNEjendomsmæglere);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(0, -2);
@@ -105,17 +105,17 @@
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // EjendomsmæglereKnap
+            // BTNEjendomsmæglere
             // 
-            this.EjendomsmæglereKnap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EjendomsmæglereKnap.Location = new System.Drawing.Point(0, 263);
-            this.EjendomsmæglereKnap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.EjendomsmæglereKnap.Name = "EjendomsmæglereKnap";
-            this.EjendomsmæglereKnap.Size = new System.Drawing.Size(200, 63);
-            this.EjendomsmæglereKnap.TabIndex = 3;
-            this.EjendomsmæglereKnap.Text = "Ejendomsmæglere";
-            this.EjendomsmæglereKnap.UseVisualStyleBackColor = true;
-            this.EjendomsmæglereKnap.Click += new System.EventHandler(this.EjendomsmæglereKnap_Click);
+            this.BTNEjendomsmæglere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNEjendomsmæglere.Location = new System.Drawing.Point(0, 263);
+            this.BTNEjendomsmæglere.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTNEjendomsmæglere.Name = "BTNEjendomsmæglere";
+            this.BTNEjendomsmæglere.Size = new System.Drawing.Size(200, 63);
+            this.BTNEjendomsmæglere.TabIndex = 3;
+            this.BTNEjendomsmæglere.Text = "Ejendomsmæglere";
+            this.BTNEjendomsmæglere.UseVisualStyleBackColor = true;
+            this.BTNEjendomsmæglere.Click += new System.EventHandler(this.BTNEjendomsmæglere_Click);
             // 
             // button2
             // 
@@ -215,7 +215,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button EjendomsmæglereKnap;
+        private System.Windows.Forms.Button BTNEjendomsmæglere;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
