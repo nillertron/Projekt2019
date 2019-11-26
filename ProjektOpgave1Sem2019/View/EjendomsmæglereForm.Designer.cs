@@ -99,6 +99,7 @@
             this.Location = new System.Drawing.Point(200, 116);
             this.Name = "EjendomsmæglereForm";
             this.Size = new System.Drawing.Size(1531, 615);
+            this.Load += new System.EventHandler(this.EjendomsmæglereForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

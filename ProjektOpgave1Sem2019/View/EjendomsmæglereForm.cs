@@ -23,6 +23,7 @@ namespace ProjektOpgave1Sem2019
             InitializeComponent();
             
             LoadFields();
+
         }
         private void LoadFields()
         {
@@ -53,7 +54,13 @@ namespace ProjektOpgave1Sem2019
 
         private void LWSearchResults_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            
             ViewModel.ShowEjendomsmægler();
+        }
+
+        private void EjendomsmæglereForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

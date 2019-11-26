@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektOpgave1Sem2019
 {
-    class Ejendomsmægler : Person 
+    public class Ejendomsmægler : Person 
     {
         private DateTime _Fødselsdato;
         public DateTime Fødseldato { private set { if (value.Year > 1930 && value.Year <= DateTime.Now.Year) value = _Fødselsdato; else throw new FormatException("Hov hov, så gammel/ung er du vidst ikke!");  } get { return _Fødselsdato; } }
