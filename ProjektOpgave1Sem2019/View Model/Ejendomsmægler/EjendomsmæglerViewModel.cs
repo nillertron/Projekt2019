@@ -13,10 +13,23 @@ namespace ProjektOpgave1Sem2019.View_Model
     {
         public List<Ejendomsmægler> EjendomsmæglerListe;
 
-        public EjendomsmæglerViewModel()
+        EjendomsmæglereForm ParentForm;
+
+        Ejendomsmægler ValgtEjendomsmægler; 
+
+        public EjendomsmæglerViewModel(EjendomsmæglereForm ParentForm)
         {
+
+
             EjendomsmæglerListe = new List<Ejendomsmægler>();
             GetAll();
+
+            this.ParentForm = ParentForm; 
+        }
+
+        public void ShowEjendomsmægler()
+        {
+            
         }
         public void GetAll()
         {
@@ -48,6 +61,69 @@ namespace ProjektOpgave1Sem2019.View_Model
             else
                 MessageBox.Show("Error, try again");
 
+
+        }
+
+        public void DisplaySearchResults()
+        {
+           ParentForm.SearchResults.Items.Clear();
+
+
+            List<Ejendomsmægler> searchResults = new List<Ejendomsmægler>();
+
+            string input = ParentForm.Input.Text.ToLower();
+            string kriterie = ParentForm.Kriterie.Text;
+
+            if (input != "")//not empty
+            {
+                switch (kriterie)
+                {
+                    case "Navn":
+                        foreach (Ejendomsmægler e in EjendomsmæglerListe)
+                        {
+                            if (e.Navn.ToLower().Contains(input))
+                                searchResults.Add(e);
+                        }
+                        break;
+                    case "Efternavn":
+                        foreach(Ejendomsmægler e in EjendomsmæglerListe)
+                        {
+                            if (e.Efternavn.ToLower().Contains(input))
+                                searchResults.Add(e);
+                        }
+                        break;
+                    case "Fødseldsdato":
+                        foreach(Ejendomsmægler e in EjendomsmæglerListe)
+                        {
+                            if (e.Fødseldato.ToString().Contains(input))
+                                searchResults.Add(e);
+                        }
+                        break;
+
+                    case "Tlf":
+                        foreach(Ejendomsmægler e in EjendomsmæglerListe)
+                        {
+                            if (e.TelefonNr.ToString().Contains(input))
+                                searchResults.Add(e);
+                           
+                        }
+                        break;
+
+
+                }
+
+                //display the searchresults 
+                foreach (Ejendomsmægler e in searchResults)
+                {
+                   
+                    ListViewItem item = new ListViewItem(e.Navn);
+                    item.Tag = e.Id;
+                    item.SubItems.Add("en hat");
+                    ParentForm.SearchResults.Items.Add(item);
+                }
+
+                
+            }
 
         }
     }
