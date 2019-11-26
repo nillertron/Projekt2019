@@ -34,7 +34,7 @@ namespace ProjektOpgave1Sem2019.View_Model
                 if (e.Id.ToString() == ParentForm.SearchResults.FocusedItem.Name)
                     ValgtEjendomsmægler = e;
 
-            MessageBox.Show(ValgtEjendomsmægler.Navn);
+
         }
         public void GetAll()
         {
