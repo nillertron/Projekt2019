@@ -17,9 +17,9 @@ namespace ProjektOpgave1Sem2019.Model
         private static string connString = "Data Source=LAPTOP-SJJU562U;Initial Catalog=RealBoligDB;Integrated Security=True";
 
 
-        public static string ConnString { get => connString; }
+        public static string ConnString { get { return connString; } }
         private static SqlConnection conn = new SqlConnection(connString);
-        public static SqlConnection Conn { get => conn; }
+        public static SqlConnection Conn { get { return conn; }  }
 
     }
 }
