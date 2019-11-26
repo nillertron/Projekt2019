@@ -17,14 +17,20 @@ namespace ProjektOpgave1Sem2019.View
         {
             InitializeComponent();
             ValgtEjendomsmægler = E;
+            TBId.ReadOnly = true;
         }
 
         private void ValgtEjendomsMæglerDetails_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
