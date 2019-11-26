@@ -36,21 +36,21 @@ namespace ProjektOpgave1Sem2019
             button4.FlatAppearance.BorderSize = 0;
             #endregion
            //Test indstilling af knapper
-            button1.Click += async(o, e) => await ViewModel.OpretEjendomsmægler();
-            button2.Click += async(o, e) => { await ViewModel.GetEjendomsmæglere(); SetBinding(); };
+            //button1.Click += async(o, e) => await ViewModel.OpretEjendomsmægler();
+            //button2.Click += async(o, e) => { await ViewModel.GetEjendomsmæglere(); SetBinding(); };
 
         }
         private void SetBinding()
         {
             //listboxenns datasource skal sættes til null for at opdatere indholdet
-            listBox1.DataSource = null;
-            listBox1.DataSource = ViewModel.EjendomsmæglerListe;
-            listBox1.DisplayMember = "Navn";
+            //listBox1.DataSource = null;
+            //listBox1.DataSource = ViewModel.EjendomsmæglerListe;
+            //listBox1.DisplayMember = "Navn";
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
-
+        {
+            FileWriter.BoligerTilSalgToFile();
             
         }
 
