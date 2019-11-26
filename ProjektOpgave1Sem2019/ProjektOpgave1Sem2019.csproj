@@ -51,18 +51,18 @@
     <Compile Include="Model\Kunde\Køber.cs" />
     <Compile Include="Model\Kunde\Sælger.cs" />
     <Compile Include="Model\Ejendomsmægler\EjendomsmæglerTabelDB.cs" />
-    <Compile Include="View Model\Form1ViewModel.cs" />
-    <Compile Include="View\Form1.cs">
+    <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
+    <Compile Include="View\Ejendomsmægler\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form1.Designer.cs">
+    <Compile Include="View\Ejendomsmægler\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\DBHelper.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\Form1.resx">
+    <EmbeddedResource Include="View\Ejendomsmægler\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
