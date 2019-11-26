@@ -1,9 +1,10 @@
-﻿'using System;
+﻿using System;
 using ProjektOpgave1Sem2019.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProjektOpgave1Sem2019.View_Model
 {
@@ -20,7 +21,7 @@ namespace ProjektOpgave1Sem2019.View_Model
         public void GetAll()
         {
 
-            EjendomsmæglerListe = EjendomsmæglerTabelDB.GetAllEjendomsmæglere();
+            EjendomsmæglerListe = EjendomsmæglerTabelDB.GetAll();
         }
 
         public void Edit(Ejendomsmægler e)

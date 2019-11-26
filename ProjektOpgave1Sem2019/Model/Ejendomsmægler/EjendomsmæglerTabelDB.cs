@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace ProjektOpgave1Sem2019.Model
 {
+    //Martin start
     class EjendomsmæglerTabelDB
     {
         public static List<Ejendomsmægler> GetAll() //Metode der skal hookes up til viewmodel
@@ -150,6 +151,8 @@ namespace ProjektOpgave1Sem2019.Model
             }
             return wasSuccessful;
         }
+
+        //Martin slut
 
 
         //prøvede lige at lave et par metoder til at læse og oprette fra DB
