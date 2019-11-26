@@ -8,10 +8,11 @@ namespace ProjektOpgave1Sem2019.Model
 {
     class Bolig
     {
-        public int ID { private set; get; }
+        private int _ID;
+        public int ID { private set { if (value > 0) _ID = value;   } get { return _ID; } }
         public string Adresse { private set; get; }
-
-        public double Pris { private set; get; }
+        private double _Pris;
+        public double Pris { private set { if (value > 0) _Pris = value; } get { return _Pris; } }
 
         public int SælgerID { private set; get; }
 

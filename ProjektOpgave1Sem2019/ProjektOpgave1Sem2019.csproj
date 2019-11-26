@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Bolig\Bolig.cs" />
+    <Compile Include="Model\Bolig\SolgtBolig.cs" />
     <Compile Include="Model\Ejendomsmægler\Ejendomsmægler.cs" />
     <Compile Include="Model\Kunde\Køber.cs" />
     <Compile Include="Model\Kunde\Sælger.cs" />
