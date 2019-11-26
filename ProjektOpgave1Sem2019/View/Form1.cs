@@ -50,7 +50,7 @@ namespace ProjektOpgave1Sem2019
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            FileWriter.BoligerTilSalgToFile();
+            //FileWriter.BoligerTilSalgToFile(); //Indeholder sti der kun virker på Martins PC (Ændres i FileWriter klassen)
             
         }
 
