@@ -51,6 +51,7 @@
     <Compile Include="Model\Kunde\Køber.cs" />
     <Compile Include="Model\Kunde\Sælger.cs" />
     <Compile Include="Model\Ejendomsmægler\EjendomsmæglerTabelDB.cs" />
+    <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
     <Compile Include="View\Ejendomsmægler\Form1.cs">
       <SubType>Form</SubType>
