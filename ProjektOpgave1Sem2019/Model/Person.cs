@@ -9,7 +9,7 @@ namespace ProjektOpgave1Sem2019
     //Nichlas
     public abstract class Person
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public string Navn { get; private set; }
         public string Efternavn { get; private set; }
         public string TelefonNr { get; private set; }

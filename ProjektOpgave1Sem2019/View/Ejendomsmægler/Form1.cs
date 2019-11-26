@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektOpgave1Sem2019.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,11 +49,10 @@ namespace ProjektOpgave1Sem2019
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        { 
+
             
-
         }
-
 
 
 
