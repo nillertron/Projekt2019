@@ -4,24 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektOpgave1Sem2019.Model
+namespace ProjektOpgave1Sem2019
 {
     class Bolig
     {
-        public int ID { private set; get; }
+        private int _ID;
+        public int ID { private set { if (value > 0) _ID = value; else throw new FormatException("ID skal være over 0"); } get { return _ID; } }
         public string Adresse { private set; get; }
+        private double _Pris;
+        public double Pris { private set { if (value > 0) _Pris = value; else throw new FormatException("Pris skal være over 0"); } get { return _Pris; } }
+        private int _SælgerID;
+        public int SælgerID { private set { if (value > 0) _SælgerID = value; else throw new FormatException("ID skal være over 0"); } get { return _SælgerID; } }
+        private int _Kvm;
+        public int Kvm { private set { if (value > 0 && value < 2000) _Kvm = value; else throw new FormatException("Kvm skal være mellem 1 og 2000"); } get { return _Kvm; } }
 
-        public double Pris { private set; get; }
+        private DateTime _OprettelsesDato;
+        public DateTime OprettelsesDato { private set { if (value.Year > 2015) _OprettelsesDato = value; else throw new FormatException("Oprettelsesåret minimum er 2015"); } get { return _OprettelsesDato; } }
 
-        public int SælgerID { private set; get; }
+        private int _EjendomsmæglerID;
+        public int EjendomsmæglerID { private set { if (value > 0) _EjendomsmæglerID = value; else throw new FormatException("ID skal være størrere end 0"); } get { return _EjendomsmæglerID; }}
 
-        public int Kvm { private set; get; }
-
-        public DateTime OprettelsesDato { private set; get; }
-
-        public int EjendomsmæglerID { private set; get; }
-
-        public int PostNr { private set; get; }
+        private int _PostNr;
+        public int PostNr { private set { if (value > 500 && value < 10000) _PostNr = value; } get { return _PostNr; } }
 
         public Bolig(int ID, string Adresse,double Pris, int SælgerID, int Kvm, DateTime OprettelsesDato, int EjendomsmæglerID, int PostNr)
         {

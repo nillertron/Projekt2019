@@ -8,9 +8,10 @@ using System.Windows.Forms;
 
 namespace ProjektOpgave1Sem2019.Model
 {
+    //Martin start
     class EjendomsmæglerTabelDB
     {
-        public static List<Ejendomsmægler> GetAllEgendomsmæglere()
+        public static List<Ejendomsmægler> GetAll() //Metode der skal hookes up til viewmodel
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBHelper.Conn;
@@ -24,7 +25,7 @@ namespace ProjektOpgave1Sem2019.Model
 
                 while (reader.Read())
                 {
-                    returnList.Add(new Ejendomsmægler(reader.GetInt32(0),
+                    returnList.Add(new Ejendomsmægler(reader.GetInt32(0), //Hard coded, skal ændres hvis databasen ændres
                                                         reader.GetString(1),
                                                         reader.GetString(2),
                                                         reader.GetInt32(3).ToString(),
@@ -35,6 +36,123 @@ namespace ProjektOpgave1Sem2019.Model
             DBHelper.Conn.Close();
             return returnList;
         }
+
+        public static bool Create(Ejendomsmægler e) //Metode der skal hookes op til Viewmodel
+        {
+            bool wasSuccess;
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = DBHelper.Conn;
+                string commandString = "INSERT INTO Ejendomsmægler VALUES(";
+                commandString += "@Fornavn, ";
+                commandString += "@Efternavn, ";
+                commandString += "@Tlf ,";
+                commandString += "@Fødselsdag, ";
+                commandString += "@KontoNr)"; //End of commandstring
+                cmd.CommandText = commandString;
+                cmd.Parameters.Add("@Fornavn", System.Data.SqlDbType.NVarChar).Value = e.Navn;
+                cmd.Parameters.Add("@Efternavn", System.Data.SqlDbType.NVarChar).Value = e.Efternavn;
+                cmd.Parameters.Add("@Tlf", System.Data.SqlDbType.Int).Value = Convert.ToInt32(e.TelefonNr); //Telefonnummer i klasse er string, database er int, skal måske nok ændres
+                cmd.Parameters.Add("@Fødselsdag", System.Data.SqlDbType.DateTime).Value = e.Fødseldato;
+                cmd.Parameters.Add("@KontoNr", System.Data.SqlDbType.NVarChar).Value = e.KontoNr;
+
+                int id = 0;
+                using (SqlCommand cmd2 = new SqlCommand())
+                {
+                    cmd2.Connection = DBHelper.Conn;
+                    cmd2.CommandText = "SELECT MAX(ID) + 1 FROM Ejendomsmægler";
+
+                    DBHelper.Conn.Open();
+                    using (SqlDataReader reader = cmd2.ExecuteReader())
+                    {
+                        reader.Read();
+                        id = reader.GetInt32(0);
+                    }
+                    DBHelper.Conn.Close();
+                }
+                e.Id = id;
+
+                    try
+                    {
+                        DBHelper.Conn.Open();
+                        cmd.ExecuteNonQuery();
+                        DBHelper.Conn.Close();
+                        wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
+                    }
+                    catch (SqlException)
+                    {
+                        wasSuccess = false; //Noget gik galt
+                    }
+                
+            }
+            return wasSuccess;
+        }
+        public static bool Update(Ejendomsmægler e) //Metode der skal hookes op til Viewmodel
+        {
+            bool wasSuccess;
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = DBHelper.Conn;
+                string commandString = "UPDATE Ejendomsmægler SET Fornavn = @Fornavn, Efternavn = @Efternavn, Tlf = @Tlf, Fødselsdato = @Fødselsdag, KontoNr = @KontoNr WHERE ID = @ID"; //End of commandstring
+                cmd.CommandText = commandString;
+                cmd.Parameters.Add("@Fornavn", System.Data.SqlDbType.NVarChar).Value = e.Navn;
+                cmd.Parameters.Add("@Efternavn", System.Data.SqlDbType.NVarChar).Value = e.Efternavn;
+                cmd.Parameters.Add("@Tlf", System.Data.SqlDbType.Int).Value = Convert.ToInt32(e.TelefonNr); //Telefonnummer i klasse er string, database er int, skal måske nok ændres
+                cmd.Parameters.Add("@Fødselsdag", System.Data.SqlDbType.DateTime).Value = e.Fødseldato;
+                cmd.Parameters.Add("@KontoNr", System.Data.SqlDbType.NVarChar).Value = e.KontoNr;
+
+                cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = e.Id;
+
+                try
+                {
+                    DBHelper.Conn.Open();
+                    cmd.ExecuteNonQuery();
+                    DBHelper.Conn.Close();
+                    wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
+                }
+                catch (SqlException q)
+                {
+                    
+                    wasSuccess = false; //Noget gik galt
+                }
+
+            }
+           
+            return wasSuccess;
+        }
+
+        public static bool Delete(Ejendomsmægler e)
+        {
+            bool wasSuccessful;
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = DBHelper.Conn;
+                string commandString = "DELETE Ejendomsmægler ";
+                commandString += "WHERE ID = @ID";
+
+                cmd.CommandText = commandString;
+                cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = e.Id;
+
+                try
+                {
+                    DBHelper.Conn.Open();
+                    cmd.ExecuteNonQuery();
+                    DBHelper.Conn.Close();
+                    wasSuccessful = true;
+                }
+                catch(SqlException)
+                {
+                    wasSuccessful = false;
+                }
+                
+            }
+            return wasSuccessful;
+        }
+
+        //Martin slut
 
 
         //prøvede lige at lave et par metoder til at læse og oprette fra DB
