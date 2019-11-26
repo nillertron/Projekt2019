@@ -19,7 +19,7 @@ namespace ProjektOpgave1Sem2019
 
         public async Task GetEjendomsmæglere()
         {
-            EjendomsmæglerListe = await EjendomsmæglerTabelDB.GetAllEjendomsmæglere();
+            EjendomsmæglerListe = EjendomsmæglerTabelDB.GetAllEjendomsmæglere();
         }
 
         public async Task OpretEjendomsmægler()
@@ -29,7 +29,7 @@ namespace ProjektOpgave1Sem2019
             dato = Convert.ToDateTime(d);
 
             var e1 = new Ejendomsmægler("bob", "bobsen", "88888888", "1234567",dato);
-            await EjendomsmæglerTabelDB.OpretEjendomsmægler(e1);
+             EjendomsmæglerTabelDB.OpretEjendomsmægler(e1);
         }
     }
 }
