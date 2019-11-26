@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProjektOpgave1Sem2019.View;
+using ProjektOpgave1Sem2019;
 
 namespace ProjektOpgave1Sem2019.View_Model
 {
     //Nichlas
-    class EjendomsmæglerViewModel
+    public class EjendomsmæglerViewModel
     {
         public List<Ejendomsmægler> EjendomsmæglerListe;
 
@@ -35,8 +35,16 @@ namespace ProjektOpgave1Sem2019.View_Model
                 if (e.Id.ToString() == ParentForm.SearchResults.FocusedItem.Name)
                     ValgtEjendomsmægler = e;
 
-            var valgtejendomsmæglerdetail = new ValgtEjendomsMæglerDetails(ValgtEjendomsmægler);
+            //skal have vist user controllen herfra
+            var valgtejendomsmæglerdetail = new ValgtEjendomsMæglerDetails(ValgtEjendomsmægler, this);
+           
             
+        }
+        public void NyEjendomsmægler()
+        {
+            //skal have vist user control herfra også
+            var NyEjendomsmægler = new ValgtEjendomsMæglerDetails();
+
         }
         public void GetAll()
         {
@@ -59,6 +67,8 @@ namespace ProjektOpgave1Sem2019.View_Model
             else
                 MessageBox.Show("Error, try again");
         }
+
+
 
         public void Opret(Ejendomsmægler e)
         {

@@ -1,4 +1,5 @@
 ﻿using ProjektOpgave1Sem2019.Model;
+using ProjektOpgave1Sem2019;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,6 @@ namespace ProjektOpgave1Sem2019
             BTNEjendomsmæglere.FlatAppearance.BorderSize = 0;
             button4.FlatAppearance.BorderSize = 0;
             #endregion
-           //Test indstilling af knapper
 
         }
      
@@ -51,6 +51,16 @@ namespace ProjektOpgave1Sem2019
             EjendomsmæglereForm eForm = new EjendomsmæglereForm();
             if (!this.Controls.Contains(eForm))
                 this.Controls.Add(eForm);
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void valgtEjendomsMæglerDetails1_Load(object sender, EventArgs e)
+        {
 
         }
     }
