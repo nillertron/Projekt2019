@@ -36,6 +36,7 @@ namespace ProjektOpgave1Sem2019.Model
             return returnList;
         }
 
+
         //prøvede lige at lave et par metoder til at læse og oprette fra DB
         //Husk at ændre db brugeren til at være fra DK for at kunne bruge datetime fra c#!
         //Security -> logins -> bruger, højreklik -> properties -> nederst ændre default language til dansk
