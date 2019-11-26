@@ -15,7 +15,7 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         EjendomsmæglereForm ParentForm;
 
-        Ejendomsmægler ValgtEjendomsmægler; 
+        public Ejendomsmægler ValgtEjendomsmægler; 
 
         public EjendomsmæglerViewModel(EjendomsmæglereForm ParentForm)
         {
@@ -24,12 +24,17 @@ namespace ProjektOpgave1Sem2019.View_Model
             EjendomsmæglerListe = new List<Ejendomsmægler>();
             GetAll();
 
-            this.ParentForm = ParentForm; 
+            this.ParentForm = ParentForm;
+           
         }
 
         public void ShowEjendomsmægler()
         {
-            
+            foreach (Ejendomsmægler e in EjendomsmæglerListe)
+                if (e.Id.ToString() == ParentForm.SearchResults.FocusedItem.Name)
+                    ValgtEjendomsmægler = e;
+
+            MessageBox.Show(ValgtEjendomsmægler.Navn);
         }
         public void GetAll()
         {
@@ -108,6 +113,7 @@ namespace ProjektOpgave1Sem2019.View_Model
                            
                         }
                         break;
+                    
 
 
                 }
@@ -115,12 +121,15 @@ namespace ProjektOpgave1Sem2019.View_Model
                 //display the searchresults 
                 foreach (Ejendomsmægler e in searchResults)
                 {
-                   
+
                     ListViewItem item = new ListViewItem(e.Navn);
-                    item.Tag = e.Id;
-                    item.SubItems.Add("en hat");
+                    item.SubItems.Add(e.Efternavn);
+                    
+                    item.Name = e.Id.ToString();
                     ParentForm.SearchResults.Items.Add(item);
+                    
                 }
+                 
 
                 
             }
