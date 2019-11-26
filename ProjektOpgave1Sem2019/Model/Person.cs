@@ -9,11 +9,16 @@ namespace ProjektOpgave1Sem2019
     //Nichlas
     public abstract class Person
     {
-        public int Id { get; set; }
-        public string Navn { get; private set; }
-        public string Efternavn { get; private set; }
-        public string TelefonNr { get; private set; }
-        public string KontoNr { get; private set; }
+        private int _Id;
+        public int Id { set { if (value > 0) _Id = value; else throw new FormatException("ID skal være over 0"); } get { return _Id; } }
+        private string _Navn;
+        public string Navn { private set { if (value.Length > 0) _Navn = value; else throw new FormatException("Navn kan ikke være tom"); } get { return _Navn; } }
+        private string _Efternavn;
+        public string Efternavn { private set { if (value.Length > 0) _Efternavn = value; else throw new FormatException("Efternavn må ikke være tom"); } get { return _Efternavn; } }
+        private string _TelefonNr;
+        public string TelefonNr { private set { if (value.Length >= 8 && value.Length <= 15) _TelefonNr = value; else throw new FormatException("TelefonNr skal være mellem 8 og 15 tegn"); } get { return _TelefonNr; } }
+        private string _KontoNr;
+        public string KontoNr { private set { if (value.Length > 0 && value.Length <= 15) _KontoNr = value; else throw new FormatException("KontoNr skal være mellem 0 og 15 tegn"); } get { return _KontoNr; } }
         public Person(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr)
         {
             this.Id = Id;
