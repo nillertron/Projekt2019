@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektOpgave1Sem2019
 {
-    class Bolig
+    class Bolig:IComparable
     {
         private int _ID;
         public int ID { private set { if (value > 0) _ID = value; else throw new FormatException("ID skal være over 0"); } get { return _ID; } }
@@ -38,6 +38,23 @@ namespace ProjektOpgave1Sem2019
             this.EjendomsmæglerID = EjendomsmæglerID;
             this.PostNr = PostNr;
         }
-       
+        
+        public int CompareTo(object obj)
+        {
+            int returnValue;
+            if(Pris.CompareTo(((Bolig)obj).Pris) < 0)
+            {
+                returnValue = -1;
+            }
+            else if(Pris.CompareTo(((Bolig)obj).Pris) > 0)
+            {
+                returnValue = 1;
+            }
+            else
+            {
+                returnValue = 0;
+            }
+            return returnValue;
+        }
     }
 }
