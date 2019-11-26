@@ -30,20 +30,15 @@ namespace ProjektOpgave1Sem2019
             this.Kriterie = CBKriterie;
             this.SearchResults = LWSearchResults;
             this.Input = TBInput;
+            
 
         }
 
         private void TBInput_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
+
             ViewModel.DisplaySearchResults();
 
-            }
-            catch (Exception error)
-            {
-                System.Diagnostics.Debug.WriteLine(error);
-            }
             
         }
         private void wr(string s)

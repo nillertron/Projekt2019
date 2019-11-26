@@ -33,6 +33,8 @@
             this.LWSearchResults = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.TBInput = new System.Windows.Forms.TextBox();
+            this.Fornavn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Efternavn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button2
@@ -52,21 +54,27 @@
             "Navn",
             "Fornavn",
             "Efternavn",
-            "ID",
-            "FødselsDato"});
+            "FødselsDato",
+            "Tlf"});
             this.CBKriterie.Location = new System.Drawing.Point(97, 67);
             this.CBKriterie.Name = "CBKriterie";
             this.CBKriterie.Size = new System.Drawing.Size(121, 24);
             this.CBKriterie.TabIndex = 3;
+            this.CBKriterie.Text = "Navn";
             // 
             // LWSearchResults
             // 
+            this.LWSearchResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Fornavn,
+            this.Efternavn});
+            this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
             this.LWSearchResults.Location = new System.Drawing.Point(13, 97);
             this.LWSearchResults.Name = "LWSearchResults";
             this.LWSearchResults.Size = new System.Drawing.Size(412, 515);
             this.LWSearchResults.TabIndex = 4;
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
+            this.LWSearchResults.View = System.Windows.Forms.View.Details;
             this.LWSearchResults.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LWSearchResults_MouseDoubleClick);
             // 
             // label1
@@ -85,6 +93,16 @@
             this.TBInput.Size = new System.Drawing.Size(169, 22);
             this.TBInput.TabIndex = 6;
             this.TBInput.TextChanged += new System.EventHandler(this.TBInput_TextChanged);
+            // 
+            // Fornavn
+            // 
+            this.Fornavn.Text = "Fornavn";
+            this.Fornavn.Width = 150;
+            // 
+            // Efternavn
+            // 
+            this.Efternavn.Text = "Efternavn";
+            this.Efternavn.Width = 150;
             // 
             // EjendomsmæglereForm
             // 
@@ -110,5 +128,7 @@
         private System.Windows.Forms.ListView LWSearchResults;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TBInput;
+        private System.Windows.Forms.ColumnHeader Fornavn;
+        private System.Windows.Forms.ColumnHeader Efternavn;
     }
 }
