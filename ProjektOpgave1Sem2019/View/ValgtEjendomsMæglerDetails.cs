@@ -42,7 +42,7 @@ namespace ProjektOpgave1Sem2019
             TBEfternavn.Text = E.Efternavn;
                 TBTelefon.Text = E.TelefonNr;
             LBLoverskrift.Text = "Rediger";
-
+            //
         }
         public void CreateMode()
         {
