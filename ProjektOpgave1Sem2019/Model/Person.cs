@@ -21,20 +21,24 @@ namespace ProjektOpgave1Sem2019
         public string KontoNr { protected set { if (value.Length > 0 && value.Length <= 15) _KontoNr = value; else throw new FormatException("KontoNr skal være mellem 0 og 15 tegn"); } get { return _KontoNr; } }
         public int PostNr { get;  protected set; }
         public string Addresse { get; protected set; }
-        public Person(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr)
+        public Person(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr, int PostNr, string Addresse)
         {
             this.Id = Id;
             this.Navn = Navn;
             this.Efternavn = Efternavn;
             this.TelefonNr = TelefonNr;
             this.KontoNr = KontoNr;
+            this.PostNr = PostNr;
+            this.Addresse = Addresse;
         }
-        public Person(string Navn, string Efternavn, string TelefonNr, string KontoNr)
+        public Person(string Navn, string Efternavn, string TelefonNr, string KontoNr,int PostNr, string Addresse)
         {
             this.Navn = Navn;
             this.Efternavn = Efternavn;
             this.TelefonNr = TelefonNr;
             this.KontoNr = KontoNr;
+            this.PostNr = PostNr;
+            this.Addresse = Addresse;
         }
     }
 }
