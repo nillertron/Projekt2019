@@ -21,16 +21,37 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         public EjendomsmæglerViewModel(EjendomsmæglereForm ParentForm)
         {
-
+            
 
             EjendomsmæglerListe = new List<Ejendomsmægler>();
             GetAll();
             Details = new ValgtEjendomsMæglerDetails(this);
 
+           
+
             this.ParentForm = ParentForm;
+            FillListView();
            
         }
+        private void FillListView()
+        {
+            foreach (Ejendomsmægler e in EjendomsmæglerListe)
+                AddEjendomsmæglerToList(e);
+        }
+        private void AddEjendomsmæglerToList(Ejendomsmægler e)
+        {
+            
 
+            ListViewItem item = new ListViewItem(e.Navn);
+            item.SubItems.Add(e.Efternavn);
+
+            item.Name = e.Id.ToString();
+
+            
+
+            ParentForm.SearchResults.Items.Add(item);
+
+        }
         public void ShowEjendomsmægler()
         {
             foreach (Ejendomsmægler e in EjendomsmæglerListe)
@@ -98,8 +119,8 @@ namespace ProjektOpgave1Sem2019.View_Model
             string input = ParentForm.Input.Text.ToLower();
             string kriterie = ParentForm.Kriterie.Text;
 
-            if (input != "")//not empty
-            {
+
+            
                 switch (kriterie)
                 {
                     case "Navn":
@@ -110,14 +131,14 @@ namespace ProjektOpgave1Sem2019.View_Model
                         }
                         break;
                     case "Efternavn":
-                        foreach(Ejendomsmægler e in EjendomsmæglerListe)
+                        foreach (Ejendomsmægler e in EjendomsmæglerListe)
                         {
                             if (e.Efternavn.ToLower().Contains(input))
                                 searchResults.Add(e);
                         }
                         break;
                     case "Fødseldsdato":
-                        foreach(Ejendomsmægler e in EjendomsmæglerListe)
+                        foreach (Ejendomsmægler e in EjendomsmæglerListe)
                         {
                             if (e.Fødseldato.ToString().Contains(input))
                                 searchResults.Add(e);
@@ -125,33 +146,25 @@ namespace ProjektOpgave1Sem2019.View_Model
                         break;
 
                     case "Tlf":
-                        foreach(Ejendomsmægler e in EjendomsmæglerListe)
+                        foreach (Ejendomsmægler e in EjendomsmæglerListe)
                         {
                             if (e.TelefonNr.ToString().Contains(input))
                                 searchResults.Add(e);
-                           
+
                         }
                         break;
-                    
+
 
 
                 }
 
                 //display the searchresults 
                 foreach (Ejendomsmægler e in searchResults)
-                {
+                    AddEjendomsmæglerToList(e);
 
-                    ListViewItem item = new ListViewItem(e.Navn);
-                    item.SubItems.Add(e.Efternavn);
-                    
-                    item.Name = e.Id.ToString();
-                    ParentForm.SearchResults.Items.Add(item);
-                    
-                }
-                 
 
-                
-            }
+
+            
 
         }
     }

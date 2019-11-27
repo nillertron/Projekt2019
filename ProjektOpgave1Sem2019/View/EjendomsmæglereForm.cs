@@ -26,12 +26,14 @@ namespace ProjektOpgave1Sem2019
             
             LoadFields();
 
+            
+
         }
         private void LoadFields()
         {
+            this.SearchResults = LWSearchResults;
             this.ViewModel = new EjendomsmæglerViewModel(this);
             this.Kriterie = CBKriterie;
-            this.SearchResults = LWSearchResults;
             this.Input = TBInput;
             
 
