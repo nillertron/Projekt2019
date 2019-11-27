@@ -153,6 +153,7 @@
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Location = new System.Drawing.Point(279, 367);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -178,6 +179,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TBNavn);
+            this.Location = new System.Drawing.Point(610, 19);
             this.Name = "ValgtEjendomsMæglerDetails";
             this.Size = new System.Drawing.Size(914, 528);
             this.Load += new System.EventHandler(this.ValgtEjendomsMæglerDetails_Load);

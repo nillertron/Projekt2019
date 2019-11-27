@@ -36,6 +36,7 @@ namespace ProjektOpgave1Sem2019.View_Model
                     ValgtEjendomsmægler = e;
 
             var valgtejendomsmæglerdetail = new ValgtEjendomsMæglerDetails(ValgtEjendomsmægler);
+            ParentForm.Controls.Add(valgtejendomsmæglerdetail);
             
         }
         public void GetAll()

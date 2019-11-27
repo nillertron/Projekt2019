@@ -31,10 +31,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.CBKriterie = new System.Windows.Forms.ComboBox();
             this.LWSearchResults = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TBInput = new System.Windows.Forms.TextBox();
             this.Fornavn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Efternavn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.TBInput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button2
@@ -77,6 +77,16 @@
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
             this.LWSearchResults.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LWSearchResults_MouseDoubleClick);
             // 
+            // Fornavn
+            // 
+            this.Fornavn.Text = "Fornavn";
+            this.Fornavn.Width = 150;
+            // 
+            // Efternavn
+            // 
+            this.Efternavn.Text = "Efternavn";
+            this.Efternavn.Width = 150;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -93,16 +103,6 @@
             this.TBInput.Size = new System.Drawing.Size(169, 22);
             this.TBInput.TabIndex = 6;
             this.TBInput.TextChanged += new System.EventHandler(this.TBInput_TextChanged);
-            // 
-            // Fornavn
-            // 
-            this.Fornavn.Text = "Fornavn";
-            this.Fornavn.Width = 150;
-            // 
-            // Efternavn
-            // 
-            this.Efternavn.Text = "Efternavn";
-            this.Efternavn.Width = 150;
             // 
             // EjendomsmæglereForm
             // 
