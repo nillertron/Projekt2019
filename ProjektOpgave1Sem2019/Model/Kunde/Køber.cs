@@ -8,7 +8,7 @@ namespace ProjektOpgave1Sem2019.Model
 {
     class Køber : Person
     {
-        public Køber(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr) : base(Id, Navn, Efternavn, TelefonNr, KontoNr)
+        public Køber(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr, int PostNr, string Adresse) : base(Id, Navn, Efternavn, TelefonNr, KontoNr, PostNr, Adresse)
         {
 
         }

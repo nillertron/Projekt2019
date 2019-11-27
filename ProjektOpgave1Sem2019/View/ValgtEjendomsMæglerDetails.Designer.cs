@@ -43,23 +43,27 @@
             this.BTNSlet = new System.Windows.Forms.Button();
             this.TBFødselsdag = new System.Windows.Forms.DateTimePicker();
             this.LBLoverskrift = new System.Windows.Forms.Label();
+            this.TBPostNr = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TBAdresse = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TBNavn
             // 
-            this.TBNavn.Location = new System.Drawing.Point(3, 68);
+            this.TBNavn.Location = new System.Drawing.Point(3, 85);
             this.TBNavn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBNavn.Name = "TBNavn";
-            this.TBNavn.Size = new System.Drawing.Size(100, 22);
+            this.TBNavn.Size = new System.Drawing.Size(112, 26);
             this.TBNavn.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(3, 48);
+            this.label1.Location = new System.Drawing.Point(3, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Navn:";
             // 
@@ -67,54 +71,54 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(5, 112);
+            this.label2.Location = new System.Drawing.Point(6, 140);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Efternavn";
             // 
             // TBEfternavn
             // 
-            this.TBEfternavn.Location = new System.Drawing.Point(3, 132);
+            this.TBEfternavn.Location = new System.Drawing.Point(3, 165);
             this.TBEfternavn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBEfternavn.Name = "TBEfternavn";
-            this.TBEfternavn.Size = new System.Drawing.Size(100, 22);
+            this.TBEfternavn.Size = new System.Drawing.Size(112, 26);
             this.TBEfternavn.TabIndex = 3;
             // 
             // TBTelefon
             // 
-            this.TBTelefon.Location = new System.Drawing.Point(3, 242);
+            this.TBTelefon.Location = new System.Drawing.Point(3, 302);
             this.TBTelefon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBTelefon.Name = "TBTelefon";
-            this.TBTelefon.Size = new System.Drawing.Size(100, 22);
+            this.TBTelefon.Size = new System.Drawing.Size(112, 26);
             this.TBTelefon.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(3, 167);
+            this.label3.Location = new System.Drawing.Point(3, 209);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.Size = new System.Drawing.Size(92, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Fødselsdag";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // TBId
             // 
-            this.TBId.Location = new System.Drawing.Point(224, 68);
+            this.TBId.Location = new System.Drawing.Point(252, 85);
             this.TBId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBId.Name = "TBId";
-            this.TBId.Size = new System.Drawing.Size(41, 22);
+            this.TBId.Size = new System.Drawing.Size(46, 26);
             this.TBId.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(3, 222);
+            this.label4.Location = new System.Drawing.Point(3, 278);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 17);
+            this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Telefon Nr";
             // 
@@ -122,27 +126,27 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(3, 277);
+            this.label5.Location = new System.Drawing.Point(3, 346);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 17);
+            this.label5.Size = new System.Drawing.Size(75, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Konto Nr:";
             // 
             // TBKonto
             // 
-            this.TBKonto.Location = new System.Drawing.Point(3, 306);
+            this.TBKonto.Location = new System.Drawing.Point(3, 382);
             this.TBKonto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBKonto.Name = "TBKonto";
-            this.TBKonto.Size = new System.Drawing.Size(100, 22);
+            this.TBKonto.Size = new System.Drawing.Size(112, 26);
             this.TBKonto.TabIndex = 11;
             // 
             // BTNOpret
             // 
             this.BTNOpret.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BTNOpret.Location = new System.Drawing.Point(3, 367);
+            this.BTNOpret.Location = new System.Drawing.Point(3, 459);
             this.BTNOpret.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNOpret.Name = "BTNOpret";
-            this.BTNOpret.Size = new System.Drawing.Size(75, 23);
+            this.BTNOpret.Size = new System.Drawing.Size(84, 29);
             this.BTNOpret.TabIndex = 12;
             this.BTNOpret.Text = "Opret";
             this.BTNOpret.UseVisualStyleBackColor = true;
@@ -151,10 +155,10 @@
             // BTNEdit
             // 
             this.BTNEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BTNEdit.Location = new System.Drawing.Point(4, 367);
+            this.BTNEdit.Location = new System.Drawing.Point(4, 459);
             this.BTNEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNEdit.Name = "BTNEdit";
-            this.BTNEdit.Size = new System.Drawing.Size(75, 23);
+            this.BTNEdit.Size = new System.Drawing.Size(84, 29);
             this.BTNEdit.TabIndex = 13;
             this.BTNEdit.Text = "Edit";
             this.BTNEdit.UseVisualStyleBackColor = true;
@@ -163,10 +167,10 @@
             // BTNSlet
             // 
             this.BTNSlet.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BTNSlet.Location = new System.Drawing.Point(113, 367);
+            this.BTNSlet.Location = new System.Drawing.Point(127, 459);
             this.BTNSlet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNSlet.Name = "BTNSlet";
-            this.BTNSlet.Size = new System.Drawing.Size(75, 23);
+            this.BTNSlet.Size = new System.Drawing.Size(84, 29);
             this.BTNSlet.TabIndex = 14;
             this.BTNSlet.Text = "Slet";
             this.BTNSlet.UseVisualStyleBackColor = true;
@@ -174,10 +178,10 @@
             // 
             // TBFødselsdag
             // 
-            this.TBFødselsdag.Location = new System.Drawing.Point(0, 187);
-            this.TBFødselsdag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBFødselsdag.Location = new System.Drawing.Point(0, 234);
+            this.TBFødselsdag.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TBFødselsdag.Name = "TBFødselsdag";
-            this.TBFødselsdag.Size = new System.Drawing.Size(265, 22);
+            this.TBFødselsdag.Size = new System.Drawing.Size(298, 26);
             this.TBFødselsdag.TabIndex = 15;
             // 
             // LBLoverskrift
@@ -188,14 +192,50 @@
             this.LBLoverskrift.Location = new System.Drawing.Point(4, 0);
             this.LBLoverskrift.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBLoverskrift.Name = "LBLoverskrift";
-            this.LBLoverskrift.Size = new System.Drawing.Size(132, 31);
+            this.LBLoverskrift.Size = new System.Drawing.Size(153, 37);
             this.LBLoverskrift.TabIndex = 16;
             this.LBLoverskrift.Text = "Overskrift";
             // 
+            // TBPostNr
+            // 
+            this.TBPostNr.Location = new System.Drawing.Point(185, 302);
+            this.TBPostNr.Name = "TBPostNr";
+            this.TBPostNr.Size = new System.Drawing.Size(100, 26);
+            this.TBPostNr.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(181, 279);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 20);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "PostNr";
+            // 
+            // TBAdresse
+            // 
+            this.TBAdresse.Location = new System.Drawing.Point(185, 382);
+            this.TBAdresse.Name = "TBAdresse";
+            this.TBAdresse.Size = new System.Drawing.Size(100, 26);
+            this.TBAdresse.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(181, 346);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Adresse";
+            // 
             // ValgtEjendomsMæglerDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.TBAdresse);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.TBPostNr);
             this.Controls.Add(this.LBLoverskrift);
             this.Controls.Add(this.TBFødselsdag);
             this.Controls.Add(this.BTNSlet);
@@ -214,7 +254,7 @@
             this.Location = new System.Drawing.Point(431, 66);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ValgtEjendomsMæglerDetails";
-            this.Size = new System.Drawing.Size(915, 528);
+            this.Size = new System.Drawing.Size(1029, 660);
             this.Load += new System.EventHandler(this.ValgtEjendomsMæglerDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -238,5 +278,9 @@
         private System.Windows.Forms.Button BTNSlet;
         private System.Windows.Forms.DateTimePicker TBFødselsdag;
         private System.Windows.Forms.Label LBLoverskrift;
+        private System.Windows.Forms.TextBox TBPostNr;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TBAdresse;
+        private System.Windows.Forms.Label label7;
     }
 }
