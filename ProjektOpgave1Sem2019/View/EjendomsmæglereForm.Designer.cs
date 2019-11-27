@@ -35,6 +35,8 @@
             this.Efternavn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.TBInput = new System.Windows.Forms.TextBox();
+            this.DisplayEjendomsmæglerLocation = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayEjendomsmæglerLocation)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -110,11 +112,20 @@
             this.TBInput.TabIndex = 6;
             this.TBInput.TextChanged += new System.EventHandler(this.TBInput_TextChanged);
             // 
+            // DisplayEjendomsmæglerLocation
+            // 
+            this.DisplayEjendomsmæglerLocation.Location = new System.Drawing.Point(0, 0);
+            this.DisplayEjendomsmæglerLocation.Name = "DisplayEjendomsmæglerLocation";
+            this.DisplayEjendomsmæglerLocation.Size = new System.Drawing.Size(10, 12);
+            this.DisplayEjendomsmæglerLocation.TabIndex = 7;
+            this.DisplayEjendomsmæglerLocation.TabStop = false;
+            // 
             // EjendomsmæglereForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.DisplayEjendomsmæglerLocation);
             this.Controls.Add(this.TBInput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LWSearchResults);
@@ -125,6 +136,7 @@
             this.Name = "EjendomsmæglereForm";
             this.Size = new System.Drawing.Size(1531, 615);
             this.Load += new System.EventHandler(this.EjendomsmæglereForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayEjendomsmæglerLocation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +150,6 @@
         private System.Windows.Forms.ColumnHeader Fornavn;
         private System.Windows.Forms.ColumnHeader Efternavn;
         public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox DisplayEjendomsmæglerLocation;
     }
 }
