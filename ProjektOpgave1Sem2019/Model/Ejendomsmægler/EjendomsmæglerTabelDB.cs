@@ -148,9 +148,10 @@ namespace ProjektOpgave1Sem2019.Model
                     DBHelper.Conn.Close();
                     wasSuccessful = true;
                 }
-                catch(SqlException)
+                catch(SqlException ee)
                 {
                     wasSuccessful = false;
+                    MessageBox.Show(ee.Message);
                 }
                 
             }
