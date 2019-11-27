@@ -75,19 +75,23 @@ namespace ProjektOpgave1Sem2019.Model
                 }
                 e.Id = id;
 
-                    try
-                    {
-                        DBHelper.Conn.Open();
-                        cmd.ExecuteNonQuery();
-                        DBHelper.Conn.Close();
-                        wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
-                    }
-                    catch (SqlException ee)
-                    {
-                        wasSuccess = false; //Noget gik galt
+                try
+                {
+                    DBHelper.Conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
+                }
+                catch (SqlException ee)
+                {
+                    wasSuccess = false; //Noget gik galt
                     MessageBox.Show(ee.Message);
-                    }
-                
+                }
+                finally
+                {
+                    DBHelper.Conn.Close();
+                }
+
             }
             return wasSuccess;
         }
@@ -114,13 +118,16 @@ namespace ProjektOpgave1Sem2019.Model
                 {
                     DBHelper.Conn.Open();
                     cmd.ExecuteNonQuery();
-                    DBHelper.Conn.Close();
                     wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
                 }
                 catch (SqlException q)
                 {
                     
                     wasSuccess = false; //Noget gik galt
+                }
+                finally
+                {
+                    DBHelper.Conn.Close();
                 }
 
             }
@@ -145,13 +152,16 @@ namespace ProjektOpgave1Sem2019.Model
                 {
                     DBHelper.Conn.Open();
                     cmd.ExecuteNonQuery();
-                    DBHelper.Conn.Close();
                     wasSuccessful = true;
                 }
                 catch(SqlException ee)
                 {
                     wasSuccessful = false;
                     MessageBox.Show(ee.Message);
+                }
+                finally
+                {
+                    DBHelper.Conn.Close();
                 }
                 
             }
