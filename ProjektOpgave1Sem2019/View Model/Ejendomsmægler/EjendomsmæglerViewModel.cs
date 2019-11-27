@@ -63,7 +63,7 @@ namespace ProjektOpgave1Sem2019.View_Model
             if (succes)
             {
                 EjendomsmæglerListe.ForEach(o => { if (o.Id == e.Id) o = e; });
-                MessageBox.Show($"{e.Navn} blev opdateret!")
+                MessageBox.Show($"{e.Navn} blev opdateret!");
             }
             else
             {
