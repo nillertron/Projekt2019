@@ -19,6 +19,8 @@ namespace ProjektOpgave1Sem2019.Model
 
             List<Ejendomsmægler> returnList = new List<Ejendomsmægler>();
 
+
+
             DBHelper.Conn.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
