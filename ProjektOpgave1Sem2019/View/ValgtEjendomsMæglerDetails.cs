@@ -41,6 +41,7 @@ namespace ProjektOpgave1Sem2019
                 TBFødselsdag.Text = E.Fødseldato.ToString();
                 TBKonto.Text = E.KontoNr.ToString();
                 TBNavn.Text = E.Navn;
+            TBEfternavn.Text = E.Efternavn;
                 TBTelefon.Text = E.TelefonNr;
             LBLoverskrift.Text = "Rediger";
 
@@ -61,11 +62,11 @@ namespace ProjektOpgave1Sem2019
         }
         private void ClearTekstBokse()
         {
-            TBEfternavn.Clear();
-            TBId.Clear();
-            TBKonto.Clear();
-            TBNavn.Clear();
-            TBTelefon.Clear();
+            TBEfternavn.Text = "";
+            TBId.Text = "";
+            TBKonto.Text = "";
+            TBNavn.Text = "";
+            TBTelefon.Text = "";
         }
 
         private void label3_Click(object sender, EventArgs e)
