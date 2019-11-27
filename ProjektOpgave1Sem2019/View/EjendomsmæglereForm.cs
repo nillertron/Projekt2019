@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019.View_Model;
+using ProjektOpgave1Sem2019;
 
 namespace ProjektOpgave1Sem2019
 {
     public partial class EjendomsmæglereForm : UserControl
     {
+        public ValgtEjendomsMæglerDetails uc { get; set; }
         EjendomsmæglerViewModel ViewModel;
         public ComboBox Kriterie;
         public ListView SearchResults;
@@ -56,6 +58,16 @@ namespace ProjektOpgave1Sem2019
         private void EjendomsmæglereForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LWSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ViewModel.NyEjendomsmægler();
         }
     }
 }

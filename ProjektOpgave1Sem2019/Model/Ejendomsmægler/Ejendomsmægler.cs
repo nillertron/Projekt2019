@@ -9,7 +9,7 @@ namespace ProjektOpgave1Sem2019
     public class Ejendomsmægler : Person 
     {
         private DateTime _Fødselsdato;
-        public DateTime Fødseldato { private set { if (value.Year > 1930 && value.Year <= DateTime.Now.Year) value = _Fødselsdato; else throw new FormatException("Hov hov, så gammel/ung er du vidst ikke!");  } get { return _Fødselsdato; } }
+        public DateTime Fødseldato { private set { if (value.Year > 1930 && value.Year <= DateTime.Now.Year)  _Fødselsdato = value; else throw new FormatException("Hov hov, så gammel/ung er du vidst ikke!");  } get { return _Fødselsdato; } }
         public Ejendomsmægler(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr, DateTime Fødselsdato ) : base (Id, Navn, Efternavn, TelefonNr, KontoNr)
         {
             this.Fødseldato = Fødselsdato; 
@@ -17,6 +17,15 @@ namespace ProjektOpgave1Sem2019
         public Ejendomsmægler(string Navn, string Efternavn, string TelefonNr, string KontoNr, DateTime Fødselsdato) : base(Navn, Efternavn, TelefonNr, KontoNr)
         {
             this.Fødseldato = Fødselsdato;
+        }
+
+        public void Opdater(Ejendomsmægler NyeVærdier)
+        {
+            this.Efternavn = NyeVærdier.Efternavn;
+            this.Fødseldato = NyeVærdier.Fødseldato;
+            this.KontoNr = NyeVærdier.KontoNr;
+            this.Navn = NyeVærdier.Navn;
+            this.TelefonNr = NyeVærdier.TelefonNr;
         }
     }
 }
