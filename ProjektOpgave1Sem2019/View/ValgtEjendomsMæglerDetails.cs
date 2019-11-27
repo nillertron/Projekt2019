@@ -13,26 +13,24 @@ namespace ProjektOpgave1Sem2019
 {
     public partial class ValgtEjendomsMæglerDetails : UserControl
     {
+        //private ValgtEjendomsMæglerDetails _instance;
+        //public ValgtEjendomsMæglerDetails Instance { get { if (_instance != null) _instance } }
 
         public bool edit;
         private Ejendomsmægler E;
         EjendomsmæglerViewModel ViewModel;
 
         //hvis denne konstruktor bliver kaldt, ved klassen at den er i "create mode"
-        public ValgtEjendomsMæglerDetails()
-        {
-            CreateMode();
-        }
-        //hvis denne konstruktor er kaldt, ved klassen at den er i edit mode
-        public ValgtEjendomsMæglerDetails(Ejendomsmægler E, EjendomsmæglerViewModel View)
+        public ValgtEjendomsMæglerDetails(EjendomsmæglerViewModel View)
         {
             InitializeComponent();
-            this.E = E;
             this.ViewModel = View;
-            EditMode();
         }
-        private void EditMode()
+        
+        public void EditMode(Ejendomsmægler E)
         {
+            this.E = E;
+            TBId.Show();
             BTNOpret.Hide();
             edit = true;
             TBId.ReadOnly = true;
@@ -46,7 +44,7 @@ namespace ProjektOpgave1Sem2019
             LBLoverskrift.Text = "Rediger";
 
         }
-        private void CreateMode()
+        public void CreateMode()
         {
             ClearTekstBokse();
             TBId.Hide();
