@@ -76,7 +76,8 @@ namespace ProjektOpgave1Sem2019
         {
             if (edit)
             {
-                var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, TBKonto.Text);
+                //Husk at error proofe, convert to int can fejle i constructoren
+                var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, Convert.ToInt32(TBPostNr.Text), TBKonto.Text, TBAdresse.Text);
                 E.Opdater(phobj);
                 ViewModel.Edit(E);
             }
@@ -88,7 +89,7 @@ namespace ProjektOpgave1Sem2019
             {
                 try
                 {
-                    var ny = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, TBKonto.Text);
+                    var ny = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, Convert.ToInt32(TBPostNr), TBKonto.Text, TBAdresse.Text);
                     ViewModel.Opret(ny);
                     ClearTekstBokse();
                 }

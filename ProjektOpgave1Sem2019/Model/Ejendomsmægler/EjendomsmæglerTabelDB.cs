@@ -30,7 +30,9 @@ namespace ProjektOpgave1Sem2019.Model
                                                         reader.GetString(2),
                                                         reader.GetString(3),
                                                         reader.GetDateTime(4),
-                                                        reader.GetString(5)));
+                                                        reader.GetInt32(5),
+                                                        reader.GetString(6),
+                                                        reader.GetString(7)));
                 }
             }
             DBHelper.Conn.Close();
@@ -96,13 +98,15 @@ namespace ProjektOpgave1Sem2019.Model
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.Connection = DBHelper.Conn;
-                string commandString = "UPDATE Ejendomsmægler SET Fornavn = @Fornavn, Efternavn = @Efternavn, Tlf = @Tlf, Fødselsdato = @Fødselsdag, KontoNr = @KontoNr WHERE ID = @ID"; //End of commandstring
+                string commandString = "UPDATE Ejendomsmægler SET Fornavn = @Fornavn, Efternavn = @Efternavn, Tlf = @Tlf, Fødselsdato = @Fødselsdag, PostNr = @PostNr, KontoNr = @KontoNr, Adresse = @Adresse WHERE ID = @ID"; //End of commandstring
                 cmd.CommandText = commandString;
                 cmd.Parameters.Add("@Fornavn", System.Data.SqlDbType.NVarChar).Value = e.Navn;
                 cmd.Parameters.Add("@Efternavn", System.Data.SqlDbType.NVarChar).Value = e.Efternavn;
                 cmd.Parameters.Add("@Tlf", System.Data.SqlDbType.Int).Value = Convert.ToInt32(e.TelefonNr); //Telefonnummer i klasse er string, database er int, skal måske nok ændres
                 cmd.Parameters.Add("@Fødselsdag", System.Data.SqlDbType.DateTime).Value = e.Fødseldato;
                 cmd.Parameters.Add("@KontoNr", System.Data.SqlDbType.NVarChar).Value = e.KontoNr;
+                cmd.Parameters.Add("@PostNr", System.Data.SqlDbType.Int).Value = e.PostNr;
+                cmd.Parameters.Add("@Adresse", System.Data.SqlDbType.NVarChar).Value = e.Addresse;
 
                 cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = e.Id;
 
@@ -159,54 +163,54 @@ namespace ProjektOpgave1Sem2019.Model
         //prøvede lige at lave et par metoder til at læse og oprette fra DB
         //Husk at ændre db brugeren til at være fra DK for at kunne bruge datetime fra c#!
         //Security -> logins -> bruger, højreklik -> properties -> nederst ændre default language til dansk
-        public static void OpretEjendomsmægler(Ejendomsmægler data)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
-                {
-                    conn.Open();
+        //public static void OpretEjendomsmægler(Ejendomsmægler data)
+        //{
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+        //        {
+        //            conn.Open();
 
 
-                    using (SqlCommand command = new SqlCommand("Insert into Ejendomsmægler (Fornavn, Efternavn, Tlf, Fødselsdato, KontoNr) values ('" + data.Navn + "', '" + data.Efternavn + "','" + data.TelefonNr + "', '"+ data.Fødseldato + "', '"+data.KontoNr+"')"))
-                    {
-                        command.Connection = conn;
-                        command.ExecuteNonQuery();
-                    }
+        //            using (SqlCommand command = new SqlCommand("Insert into Ejendomsmægler (Fornavn, Efternavn, Tlf, Fødselsdato, KontoNr) values ('" + data.Navn + "', '" + data.Efternavn + "','" + data.TelefonNr + "', '"+ data.Fødseldato + "', '"+data.KontoNr+"')"))
+        //            {
+        //                command.Connection = conn;
+        //                command.ExecuteNonQuery();
+        //            }
 
-                    MessageBox.Show("Done!");
-                }
-            }
-            catch(SqlException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
+        //            MessageBox.Show("Done!");
+        //        }
+        //    }
+        //    catch(SqlException e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+        //}
 
-        public static List<Ejendomsmægler> GetAllEjendomsmæglere()
-        {
-            var liste = new List<Ejendomsmægler>();
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
-                {
-                    conn.Open();
-                    SqlDataReader dataReader;
-                    using (SqlCommand command = new SqlCommand("Select Id, Fornavn, Efternavn, Tlf, KontoNr, Fødselsdato From ejendomsmægler", conn))
-                    {
-                        dataReader = command.ExecuteReader();
-                        while (dataReader.Read())
-                        {
-                            liste.Add(new Ejendomsmægler(Convert.ToInt32(dataReader.GetValue(0)), dataReader.GetValue(1).ToString(), dataReader.GetValue(2).ToString(), dataReader.GetValue(3).ToString(), Convert.ToDateTime(dataReader.GetValue(5)), dataReader.GetValue(4).ToString()));
-                        }
-                    }
-                }
-            }
-            catch (SqlException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            return liste;
-        }
+        //public static List<Ejendomsmægler> GetAllEjendomsmæglere()
+        //{
+        //    var liste = new List<Ejendomsmægler>();
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+        //        {
+        //            conn.Open();
+        //            SqlDataReader dataReader;
+        //            using (SqlCommand command = new SqlCommand("Select Id, Fornavn, Efternavn, Tlf, KontoNr, Fødselsdato From ejendomsmægler", conn))
+        //            {
+        //                dataReader = command.ExecuteReader();
+        //                while (dataReader.Read())
+        //                {
+        //                    liste.Add(new Ejendomsmægler(Convert.ToInt32(dataReader.GetValue(0)), dataReader.GetValue(1).ToString(), dataReader.GetValue(2).ToString(), dataReader.GetValue(3).ToString(), Convert.ToDateTime(dataReader.GetValue(5)), dataReader.GetValue(4).ToString()));
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (SqlException e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+        //    return liste;
+        //}
     }
 }
