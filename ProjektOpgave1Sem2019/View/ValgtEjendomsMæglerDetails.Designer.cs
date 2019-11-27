@@ -207,6 +207,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(161, 223);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 17);
@@ -224,6 +225,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(161, 277);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 17);
@@ -253,7 +255,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TBNavn);
-            this.Location = new System.Drawing.Point(466, 66);
+            this.Location = new System.Drawing.Point(470, 66);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ValgtEjendomsMæglerDetails";
             this.Size = new System.Drawing.Size(915, 528);
