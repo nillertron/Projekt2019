@@ -37,6 +37,7 @@ namespace ProjektOpgave1Sem2019.View_Model
 
             //skal have vist user controllen herfra
             var valgtejendomsmæglerdetail = new ValgtEjendomsMæglerDetails(ValgtEjendomsmægler, this);
+            ParentForm.Controls.Add(valgtejendomsmæglerdetail);
            
             
         }
