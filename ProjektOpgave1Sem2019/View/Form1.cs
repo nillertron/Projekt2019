@@ -37,6 +37,16 @@ namespace ProjektOpgave1Sem2019
             button4.FlatAppearance.BorderSize = 0;
             #endregion
 
+
+
+
+
+            BoligTabelDB.GetAll();
+
+
+
+
+
         }
      
 
