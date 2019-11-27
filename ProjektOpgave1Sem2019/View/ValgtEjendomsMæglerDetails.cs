@@ -25,6 +25,7 @@ namespace ProjektOpgave1Sem2019
         {
             InitializeComponent();
             this.ViewModel = View;
+            
         }
         
         public void EditMode(Ejendomsmægler E)

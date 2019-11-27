@@ -27,7 +27,7 @@ namespace ProjektOpgave1Sem2019.View_Model
             GetAll();
             Details = new ValgtEjendomsMæglerDetails(this);
 
-           
+           //
 
             this.ParentForm = ParentForm;
             FillListView();
