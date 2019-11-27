@@ -33,8 +33,9 @@ namespace ProjektOpgave1Sem2019.View_Model
             FillListView();
            
         }
-        private void FillListView()
+        public void FillListView()
         {
+            ParentForm.SearchResults.Items.Clear();
             foreach (Ejendomsmægler e in EjendomsmæglerListe)
                 AddEjendomsmæglerToList(e);
         }

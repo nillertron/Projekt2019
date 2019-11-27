@@ -81,6 +81,7 @@ namespace ProjektOpgave1Sem2019
                 var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, Convert.ToInt32(TBPostNr.Text), TBKonto.Text, TBAdresse.Text);
                 E.Opdater(phobj);
                 ViewModel.Edit(E);
+                ViewModel.FillListView();
             }
         }
 

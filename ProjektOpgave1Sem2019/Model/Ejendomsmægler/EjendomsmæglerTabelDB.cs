@@ -121,6 +121,7 @@ namespace ProjektOpgave1Sem2019.Model
                 {
                     
                     wasSuccess = false; //Noget gik galt
+                    MessageBox.Show(q.Message);
                 }
 
             }
