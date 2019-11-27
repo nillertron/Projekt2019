@@ -15,8 +15,9 @@ namespace ProjektOpgave1Sem2019.View_Model
         public List<Ejendomsmægler> EjendomsmæglerListe;
 
         EjendomsmæglereForm ParentForm;
-
-        public Ejendomsmægler ValgtEjendomsmægler; 
+        //
+        public Ejendomsmægler ValgtEjendomsmægler;
+        private ValgtEjendomsMæglerDetails Details;
 
         public EjendomsmæglerViewModel(EjendomsmæglereForm ParentForm)
         {
@@ -24,6 +25,7 @@ namespace ProjektOpgave1Sem2019.View_Model
 
             EjendomsmæglerListe = new List<Ejendomsmægler>();
             GetAll();
+            Details = new ValgtEjendomsMæglerDetails(this);
 
             this.ParentForm = ParentForm;
            
@@ -36,18 +38,19 @@ namespace ProjektOpgave1Sem2019.View_Model
                     ValgtEjendomsmægler = e;
 
             //skal have vist user controllen herfra
-            MessageBox.Show(ValgtEjendomsmægler.Navn);
-            var valgtejendomsmæglerdetail = new ValgtEjendomsMæglerDetails(ValgtEjendomsmægler, this);
-            
+           // var valgtejendomsmæglerdetail = 
+            ParentForm.Controls.Add(Details);
+            Details.EditMode(ValgtEjendomsmægler);
 
-            ParentForm.Controls.Add(valgtejendomsmæglerdetail);
-           
-            
+
+
+
         }
         public void NyEjendomsmægler()
         {
             //skal have vist user control herfra også
-            var NyEjendomsmægler = new ValgtEjendomsMæglerDetails();
+            ParentForm.Controls.Add(Details);
+            Details.CreateMode();
 
         }
         public void GetAll()
@@ -95,8 +98,8 @@ namespace ProjektOpgave1Sem2019.View_Model
             string input = ParentForm.Input.Text.ToLower();
             string kriterie = ParentForm.Kriterie.Text;
 
-            
-            
+            if (input != "")//not empty
+            {
                 switch (kriterie)
                 {
                     case "Navn":
@@ -148,7 +151,7 @@ namespace ProjektOpgave1Sem2019.View_Model
                  
 
                 
-            
+            }
 
         }
     }
