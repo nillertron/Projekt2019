@@ -15,8 +15,9 @@ namespace ProjektOpgave1Sem2019.View_Model
         public List<Ejendomsmægler> EjendomsmæglerListe;
 
         EjendomsmæglereForm ParentForm;
-
-        public Ejendomsmægler ValgtEjendomsmægler; 
+        //
+        public Ejendomsmægler ValgtEjendomsmægler;
+        private ValgtEjendomsMæglerDetails Details;
 
         public EjendomsmæglerViewModel(EjendomsmæglereForm ParentForm)
         {
@@ -24,6 +25,7 @@ namespace ProjektOpgave1Sem2019.View_Model
 
             EjendomsmæglerListe = new List<Ejendomsmægler>();
             GetAll();
+            Details = new ValgtEjendomsMæglerDetails(this);
 
             this.ParentForm = ParentForm;
            
@@ -34,17 +36,18 @@ namespace ProjektOpgave1Sem2019.View_Model
             foreach (Ejendomsmægler e in EjendomsmæglerListe)
                 if (e.Id.ToString() == ParentForm.SearchResults.FocusedItem.Name)
                     ValgtEjendomsmægler = e;
+            ParentForm.Controls.Add(Details);
+            Details.EditMode(ValgtEjendomsmægler);
 
-            //skal have vist user controllen herfra
-            var valgtejendomsmæglerdetail = new ValgtEjendomsMæglerDetails(ValgtEjendomsmægler, this);
-            ParentForm.Controls.Add(valgtejendomsmæglerdetail);
-           
-            
+
+
+
         }
         public void NyEjendomsmægler()
         {
             //skal have vist user control herfra også
-            var NyEjendomsmægler = new ValgtEjendomsMæglerDetails();
+            ParentForm.Controls.Add(Details);
+            Details.CreateMode();
 
         }
         public void GetAll()
@@ -55,16 +58,27 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         public void Edit(Ejendomsmægler e)
         {
+
             bool succes = EjendomsmæglerTabelDB.Update(e);
             if (succes)
+            {
                 EjendomsmæglerListe.ForEach(o => { if (o.Id == e.Id) o = e; });
+                MessageBox.Show($"{e.Navn} blev opdateret!");
+            }
+            else
+            {
+                MessageBox.Show("Fejl!");
+            }
         }
 
         public void Delete(Ejendomsmægler e)
         {
             bool succes = EjendomsmæglerTabelDB.Delete(e);
             if (succes)
+            {
                 EjendomsmæglerListe.Remove(e);
+                MessageBox.Show($"{e.Navn} blev slettet");
+            }
             else
                 MessageBox.Show("Error, try again");
         }
@@ -75,7 +89,10 @@ namespace ProjektOpgave1Sem2019.View_Model
         {
             bool succes = EjendomsmæglerTabelDB.Create(e);
             if (succes)
+            {
                 EjendomsmæglerListe.Add(e);
+                MessageBox.Show($"{e.Navn} oprettet");
+            }
             else
                 MessageBox.Show("Error, try again");
 

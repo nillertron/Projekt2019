@@ -28,7 +28,7 @@ namespace ProjektOpgave1Sem2019.Model
                     returnList.Add(new Ejendomsmægler(reader.GetInt32(0), //Hard coded, skal ændres hvis databasen ændres
                                                         reader.GetString(1),
                                                         reader.GetString(2),
-                                                        reader.GetInt32(3).ToString(),
+                                                        reader.GetString(3),
                                                         reader.GetDateTime(4),
                                                         reader.GetString(5)));
                 }
@@ -47,13 +47,13 @@ namespace ProjektOpgave1Sem2019.Model
                 string commandString = "INSERT INTO Ejendomsmægler VALUES(";
                 commandString += "@Fornavn, ";
                 commandString += "@Efternavn, ";
-                commandString += "@Tlf ,";
+                commandString += "@Tlf,";
                 commandString += "@Fødselsdag, ";
                 commandString += "@KontoNr)"; //End of commandstring
                 cmd.CommandText = commandString;
                 cmd.Parameters.Add("@Fornavn", System.Data.SqlDbType.NVarChar).Value = e.Navn;
                 cmd.Parameters.Add("@Efternavn", System.Data.SqlDbType.NVarChar).Value = e.Efternavn;
-                cmd.Parameters.Add("@Tlf", System.Data.SqlDbType.Int).Value = Convert.ToInt32(e.TelefonNr); //Telefonnummer i klasse er string, database er int, skal måske nok ændres
+                cmd.Parameters.Add("@Tlf", System.Data.SqlDbType.NVarChar).Value = e.TelefonNr; //Telefonnummer i klasse er string, database er int, skal måske nok ændres
                 cmd.Parameters.Add("@Fødselsdag", System.Data.SqlDbType.DateTime).Value = e.Fødseldato;
                 cmd.Parameters.Add("@KontoNr", System.Data.SqlDbType.NVarChar).Value = e.KontoNr;
 
@@ -80,9 +80,10 @@ namespace ProjektOpgave1Sem2019.Model
                         DBHelper.Conn.Close();
                         wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
                     }
-                    catch (SqlException)
+                    catch (SqlException ee)
                     {
                         wasSuccess = false; //Noget gik galt
+                    MessageBox.Show(ee.Message);
                     }
                 
             }
