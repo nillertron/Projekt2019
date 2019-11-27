@@ -54,12 +54,13 @@
     <Compile Include="Model\Kunde\Køber.cs" />
     <Compile Include="Model\Kunde\Sælger.cs" />
     <Compile Include="Model\Ejendomsmægler\EjendomsmæglerTabelDB.cs" />
+    <Compile Include="Model\PostNumre.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
-    <Compile Include="View\EjendomsmæglereForm.cs">
+    <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\EjendomsmæglereForm.Designer.cs">
+    <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.Designer.cs">
       <DependentUpon>EjendomsmæglereForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form1.cs">
@@ -72,13 +73,13 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\ValgtEjendomsMæglerDetails.cs">
+    <Compile Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\ValgtEjendomsMæglerDetails.Designer.cs">
+    <Compile Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.Designer.cs">
       <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\EjendomsmæglereForm.resx">
+    <EmbeddedResource Include="View\Ejendomsmægler\EjendomsmæglereForm.resx">
       <DependentUpon>EjendomsmæglereForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
@@ -94,7 +95,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\ValgtEjendomsMæglerDetails.resx">
+    <EmbeddedResource Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.resx">
       <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -111,7 +112,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="View\Ejendomsmægler\" />
+    <Folder Include="View Model\Bolig\" />
+    <Folder Include="View\Bolig\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="husikon.png" />

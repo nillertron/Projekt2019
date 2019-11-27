@@ -199,30 +199,30 @@ namespace ProjektOpgave1Sem2019.Model
         //    }
         //}
 
-        //public static List<Ejendomsmægler> GetAllEjendomsmæglere()
-        //{
-        //    var liste = new List<Ejendomsmægler>();
-        //    try
-        //    {
-        //        using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
-        //        {
-        //            conn.Open();
-        //            SqlDataReader dataReader;
-        //            using (SqlCommand command = new SqlCommand("Select Id, Fornavn, Efternavn, Tlf, KontoNr, Fødselsdato From ejendomsmægler", conn))
-        //            {
-        //                dataReader = command.ExecuteReader();
-        //                while (dataReader.Read())
-        //                {
-        //                    liste.Add(new Ejendomsmægler(Convert.ToInt32(dataReader.GetValue(0)), dataReader.GetValue(1).ToString(), dataReader.GetValue(2).ToString(), dataReader.GetValue(3).ToString(), Convert.ToDateTime(dataReader.GetValue(5)), dataReader.GetValue(4).ToString()));
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (SqlException e)
-        //    {
-        //        MessageBox.Show(e.Message);
-        //    }
-        //    return liste;
-        //}
+        public static List<PostNumre> GetAllPostnumre()
+        {
+            var liste = new List<PostNumre>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+                {
+                    conn.Open();
+                    SqlDataReader dataReader;
+                    using (SqlCommand command = new SqlCommand("Select PostNr, Distrikt From Post", conn))
+                    {
+                        dataReader = command.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            liste.Add(new PostNumre { PostNummer = Convert.ToInt32(dataReader.GetValue(0)), Distrikt= dataReader.GetValue(1).ToString() });
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return liste;
+        }
     }
 }

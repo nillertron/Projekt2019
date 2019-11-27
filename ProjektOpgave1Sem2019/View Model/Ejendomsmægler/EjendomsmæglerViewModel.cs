@@ -13,22 +13,20 @@ namespace ProjektOpgave1Sem2019.View_Model
     public class EjendomsmæglerViewModel
     {
         public List<Ejendomsmægler> EjendomsmæglerListe;
+        public List<PostNumre> PostNummerListe;
 
         EjendomsmæglereForm ParentForm;
-        //
+        
         public Ejendomsmægler ValgtEjendomsmægler;
         private ValgtEjendomsMæglerDetails Details;
 
         public EjendomsmæglerViewModel(EjendomsmæglereForm ParentForm)
         {
-            
-
+            PostNummerListe = new List<PostNumre>();
+            FyldPostnumre();
             EjendomsmæglerListe = new List<Ejendomsmægler>();
             GetAll();
             Details = new ValgtEjendomsMæglerDetails(this);
-
-           //
-
             this.ParentForm = ParentForm;
             FillListView();
            
@@ -38,6 +36,11 @@ namespace ProjektOpgave1Sem2019.View_Model
             ParentForm.SearchResults.Items.Clear();
             foreach (Ejendomsmægler e in EjendomsmæglerListe)
                 AddEjendomsmæglerToList(e);
+        }
+
+        private void FyldPostnumre()
+        {
+            PostNummerListe = EjendomsmæglerTabelDB.GetAllPostnumre();
         }
         private void AddEjendomsmæglerToList(Ejendomsmægler e)
         {
