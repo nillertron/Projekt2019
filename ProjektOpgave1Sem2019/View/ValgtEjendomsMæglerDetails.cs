@@ -78,7 +78,7 @@ namespace ProjektOpgave1Sem2019
         {
             if (edit)
             {
-                var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBKonto.Text, TBFødselsdag.Value);
+                var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, TBKonto.Text);
                 E.Opdater(phobj);
                 ViewModel.Edit(E);
             }
@@ -90,7 +90,7 @@ namespace ProjektOpgave1Sem2019
             {
                 try
                 {
-                    var ny = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBKonto.Text, TBFødselsdag.Value);
+                    var ny = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, TBKonto.Text);
                     ViewModel.Opret(ny);
                     ClearTekstBokse();
                 }

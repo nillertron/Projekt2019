@@ -10,11 +10,11 @@ namespace ProjektOpgave1Sem2019
     {
         private DateTime _Fødselsdato;
         public DateTime Fødseldato { private set { if (value.Year > 1930 && value.Year <= DateTime.Now.Year)  _Fødselsdato = value; else throw new FormatException("Hov hov, så gammel/ung er du vidst ikke!");  } get { return _Fødselsdato; } }
-        public Ejendomsmægler(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr, DateTime Fødselsdato ) : base (Id, Navn, Efternavn, TelefonNr, KontoNr)
+        public Ejendomsmægler(int Id, string Navn, string Efternavn, string TelefonNr,  DateTime Fødselsdato, string KontoNr ) : base (Id, Navn, Efternavn, TelefonNr, KontoNr)
         {
             this.Fødseldato = Fødselsdato; 
         }
-        public Ejendomsmægler(string Navn, string Efternavn, string TelefonNr, string KontoNr, DateTime Fødselsdato) : base(Navn, Efternavn, TelefonNr, KontoNr)
+        public Ejendomsmægler(string Navn, string Efternavn, string TelefonNr,  DateTime Fødselsdato, string KontoNr) : base(Navn, Efternavn, TelefonNr, KontoNr)
         {
             this.Fødseldato = Fødselsdato;
         }

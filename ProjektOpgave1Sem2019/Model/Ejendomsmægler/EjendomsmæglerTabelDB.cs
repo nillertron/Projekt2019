@@ -29,8 +29,8 @@ namespace ProjektOpgave1Sem2019.Model
                                                         reader.GetString(1),
                                                         reader.GetString(2),
                                                         reader.GetInt32(3).ToString(),
-                                                        reader.GetString(5),
-                                                        reader.GetDateTime(4)));
+                                                        reader.GetDateTime(4),
+                                                        reader.GetString(5)));
                 }
             }
             DBHelper.Conn.Close();
@@ -196,7 +196,7 @@ namespace ProjektOpgave1Sem2019.Model
                         dataReader = command.ExecuteReader();
                         while (dataReader.Read())
                         {
-                            liste.Add(new Ejendomsmægler(Convert.ToInt32(dataReader.GetValue(0)), dataReader.GetValue(1).ToString(), dataReader.GetValue(2).ToString(), dataReader.GetValue(3).ToString(), dataReader.GetValue(4).ToString(), Convert.ToDateTime(dataReader.GetValue(5))));
+                            liste.Add(new Ejendomsmægler(Convert.ToInt32(dataReader.GetValue(0)), dataReader.GetValue(1).ToString(), dataReader.GetValue(2).ToString(), dataReader.GetValue(3).ToString(), Convert.ToDateTime(dataReader.GetValue(5)), dataReader.GetValue(4).ToString()));
                         }
                     }
                 }
