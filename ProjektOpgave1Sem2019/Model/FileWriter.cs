@@ -17,8 +17,9 @@ namespace ProjektOpgave1Sem2019.Model
         {
             bool wasSuccessful;
 
-            List<Bolig> list = BoligTabelDB.GetAll(); //Hent boliger fra database Per opgave 3.2 beskrivelse
-
+            //har lige udkommenteret denne linje
+            //List<Bolig> list = BoligTabelDB.GetAllNotSold(); //Hent boliger fra database Per opgave 3.2 beskrivelse
+            var list = new List<Bolig>();
             list.Sort(); //Sorter liste. Bolig implementerer ICompareable, som sammenligner på pris og sorterer billigs først
             FileStream fs;
 

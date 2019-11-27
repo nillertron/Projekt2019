@@ -8,24 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019.View_Model;
+using ProjektOpgave1Sem2019.Model;
 
+//Nichlas
 namespace ProjektOpgave1Sem2019
 {
     public partial class ValgtEjendomsMæglerDetails : UserControl
     {
-        //private ValgtEjendomsMæglerDetails _instance;
-        //public ValgtEjendomsMæglerDetails Instance { get { if (_instance != null) _instance } }
 
-        public bool edit;
+
+        private bool edit;
         private Ejendomsmægler E;
         EjendomsmæglerViewModel ViewModel;
 
-        //hvis denne konstruktor bliver kaldt, ved klassen at den er i "create mode"
         public ValgtEjendomsMæglerDetails(EjendomsmæglerViewModel View)
         {
             InitializeComponent();
+
             this.ViewModel = View;
-            
+            CBPostNr.DataSource = View.PostNummerListe;
+            CBPostNr.DisplayMember = "PostNummer";
+            var start = CBPostNr.SelectedItem as PostNumre;
+            LBLdistrikt.Text = start.Distrikt;
+
+            CBPostNr.SelectedIndexChanged += (o, e) => 
+            {
+                PostNumre valgt = CBPostNr.SelectedItem as PostNumre;
+                LBLdistrikt.Text = valgt.Distrikt;
+            };
+
         }
         
         public void EditMode(Ejendomsmægler E)
@@ -38,16 +49,21 @@ namespace ProjektOpgave1Sem2019
                 BTNOpret.Hide();
                 TBId.Text = E.Id.ToString();
                 TBFødselsdag.Text = E.Fødseldato.ToString();
-                TBKonto.Text = E.KontoNr.ToString();
+                TBKonto.Text = E.KontoNr;
+            TBAdresse.Text = E.Addresse;
                 TBNavn.Text = E.Navn;
             TBEfternavn.Text = E.Efternavn;
                 TBTelefon.Text = E.TelefonNr;
             LBLoverskrift.Text = "Rediger";
+
+            CBPostNr.SelectedIndex = ViewModel.PostNummerListe.FindIndex(o => o.PostNummer == E.PostNr);
+
             //
         }
         public void CreateMode()
         {
             ClearTekstBokse();
+            CBPostNr.SelectedIndex = 0;
             TBId.Hide();
             BTNEdit.Hide();
             BTNSlet.Hide();
@@ -66,6 +82,7 @@ namespace ProjektOpgave1Sem2019
             TBKonto.Text = "";
             TBNavn.Text = "";
             TBTelefon.Text = "";
+            TBAdresse.Text = "";
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -75,12 +92,14 @@ namespace ProjektOpgave1Sem2019
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             if (edit)
             {
-                //Husk at error proofe, convert to int can fejle i constructoren
-                var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, Convert.ToInt32(TBPostNr.Text), TBKonto.Text, TBAdresse.Text);
+                PostNumre valgt = CBPostNr.SelectedItem as PostNumre;
+                var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
                 E.Opdater(phobj);
                 ViewModel.Edit(E);
+                ViewModel.FillListView();
             }
         }
 
@@ -90,7 +109,9 @@ namespace ProjektOpgave1Sem2019
             {
                 try
                 {
-                    var ny = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, Convert.ToInt32(TBPostNr), TBKonto.Text, TBAdresse.Text);
+                    PostNumre valgt = CBPostNr.SelectedItem as PostNumre;
+
+                    var ny = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
                     ViewModel.Opret(ny);
                     ClearTekstBokse();
                 }
@@ -109,5 +130,7 @@ namespace ProjektOpgave1Sem2019
                 ClearTekstBokse();
             }
         }
+
+
     }
 }
