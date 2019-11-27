@@ -24,7 +24,7 @@ namespace ProjektOpgave1Sem2019.Model
 
             try
             {
-                fs = File.OpenRead(filePath); 
+                fs = File.OpenWrite(filePath); 
             }
             catch(FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
             {
