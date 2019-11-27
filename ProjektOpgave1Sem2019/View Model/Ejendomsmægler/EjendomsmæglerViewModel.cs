@@ -15,7 +15,7 @@ namespace ProjektOpgave1Sem2019.View_Model
         public List<Ejendomsmægler> EjendomsmæglerListe;
 
         EjendomsmæglereForm ParentForm;
-
+        //
         public Ejendomsmægler ValgtEjendomsmægler;
         private ValgtEjendomsMæglerDetails Details;
 
