@@ -137,7 +137,7 @@ namespace ProjektOpgave1Sem2019
                 case "Pris højere end":
                     foreach (Bolig b in boliger)
                     {
-                        if (b.Pris > Convert.ToDouble(term)) //Regner med inputvalidering andet sted i viewModellen.
+                        if (b.Pris > Convert.ToDouble(term))
                         {
                             returnList.Add(b);
                         }

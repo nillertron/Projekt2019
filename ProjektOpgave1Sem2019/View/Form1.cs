@@ -62,6 +62,7 @@ namespace ProjektOpgave1Sem2019
             EjendomsmæglereForm eForm = new EjendomsmæglereForm();
             if (!this.Controls.Contains(eForm))
                 this.Controls.Add(eForm);
+            eForm.BringToFront();
 
         }
 
@@ -81,6 +82,7 @@ namespace ProjektOpgave1Sem2019
             if (!this.Controls.Contains(bolig))
                 Controls.Add(bolig);
             bolig.BringToFront();
+            
         }
     }
 }
