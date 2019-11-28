@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjektOpgave1Sem2019.View;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -72,6 +73,14 @@ namespace ProjektOpgave1Sem2019
         private void valgtEjendomsMæglerDetails1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var bolig = new BoligForm();
+            if (!this.Controls.Contains(bolig))
+                Controls.Add(bolig);
+            bolig.BringToFront();
         }
     }
 }

@@ -28,12 +28,12 @@ namespace ProjektOpgave1Sem2019
             this.ViewModel = View;
             CBPostNr.DataSource = View.PostNummerListe;
             CBPostNr.DisplayMember = "PostNummer";
-            var start = CBPostNr.SelectedItem as PostNumre;
-            LBLdistrikt.Text = start.Distrikt;
+            var valgt = CBPostNr.SelectedItem as PostNumre;
+            LBLdistrikt.Text = valgt.Distrikt;
 
             CBPostNr.SelectedIndexChanged += (o, e) => 
             {
-                PostNumre valgt = CBPostNr.SelectedItem as PostNumre;
+                 valgt = CBPostNr.SelectedItem as PostNumre;
                 LBLdistrikt.Text = valgt.Distrikt;
             };
 

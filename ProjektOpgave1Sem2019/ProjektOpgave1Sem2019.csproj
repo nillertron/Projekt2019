@@ -58,6 +58,12 @@
     <Compile Include="View Model\Bolig\BoligViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
+    <Compile Include="View\Bolig\BoligForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\BoligForm.Designer.cs">
+      <DependentUpon>BoligForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.Designer.cs">
       <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Bolig\BoligForm.resx">
+      <DependentUpon>BoligForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Ejendomsmægler\EjendomsmæglereForm.resx">
       <DependentUpon>EjendomsmæglereForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,9 +121,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Bolig\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="husikon.png" />
     <None Include="Resources\house_home_fire_burning_burn_smoke-512.png" />
