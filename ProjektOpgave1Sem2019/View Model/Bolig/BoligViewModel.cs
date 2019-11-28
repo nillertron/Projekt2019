@@ -6,30 +6,36 @@ using System.Threading.Tasks;
 using System.Drawing;
 using ProjektOpgave1Sem2019.Model;
 using System.Windows.Forms;
-using ProjektOpgave1Sem2019.View;
+using ProjektOpgave1Sem2019;
 
 namespace ProjektOpgave1Sem2019
 {
     //Martin
-    class BoligViewModel
+    public class BoligViewModel
     {
-        List<PostNumre> postNumre = new List<PostNumre>();
-        public List<Bolig> boliger = new List<Bolig>();
+        public List<PostNumre> postNumre = new List<PostNumre>();
+        List<Bolig> boliger = new List<Bolig>();
+        BoligDetails Details;
+        //List<Bolig> resultatListe = 
 
-        BoligForm parentForm;
+        //BoligForm parentForm;
 
-        public BoligViewModel(BoligForm parent)
+        public BoligViewModel(/*BoligForm parent*/)
         {
-            parentForm = parent;
+            //parentForm = parent;
             boliger = BoligTabelDB.GetAll();
-           // FillListView(boliger);
+            Details = new BoligDetails(this);
+            //FillListView(boliger);
             postNumre = PostNrTabelDB.GetAllPostnumre();
         }
 
         public void AddBoligToList(Bolig bolig)
         {
             boliger.Add(bolig);
-           // FillListView(boliger);
+            //Note til senere
+            MessageBox.Show("Ny bolig tilføjet til liste i BoligViewModel. Husk at opdatere listen I" 
+                        + " UI laget via FillListView eller DisplaySearchResults. Denne messagebox kan slettes når det er gjort");
+            //FillListView(boliger);
         }
 
         public List<Bolig> FillListView() //kaldes hver gang det der skal vises ændres
@@ -43,19 +49,19 @@ namespace ProjektOpgave1Sem2019
             return tempBoliger;
         }
 
-        public void ShowBolig(Bolig b)
+        public void ShowBolig()
         {
-
+            //Details.Show();
         }
 
         public void Opret()
         {
-
+            Details.InitializeCreateMode();
         }
 
         public void Edit(Bolig b)
         {
-
+            Details.InitializeEditMode(b);
         }
 
         public void Delete(Bolig b)
@@ -63,7 +69,19 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory)
+        public Bolig GetBolig(string id)
+        {
+            foreach(Bolig b in boliger)
+            {
+                if(b.ID.ToString() == id)
+                {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory) //Unused så vidt jeg ved - Martin
         {
             //string searchTerm = parentForm.Input.Text.ToLower();
             //string searchCategory = parentForm.Kriterie.Text;

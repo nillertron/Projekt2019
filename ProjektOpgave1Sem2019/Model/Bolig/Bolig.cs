@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektOpgave1Sem2019
 {
-    class Bolig:IComparable
+    public class Bolig:IComparable
     {
         private int _ID;
         public int ID { private set { if (value > 0) _ID = value; else throw new FormatException("ID skal være over 0"); } get { return _ID; } }
@@ -38,12 +38,7 @@ namespace ProjektOpgave1Sem2019
             this.EjendomsmæglerID = EjendomsmæglerID;
             this.PostNr = PostNr;
         }
-        public Bolig()
-        {
-
-        }
-
-        public Bolig(string Adresse, Double Pris, int SælgerID, int Kvm, DateTime OprettelsesDato, int EjendomsmæglerID, int PostNr)
+        public Bolig(string Adresse, double Pris, int SælgerID, int Kvm, DateTime OprettelsesDato, int EjendomsmæglerID, int PostNr)
         {
             this.Adresse = Adresse;
             this.Pris = Pris;
@@ -53,7 +48,7 @@ namespace ProjektOpgave1Sem2019
             this.EjendomsmæglerID = EjendomsmæglerID;
             this.PostNr = PostNr;
         }
-
+        //Martin
         public int CompareTo(object obj)
         {
             int returnValue;
@@ -70,6 +65,11 @@ namespace ProjektOpgave1Sem2019
                 returnValue = 0;
             }
             return returnValue;
+        }
+        //Martin
+        public void UpdatePris(double d)
+        {
+            this.Pris = d;
         }
     }
 }
