@@ -40,7 +40,7 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         private void FyldPostnumre()
         {
-            PostNummerListe = EjendomsmæglerTabelDB.GetAllPostnumre();
+            PostNummerListe = PostNrTabelDB.GetAllPostnumre();
         }
         private void AddEjendomsmæglerToList(Ejendomsmægler e)
         {
