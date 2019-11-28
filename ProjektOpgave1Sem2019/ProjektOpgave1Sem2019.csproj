@@ -59,6 +59,12 @@
     <Compile Include="View Model\Bolig\BoligViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
+    <Compile Include="View\Bolig\BoligDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\BoligDetails.Designer.cs">
+      <DependentUpon>BoligDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Bolig\BoligForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.Designer.cs">
       <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Bolig\BoligDetails.resx">
+      <DependentUpon>BoligDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\BoligForm.resx">
       <DependentUpon>BoligForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using System.Drawing;
 using ProjektOpgave1Sem2019.Model;
 using System.Windows.Forms;
+using ProjektOpgave1Sem2019.View;
 
 namespace ProjektOpgave1Sem2019
 {
+    //Martin
     class BoligViewModel
     {
         List<PostNumre> postNumre = new List<PostNumre>();
@@ -63,12 +65,12 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        public void DisplaySearchResults()
+        public void DisplaySearchResults(string searchTerm, string searchCategory)
         {
             bool validInput = true;
 
-            string searchTerm = parentForm.Input.Text.ToLower();
-            string searchCategory = parentForm.Kriterie.Text;
+            //string searchTerm = parentForm.Input.Text.ToLower();
+            //string searchCategory = parentForm.Kriterie.Text;
 
             List<Bolig> searchResults = new List<Bolig>();
 
