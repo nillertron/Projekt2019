@@ -36,9 +36,10 @@ namespace ProjektOpgave1Sem2019
             BTNEjendomsmæglere.FlatAppearance.BorderSize = 0;
             button4.FlatAppearance.BorderSize = 0;
             #endregion
-            
 
-
+            DateTime d = new DateTime(2015, 01, 14);
+            Bolig boligToCreate = new Bolig("Passagen 2", 300, 1, 120, d, 1, 2000);
+            BoligTabelDB.Create(boligToCreate);
 
         }
      
