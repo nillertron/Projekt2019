@@ -26,7 +26,10 @@ namespace ProjektOpgave1Sem2019
 
         private int _PostNr;
         public int PostNr { private set { if (value > 500 && value < 10000) _PostNr = value; } get { return _PostNr; } }
+        public Bolig()
+        {
 
+        }
         public Bolig(int ID, string Adresse,double Pris, int SælgerID, int Kvm, DateTime OprettelsesDato, int EjendomsmæglerID, int PostNr)
         {
             this.ID = ID;
