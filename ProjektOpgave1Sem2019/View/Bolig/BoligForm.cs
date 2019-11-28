@@ -25,10 +25,10 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        private void FyldListView()
-        {
-            BoligListe.ForEach(o => )
-        }
+        //private void FyldListView()
+        //{
+        //    BoligListe.ForEach(o => )
+        //}
 
         private void BoligView_Load(object sender, EventArgs e)
         {

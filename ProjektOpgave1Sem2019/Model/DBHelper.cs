@@ -22,5 +22,7 @@ namespace ProjektOpgave1Sem2019.Model
         private static SqlConnection conn = new SqlConnection(connString);
         public static SqlConnection Conn { get { return conn; }  }
 
+
+
     }
 }
