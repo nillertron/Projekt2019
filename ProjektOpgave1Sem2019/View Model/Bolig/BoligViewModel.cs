@@ -11,25 +11,31 @@ using ProjektOpgave1Sem2019.View;
 namespace ProjektOpgave1Sem2019
 {
     //Martin
-    class BoligViewModel
+    public class BoligViewModel
     {
-        List<PostNumre> postNumre = new List<PostNumre>();
+        public List<PostNumre> postNumre = new List<PostNumre>();
         List<Bolig> boliger = new List<Bolig>();
+        BoligDetails Details;
+        //List<Bolig> resultatListe = 
 
-        BoligForm parentForm;
+        //BoligForm parentForm;
 
-        public BoligViewModel(BoligForm parent)
+        public BoligViewModel(/*BoligForm parent*/)
         {
-            parentForm = parent;
+            //parentForm = parent;
             boliger = BoligTabelDB.GetAll();
-            FillListView(boliger);
+            Details = new BoligDetails(this);
+            //FillListView(boliger);
             postNumre = PostNrTabelDB.GetAllPostnumre();
         }
 
         public void AddBoligToList(Bolig bolig)
         {
             boliger.Add(bolig);
-            FillListView(boliger);
+            //Note til senere
+            MessageBox.Show("Ny bolig tilføjet til liste i BoligViewModel. Husk at opdatere listen I" 
+                        + " UI laget via FillListView eller DisplaySearchResults. Denne messagebox kan slettes når det er gjort");
+            //FillListView(boliger);
         }
 
         public List<Bolig> FillListView() //kaldes hver gang det der skal vises ændres
@@ -43,19 +49,19 @@ namespace ProjektOpgave1Sem2019
             return tempBoliger;
         }
 
-        public void ShowBolig(Bolig b)
+        public void ShowBolig()
         {
-
+            Details.Show();
         }
 
         public void Opret()
         {
-
+            Details.InitializeCreateMode();
         }
 
         public void Edit(Bolig b)
         {
-
+            Details.InitializeEditMode(b);
         }
 
         public void Delete(Bolig b)
