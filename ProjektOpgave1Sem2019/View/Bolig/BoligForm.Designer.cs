@@ -1,4 +1,4 @@
-﻿namespace ProjektOpgave1Sem2019.View
+﻿namespace ProjektOpgave1Sem2019
 {
     partial class BoligForm
     {
@@ -31,10 +31,10 @@
             this.TBInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LWSearchResults = new System.Windows.Forms.ListView();
-            this.Ejer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Adresse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CBKriterie = new System.Windows.Forms.ComboBox();
+            this.PostNr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
+            this.CBKriterie = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TBInput
@@ -59,8 +59,8 @@
             // LWSearchResults
             // 
             this.LWSearchResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Ejer,
-            this.Adresse});
+            this.Adresse,
+            this.PostNr});
             this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
             this.LWSearchResults.Location = new System.Drawing.Point(2, 65);
@@ -71,31 +71,15 @@
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
             // 
-            // Ejer
-            // 
-            this.Ejer.Text = "Fornavn";
-            this.Ejer.Width = 150;
-            // 
             // Adresse
             // 
-            this.Adresse.Text = "Efternavn";
+            this.Adresse.Text = "Adresse";
             this.Adresse.Width = 150;
             // 
-            // CBKriterie
+            // PostNr
             // 
-            this.CBKriterie.FormattingEnabled = true;
-            this.CBKriterie.Items.AddRange(new object[] {
-            "Navn",
-            "Fornavn",
-            "Efternavn",
-            "FødselsDato",
-            "Tlf"});
-            this.CBKriterie.Location = new System.Drawing.Point(65, 40);
-            this.CBKriterie.Margin = new System.Windows.Forms.Padding(2);
-            this.CBKriterie.Name = "CBKriterie";
-            this.CBKriterie.Size = new System.Drawing.Size(92, 21);
-            this.CBKriterie.TabIndex = 8;
-            this.CBKriterie.Text = "Navn";
+            this.PostNr.Text = "Post Nr";
+            this.PostNr.Width = 150;
             // 
             // button2
             // 
@@ -108,14 +92,22 @@
             this.button2.Text = "Opret ny bolig";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // CBKriterie
+            // 
+            this.CBKriterie.FormattingEnabled = true;
+            this.CBKriterie.Location = new System.Drawing.Point(58, 40);
+            this.CBKriterie.Name = "CBKriterie";
+            this.CBKriterie.Size = new System.Drawing.Size(121, 21);
+            this.CBKriterie.TabIndex = 12;
+            // 
             // BoligForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.CBKriterie);
             this.Controls.Add(this.TBInput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LWSearchResults);
-            this.Controls.Add(this.CBKriterie);
             this.Controls.Add(this.button2);
             this.Location = new System.Drawing.Point(200, 116);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -132,9 +124,9 @@
         private System.Windows.Forms.TextBox TBInput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView LWSearchResults;
-        private System.Windows.Forms.ColumnHeader Ejer;
         private System.Windows.Forms.ColumnHeader Adresse;
-        private System.Windows.Forms.ComboBox CBKriterie;
+        private System.Windows.Forms.ColumnHeader PostNr;
         public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox CBKriterie;
     }
 }

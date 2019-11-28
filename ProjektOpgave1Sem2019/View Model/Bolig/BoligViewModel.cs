@@ -22,14 +22,14 @@ namespace ProjektOpgave1Sem2019
         {
             parentForm = parent;
             boliger = BoligTabelDB.GetAll();
-            FillListView(boliger);
+           // FillListView(boliger);
             postNumre = PostNrTabelDB.GetAllPostnumre();
         }
 
         public void AddBoligToList(Bolig bolig)
         {
             boliger.Add(bolig);
-            FillListView(boliger);
+           // FillListView(boliger);
         }
 
         public List<Bolig> FillListView() //kaldes hver gang det der skal vises ændres
