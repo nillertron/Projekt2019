@@ -50,8 +50,9 @@
     <Compile Include="Model\Bolig\BoligTabelDB.cs" />
     <Compile Include="Model\Bolig\SolgtBolig.cs" />
     <Compile Include="Model\Ejendomsmægler\Ejendomsmægler.cs" />
-    <Compile Include="Model\FileWriter.cs" />
-    <Compile Include="Model\InputValidation.cs" />
+    <Compile Include="Model\Services\FileWriter.cs" />
+    <Compile Include="Model\Services\InputValidation.cs" />
+    <Compile Include="Model\Kunde\KundeDBTabel.cs" />
     <Compile Include="Model\Kunde\Køber.cs" />
     <Compile Include="Model\Kunde\Sælger.cs" />
     <Compile Include="Model\Ejendomsmægler\EjendomsmæglerTabelDB.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="View Model\Bolig\BoligViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
+    <Compile Include="View Model\Ejendomsmægler\SælgBoligViewModel.cs" />
     <Compile Include="View\Bolig\BoligDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,7 +86,7 @@
     <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\DBHelper.cs" />
+    <Compile Include="Model\Services\DBHelper.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,11 +96,20 @@
     <Compile Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.Designer.cs">
       <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Bolig\SælgBolig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\SælgBolig.Designer.cs">
+      <DependentUpon>SælgBolig.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\Bolig\BoligDetails.resx">
       <DependentUpon>BoligDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\BoligForm.resx">
       <DependentUpon>BoligForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Bolig\SælgBolig.resx">
+      <DependentUpon>SælgBolig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Ejendomsmægler\EjendomsmæglereForm.resx">
       <DependentUpon>EjendomsmæglereForm.cs</DependentUpon>
