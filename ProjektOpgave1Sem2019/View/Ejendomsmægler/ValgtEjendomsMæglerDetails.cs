@@ -20,10 +20,13 @@ namespace ProjektOpgave1Sem2019
         private bool edit;
         private Ejendomsmægler E;
         EjendomsmæglerViewModel ViewModel;
+        EjendomsmæglereForm ParentForm;
 
-        public ValgtEjendomsMæglerDetails(EjendomsmæglerViewModel View)
+        public ValgtEjendomsMæglerDetails(EjendomsmæglerViewModel View, EjendomsmæglereForm ParentForm)
         {
             InitializeComponent();
+
+            this.ParentForm = ParentForm;
 
             this.ViewModel = View;
             CBPostNr.DataSource = View.PostNummerListe;
@@ -99,7 +102,10 @@ namespace ProjektOpgave1Sem2019
                 var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
                 E.Opdater(phobj);
                 ViewModel.Edit(E);
-                ViewModel.FillListView();
+
+                
+                ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
+
             }
         }
 
@@ -119,6 +125,8 @@ namespace ProjektOpgave1Sem2019
                 {
                     MessageBox.Show(eee.Message);
                 }
+
+                ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
             }
         }
 
@@ -128,8 +136,12 @@ namespace ProjektOpgave1Sem2019
             {
                 ViewModel.Delete(E);
                 ClearTekstBokse();
+                ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
+
+                
             }
         }
+        
 
 
     }
