@@ -16,7 +16,7 @@ namespace ProjektOpgave1Sem2019
 
         private static string GetAllNotSoldQuery = " SELECT * FROM Bolig b  WHERE NOT EXISTS (SELECT * FROM SolgtBolig WHERE SolgtBolig.BoligID = b.ID)";
 
-        private static string CreateQuery = " INSERT VALUES INSERT INTO Bolig( Adresse, Pris, SælgerID, Kvm, OprettelsesDato, EjendomsmæglerID, PostNr) ";
+      
 
      
 
@@ -235,10 +235,45 @@ namespace ProjektOpgave1Sem2019
             
             
         }
-        // public static bool Delete(Bolig b)
-        // {
+        public static bool Delete(Bolig b)
+        {
+            bool success = false;
 
-        // }
+            try
+            {
+                DBHelper.Conn.Open();
+
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("DB did not open");
+
+            } 
+
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                string query = $" DELETE FROM Bolig " +
+                    $"WHERE ID = {b.ID}";
+
+                cmd.Connection = DBHelper.Conn;
+                cmd.CommandText = query;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    success = true;
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("values not accepted in DB");
+                }
+   
+            }
+
+            DBHelper.Conn.Close();
+            return success;
+
+        }
 
         // public static bool CreateSolgtBolig(SolgtBolig b)
         //{
