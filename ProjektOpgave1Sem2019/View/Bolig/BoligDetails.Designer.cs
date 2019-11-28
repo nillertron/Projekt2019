@@ -125,6 +125,7 @@
             this.Controls.Add(this.LabelID);
             this.Controls.Add(this.TBPris);
             this.Controls.Add(this.TBAdresse);
+            this.Location = new System.Drawing.Point(600, 50);
             this.Name = "BoligDetails";
             this.Size = new System.Drawing.Size(1020, 444);
             this.ResumeLayout(false);

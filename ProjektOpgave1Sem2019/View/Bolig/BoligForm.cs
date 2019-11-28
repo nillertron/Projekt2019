@@ -13,15 +13,17 @@ namespace ProjektOpgave1Sem2019
     public partial class BoligForm : UserControl
     {
         BoligViewModel ViewModel;
+        BoligDetails Details;
         public BoligForm()
         {
             InitializeComponent();
-            ViewModel = new BoligViewModel(this);
+            ViewModel = new BoligViewModel();
             var kriterier = new string[] { "Areal større end", "Areal mindre end", "Pris større end", "Pris mindre end" };
             CBKriterie.Items.AddRange(kriterier);
-            FyldListView(ViewModel.boliger);
+            FyldListView(ViewModel.FillListView());
             CBKriterie.SelectedIndex = 0;
-
+            Details = new BoligDetails(this.ViewModel);
+            Controls.Add(Details);
 
         }
 
@@ -50,7 +52,7 @@ namespace ProjektOpgave1Sem2019
             var phListe = new List<Bolig>();
             LWSearchResults.Items.Clear();
             if (TBInput.TextLength == 0)
-                FyldListView(ViewModel.boliger);
+                FyldListView(ViewModel.FillListView());
             else
             {
                 var input = TBInput.Text;
@@ -75,11 +77,16 @@ namespace ProjektOpgave1Sem2019
 
         private void LWSearchResults_DoubleClick(object sender, EventArgs e)
         {
-            var Valgt = new Bolig();
-            ViewModel.boliger.ForEach(o => { if (o.ID.ToString() == LWSearchResults.FocusedItem.Name) Valgt = o; });
-            var instans = ViewModel.ShowBolig(Valgt);
-            Controls.Add(instans);
+            var Valgt = ViewModel.GetBolig(LWSearchResults.FocusedItem.Name);
+            ViewModel.FillListView().ForEach(o => { if (o.ID.ToString() == LWSearchResults.FocusedItem.Name) Valgt = o; });
 
+            Details.InitializeEditMode(Valgt);
+
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Details.InitializeCreateMode();
         }
     }
 }

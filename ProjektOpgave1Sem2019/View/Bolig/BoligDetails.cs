@@ -16,17 +16,24 @@ namespace ProjektOpgave1Sem2019
     public partial class BoligDetails : UserControl
     {
         BoligViewModel viewModel;
+        bool editMode;
         Bolig selectedBolig;
         bool isEditMode;
         public BoligDetails(BoligViewModel model)
         {
+            editMode = false;
             InitializeComponent();
 
             viewModel = model;
             CBPostNr.DataSource = model.postNumre;
+            CBPostNr.DisplayMember = "PostNummer";
+
+            Hide();
         }
         public void InitializeCreateMode()
         {
+            editMode = false;
+            Show();
             CBPostNr.Show(); //Hides unnecessary controls
             TBPostNr.Hide();
             LabelID.Hide();
@@ -44,13 +51,15 @@ namespace ProjektOpgave1Sem2019
             LabelID.Text = "";
 
             DTPOpretDato.Value = DateTime.Now;
-            DTPOpretDato.Enabled = false;
+            
 
             LabelMode.Text = "CREATE MODE";
         }
 
         public void InitializeEditMode(Bolig b)
         {
+            editMode = true;
+            Show();
             TBAdresse.Text = b.Adresse;
             TBAdresse.ReadOnly = true; //Adresse ændres ikke medmindre vi henter en kæmpe lastbil.
 
@@ -61,6 +70,7 @@ namespace ProjektOpgave1Sem2019
 
             CBPostNr.Hide(); //PostNr skal ikke ændres ever
             TBPostNr.Text = b.PostNr.ToString();
+            TBPostNr.ReadOnly = true;
 
             LabelID.Text = b.ID.ToString();
 
@@ -72,29 +82,31 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (isEditMode)
-            {
-                if (double.TryParse(TBPris.Text, out double d)) //Valider at der står en valid double i feltet
-                {
-                    if (d > 0) //Pris er ikke negativ
-                    {
-                        selectedBolig.UpdatePris(d); //Opdaterer boligs pris med den nye double (object er reference, 
-                        BoligTabelDB.Update(selectedBolig); //Dermed ændres den også her)
-                        this.Hide();
-                    }
-                }
-            }
-            else
-            {
-                //Sælgerid hentes fra en liste sælgere, implementeres senere
-                Bolig newBolig = new Bolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text), Convert.ToInt32(TBSælgerID.Text),
-                                            //EjendomsmæglerID hentes fra en liste af ejendomsmæglere, implementeres senere
-                                            Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value, Convert.ToInt32(TBEjendomsmæglerID),
-                                            (int)CBPostNr.SelectedItem);
+            //if (isEditMode)
+            //{
+            //    if (double.TryParse(TBPris.Text, out double d)) //Valider at der står en valid double i feltet
+            //    {
+            //        if (d > 0) //Pris er ikke negativ
+            //        {
+            //            selectedBolig.UpdatePris(d); //Opdaterer boligs pris med den nye double (object er reference, 
+            //            BoligTabelDB.Update(selectedBolig); //Dermed ændres den også her)
+            //            this.Hide();
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    //Sælgerid hentes fra en liste sælgere, implementeres senere
+            //    Bolig newBolig = new Bolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text), Convert.ToInt32(TBSælgerID.Text),
+            //                                //EjendomsmæglerID hentes fra en liste af ejendomsmæglere, implementeres senere
+            //                                Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value, Convert.ToInt32(TBEjendomsmæglerID),
+            //                                (int)CBPostNr.SelectedItem);
 
-                BoligTabelDB.Create(newBolig);
-                this.Hide();
-            }
+            //    BoligTabelDB.Create(newBolig);
+            //    this.Hide();
+            //}
+            MessageBox.Show("Boop, pranked, Im out");
+            Hide();
         }
 
         //public bool InputsAreValid()
@@ -139,17 +151,20 @@ namespace ProjektOpgave1Sem2019
 
         private void TBAreal_TextChanged(object sender, EventArgs e)
         {
-            if(!InputValidation.ValiderInt(TBAreal.Text))
+            if (!editMode)
             {
-                TBAreal.BackColor = Color.Red;//Gør textbox baggrund rød og
-                BtnSave.Enabled = false;//Slå save knap fra når invalid input indtastes
-            }
-            else
-            {
-                TBAreal.BackColor = Color.White;
-                if(TBPris.BackColor != Color.Red) //Check at anden inputværdi ikke har fejlet validering tidligere
+                if (!InputValidation.ValiderInt(TBAreal.Text))
                 {
-                    BtnSave.Enabled = true;
+                    TBAreal.BackColor = Color.Red;//Gør textbox baggrund rød og
+                    BtnSave.Enabled = false;//Slå save knap fra når invalid input indtastes
+                }
+                else
+                {
+                    TBAreal.BackColor = Color.White;
+                    if (TBPris.BackColor != Color.Red) //Check at anden inputværdi ikke har fejlet validering tidligere
+                    {
+                        BtnSave.Enabled = true;
+                    }
                 }
             }
         }

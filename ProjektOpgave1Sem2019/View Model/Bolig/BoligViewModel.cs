@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using ProjektOpgave1Sem2019.Model;
 using System.Windows.Forms;
-using ProjektOpgave1Sem2019.View;
+using ProjektOpgave1Sem2019;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -51,7 +51,7 @@ namespace ProjektOpgave1Sem2019
 
         public void ShowBolig()
         {
-            Details.Show();
+            //Details.Show();
         }
 
         public void Opret()
@@ -67,6 +67,18 @@ namespace ProjektOpgave1Sem2019
         public void Delete(Bolig b)
         {
 
+        }
+
+        public Bolig GetBolig(string id)
+        {
+            foreach(Bolig b in boliger)
+            {
+                if(b.ID.ToString() == id)
+                {
+                    return b;
+                }
+            }
+            return null;
         }
 
         public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory)
