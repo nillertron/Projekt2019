@@ -33,18 +33,19 @@
             this.LabelID = new System.Windows.Forms.Label();
             this.TBAreal = new System.Windows.Forms.TextBox();
             this.DTP = new System.Windows.Forms.DateTimePicker();
+            this.CBPostNr = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TBAdresse
             // 
-            this.TBAdresse.Location = new System.Drawing.Point(23, 46);
+            this.TBAdresse.Location = new System.Drawing.Point(23, 133);
             this.TBAdresse.Name = "TBAdresse";
             this.TBAdresse.Size = new System.Drawing.Size(153, 26);
             this.TBAdresse.TabIndex = 0;
             // 
             // TBPris
             // 
-            this.TBPris.Location = new System.Drawing.Point(23, 134);
+            this.TBPris.Location = new System.Drawing.Point(23, 46);
             this.TBPris.Name = "TBPris";
             this.TBPris.Size = new System.Drawing.Size(153, 26);
             this.TBPris.TabIndex = 1;
@@ -72,10 +73,19 @@
             this.DTP.Size = new System.Drawing.Size(200, 26);
             this.DTP.TabIndex = 4;
             // 
+            // CBPostNr
+            // 
+            this.CBPostNr.FormattingEnabled = true;
+            this.CBPostNr.Location = new System.Drawing.Point(235, 131);
+            this.CBPostNr.Name = "CBPostNr";
+            this.CBPostNr.Size = new System.Drawing.Size(121, 28);
+            this.CBPostNr.TabIndex = 5;
+            // 
             // BoligDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.CBPostNr);
             this.Controls.Add(this.DTP);
             this.Controls.Add(this.TBAreal);
             this.Controls.Add(this.LabelID);
@@ -95,5 +105,6 @@
         private System.Windows.Forms.Label LabelID;
         private System.Windows.Forms.TextBox TBAreal;
         private System.Windows.Forms.DateTimePicker DTP;
+        private System.Windows.Forms.ComboBox CBPostNr;
     }
 }

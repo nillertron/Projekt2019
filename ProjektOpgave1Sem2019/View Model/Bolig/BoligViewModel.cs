@@ -171,7 +171,7 @@ namespace ProjektOpgave1Sem2019
 
             return returnBool;
         }
-
+        //
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)
         //{
 
