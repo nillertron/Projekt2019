@@ -275,10 +275,42 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        // public static bool CreateSolgtBolig(SolgtBolig b)
-        //{
+        public static bool CreateSolgtBolig(SolgtBolig b)
+       {
+            bool success = false;
+            try
+            {
+            DBHelper.Conn.Open();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("DB did not open");
+            }
 
-        //}
+
+            using(SqlCommand cmd = new SqlCommand())
+            {
+                string query = $" INSERT INTO SolgtBolig " +
+                    $" (BoligID, KøberID, Købspris, KøbsDato) " +
+                    $" VALUES " +
+                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, {b.KøbsDato.ToOADate()}) ";
+                cmd.CommandText = query;
+                cmd.Connection = DBHelper.Conn;
+                
+                try
+                {
+                cmd.ExecuteNonQuery();
+                    success = true; 
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("values not accepted in DB");
+                }
+
+                DBHelper.Conn.Close();
+                return success;
+            }
+       }
 
     }
 }
