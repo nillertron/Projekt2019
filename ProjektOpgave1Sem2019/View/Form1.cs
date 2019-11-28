@@ -77,11 +77,15 @@ namespace ProjektOpgave1Sem2019
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var bolig = new BoligForm();
-            if (!this.Controls.Contains(bolig))
+
+                var bolig = new BoligForm();
+                if (!this.Controls.Contains(bolig))
+            {
                 Controls.Add(bolig);
-            bolig.BringToFront();
-            
+                bolig.Anchor = AnchorStyles.Top + Left;
+                bolig.BringToFront();
+            }
+
         }
     }
 }
