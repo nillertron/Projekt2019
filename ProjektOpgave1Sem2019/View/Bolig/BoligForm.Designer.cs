@@ -34,6 +34,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(231, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
@@ -46,8 +47,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
             this.Location = new System.Drawing.Point(200, 116);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BoligForm";
-            this.Size = new System.Drawing.Size(686, 429);
+            this.Size = new System.Drawing.Size(1148, 500);
             this.Load += new System.EventHandler(this.BoligView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
