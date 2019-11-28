@@ -35,20 +35,36 @@ namespace ProjektOpgave1Sem2019
             this.ViewModel = new EjendomsmæglerViewModel(this);
             this.Kriterie = CBKriterie;
             this.Input = TBInput;
-            
+            UpdateListView(ViewModel.DisplaySearchResults());
 
         }
 
         private void TBInput_TextChanged(object sender, EventArgs e)
         {
 
-            ViewModel.DisplaySearchResults(CBKriterie.Text, TBInput.Text);
+            UpdateListView(ViewModel.DisplaySearchResults(CBKriterie.Text, TBInput.Text));
+            
 
             
         }
         private void wr(string s)
         {
             System.Diagnostics.Debug.WriteLine(s);
+        }
+        public void UpdateListView(List<Ejendomsmægler> ejendomsmæglere)
+        {
+            SearchResults.Items.Clear();
+            foreach(Ejendomsmægler e in ejendomsmæglere)
+            {
+                ListViewItem item = new ListViewItem(e.Navn);
+                item.SubItems.Add(e.Efternavn);
+
+                item.Name = e.Id.ToString();
+
+
+
+                SearchResults.Items.Add(item);
+            }
         }
 
         private void LWSearchResults_MouseDoubleClick(object sender, MouseEventArgs e)

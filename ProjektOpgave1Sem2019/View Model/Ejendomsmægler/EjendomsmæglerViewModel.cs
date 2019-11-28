@@ -26,17 +26,12 @@ namespace ProjektOpgave1Sem2019.View_Model
             FyldPostnumre();
             EjendomsmæglerListe = new List<Ejendomsmægler>();
             GetAll();
-            Details = new ValgtEjendomsMæglerDetails(this);
+            Details = new ValgtEjendomsMæglerDetails(this, ParentForm);
             this.ParentForm = ParentForm;
-            FillListView();
+            
            
         }
-        public void FillListView()
-        {
-            ParentForm.SearchResults.Items.Clear();
-            foreach (Ejendomsmægler e in EjendomsmæglerListe)
-                AddEjendomsmæglerToList(e);
-        }
+   
 
         private void FyldPostnumre()
         {
@@ -124,9 +119,9 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         }
 
-        public void DisplaySearchResults(string kriterie, string input)
+        public List<Ejendomsmægler> DisplaySearchResults(string kriterie, string input)
         {
-           ParentForm.SearchResults.Items.Clear();
+          
 
 
             List<Ejendomsmægler> searchResults = new List<Ejendomsmægler>();
@@ -140,10 +135,18 @@ namespace ProjektOpgave1Sem2019.View_Model
                     case "Navn":
                         foreach (Ejendomsmægler e in EjendomsmæglerListe)
                         {
-                            if (e.Navn.ToLower().Contains(input))
+                        string fuldtNavn = e.Navn + e.Efternavn;
+                            if (fuldtNavn.ToLower().Contains(input))
                                 searchResults.Add(e);
                         }
                         break;
+                case "Fornavn":
+                    foreach(Ejendomsmægler e in EjendomsmæglerListe)
+                    {
+                        if (e.Navn.ToLower().Contains(input))
+                            searchResults.Add(e);
+                    }
+                    break;
                     case "Efternavn":
                         foreach (Ejendomsmægler e in EjendomsmæglerListe)
                         {
@@ -151,10 +154,10 @@ namespace ProjektOpgave1Sem2019.View_Model
                                 searchResults.Add(e);
                         }
                         break;
-                    case "Fødseldsdato":
+                    case "FødselsDato":
                         foreach (Ejendomsmægler e in EjendomsmæglerListe)
-                        {
-                            if (e.Fødseldato.ToString().Contains(input))
+                        { 
+                        if (e.Fødseldato.ToString().Contains(input))
                                 searchResults.Add(e);
                         }
                         break;
@@ -172,14 +175,16 @@ namespace ProjektOpgave1Sem2019.View_Model
 
                 }
 
-                //display the searchresults 
-                foreach (Ejendomsmægler e in searchResults)
-                    AddEjendomsmæglerToList(e);
+            return searchResults;
 
 
 
             
 
+        }
+        public List<Ejendomsmægler> DisplaySearchResults()
+        {
+            return EjendomsmæglerListe;
         }
     }
 }
