@@ -17,8 +17,8 @@ namespace ProjektOpgave1Sem2019
         public BoligForm()
         {
             InitializeComponent();
-            ViewModel = new BoligViewModel(); //Jeg har lige tilføjet de 2 sidste søgekriterier nedenfor - Martin
-            var kriterier = new string[] { "PostNr", "Adresse", "Areal større end", "Areal mindre end", "Pris større end", "Pris mindre end" };
+            ViewModel = new BoligViewModel();
+            var kriterier = new string[] { "Adresse", "PostNr", "Areal større end", "Areal mindre end", "Pris større end", "Pris mindre end" };
             CBKriterie.Items.AddRange(kriterier);
             FyldListView(ViewModel.FillListView());
             CBKriterie.SelectedIndex = 0;

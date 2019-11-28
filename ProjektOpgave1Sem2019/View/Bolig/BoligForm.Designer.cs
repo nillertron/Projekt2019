@@ -39,18 +39,21 @@
             // 
             // TBInput
             // 
-            this.TBInput.Location = new System.Drawing.Point(276, 62);
+            this.TBInput.Location = new System.Drawing.Point(177, 10);
+            this.TBInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBInput.Name = "TBInput";
-            this.TBInput.Size = new System.Drawing.Size(190, 26);
+            this.TBInput.Size = new System.Drawing.Size(128, 20);
             this.TBInput.TabIndex = 11;
             this.TBInput.TextChanged += new System.EventHandler(this.TBInput_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 66);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(2, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
+            this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Søg efter: ";
             // 
@@ -61,9 +64,10 @@
             this.PostNr});
             this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
-            this.LWSearchResults.Location = new System.Drawing.Point(3, 100);
+            this.LWSearchResults.Location = new System.Drawing.Point(13, 36);
+            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LWSearchResults.Name = "LWSearchResults";
-            this.LWSearchResults.Size = new System.Drawing.Size(463, 642);
+            this.LWSearchResults.Size = new System.Drawing.Size(310, 419);
             this.LWSearchResults.TabIndex = 9;
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
@@ -82,9 +86,10 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(459, 2);
+            this.button2.Location = new System.Drawing.Point(327, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(208, 57);
+            this.button2.Size = new System.Drawing.Size(139, 37);
             this.button2.TabIndex = 7;
             this.button2.Text = "Opret ny bolig";
             this.button2.UseVisualStyleBackColor = true;
@@ -94,24 +99,24 @@
             // 
             this.CBKriterie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBKriterie.FormattingEnabled = true;
-            this.CBKriterie.Location = new System.Drawing.Point(87, 62);
-            this.CBKriterie.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CBKriterie.Location = new System.Drawing.Point(51, 10);
             this.CBKriterie.Name = "CBKriterie";
-            this.CBKriterie.Size = new System.Drawing.Size(180, 28);
+            this.CBKriterie.Size = new System.Drawing.Size(121, 21);
             this.CBKriterie.TabIndex = 12;
             // 
             // BoligForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.CBKriterie);
             this.Controls.Add(this.TBInput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LWSearchResults);
             this.Controls.Add(this.button2);
-            this.Location = new System.Drawing.Point(200, 116);
+            this.Location = new System.Drawing.Point(150, 105);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BoligForm";
-            this.Size = new System.Drawing.Size(1722, 769);
+            this.Size = new System.Drawing.Size(1148, 500);
             this.Load += new System.EventHandler(this.BoligView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

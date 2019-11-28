@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019;
 using ProjektOpgave1Sem2019.Model;
+using ProjektOpgave1Sem2019.View;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -21,8 +22,8 @@ namespace ProjektOpgave1Sem2019
         bool isEditMode;
         public BoligDetails(BoligViewModel model)
         {
-            editMode = false;
             InitializeComponent();
+            editMode = false;
 
             viewModel = model;
             CBPostNr.DataSource = model.postNumre;
@@ -61,6 +62,7 @@ namespace ProjektOpgave1Sem2019
             editMode = true;
             selectedBolig = b;
             Show();
+            CBPostNr.Show();
             TBAdresse.Text = b.Adresse;
             TBAdresse.ReadOnly = true; //Adresse ændres ikke medmindre vi henter en kæmpe lastbil.
 
@@ -161,5 +163,25 @@ namespace ProjektOpgave1Sem2019
                 }
             }
         }
-    }
+
+        private void BoligDetails_Load(object sender, EventArgs e)
+        {
+
+        }
+        /// Nichlas leger her
+
+        private void CBPostNr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = CBPostNr.SelectedItem as PostNumre;
+            LBLPris.Text = item.PrisPrm2.ToString() + " ,-KR"; 
+
+        }
+
+
+        private void BTNSolgt_Click(object sender, EventArgs e)
+        {
+            var SælgBoligForm = new SælgBolig(selectedBolig); //kan ikke få den frem :(
+            SælgBoligForm.BringToFront();
+        }
+    }        /// 
 }

@@ -7,6 +7,7 @@ using System.Drawing;
 using ProjektOpgave1Sem2019.Model;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019;
+using ProjektOpgave1Sem2019.View;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -203,6 +204,13 @@ namespace ProjektOpgave1Sem2019
             //Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
             //newBolig = BoligTabelDB.Create(newBolig);
             //AddBoligToList(newBolig);
+        }
+
+        internal void MarkerSolgt()
+        {
+            //var solgtbolig = new SælgBolig();
+           // solgtbolig.StartSale();
+           // BoligTabelDB.InsertSold()
         }
         //
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)

@@ -16,18 +16,17 @@ namespace ProjektOpgave1Sem2019
 
         private static string GetAllNotSoldQuery = " SELECT * FROM Bolig b  WHERE NOT EXISTS (SELECT * FROM SolgtBolig WHERE SolgtBolig.BoligID = b.ID)";
 
+      
 
+     
 
-  
 
         public static List<Bolig> GetAll()
         {
             
             List<Bolig> boliger = new List<Bolig>();
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = DBHelper.Conn;
-            cmd.CommandText = GetAllQuery; 
+
             try
             {
                 DBHelper.Conn.Open();
@@ -37,8 +36,13 @@ namespace ProjektOpgave1Sem2019
                 //could not open database 
                 System.Windows.Forms.MessageBox.Show("DB forbindelse kunne ikke åbnes");
             }
-            using (DBHelper.Conn)
+            
+            using (SqlCommand cmd = new SqlCommand())
             {
+            cmd.Connection = DBHelper.Conn;
+            cmd.CommandText = GetAllQuery; 
+
+            
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -49,8 +53,10 @@ namespace ProjektOpgave1Sem2019
                     }
                 }
             }
+         
             
 
+            DBHelper.Conn.Close();
             return boliger;
         }
 
@@ -61,9 +67,6 @@ namespace ProjektOpgave1Sem2019
             
             List<Bolig> boliger = new List<Bolig>();
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = DBHelper.Conn;
-            cmd.CommandText = GetAllNotSoldQuery;
 
             try
             {
@@ -74,24 +77,36 @@ namespace ProjektOpgave1Sem2019
                 //could not open database 
                 System.Windows.Forms.MessageBox.Show("DB forbindelse kunne ikke åbnes");
             }
-            using (DBHelper.Conn)
-            {
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Bolig bolig = GetBoligFromReader(reader);
-                        boliger.Add(bolig);
 
-                    }
+            using (SqlCommand cmd = new SqlCommand())
+            {
+
+                cmd.Connection = DBHelper.Conn;
+                cmd.CommandText = GetAllNotSoldQuery;
+
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Bolig bolig = GetBoligFromReader(reader);
+                    boliger.Add(bolig);
+
                 }
             }
+        }
+
 
             
+               
+            
+            DBHelper.Conn.Close(); 
             return boliger;
 
 
         }
+
+
 
 
         private static Bolig GetBoligFromReader(SqlDataReader reader)
@@ -112,18 +127,222 @@ namespace ProjektOpgave1Sem2019
         }
 
 
-        // //public static bool Create(Bolig b)
-        // {
 
-        // }
-        // //public static bool Update(Bolig b)
-        // {
 
-        // }
-        // //public static bool Delete(Bolig b)
-        // {
+         public static Bolig Create(Bolig b)
+         {
 
-        // }
+            int nyBoligId = 0;
+          
+
+            try
+            {
+                DBHelper.Conn.Open();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("DB forbindelse kunne ikke åbnes");
+            }
+         
+
+            
+                using (SqlCommand cmd = new SqlCommand()) 
+                {
+                string query = " INSERT INTO Bolig( Adresse, Pris, SælgerID, Kvm, OprettelsesDato, EjendomsmæglerID, PostNr) ";
+                query += $" VALUES ( '{b.Adresse}', {b.Pris}, {b.SælgerID}, {b.Kvm}, {b.OprettelsesDato.ToOADate()}, {b.EjendomsmæglerID}, {b.PostNr} )";
+
+                cmd.Connection = DBHelper.Conn;
+                cmd.CommandText = query;
+
+
+
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    catch (Exception e)
+                    {
+                        System.Diagnostics.Debug.WriteLine(e);
+                        System.Windows.Forms.MessageBox.Show("Database acceptered ikke værdier, se debugger for detaljer");
+                    }
+                    
+                }
+                // get the id (autoincremented from DB):
+               
+                using (SqlCommand getIdCmd = new SqlCommand())
+                {
+                    string getIdQuery = "SELECT MAX(ID) AS ID FROM Bolig";
+                    getIdCmd.Connection = DBHelper.Conn;
+                    getIdCmd.CommandText = getIdQuery;
+                    using (SqlDataReader reader = getIdCmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            nyBoligId = Convert.ToInt32(reader["ID"]); 
+                        }
+                    }
+            }
+
+
+
+           Bolig nyBolig = new Bolig(nyBoligId, b.Adresse, b.Pris, b.SælgerID, b.Kvm, b.OprettelsesDato, b.EjendomsmæglerID, b.PostNr);
+
+
+            DBHelper.Conn.Close(); 
+            return nyBolig;
+         }
+
+
+
+     
+
+
+
+
+        public static bool Update(Bolig b)
+        {
+            bool success = false;
+
+
+            try
+            {
+                DBHelper.Conn.Open();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("DB forbindelse kunne ikke åbnes");
+            }
+
+
+
+            using(SqlCommand cmd = new SqlCommand())
+            {
+            string query = " UPDATE Bolig ";
+            query += $" SET Adresse = '{b.Adresse}', " +
+                $" Pris = {b.Pris}, " +
+                $" SælgerID = {b.SælgerID}, " +
+                $" Kvm = {b.Kvm}, " +
+                $" OprettelsesDato = {b.OprettelsesDato.ToOADate()}, " +
+                $" EjendomsmæglerID = {b.EjendomsmæglerID}, " +
+                $" PostNr = {b.PostNr} " +
+                $" WHERE ID = {b.ID}";
+            cmd.CommandText = query;
+            cmd.Connection = DBHelper.Conn;
+
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    success = true;
+                }
+                catch (Exception e)
+                {
+
+                    System.Diagnostics.Debug.WriteLine(e);
+                    System.Windows.Forms.MessageBox.Show("Database acceptered ikke værdier, se debugger for detaljer");
+                }
+            }
+
+
+            DBHelper.Conn.Close();
+            return success;
+        }
+
+
+
+
+
+        public static bool Delete(Bolig b)
+        {
+            bool success = false;
+
+            try
+            {
+                DBHelper.Conn.Open();
+
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("DB forbindelse kunne ikke åbnes");
+
+            } 
+
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                string query = $" DELETE FROM Bolig " +
+                    $"WHERE ID = {b.ID}";
+
+                cmd.Connection = DBHelper.Conn;
+                cmd.CommandText = query;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    success = true;
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine(e);
+                    System.Windows.Forms.MessageBox.Show("Database acceptered ikke værdier, se debugger for detaljer");
+                }
+   
+            }
+
+            DBHelper.Conn.Close();
+            return success;
+
+        }
+
+
+
+
+
+
+
+
+        public static bool CreateSolgtBolig(SolgtBolig b)
+       {
+            bool success = false;
+
+            try
+            {
+            DBHelper.Conn.Open();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("DB did not open");
+            }
+
+
+            using(SqlCommand cmd = new SqlCommand())
+            {
+                string query = $" INSERT INTO SolgtBolig " +
+                    $" (BoligID, KøberID, Købspris, KøbsDato) " +
+                    $" VALUES " +
+                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, {b.KøbsDato.ToOADate()}) ";
+                cmd.CommandText = query;
+                cmd.Connection = DBHelper.Conn;
+                
+                try
+                {
+                cmd.ExecuteNonQuery();
+                    success = true; 
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("values not accepted in DB");
+                }
+
+            }
+
+
+
+
+                DBHelper.Conn.Close();
+                return success;
+        }
 
     }
 }
