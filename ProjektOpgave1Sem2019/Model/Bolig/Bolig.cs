@@ -19,7 +19,7 @@ namespace ProjektOpgave1Sem2019
         public int Kvm { private set { if (value > 0 && value < 2000) _Kvm = value; else throw new FormatException("Kvm skal være mellem 1 og 2000"); } get { return _Kvm; } }
 
         private DateTime _OprettelsesDato;
-        public DateTime OprettelsesDato { private set { if (value.Year > 2015) _OprettelsesDato = value; else throw new FormatException("Oprettelsesåret minimum er 2015"); } get { return _OprettelsesDato; } }
+        public DateTime OprettelsesDato { private set { if (value.Year >= 2015) _OprettelsesDato = value; else throw new FormatException("Oprettelsesåret minimum er 2015"); } get { return _OprettelsesDato; } }
 
         private int _EjendomsmæglerID;
         public int EjendomsmæglerID { private set { if (value > 0) _EjendomsmæglerID = value; else throw new FormatException("ID skal være størrere end 0"); } get { return _EjendomsmæglerID; }}
