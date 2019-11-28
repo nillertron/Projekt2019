@@ -41,7 +41,7 @@ namespace ProjektOpgave1Sem2019
 
 
 
-            BoligTabelDB.GetAll();
+            //BoligTabelDB.GetAll();
 
 
 
