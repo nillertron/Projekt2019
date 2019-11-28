@@ -42,7 +42,18 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
-        
+
+        public Bolig(string Adresse, Double Pris, int SælgerID, int Kvm, DateTime OprettelsesDato, int EjendomsmæglerID, int PostNr)
+        {
+            this.Adresse = Adresse;
+            this.Pris = Pris;
+            this.SælgerID = SælgerID;
+            this.Kvm = Kvm;
+            this.OprettelsesDato = OprettelsesDato;
+            this.EjendomsmæglerID = EjendomsmæglerID;
+            this.PostNr = PostNr;
+        }
+
         public int CompareTo(object obj)
         {
             int returnValue;

@@ -37,15 +37,12 @@ namespace ProjektOpgave1Sem2019
             BTNEjendomsmæglere.FlatAppearance.BorderSize = 0;
             button4.FlatAppearance.BorderSize = 0;
             #endregion
-
-     
-
-
-
+            
 
 
 
         }
+     
      
 
         private void Form1_Load(object sender, EventArgs e)
