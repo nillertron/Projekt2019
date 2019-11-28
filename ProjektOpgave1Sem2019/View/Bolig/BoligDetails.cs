@@ -50,7 +50,7 @@ namespace ProjektOpgave1Sem2019
 
             LabelID.Text = "";
 
-            DTPOpretDato.Value = DateTime.Now;
+            DTPOpretDato.Value = DateTime.Now; //på nuværende tidspunkt kan kun oprettes dags dato
             
 
             LabelMode.Text = "CREATE MODE";
@@ -59,6 +59,7 @@ namespace ProjektOpgave1Sem2019
         public void InitializeEditMode(Bolig b)
         {
             editMode = true;
+            selectedBolig = b;
             Show();
             TBAdresse.Text = b.Adresse;
             TBAdresse.ReadOnly = true; //Adresse ændres ikke medmindre vi henter en kæmpe lastbil.
@@ -82,29 +83,21 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            //if (isEditMode)
-            //{
-            //    if (double.TryParse(TBPris.Text, out double d)) //Valider at der står en valid double i feltet
-            //    {
-            //        if (d > 0) //Pris er ikke negativ
-            //        {
-            //            selectedBolig.UpdatePris(d); //Opdaterer boligs pris med den nye double (object er reference, 
-            //            BoligTabelDB.Update(selectedBolig); //Dermed ændres den også her)
-            //            this.Hide();
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    //Sælgerid hentes fra en liste sælgere, implementeres senere
-            //    Bolig newBolig = new Bolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text), Convert.ToInt32(TBSælgerID.Text),
-            //                                //EjendomsmæglerID hentes fra en liste af ejendomsmæglere, implementeres senere
-            //                                Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value, Convert.ToInt32(TBEjendomsmæglerID),
-            //                                (int)CBPostNr.SelectedItem);
+            if (isEditMode)
+            {
+                viewModel.SaveEdit(selectedBolig, Convert.ToDouble(TBPris.Text)); //Forsøger at holde logik og datamanipulation i ViewModel
+            }
+            else
+            {
+                //Sælgerid hentes fra en liste sælgere, implementeres senere
+                viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text),
+                                            //EjendomsmæglerID hentes fra en liste af ejendomsmæglere, implementeres senere
+                                            Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
+                                            (int)CBPostNr.SelectedItem);
 
-            //    BoligTabelDB.Create(newBolig);
-            //    this.Hide();
-            //}
+                BoligTabelDB.Create(newBolig);
+                this.Hide();
+            }
             MessageBox.Show("Boop, pranked, Im out");
             Hide();
         }

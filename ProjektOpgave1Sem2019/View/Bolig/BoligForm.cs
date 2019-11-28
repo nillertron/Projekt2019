@@ -17,8 +17,8 @@ namespace ProjektOpgave1Sem2019
         public BoligForm()
         {
             InitializeComponent();
-            ViewModel = new BoligViewModel();
-            var kriterier = new string[] { "Areal større end", "Areal mindre end", "Pris større end", "Pris mindre end" };
+            ViewModel = new BoligViewModel(); //Jeg har lige tilføjet de 2 sidste søgekriterier nedenfor - Martin
+            var kriterier = new string[] { "PostNr", "Adresse", "Areal større end", "Areal mindre end", "Pris større end", "Pris mindre end" };
             CBKriterie.Items.AddRange(kriterier);
             FyldListView(ViewModel.FillListView());
             CBKriterie.SelectedIndex = 0;
@@ -87,6 +87,8 @@ namespace ProjektOpgave1Sem2019
         private void Button2_Click(object sender, EventArgs e)
         {
             Details.InitializeCreateMode();
+            //Opdaterer liste med ny Bolig -Martin
+            FyldListView(ViewModel.SearchFor(CBKriterie.SelectedItem.ToString(), TBInput.Text));
         }
     }
 }

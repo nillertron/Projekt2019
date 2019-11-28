@@ -189,6 +189,21 @@ namespace ProjektOpgave1Sem2019
 
             return returnBool;
         }
+
+        public void SaveEdit(Bolig b, double d)
+        {
+            b.UpdatePris(d);
+            //BoligTabelDB.Update(b);
+        }
+
+        public void SaveNewBolig(string adresse, double pris, int areal, DateTime opretDato, int postNr)
+        {
+            //Get sælgerID
+            //Get Ejendomsmægler id
+            //Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
+            //newBolig = BoligTabelDB.Create(newBolig);
+            //AddBoligToList(newBolig);
+        }
         //
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)
         //{
