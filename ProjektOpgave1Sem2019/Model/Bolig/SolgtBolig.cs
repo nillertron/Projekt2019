@@ -22,11 +22,25 @@ namespace ProjektOpgave1Sem2019
             this.KøbsDato = KøbsDato;
         }
 
-        public void SælgBolig( int køberId, double købsPris, DateTime købsDato)
+        public SolgtBolig SælgBolig(Bolig b, int køberId, double købsPris, DateTime købsDato)
         {
-            this.KøberID = køberId;
-            this.KøbsPris = købsPris;
-            this.KøbsDato = KøbsDato;
+            var solgtbolig = new SolgtBolig();
+            solgtbolig.Adresse = b.Adresse;
+            solgtbolig.EjendomsmæglerID = b.EjendomsmæglerID;
+            solgtbolig.ID = b.ID;
+            solgtbolig.Kvm = b.Kvm;
+            solgtbolig.OprettelsesDato = b.OprettelsesDato;
+            solgtbolig.PostNr = b.PostNr;
+            solgtbolig.Pris = b.Pris;
+            solgtbolig.SælgerID = b.SælgerID;
+            solgtbolig.KøberID = køberId;
+            solgtbolig.KøbsPris = købsPris;
+            solgtbolig.KøbsDato = købsDato;
+            return solgtbolig;
+
+        }
+        public SolgtBolig()
+        {
 
         }
 

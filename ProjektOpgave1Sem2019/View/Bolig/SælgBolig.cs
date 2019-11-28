@@ -28,7 +28,7 @@ namespace ProjektOpgave1Sem2019.View
 
         private void Start()
         {
-            LblAdresse.Text = ValgtBolig.Adresse;
+           // LblAdresse.Text = ValgtBolig.Adresse;
             tbSælger.ReadOnly = true;
             tbSælger.Text = ValgtBolig.SælgerID.ToString();
             cbKøber.DataSource = ViewModel.KøberListe;
@@ -43,18 +43,24 @@ namespace ProjektOpgave1Sem2019.View
 
         private void SælgBolig_Load(object sender, EventArgs e)
         {
+
+            
+        }
+
+        private void btnSolgt_Click(object sender, EventArgs e)
+        {
             var køber = cbKøber.SelectedItem as Køber;
             try
             {
-                var solgtBolig = (SolgtBolig)ValgtBolig;
-                solgtBolig.SælgBolig(køber.Id, Convert.ToDouble(tbKøbsPris.Text), dtpKøbsDato.Value);
+                var solgtBolig = new SolgtBolig();
+                solgtBolig = solgtBolig.SælgBolig(ValgtBolig, køber.Id, Convert.ToDouble(tbKøbsPris.Text), dtpKøbsDato.Value);
+                this.Dispose();
 
             }
-            catch(FormatException ee)
+            catch (FormatException ee)
             {
                 MessageBox.Show(ee.Message);
             }
-            
         }
     }
 }

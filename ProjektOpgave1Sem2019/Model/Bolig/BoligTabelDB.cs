@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using ProjektOpgave1Sem2019.Model;
+using System.Windows.Forms;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -342,6 +343,33 @@ namespace ProjektOpgave1Sem2019
 
                 DBHelper.Conn.Close();
                 return success;
+        }
+
+        //Har lige brug for at lave en metode til at tjekke om en bolig er solgt, du er velkommen til at lave din egen og slette denne :)
+
+        public static bool TjekBoligSolgt(Bolig b)
+        {
+            var ErSolgt = false;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+                {
+                    conn.Open();
+                    SqlDataReader dataReader;
+                    using (SqlCommand command = new SqlCommand("select * from bolig inner join solgtbolig on solgtbolig.boligid = bolig.id where id = "+b.ID, conn))
+                    {
+                        dataReader = command.ExecuteReader();
+                        if (dataReader.HasRows)
+                            ErSolgt = true;
+ 
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return ErSolgt;
         }
 
     }

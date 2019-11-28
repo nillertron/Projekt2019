@@ -49,7 +49,7 @@
             // TBAdresse
             // 
             this.TBAdresse.Location = new System.Drawing.Point(15, 86);
-            this.TBAdresse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBAdresse.Margin = new System.Windows.Forms.Padding(2);
             this.TBAdresse.Name = "TBAdresse";
             this.TBAdresse.Size = new System.Drawing.Size(103, 20);
             this.TBAdresse.TabIndex = 0;
@@ -57,7 +57,7 @@
             // TBPris
             // 
             this.TBPris.Location = new System.Drawing.Point(15, 30);
-            this.TBPris.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBPris.Margin = new System.Windows.Forms.Padding(2);
             this.TBPris.Name = "TBPris";
             this.TBPris.Size = new System.Drawing.Size(103, 20);
             this.TBPris.TabIndex = 1;
@@ -77,7 +77,7 @@
             // TBAreal
             // 
             this.TBAreal.Location = new System.Drawing.Point(15, 138);
-            this.TBAreal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBAreal.Margin = new System.Windows.Forms.Padding(2);
             this.TBAreal.Name = "TBAreal";
             this.TBAreal.Size = new System.Drawing.Size(54, 20);
             this.TBAreal.TabIndex = 3;
@@ -86,7 +86,7 @@
             // DTPOpretDato
             // 
             this.DTPOpretDato.Location = new System.Drawing.Point(15, 182);
-            this.DTPOpretDato.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DTPOpretDato.Margin = new System.Windows.Forms.Padding(2);
             this.DTPOpretDato.Name = "DTPOpretDato";
             this.DTPOpretDato.Size = new System.Drawing.Size(135, 20);
             this.DTPOpretDato.TabIndex = 4;
@@ -96,7 +96,7 @@
             this.CBPostNr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBPostNr.FormattingEnabled = true;
             this.CBPostNr.Location = new System.Drawing.Point(157, 85);
-            this.CBPostNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CBPostNr.Margin = new System.Windows.Forms.Padding(2);
             this.CBPostNr.Name = "CBPostNr";
             this.CBPostNr.Size = new System.Drawing.Size(82, 21);
             this.CBPostNr.TabIndex = 5;
@@ -104,8 +104,9 @@
             // 
             // BtnSave
             // 
+            this.BtnSave.ForeColor = System.Drawing.Color.Black;
             this.BtnSave.Location = new System.Drawing.Point(15, 231);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(113, 33);
             this.BtnSave.TabIndex = 7;
@@ -195,6 +196,7 @@
             // 
             // BTNSolgt
             // 
+            this.BTNSolgt.ForeColor = System.Drawing.Color.Black;
             this.BTNSolgt.Location = new System.Drawing.Point(294, 231);
             this.BTNSolgt.Margin = new System.Windows.Forms.Padding(2);
             this.BTNSolgt.Name = "BTNSolgt";
@@ -225,7 +227,7 @@
             this.Controls.Add(this.TBPris);
             this.Controls.Add(this.TBAdresse);
             this.Location = new System.Drawing.Point(600, 50);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BoligDetails";
             this.Size = new System.Drawing.Size(680, 289);
             this.Load += new System.EventHandler(this.BoligDetails_Load);

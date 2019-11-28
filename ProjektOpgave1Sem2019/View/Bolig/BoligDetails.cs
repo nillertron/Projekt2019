@@ -38,6 +38,7 @@ namespace ProjektOpgave1Sem2019
             CBPostNr.Show(); //Hides unnecessary controls
             TBPostNr.Hide();
             LabelID.Hide();
+            BTNSolgt.Hide();
 
             TBAdresse.ReadOnly = false;
             TBAdresse.Text = "";
@@ -60,8 +61,9 @@ namespace ProjektOpgave1Sem2019
         public void InitializeEditMode(Bolig b)
         {
             editMode = true;
+            selectedBolig = b;
             Show();
-            CBPostNr.Show();
+            TBPostNr.Show();
             TBAdresse.Text = b.Adresse;
             TBAdresse.ReadOnly = true; //Adresse ændres ikke medmindre vi henter en kæmpe lastbil.
 
@@ -80,6 +82,12 @@ namespace ProjektOpgave1Sem2019
             DTPOpretDato.Enabled = false; //Oprettelses datoen er fast.
 
             LabelMode.Text = "EDIT MODE";
+            //tjekker om boligen er solgt, for så skal denne knap ikke vises!
+            var erSolgt = viewModel.TjekBoligSolgt(selectedBolig);
+            if (erSolgt)
+                BTNSolgt.Hide();
+            else
+                BTNSolgt.Show();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -187,8 +195,8 @@ namespace ProjektOpgave1Sem2019
 
         private void BTNSolgt_Click(object sender, EventArgs e)
         {
-            var SælgBoligForm = new SælgBolig(selectedBolig); //kan ikke få den frem :(
-            SælgBoligForm.BringToFront();
+            viewModel.SælgBolig(selectedBolig);
+
         }
     }        /// 
 }
