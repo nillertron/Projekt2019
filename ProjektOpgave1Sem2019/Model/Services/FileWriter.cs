@@ -12,14 +12,14 @@ namespace ProjektOpgave1Sem2019.Model
     class FileWriter
     {
         
-        private static string filePath = @"C:\Users\marti\BoligListe.txt";
-        public static bool BoligerTilSalgToFile()
+       //private static string filePath = @"C:\Users\marti\BoligListe.txt";
+        public static bool BoligerTilSalgToFile(string filePath, List<Bolig> list)
         {
             bool wasSuccessful;
 
             //har lige udkommenteret denne linje
             //List<Bolig> list = BoligTabelDB.GetAllNotSold(); //Hent boliger fra database Per opgave 3.2 beskrivelse
-            var list = new List<Bolig>();
+            //var list = new List<Bolig>();
             list.Sort(); //Sorter liste. Bolig implementerer ICompareable, som sammenligner på pris og sorterer billigs først
             FileStream fs;
 

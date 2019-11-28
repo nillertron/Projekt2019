@@ -226,7 +226,7 @@
             this.Controls.Add(this.LabelID);
             this.Controls.Add(this.TBPris);
             this.Controls.Add(this.TBAdresse);
-            this.Location = new System.Drawing.Point(600, 50);
+            this.Location = new System.Drawing.Point(350, 50);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BoligDetails";
             this.Size = new System.Drawing.Size(680, 289);
@@ -253,6 +253,6 @@
         private System.Windows.Forms.TextBox TBPostNr;
         private System.Windows.Forms.Label LBLPris;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button BTNSolgt;
+        public System.Windows.Forms.Button BTNSolgt;
     }
 }

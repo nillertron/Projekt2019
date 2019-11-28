@@ -35,6 +35,7 @@
             this.PostNr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.CBKriterie = new System.Windows.Forms.ComboBox();
+            this.btnUdskrivAlleBoligerIkkeSolgt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TBInput
@@ -104,10 +105,23 @@
             this.CBKriterie.Size = new System.Drawing.Size(121, 21);
             this.CBKriterie.TabIndex = 12;
             // 
+            // btnUdskrivAlleBoligerIkkeSolgt
+            // 
+            this.btnUdskrivAlleBoligerIkkeSolgt.ForeColor = System.Drawing.Color.Black;
+            this.btnUdskrivAlleBoligerIkkeSolgt.Location = new System.Drawing.Point(470, 2);
+            this.btnUdskrivAlleBoligerIkkeSolgt.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUdskrivAlleBoligerIkkeSolgt.Name = "btnUdskrivAlleBoligerIkkeSolgt";
+            this.btnUdskrivAlleBoligerIkkeSolgt.Size = new System.Drawing.Size(139, 37);
+            this.btnUdskrivAlleBoligerIkkeSolgt.TabIndex = 13;
+            this.btnUdskrivAlleBoligerIkkeSolgt.Text = "Udskriv til txtfil:Ikke solgte boligere";
+            this.btnUdskrivAlleBoligerIkkeSolgt.UseVisualStyleBackColor = true;
+            this.btnUdskrivAlleBoligerIkkeSolgt.Click += new System.EventHandler(this.btnUdskrivAlleBoligerIkkeSolgt_Click);
+            // 
             // BoligForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnUdskrivAlleBoligerIkkeSolgt);
             this.Controls.Add(this.CBKriterie);
             this.Controls.Add(this.TBInput);
             this.Controls.Add(this.label1);
@@ -132,5 +146,6 @@
         private System.Windows.Forms.ColumnHeader PostNr;
         public System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox CBKriterie;
+        public System.Windows.Forms.Button btnUdskrivAlleBoligerIkkeSolgt;
     }
 }

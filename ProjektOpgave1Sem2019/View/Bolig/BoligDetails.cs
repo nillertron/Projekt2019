@@ -116,7 +116,7 @@ namespace ProjektOpgave1Sem2019
             //    this.Hide();
             //}
             MessageBox.Show("Boop, pranked, Im out");
-            Hide();
+            Dispose(); //dispose "rydder op" istedet for hide som blot gemmer den 
         }
 
         //public bool InputsAreValid()
@@ -195,7 +195,7 @@ namespace ProjektOpgave1Sem2019
 
         private void BTNSolgt_Click(object sender, EventArgs e)
         {
-            viewModel.SælgBolig(selectedBolig);
+            viewModel.SælgBolig(selectedBolig, this);
 
         }
     }        /// 
