@@ -17,9 +17,11 @@ namespace ProjektOpgave1Sem2019.View
     {
         Bolig ValgtBolig;
         SælgBoligViewModel ViewModel;
-        public SælgBolig(Bolig b)
+        BoligDetails parent;
+        public SælgBolig(Bolig b, BoligDetails instans)
         {
             InitializeComponent();
+            parent = instans;
             ViewModel = new SælgBoligViewModel();
             ValgtBolig = b;
             Start();
@@ -28,7 +30,7 @@ namespace ProjektOpgave1Sem2019.View
 
         private void Start()
         {
-           // LblAdresse.Text = ValgtBolig.Adresse;
+            LblAdresse.Text = ValgtBolig.Adresse;
             tbSælger.ReadOnly = true;
             tbSælger.Text = ValgtBolig.SælgerID.ToString();
             cbKøber.DataSource = ViewModel.KøberListe;
@@ -54,6 +56,7 @@ namespace ProjektOpgave1Sem2019.View
             {
                 var solgtBolig = new SolgtBolig();
                 solgtBolig = solgtBolig.SælgBolig(ValgtBolig, køber.Id, Convert.ToDouble(tbKøbsPris.Text), dtpKøbsDato.Value);
+                parent.BTNSolgt.Hide();
                 this.Dispose();
 
             }

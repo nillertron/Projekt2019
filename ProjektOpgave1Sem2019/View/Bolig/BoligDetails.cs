@@ -189,7 +189,7 @@ namespace ProjektOpgave1Sem2019
 
         private void BTNSolgt_Click(object sender, EventArgs e)
         {
-            viewModel.SælgBolig(selectedBolig);
+            viewModel.SælgBolig(selectedBolig, this);
 
         }
     }        /// 

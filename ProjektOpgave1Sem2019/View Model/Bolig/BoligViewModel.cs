@@ -159,6 +159,8 @@ namespace ProjektOpgave1Sem2019
             return returnList;
         }
 
+
+
         public bool ValiderInput(string searchTerm, string searchCategory)
         {
 
@@ -224,8 +226,18 @@ namespace ProjektOpgave1Sem2019
             return BoligTabelDB.TjekBoligSolgt(selectedBolig);
         }
         internal void SælgBolig(Bolig b)
+        internal void SælgBolig(Bolig b, BoligDetails instans)
         {
-            view.SælgBoligToFront(b);
+            view.SælgBoligToFront(b,instans);
+        }
+        internal void UdskrivBoligerTilTxtFil()
+        {
+            var liste = new List<Bolig>();
+            boliger.ForEach(o => liste.Add(o));
+            boliger.ForEach(o => { bool Solgt = BoligTabelDB.TjekBoligSolgt(o); if (Solgt) liste.Remove(o); });
+            var path = @"C:\Text\Udksrift.txt"; //tænker at vi kan lave noget GUI hvor vi vælger en path
+            FileWriter.BoligerTilSalgToFile(path, liste);
+
         }
         //
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)

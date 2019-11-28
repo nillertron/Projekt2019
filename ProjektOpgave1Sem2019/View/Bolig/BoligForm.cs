@@ -91,14 +91,19 @@ namespace ProjektOpgave1Sem2019
             Details.InitializeCreateMode();
         }
 
-        public void SælgBoligToFront(Bolig b)
+        public void SælgBoligToFront(Bolig b, BoligDetails instans)
         {
-            var S = new SælgBolig(b);
+            var S = new SælgBolig(b, instans);
             
             Controls.Add(S);
             S.BringToFront();
 
 
+        }
+
+        private void btnUdskrivAlleBoligerIkkeSolgt_Click(object sender, EventArgs e)
+        {
+            ViewModel.UdskrivBoligerTilTxtFil();
         }
     }
 }
