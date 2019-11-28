@@ -14,7 +14,7 @@ namespace ProjektOpgave1Sem2019
     class BoligViewModel
     {
         List<PostNumre> postNumre = new List<PostNumre>();
-        List<Bolig> boliger = new List<Bolig>();
+        public List<Bolig> boliger = new List<Bolig>();
 
         BoligForm parentForm;
 

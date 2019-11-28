@@ -70,6 +70,7 @@
             this.LWSearchResults.TabIndex = 9;
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
+            this.LWSearchResults.DoubleClick += new System.EventHandler(this.LWSearchResults_DoubleClick);
             // 
             // Adresse
             // 
@@ -94,6 +95,7 @@
             // 
             // CBKriterie
             // 
+            this.CBKriterie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBKriterie.FormattingEnabled = true;
             this.CBKriterie.Location = new System.Drawing.Point(58, 40);
             this.CBKriterie.Name = "CBKriterie";

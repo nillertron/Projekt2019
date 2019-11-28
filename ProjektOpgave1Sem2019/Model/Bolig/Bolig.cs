@@ -38,6 +38,10 @@ namespace ProjektOpgave1Sem2019
             this.EjendomsmæglerID = EjendomsmæglerID;
             this.PostNr = PostNr;
         }
+        public Bolig()
+        {
+
+        }
         
         public int CompareTo(object obj)
         {
