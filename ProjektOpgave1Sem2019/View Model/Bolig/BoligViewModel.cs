@@ -81,7 +81,7 @@ namespace ProjektOpgave1Sem2019
             return null;
         }
 
-        public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory)
+        public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory) //Unused så vidt jeg ved - Martin
         {
             //string searchTerm = parentForm.Input.Text.ToLower();
             //string searchCategory = parentForm.Kriterie.Text;
