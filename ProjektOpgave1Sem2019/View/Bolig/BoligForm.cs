@@ -18,7 +18,7 @@ namespace ProjektOpgave1Sem2019
         {
             InitializeComponent();
             ViewModel = new BoligViewModel();
-            var kriterier = new string[] { "Areal større end", "Areal mindre end", "Pris større end", "Pris mindre end" };
+            var kriterier = new string[] { "Adresse", "PostNr", "Areal større end", "Areal mindre end", "Pris større end", "Pris mindre end" };
             CBKriterie.Items.AddRange(kriterier);
             FyldListView(ViewModel.FillListView());
             CBKriterie.SelectedIndex = 0;

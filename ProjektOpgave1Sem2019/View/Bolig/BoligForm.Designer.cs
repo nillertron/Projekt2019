@@ -39,7 +39,7 @@
             // 
             // TBInput
             // 
-            this.TBInput.Location = new System.Drawing.Point(184, 40);
+            this.TBInput.Location = new System.Drawing.Point(177, 10);
             this.TBInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBInput.Name = "TBInput";
             this.TBInput.Size = new System.Drawing.Size(128, 20);
@@ -49,7 +49,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 43);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(2, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
@@ -63,7 +64,7 @@
             this.PostNr});
             this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
-            this.LWSearchResults.Location = new System.Drawing.Point(2, 65);
+            this.LWSearchResults.Location = new System.Drawing.Point(13, 36);
             this.LWSearchResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LWSearchResults.Name = "LWSearchResults";
             this.LWSearchResults.Size = new System.Drawing.Size(310, 419);
@@ -85,7 +86,7 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(306, 1);
+            this.button2.Location = new System.Drawing.Point(327, 2);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 37);
@@ -98,7 +99,7 @@
             // 
             this.CBKriterie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBKriterie.FormattingEnabled = true;
-            this.CBKriterie.Location = new System.Drawing.Point(58, 40);
+            this.CBKriterie.Location = new System.Drawing.Point(51, 10);
             this.CBKriterie.Name = "CBKriterie";
             this.CBKriterie.Size = new System.Drawing.Size(121, 21);
             this.CBKriterie.TabIndex = 12;
@@ -112,7 +113,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LWSearchResults);
             this.Controls.Add(this.button2);
-            this.Location = new System.Drawing.Point(150, 116);
+            this.Location = new System.Drawing.Point(150, 105);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BoligForm";
             this.Size = new System.Drawing.Size(1148, 500);

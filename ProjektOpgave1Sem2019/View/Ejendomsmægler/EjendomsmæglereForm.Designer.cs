@@ -42,10 +42,10 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(419, 18);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(324, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(185, 46);
+            this.button2.Size = new System.Drawing.Size(139, 37);
             this.button2.TabIndex = 2;
             this.button2.Text = "Opret ny ejendomsmægler";
             this.button2.UseVisualStyleBackColor = true;
@@ -60,10 +60,10 @@
             "Efternavn",
             "FødselsDato",
             "Tlf"});
-            this.CBKriterie.Location = new System.Drawing.Point(97, 66);
-            this.CBKriterie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CBKriterie.Location = new System.Drawing.Point(67, 12);
+            this.CBKriterie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBKriterie.Name = "CBKriterie";
-            this.CBKriterie.Size = new System.Drawing.Size(121, 24);
+            this.CBKriterie.Size = new System.Drawing.Size(92, 21);
             this.CBKriterie.TabIndex = 3;
             this.CBKriterie.Text = "Navn";
             // 
@@ -74,10 +74,10 @@
             this.Efternavn});
             this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
-            this.LWSearchResults.Location = new System.Drawing.Point(13, 97);
-            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LWSearchResults.Location = new System.Drawing.Point(10, 36);
+            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LWSearchResults.Name = "LWSearchResults";
-            this.LWSearchResults.Size = new System.Drawing.Size(412, 515);
+            this.LWSearchResults.Size = new System.Drawing.Size(310, 419);
             this.LWSearchResults.TabIndex = 4;
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
@@ -97,32 +97,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 70);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(7, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Søg efter: ";
             // 
             // TBInput
             // 
-            this.TBInput.Location = new System.Drawing.Point(256, 66);
-            this.TBInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBInput.Location = new System.Drawing.Point(163, 12);
+            this.TBInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBInput.Name = "TBInput";
-            this.TBInput.Size = new System.Drawing.Size(169, 22);
+            this.TBInput.Size = new System.Drawing.Size(128, 20);
             this.TBInput.TabIndex = 6;
             this.TBInput.TextChanged += new System.EventHandler(this.TBInput_TextChanged);
             // 
             // DisplayEjendomsmæglerLocation
             // 
             this.DisplayEjendomsmæglerLocation.Location = new System.Drawing.Point(0, 0);
+            this.DisplayEjendomsmæglerLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DisplayEjendomsmæglerLocation.Name = "DisplayEjendomsmæglerLocation";
-            this.DisplayEjendomsmæglerLocation.Size = new System.Drawing.Size(10, 12);
+            this.DisplayEjendomsmæglerLocation.Size = new System.Drawing.Size(8, 10);
             this.DisplayEjendomsmæglerLocation.TabIndex = 7;
             this.DisplayEjendomsmæglerLocation.TabStop = false;
             // 
             // EjendomsmæglereForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.DisplayEjendomsmæglerLocation);
@@ -131,10 +134,10 @@
             this.Controls.Add(this.LWSearchResults);
             this.Controls.Add(this.CBKriterie);
             this.Controls.Add(this.button2);
-            this.Location = new System.Drawing.Point(200, 116);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Location = new System.Drawing.Point(150, 105);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EjendomsmæglereForm";
-            this.Size = new System.Drawing.Size(1531, 615);
+            this.Size = new System.Drawing.Size(1148, 500);
             this.Load += new System.EventHandler(this.EjendomsmæglereForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DisplayEjendomsmæglerLocation)).EndInit();
             this.ResumeLayout(false);
