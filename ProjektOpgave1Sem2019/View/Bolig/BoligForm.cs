@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjektOpgave1Sem2019.View;
 //Nichlas
 namespace ProjektOpgave1Sem2019
 {
@@ -17,7 +18,7 @@ namespace ProjektOpgave1Sem2019
         public BoligForm()
         {
             InitializeComponent();
-            ViewModel = new BoligViewModel();
+            ViewModel = new BoligViewModel(this);
             var kriterier = new string[] { "Adresse", "PostNr", "Areal større end", "Areal mindre end", "Pris større end", "Pris mindre end" };
             CBKriterie.Items.AddRange(kriterier);
             FyldListView(ViewModel.FillListView());
@@ -88,6 +89,16 @@ namespace ProjektOpgave1Sem2019
         private void Button2_Click(object sender, EventArgs e)
         {
             Details.InitializeCreateMode();
+        }
+
+        public void SælgBoligToFront(Bolig b)
+        {
+            var S = new SælgBolig(b);
+            
+            Controls.Add(S);
+            S.BringToFront();
+
+
         }
     }
 }

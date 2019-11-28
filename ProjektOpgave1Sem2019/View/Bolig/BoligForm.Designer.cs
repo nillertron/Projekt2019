@@ -40,7 +40,7 @@
             // TBInput
             // 
             this.TBInput.Location = new System.Drawing.Point(177, 10);
-            this.TBInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBInput.Margin = new System.Windows.Forms.Padding(2);
             this.TBInput.Name = "TBInput";
             this.TBInput.Size = new System.Drawing.Size(128, 20);
             this.TBInput.TabIndex = 11;
@@ -65,7 +65,7 @@
             this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
             this.LWSearchResults.Location = new System.Drawing.Point(13, 36);
-            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(2);
             this.LWSearchResults.Name = "LWSearchResults";
             this.LWSearchResults.Size = new System.Drawing.Size(310, 419);
             this.LWSearchResults.TabIndex = 9;
@@ -87,7 +87,7 @@
             // 
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(327, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 37);
             this.button2.TabIndex = 7;
@@ -114,7 +114,7 @@
             this.Controls.Add(this.LWSearchResults);
             this.Controls.Add(this.button2);
             this.Location = new System.Drawing.Point(150, 105);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BoligForm";
             this.Size = new System.Drawing.Size(1148, 500);
             this.Load += new System.EventHandler(this.BoligView_Load);

@@ -38,6 +38,7 @@ namespace ProjektOpgave1Sem2019
             CBPostNr.Show(); //Hides unnecessary controls
             TBPostNr.Hide();
             LabelID.Hide();
+            BTNSolgt.Hide();
 
             TBAdresse.ReadOnly = false;
             TBAdresse.Text = "";
@@ -62,14 +63,16 @@ namespace ProjektOpgave1Sem2019
             editMode = true;
             selectedBolig = b;
             Show();
-            CBPostNr.Show();
+            TBPostNr.Show();
             TBAdresse.Text = b.Adresse;
             TBAdresse.ReadOnly = true; //Adresse ændres ikke medmindre vi henter en kæmpe lastbil.
 
             TBAreal.Text = b.Kvm.ToString();
+            TBAreal.BackColor = Color.Gray;
             TBAreal.ReadOnly = true; //Areal ændres ikke
 
             TBPris.Text = b.Pris.ToString();
+            TBPris.BackColor = Color.White;
 
             CBPostNr.Hide(); //PostNr skal ikke ændres ever
             TBPostNr.Text = b.PostNr.ToString();
@@ -81,11 +84,17 @@ namespace ProjektOpgave1Sem2019
             DTPOpretDato.Enabled = false; //Oprettelses datoen er fast.
 
             LabelMode.Text = "EDIT MODE";
+            //tjekker om boligen er solgt, for så skal denne knap ikke vises!
+            var erSolgt = viewModel.TjekBoligSolgt(selectedBolig);
+            if (erSolgt)
+                BTNSolgt.Hide();
+            else
+                BTNSolgt.Show();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (isEditMode)
+            if (editMode)
             {
                 viewModel.SaveEdit(selectedBolig, Convert.ToDouble(TBPris.Text)); //Forsøger at holde logik og datamanipulation i ViewModel
             }
@@ -180,8 +189,8 @@ namespace ProjektOpgave1Sem2019
 
         private void BTNSolgt_Click(object sender, EventArgs e)
         {
-            var SælgBoligForm = new SælgBolig(selectedBolig); //kan ikke få den frem :(
-            SælgBoligForm.BringToFront();
+            viewModel.SælgBolig(selectedBolig);
+
         }
     }        /// 
 }

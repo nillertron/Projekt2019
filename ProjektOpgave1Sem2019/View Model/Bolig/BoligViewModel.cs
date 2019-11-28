@@ -19,11 +19,11 @@ namespace ProjektOpgave1Sem2019
         BoligDetails Details;
         //List<Bolig> resultatListe = 
 
-        //BoligForm parentForm;
+        private BoligForm view;
 
-        public BoligViewModel(/*BoligForm parent*/)
+        public BoligViewModel(BoligForm parent)
         {
-            //parentForm = parent;
+            view = parent;
             boliger = BoligTabelDB.GetAll();
             Details = new BoligDetails(this);
             //FillListView(boliger);
@@ -93,6 +93,8 @@ namespace ProjektOpgave1Sem2019
 
             return searchResults;
         }
+
+        
 
         public List<Bolig> SearchFor(string category, string term)
         {
@@ -214,11 +216,16 @@ namespace ProjektOpgave1Sem2019
             AddBoligToList(newBolig);
         }
 
-        internal void MarkerSolgt()
+
+        //Nichlas
+        //internal void MarkerSolgt()
+        internal bool TjekBoligSolgt(Bolig selectedBolig)
         {
-            //var solgtbolig = new SælgBolig();
-           // solgtbolig.StartSale();
-           // BoligTabelDB.InsertSold()
+            return BoligTabelDB.TjekBoligSolgt(selectedBolig);
+        }
+        internal void SælgBolig(Bolig b)
+        {
+            view.SælgBoligToFront(b);
         }
         //
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)

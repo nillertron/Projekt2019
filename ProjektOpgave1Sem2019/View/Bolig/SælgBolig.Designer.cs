@@ -45,6 +45,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(3, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
@@ -61,6 +62,7 @@
             // LblAdresse
             // 
             this.LblAdresse.AutoSize = true;
+            this.LblAdresse.ForeColor = System.Drawing.Color.Black;
             this.LblAdresse.Location = new System.Drawing.Point(228, 10);
             this.LblAdresse.Name = "LblAdresse";
             this.LblAdresse.Size = new System.Drawing.Size(70, 13);
@@ -77,6 +79,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(3, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
@@ -95,6 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(3, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
@@ -111,6 +115,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(9, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 13);
@@ -120,6 +125,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(142, 213);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 13);
@@ -141,6 +147,7 @@
             this.btnSolgt.TabIndex = 11;
             this.btnSolgt.Text = "Marker Solgt";
             this.btnSolgt.UseVisualStyleBackColor = true;
+            this.btnSolgt.Click += new System.EventHandler(this.btnSolgt_Click);
             // 
             // SælgBolig
             // 
