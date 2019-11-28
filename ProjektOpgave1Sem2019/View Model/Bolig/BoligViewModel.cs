@@ -32,17 +32,15 @@ namespace ProjektOpgave1Sem2019
             FillListView(boliger);
         }
 
-        public void FillListView(List<Bolig> boligListe) //kaldes hver gang det der skal vises ændres
+        public List<Bolig> FillListView() //kaldes hver gang det der skal vises ændres
         {                                                   //f.eks. søgning eller form creation
-            parentForm.SeachResults.Items.Clear();
-            foreach (Bolig b in boligListe)
+            List<Bolig> tempBoliger = new List<Bolig>();
+            foreach (Bolig b in boliger)
             {
-                ListViewItem item = new ListViewItem(b.Adresse);
-                item.SubItems.Add(b.PostNr.ToString());
-                item.Name = b.ID.ToString();
-
-                parentForm.SearchResults.Items.Add(item);
+                tempBoliger.Add(b);
             }
+
+            return tempBoliger;
         }
 
         public void ShowBolig(Bolig b)
@@ -65,52 +63,16 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        public void DisplaySearchResults(string searchTerm, string searchCategory)
+        public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory)
         {
-            bool validInput = true;
-
             //string searchTerm = parentForm.Input.Text.ToLower();
             //string searchCategory = parentForm.Kriterie.Text;
 
             List<Bolig> searchResults = new List<Bolig>();
 
-            if (searchCategory == "Pris højere end" || searchCategory == "Pris lavere end")
-            {
-                if (double.TryParse(searchTerm, out double d)) //Valider input da der sammenlignes på doubles
-                {
-                    searchResults = SearchFor(searchCategory, searchTerm); //Seperat metode til søgning fordi, mere læseligt for mig.
-                }
-                else
-                {
-                    validInput = false;
-                }
-            }
-            if (searchCategory == "Areal større end" || searchCategory == "Areal mindre end")
-            {
-                if (int.TryParse(searchTerm, out int i)) //Valider search input da der sammenlignes på integers
-                {
-                    searchResults = SearchFor(searchCategory, searchTerm);
-                }
-                else
-                {
-                    validInput = false;
-                }
-            }
-            else
-            {
-                searchResults = SearchFor(searchCategory, searchTerm);
-            }
+            searchResults = SearchFor(searchCategory, searchTerm);
 
-
-            if (validInput)
-            {
-                FillListView(searchResults); //fylder listview med den nye liste af boliger.
-            }
-            else
-            {
-                parentForm.Input.BackColor = Color.Red; //indikerer at input er invalid
-                FillListView(boliger); //Vis alle boliger da søgningen ikke er valid
-            }
+            return searchResults;
         }
 
         public List<Bolig> SearchFor(string category, string term)
@@ -136,7 +98,7 @@ namespace ProjektOpgave1Sem2019
                         }
                     }
                     break;
-                case "Pris højere end":
+                case "Pris større end":
                     foreach (Bolig b in boliger)
                     {
                         if (b.Pris > Convert.ToDouble(term))
@@ -145,7 +107,7 @@ namespace ProjektOpgave1Sem2019
                         }
                     }
                     break;
-                case "Pris lavere end":
+                case "Pris mindre end":
                     foreach (Bolig b in boliger)
                     {
                         if (b.Pris < Convert.ToDouble(term))
@@ -176,6 +138,40 @@ namespace ProjektOpgave1Sem2019
             return returnList;
         }
 
+        public bool ValiderInput(string searchTerm, string searchCategory)
+        {
+
+            bool returnBool = false ;
+            if(searchCategory == "Areal større end" || searchCategory == "Areal mindre end")
+            {
+                if(int.TryParse(searchTerm, out int i))
+                {
+                    returnBool = true;
+                }
+                else
+                {
+                    returnBool = false;
+                }
+            }
+            else if(searchCategory == "Pris større end" || searchCategory == "Pris mindre end")
+            {
+                if(double.TryParse(searchTerm, out double d))
+                {
+                    returnBool = true;
+                }
+                else
+                {
+                    returnBool = false;
+                }
+            }
+            else
+            {
+                returnBool = true;
+            }
+
+            return returnBool;
+        }
+        //
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)
         //{
 
