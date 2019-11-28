@@ -54,6 +54,7 @@
     <Compile Include="Model\Kunde\Køber.cs" />
     <Compile Include="Model\Kunde\Sælger.cs" />
     <Compile Include="Model\Ejendomsmægler\EjendomsmæglerTabelDB.cs" />
+    <Compile Include="Model\PostNrTabelDB.cs" />
     <Compile Include="Model\PostNumre.cs" />
     <Compile Include="View Model\Bolig\BoligViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />

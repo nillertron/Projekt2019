@@ -49,7 +49,7 @@ namespace ProjektOpgave1Sem2019
                     }
                 }
             }
-
+            
 
             return boliger;
         }
