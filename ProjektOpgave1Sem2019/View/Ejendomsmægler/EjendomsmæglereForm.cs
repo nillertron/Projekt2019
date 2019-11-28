@@ -42,7 +42,7 @@ namespace ProjektOpgave1Sem2019
         private void TBInput_TextChanged(object sender, EventArgs e)
         {
 
-            ViewModel.DisplaySearchResults();
+            ViewModel.DisplaySearchResults(CBKriterie.Text, TBInput.Text);
 
             
         }

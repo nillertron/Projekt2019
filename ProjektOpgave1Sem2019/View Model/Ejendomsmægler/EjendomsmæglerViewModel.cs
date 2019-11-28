@@ -124,15 +124,14 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         }
 
-        public void DisplaySearchResults()
+        public void DisplaySearchResults(string kriterie, string input)
         {
            ParentForm.SearchResults.Items.Clear();
 
 
             List<Ejendomsmægler> searchResults = new List<Ejendomsmægler>();
 
-            string input = ParentForm.Input.Text.ToLower();
-            string kriterie = ParentForm.Kriterie.Text;
+           
 
 
             
