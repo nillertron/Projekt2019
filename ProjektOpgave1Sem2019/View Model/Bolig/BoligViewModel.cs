@@ -10,13 +10,12 @@ using ProjektOpgave1Sem2019.View;
 
 namespace ProjektOpgave1Sem2019
 {
-    //Martin
     class BoligViewModel
     {
         List<PostNumre> postNumre = new List<PostNumre>();
         List<Bolig> boliger = new List<Bolig>();
 
-        BoligForm parentForm;
+         BoligForm parentForm;
 
         public BoligViewModel(BoligForm parent)
         {
@@ -26,21 +25,27 @@ namespace ProjektOpgave1Sem2019
             postNumre = PostNrTabelDB.GetAllPostnumre();
         }
 
+        public BoligViewModel()
+        {
+        }
+
         public void AddBoligToList(Bolig bolig)
         {
             boliger.Add(bolig);
             FillListView(boliger);
         }
 
-        public List<Bolig> FillListView() //kaldes hver gang det der skal vises ændres
+        public void FillListView(List<Bolig> boligListe) //kaldes hver gang det der skal vises ændres
         {                                                   //f.eks. søgning eller form creation
-            List<Bolig> tempBoliger = new List<Bolig>();
-            foreach (Bolig b in boliger)
+            parentForm.SeachResults.Items.Clear();
+            foreach (Bolig b in boligListe)
             {
-                tempBoliger.Add(b);
-            }
+                ListViewItem item = new ListViewItem(b.Adresse);
+                item.SubItems.Add(b.PostNr.ToString());
+                item.Name = b.ID.ToString();
 
-            return tempBoliger;
+                parentForm.SearchResults.Items.Add(item);
+            }
         }
 
         public void ShowBolig(Bolig b)
@@ -63,16 +68,52 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory)
+        public void DisplaySearchResults()
         {
-            //string searchTerm = parentForm.Input.Text.ToLower();
-            //string searchCategory = parentForm.Kriterie.Text;
+            bool validInput = true;
+
+            string searchTerm = parentForm.Input.Text.ToLower();
+            string searchCategory = parentForm.Kriterie.Text;
 
             List<Bolig> searchResults = new List<Bolig>();
 
-            searchResults = SearchFor(searchCategory, searchTerm);
+            if (searchCategory == "Pris højere end" || searchCategory == "Pris lavere end")
+            {
+                if (double.TryParse(searchTerm, out double d)) //Valider input da der sammenlignes på doubles
+                {
+                    searchResults = SearchFor(searchCategory, searchTerm); //Seperat metode til søgning fordi, mere læseligt for mig.
+                }
+                else
+                {
+                    validInput = false;
+                }
+            }
+            if (searchCategory == "Areal større end" || searchCategory == "Areal mindre end")
+            {
+                if (int.TryParse(searchTerm, out int i)) //Valider search input da der sammenlignes på integers
+                {
+                    searchResults = SearchFor(searchCategory, searchTerm);
+                }
+                else
+                {
+                    validInput = false;
+                }
+            }
+            else
+            {
+                searchResults = SearchFor(searchCategory, searchTerm);
+            }
 
-            return searchResults;
+
+            if (validInput)
+            {
+                FillListView(searchResults); //fylder listview med den nye liste af boliger.
+            }
+            else
+            {
+                parentForm.Input.BackColor = Color.Red; //indikerer at input er invalid
+                FillListView(boliger); //Vis alle boliger da søgningen ikke er valid
+            }
         }
 
         public List<Bolig> SearchFor(string category, string term)
@@ -98,16 +139,16 @@ namespace ProjektOpgave1Sem2019
                         }
                     }
                     break;
-                case "Pris større end":
+                case "Pris højere end":
                     foreach (Bolig b in boliger)
                     {
-                        if (b.Pris > Convert.ToDouble(term))
+                        if (b.Pris > Convert.ToDouble(term)) //Regner med inputvalidering andet sted i viewModellen.
                         {
                             returnList.Add(b);
                         }
                     }
                     break;
-                case "Pris mindre end":
+                case "Pris lavere end":
                     foreach (Bolig b in boliger)
                     {
                         if (b.Pris < Convert.ToDouble(term))
@@ -136,40 +177,6 @@ namespace ProjektOpgave1Sem2019
                     break;
             }
             return returnList;
-        }
-
-        public bool ValiderInput(string searchTerm, string searchCategory)
-        {
-
-            bool returnBool = false ;
-            if(searchCategory == "Areal større end" || searchCategory == "Areal mindre end")
-            {
-                if(int.TryParse(searchTerm, out int i))
-                {
-                    returnBool = true;
-                }
-                else
-                {
-                    returnBool = false;
-                }
-            }
-            else if(searchCategory == "Pris større end" || searchCategory == "Pris mindre end")
-            {
-                if(double.TryParse(searchTerm, out double d))
-                {
-                    returnBool = true;
-                }
-                else
-                {
-                    returnBool = false;
-                }
-            }
-            else
-            {
-                returnBool = true;
-            }
-
-            return returnBool;
         }
 
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)
