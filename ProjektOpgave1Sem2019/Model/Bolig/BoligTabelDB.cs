@@ -149,11 +149,12 @@ namespace ProjektOpgave1Sem2019
                 using (SqlCommand cmd = new SqlCommand()) 
                 {
                 string query = " INSERT INTO Bolig( Adresse, Pris, SælgerID, Kvm, OprettelsesDato, EjendomsmæglerID, PostNr) ";
-                query += $" VALUES ( '{b.Adresse}', {b.Pris}, {b.SælgerID}, {b.Kvm}, {b.OprettelsesDato.ToOADate()}, {b.EjendomsmæglerID}, {b.PostNr} )";
-
+                query += $" VALUES ( '{b.Adresse}', {b.Pris}, {b.SælgerID}, {b.Kvm}, @OprettelsesDato, {b.EjendomsmæglerID}, {b.PostNr} )";
+                //{b.OprettelsesDato.ToOADate()}
                 cmd.Connection = DBHelper.Conn;
                 cmd.CommandText = query;
-
+                //Parameter fungerer med SqlDateTime
+                cmd.Parameters.Add("@OprettelsesDato", System.Data.SqlDbType.DateTime).Value = b.OprettelsesDato;
 
 
 

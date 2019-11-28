@@ -95,12 +95,12 @@ namespace ProjektOpgave1Sem2019
                 viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text),
                                             //EjendomsmæglerID hentes fra en liste af ejendomsmæglere, implementeres senere
                                             Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
-                                            (int)CBPostNr.SelectedItem);
+                                            ((PostNumre)CBPostNr.SelectedItem).PostNummer);
 
-                BoligTabelDB.Create(newBolig);
+                //BoligTabelDB.Create(newBolig);
                 this.Hide();
             }
-            MessageBox.Show("Boop, pranked, Im out");
+            //MessageBox.Show("Boop, pranked, Im out");
             Hide();
         }
 

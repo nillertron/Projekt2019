@@ -194,16 +194,24 @@ namespace ProjektOpgave1Sem2019
         public void SaveEdit(Bolig b, double d)
         {
             b.UpdatePris(d);
-            //BoligTabelDB.Update(b);
+            if(BoligTabelDB.Update(b))
+            {
+                MessageBox.Show("Huzzah, update was a success. Probably change this message later");
+            }
+            else
+            {
+                MessageBox.Show("Boohoo, update failed :(");
+            }
         }
 
         public void SaveNewBolig(string adresse, double pris, int areal, DateTime opretDato, int postNr)
         {
-            //Get sælgerID
-            //Get Ejendomsmægler id
-            //Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
-            //newBolig = BoligTabelDB.Create(newBolig);
-            //AddBoligToList(newBolig);
+            int ejendomsmæglerID = 1;
+            int sælgerID = 1;
+
+            Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
+            newBolig = BoligTabelDB.Create(newBolig);
+            AddBoligToList(newBolig);
         }
 
         internal void MarkerSolgt()

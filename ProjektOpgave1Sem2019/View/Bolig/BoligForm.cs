@@ -29,6 +29,7 @@ namespace ProjektOpgave1Sem2019
 
         private void FyldListView(List<Bolig> liste)
         {
+            //LWSearchResults.Items.Clear(); //Sikrer at Listen bliver clearet hver gang den skal opdateres (Maybe) -Martin
             liste.ForEach(o => 
             {
                 var enhed = new ListViewItem(o.Adresse);
@@ -62,7 +63,7 @@ namespace ProjektOpgave1Sem2019
                     LWSearchResults.Items.Add("Fejl i søgnings input");
                 else
                 {
-                    phListe = ViewModel.SearchFor(kriterie, input);
+                    phListe = ViewModel.SearchFor(kriterie, input.ToLower());
                     FyldListView(phListe);
                     phListe.Clear();
                 }
@@ -87,8 +88,6 @@ namespace ProjektOpgave1Sem2019
         private void Button2_Click(object sender, EventArgs e)
         {
             Details.InitializeCreateMode();
-            //Opdaterer liste med ny Bolig -Martin
-            FyldListView(ViewModel.SearchFor(CBKriterie.SelectedItem.ToString(), TBInput.Text));
         }
     }
 }
