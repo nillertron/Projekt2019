@@ -1,4 +1,4 @@
-﻿namespace ProjektOpgave1Sem2019.View.Bolig
+﻿namespace ProjektOpgave1Sem2019
 {
     partial class BoligDetails
     {
@@ -38,52 +38,58 @@
             // 
             // TBAdresse
             // 
-            this.TBAdresse.Location = new System.Drawing.Point(23, 133);
+            this.TBAdresse.Location = new System.Drawing.Point(15, 86);
+            this.TBAdresse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBAdresse.Name = "TBAdresse";
-            this.TBAdresse.Size = new System.Drawing.Size(153, 26);
+            this.TBAdresse.Size = new System.Drawing.Size(103, 20);
             this.TBAdresse.TabIndex = 0;
             // 
             // TBPris
             // 
-            this.TBPris.Location = new System.Drawing.Point(23, 46);
+            this.TBPris.Location = new System.Drawing.Point(15, 30);
+            this.TBPris.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBPris.Name = "TBPris";
-            this.TBPris.Size = new System.Drawing.Size(153, 26);
+            this.TBPris.Size = new System.Drawing.Size(103, 20);
             this.TBPris.TabIndex = 1;
             // 
             // LabelID
             // 
             this.LabelID.AutoSize = true;
-            this.LabelID.Location = new System.Drawing.Point(231, 49);
+            this.LabelID.Location = new System.Drawing.Point(154, 32);
+            this.LabelID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LabelID.Name = "LabelID";
-            this.LabelID.Size = new System.Drawing.Size(34, 20);
+            this.LabelID.Size = new System.Drawing.Size(24, 13);
             this.LabelID.TabIndex = 2;
             this.LabelID.Text = "ID: ";
             // 
             // TBAreal
             // 
-            this.TBAreal.Location = new System.Drawing.Point(23, 213);
+            this.TBAreal.Location = new System.Drawing.Point(15, 138);
+            this.TBAreal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBAreal.Name = "TBAreal";
-            this.TBAreal.Size = new System.Drawing.Size(79, 26);
+            this.TBAreal.Size = new System.Drawing.Size(54, 20);
             this.TBAreal.TabIndex = 3;
             // 
             // DTP
             // 
-            this.DTP.Location = new System.Drawing.Point(23, 280);
+            this.DTP.Location = new System.Drawing.Point(15, 182);
+            this.DTP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DTP.Name = "DTP";
-            this.DTP.Size = new System.Drawing.Size(200, 26);
+            this.DTP.Size = new System.Drawing.Size(135, 20);
             this.DTP.TabIndex = 4;
             // 
             // CBPostNr
             // 
             this.CBPostNr.FormattingEnabled = true;
-            this.CBPostNr.Location = new System.Drawing.Point(235, 131);
+            this.CBPostNr.Location = new System.Drawing.Point(157, 85);
+            this.CBPostNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBPostNr.Name = "CBPostNr";
-            this.CBPostNr.Size = new System.Drawing.Size(121, 28);
+            this.CBPostNr.Size = new System.Drawing.Size(82, 21);
             this.CBPostNr.TabIndex = 5;
             // 
             // BoligDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.CBPostNr);
             this.Controls.Add(this.DTP);
@@ -91,8 +97,11 @@
             this.Controls.Add(this.LabelID);
             this.Controls.Add(this.TBPris);
             this.Controls.Add(this.TBAdresse);
+            this.Location = new System.Drawing.Point(470, 66);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BoligDetails";
-            this.Size = new System.Drawing.Size(1020, 444);
+            this.Size = new System.Drawing.Size(680, 289);
+            this.Load += new System.EventHandler(this.BoligDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

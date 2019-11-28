@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektOpgave1Sem2019
 {
-    class Bolig:IComparable
+    public class Bolig:IComparable
     {
         private int _ID;
         public int ID { private set { if (value > 0) _ID = value; else throw new FormatException("ID skal være over 0"); } get { return _ID; } }

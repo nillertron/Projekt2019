@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProjektOpgave1Sem2019.View;
 
 namespace ProjektOpgave1Sem2019
 {

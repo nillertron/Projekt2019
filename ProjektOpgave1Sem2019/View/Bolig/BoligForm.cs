@@ -77,7 +77,9 @@ namespace ProjektOpgave1Sem2019
         {
             var Valgt = new Bolig();
             ViewModel.boliger.ForEach(o => { if (o.ID.ToString() == LWSearchResults.FocusedItem.Name) Valgt = o; });
-            ViewModel.ShowBolig(Valgt);
+            var instans = ViewModel.ShowBolig(Valgt);
+            Controls.Add(instans);
+
         }
     }
 }

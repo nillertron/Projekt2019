@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using ProjektOpgave1Sem2019.Model;
 using System.Windows.Forms;
-using ProjektOpgave1Sem2019.View;
+
 
 namespace ProjektOpgave1Sem2019
 {
@@ -43,9 +43,10 @@ namespace ProjektOpgave1Sem2019
             return tempBoliger;
         }
 
-        public void ShowBolig(Bolig b)
+        public BoligDetails ShowBolig(Bolig b)
         {
-
+            var instans = new BoligDetails(b);
+                return instans;
         }
 
         public void Opret()
