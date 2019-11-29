@@ -171,6 +171,31 @@ namespace ProjektOpgave1Sem2019.Model
             return wasSuccessful;
         }
 
+        public static Ejendomsmægler GetEjendomsmægler(int id) //Find enkelt ejendomsmægler -Martin
+        {       //Bruges i BoligViewModel
+            string cmdString = "SELECT * FROM Ejendomsmægler WHERE ID = @ID";
+
+            Ejendomsmægler e;
+
+            using (SqlCommand cmd = new SqlCommand(cmdString, DBHelper.Conn))
+            {
+                cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = id;
+
+                DBHelper.Conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+
+                    e = new Ejendomsmægler(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                                reader.GetString(3), reader.GetDateTime(4), reader.GetInt32(5),
+                                reader.GetString(6), reader.GetString(7));
+                }
+                DBHelper.Conn.Close();
+            }
+
+            return e;
+        }
+
         //Martin slut
 
 

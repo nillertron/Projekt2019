@@ -16,7 +16,10 @@ namespace ProjektOpgave1Sem2019
     {
         public List<PostNumre> postNumre = new List<PostNumre>();
         List<Bolig> boliger = new List<Bolig>();
-        BoligDetails Details;
+        private BoligDetails boligDetails;
+        public BoligDetails Details { get { return boligDetails; } private set { boligDetails = value; } }
+
+        Ejendomsmægler valgtEmægler = null; //Bruges i forbindelse med valg af Boligs EMægler
         //List<Bolig> resultatListe = 
 
         private BoligForm view;
@@ -25,9 +28,10 @@ namespace ProjektOpgave1Sem2019
         {
             view = parent;
             boliger = BoligTabelDB.GetAll();
-            Details = new BoligDetails(this);
+            
             //FillListView(boliger);
             postNumre = PostNrTabelDB.GetAllPostnumre();
+            Details = new BoligDetails(this);
         }
 
         public void AddBoligToList(Bolig bolig)
@@ -62,7 +66,10 @@ namespace ProjektOpgave1Sem2019
 
         public void Edit(Bolig b)
         {
-            Details.InitializeEditMode(b);
+            //Get Ejendomsmægler knyttet til bolig
+            Ejendomsmægler e = EjendomsmæglerTabelDB.GetEjendomsmægler(b.EjendomsmæglerID);
+            Details.Show();
+            Details.InitializeEditMode(b, e);
         }
 
         public void Delete(Bolig b)
@@ -76,6 +83,7 @@ namespace ProjektOpgave1Sem2019
             {
                 if(b.ID.ToString() == id)
                 {
+                    //valgtEmægler = EjendomsmæglerTabelDB.GetEjendomsmægler(b.ID); //Not used
                     return b;
                 }
             }
@@ -210,12 +218,35 @@ namespace ProjektOpgave1Sem2019
 
         public void SaveNewBolig(string adresse, double pris, int areal, DateTime opretDato, int postNr)
         {
-            int ejendomsmæglerID = 1;
-            int sælgerID = 1;
+            if (valgtEmægler != null)
+            {
+                int ejendomsmæglerID = valgtEmægler.Id;
+                int sælgerID = 1;
 
-            Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
-            newBolig = BoligTabelDB.Create(newBolig);
-            AddBoligToList(newBolig);
+                Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
+                newBolig = BoligTabelDB.Create(newBolig);
+                AddBoligToList(newBolig);
+            }
+            else
+            {
+                MessageBox.Show("Fejl, har du husket at tilføje en ejendomsmægler?");
+            }
+        }
+
+        //Oldschool get og set fordi jeg lavede en masse baseret på en af dem først. 
+        //Ændrer måske til property senere -Martin
+        public void SetValgtEMægler(Ejendomsmægler e)
+        {
+            valgtEmægler = e;
+        }
+        public Ejendomsmægler GetValgtEMægler()
+        {
+            return valgtEmægler;
+        }
+
+        public List<Ejendomsmægler> GetAllEMægler()
+        {
+            return EjendomsmæglerTabelDB.GetAll();
         }
 
 
