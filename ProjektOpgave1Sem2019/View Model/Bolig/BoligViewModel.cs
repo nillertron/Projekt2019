@@ -78,7 +78,7 @@ namespace ProjektOpgave1Sem2019
 
         public void Delete(Bolig b)
         {
-
+            BoligTabelDB.Delete(b);
         }
 
         public Bolig GetBolig(string id)
