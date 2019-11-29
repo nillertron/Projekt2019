@@ -18,12 +18,26 @@ namespace ProjektOpgave1Sem2019.View.Bolig
         Stream myStream;
         SaveFileDialog saveFileDialog2 = new SaveFileDialog();
         private bool mode;
-        public BoligSøgning(BoligViewModel ViewModel)
+        public BoligSøgning(BoligViewModel ViewModel, bool mode)
         {
             InitializeComponent();
             this.ViewModel = ViewModel;
-            cbPostNr.DataSource = ViewModel.postNumre;
-            cbPostNr.DisplayMember = "PostNummer";
+
+            if (mode)
+            {
+                cbPostNr.DataSource = ViewModel.postNumre;
+                cbPostNr.DisplayMember = "PostNummer";
+                label1.Show();
+                cbPostNr.Show();
+                this.mode = mode;
+            }
+            else
+            {
+                label1.Hide();
+                cbPostNr.Hide();
+                this.mode = mode;
+            }
+
             saveFileDialog2.FileOk += (o, e) => tbSti.Text = saveFileDialog2.FileName;
         }
 
@@ -56,9 +70,18 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 
         private void btnUdskriv_Click(object sender, EventArgs e)
         {
-            var postnummer = cbPostNr.SelectedItem as PostNumre;
             var path = @"" + tbSti.Text;
-            ViewModel.UdskrivBoligerFraByTilTxtFil(postnummer.PostNummer, path);
+            if (mode)
+            {
+                var postnummer = cbPostNr.SelectedItem as PostNumre;
+                ViewModel.UdskrivBoligerFraByTilTxtFil(postnummer.PostNummer, path);
+
+            }
+            else
+            {
+                ViewModel.UdskrivBoligerTilTxtFil(path);
+            }
+
         }
     }
 }
