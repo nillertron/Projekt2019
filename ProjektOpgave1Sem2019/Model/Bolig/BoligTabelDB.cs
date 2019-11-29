@@ -150,7 +150,7 @@ namespace ProjektOpgave1Sem2019
                 using (SqlCommand cmd = new SqlCommand()) 
                 {
                 string query = " INSERT INTO Bolig( Adresse, Pris, SælgerID, Kvm, OprettelsesDato, EjendomsmæglerID, PostNr) ";
-                query += $" VALUES ( '{b.Adresse}', {b.Pris}, {b.SælgerID}, {b.Kvm}, {b.OprettelsesDato.ToString("yyyy - MM - dd HH: mm:ss.fff")}, {b.EjendomsmæglerID}, {b.PostNr} )";
+                query += $" VALUES ( '{b.Adresse}', {b.Pris}, {b.SælgerID}, {b.Kvm}, {b.OprettelsesDato.ToString("yyyy - MM - dd ")}, {b.EjendomsmæglerID}, {b.PostNr} )";
                
                 cmd.Connection = DBHelper.Conn;
                 cmd.CommandText = query;
@@ -201,7 +201,10 @@ namespace ProjektOpgave1Sem2019
      
 
 
-
+        private static void wr(string s)
+        {
+            System.Diagnostics.Debug.WriteLine(s);
+        }
 
         public static bool Update(Bolig b)
         {
@@ -226,14 +229,16 @@ namespace ProjektOpgave1Sem2019
                 $" Pris = {b.Pris}, " +
                 $" SælgerID = {b.SælgerID}, " +
                 $" Kvm = {b.Kvm}, " +
-                $" OprettelsesDato = {b.OprettelsesDato.ToString("yyyy - MM - dd HH: mm:ss.fff")}, " +
+                $" OprettelsesDato = {b.OprettelsesDato.ToString("yyyy - MM - dd ")}, " +
                 $" EjendomsmæglerID = {b.EjendomsmæglerID}, " +
                 $" PostNr = {b.PostNr} " +
                 $" WHERE ID = {b.ID}";
             cmd.CommandText = query;
             cmd.Connection = DBHelper.Conn;
-
-
+                wr("f");
+                wr("f");
+                wr(query);
+                
                 try
                 {
                     cmd.ExecuteNonQuery();
@@ -325,7 +330,7 @@ namespace ProjektOpgave1Sem2019
                 string query = $" INSERT INTO SolgtBolig " +
                     $" (BoligID, KøberID, Købspris, KøbsDato) " +
                     $" VALUES " +
-                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, {b.OprettelsesDato.ToString("yyyy - MM - dd HH: mm:ss.fff")}) ";
+                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, {b.OprettelsesDato.ToString("yyyy - MM - dd ")}) ";
                 cmd.CommandText = query;
                 cmd.Connection = DBHelper.Conn;
                 
