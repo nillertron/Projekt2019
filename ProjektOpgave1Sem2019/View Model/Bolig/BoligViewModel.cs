@@ -20,6 +20,9 @@ namespace ProjektOpgave1Sem2019
         public BoligDetails Details { get { return boligDetails; } private set { boligDetails = value; } }
 
         Ejendomsmægler valgtEmægler = null; //Bruges i forbindelse med valg af Boligs EMægler
+        public Ejendomsmægler ValgtEmægler { get { return valgtEmægler; } private set { valgtEmægler = value; } }
+        Bolig valgtBolig = null;
+        public Bolig ValgtBolig { get { return valgtBolig; } private set { valgtBolig = value; } }
         //List<Bolig> resultatListe = 
 
         private BoligForm view;
@@ -67,9 +70,10 @@ namespace ProjektOpgave1Sem2019
         public void Edit(Bolig b)
         {
             //Get Ejendomsmægler knyttet til bolig
-            Ejendomsmægler e = EjendomsmæglerTabelDB.GetEjendomsmægler(b.EjendomsmæglerID);
+            ValgtEmægler = EjendomsmæglerTabelDB.GetEjendomsmægler(b.EjendomsmæglerID);
+            ValgtBolig = b;
             //Details.Show();
-            Details.InitializeEditMode(b, e);
+            Details.InitializeEditMode();
         }
 
         public void Delete(Bolig b)
@@ -254,7 +258,7 @@ namespace ProjektOpgave1Sem2019
         //internal void MarkerSolgt()
         internal bool TjekBoligSolgt(Bolig selectedBolig)
         {
-            return BoligTabelDB.TjekBoligSolgt(selectedBolig);
+            return BoligTabelDB.TjekBoligSolgt(ValgtBolig);
         }
         internal void SælgBolig(Bolig b, BoligDetails instans)
         {

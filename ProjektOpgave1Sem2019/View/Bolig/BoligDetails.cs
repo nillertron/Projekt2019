@@ -59,31 +59,30 @@ namespace ProjektOpgave1Sem2019
             LabelMode.Text = "CREATE MODE";
         }
 
-        public void InitializeEditMode(Bolig b, Ejendomsmægler e)
+        public void InitializeEditMode()
         {
             editMode = true;
-            selectedBolig = b;
             Show();
             TBPostNr.Show();
-            TBAdresse.Text = b.Adresse;
+            TBAdresse.Text = viewModel.ValgtBolig.Adresse;
             TBAdresse.ReadOnly = true; //Adresse ændres ikke medmindre vi henter en kæmpe lastbil.
 
-            TBAreal.Text = b.Kvm.ToString();
+            TBAreal.Text = viewModel.ValgtBolig.Kvm.ToString();
             TBAreal.BackColor = Color.Gray;
             TBAreal.ReadOnly = true; //Areal ændres ikke
 
-            TBPris.Text = b.Pris.ToString();
+            TBPris.Text = viewModel.ValgtBolig.Pris.ToString();
             TBPris.BackColor = Color.White;
 
             CBPostNr.Hide(); //PostNr skal ikke ændres ever
-            TBPostNr.Text = b.PostNr.ToString();
+            TBPostNr.Text = viewModel.ValgtBolig.PostNr.ToString();
             TBPostNr.ReadOnly = true;
 
-            LabelID.Text = b.ID.ToString();
+            LabelID.Text = viewModel.ValgtBolig.ID.ToString();
 
             BtnVælgE.Enabled = false;
 
-            DTPOpretDato.Value = b.OprettelsesDato;
+            DTPOpretDato.Value = viewModel.ValgtBolig.OprettelsesDato;
             DTPOpretDato.Enabled = false; //Oprettelses datoen er fast.
 
             LabelMode.Text = "EDIT MODE";
@@ -198,7 +197,7 @@ namespace ProjektOpgave1Sem2019
 
         private void BTNSolgt_Click(object sender, EventArgs e)
         {
-            viewModel.SælgBolig(selectedBolig, this);
+            viewModel.SælgBolig(viewModel.ValgtBolig, this);
 
         }
 
