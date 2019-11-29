@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019.View;
-using ProjektOpgave1Sem2019.Model;
+using ProjektOpgave1Sem2019.View.Bolig;
 //Nichlas
 namespace ProjektOpgave1Sem2019
 {
@@ -24,7 +24,7 @@ namespace ProjektOpgave1Sem2019
             CBKriterie.Items.AddRange(kriterier);
             FyldListView(ViewModel.FillListView());
             CBKriterie.SelectedIndex = 0;
-            Details = ViewModel.Details;
+            Details = new BoligDetails(this.ViewModel);
             Controls.Add(Details);
 
         }
@@ -83,8 +83,7 @@ namespace ProjektOpgave1Sem2019
             var Valgt = ViewModel.GetBolig(LWSearchResults.FocusedItem.Name);
             ViewModel.FillListView().ForEach(o => { if (o.ID.ToString() == LWSearchResults.FocusedItem.Name) Valgt = o; });
 
-            //Details.InitializeEditMode(Valgt, EjendomsmæglerTabelDB.GetEjendomsmægler(1));
-            ViewModel.Edit(Valgt); //Går ind over Viewmodel for at undgå link mellem forms, data uafhængighed -martin
+            Details.InitializeEditMode(Valgt);
 
         }
 
@@ -106,6 +105,15 @@ namespace ProjektOpgave1Sem2019
         private void btnUdskrivAlleBoligerIkkeSolgt_Click(object sender, EventArgs e)
         {
             ViewModel.UdskrivBoligerTilTxtFil();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var SøgForm = new BoligSøgning(ViewModel);
+            if (!Controls.Contains(SøgForm))
+                Controls.Add(SøgForm);
+            SøgForm.BringToFront();
+
         }
     }
 }

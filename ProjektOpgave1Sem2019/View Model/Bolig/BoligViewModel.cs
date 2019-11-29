@@ -269,6 +269,14 @@ namespace ProjektOpgave1Sem2019
             FileWriter.BoligerTilSalgToFile(path, liste);
 
         }
+        internal void UdskrivBoligerFraByTilTxtFil(int PostNummer, string path)
+        {
+            var liste = new List<Bolig>();
+            liste = BoligTabelDB.GetAllBoligMedSælger();
+            liste = liste.Where(o => o.PostNr == PostNummer).ToList();
+            FileWriter.UdskrivBoligerIbestemtPostNr(path, liste);
+
+        }
         //
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)
         //{

@@ -74,6 +74,12 @@
     <Compile Include="View\Bolig\BoligForm.Designer.cs">
       <DependentUpon>BoligForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Bolig\BoligSøgning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\BoligSøgning.Designer.cs">
+      <DependentUpon>BoligSøgning.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\BoligForm.resx">
       <DependentUpon>BoligForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Bolig\BoligSøgning.resx">
+      <DependentUpon>BoligSøgning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\SælgBolig.resx">
       <DependentUpon>SælgBolig.cs</DependentUpon>
