@@ -98,16 +98,22 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         public string[,] KonverterTilArrayKarl()
         {
-           
-            string[,] arr = new string[ AntalHuse + 1, AntalSælgere ];
+            List<int> sælgerID = new List<int>();
+            foreach (SolgtBolig sb in SorteretListe)
+                if (!sælgerID.Contains(sb.SælgerID))
+                    sælgerID.Add(sb.SælgerID);
+
+            int antalSælgerID = 0;
+            System.Diagnostics.Debug.WriteLine(phListe.Count);  
+            string[,] arr = new string[ AntalHuse + 1, sælgerID.Count ];
             
             int counter = 0; 
 
             //fill sælgere
-            for(int i = 0; i < phListe.Count; i++)
+            for(int i = 0; i < SorteretListe.Count; i++)
             {
                 //check om sælger allerede eksisterer 
-                Bolig b = phListe[i];
+                Bolig b = SorteretListe[i];
                 bool doesExists = false;
 
                 for (int j = 0; j < arr.GetLength(1); j++)
@@ -124,9 +130,9 @@ namespace ProjektOpgave1Sem2019.View_Model
 
            
 
-         for(int i = 0;i < phListe.Count; i++)
+         for(int i = 0;i < SorteretListe.Count; i++)
             {
-                Bolig b = phListe[i]; 
+                Bolig b = SorteretListe[i]; 
 
 
                
@@ -142,7 +148,7 @@ namespace ProjektOpgave1Sem2019.View_Model
                             count++;
 
 
-                        arr[count, j] = b.ID.ToString(); //her indsættes den værdi som man gerne vil gemme for hver sælger, behøver ikke være boligID, opgaven beskriver ikke nøjagtig hvilke oplysninger som skal gemmes fra boligen i arrayet
+                        arr[count, j] = b.Adresse; //her indsættes den værdi som man gerne vil gemme for hver sælger, behøver ikke være boligID, opgaven beskriver ikke nøjagtig hvilke oplysninger som skal gemmes fra boligen i arrayet
                     }
                 }
             }
