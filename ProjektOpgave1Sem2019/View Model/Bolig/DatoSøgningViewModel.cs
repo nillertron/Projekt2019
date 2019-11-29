@@ -8,12 +8,15 @@ namespace ProjektOpgave1Sem2019.View_Model
 {
     class DatoSøgningViewModel
     {
+        public int AntalSælgere { get; private set; }
+        public int AntalHuse { get; private set; }
         //Nichlas
         List<SolgtBolig> BoligListe;
+        List<SolgtBolig> SorteretListe = new List<SolgtBolig>();
         public DatoSøgningViewModel(List<Bolig> liste)
         {
-             FindSolgteBoliger(liste);
             BoligListe = new List<SolgtBolig>();
+            FindSolgteBoliger(liste);
         }
 
         private void FindSolgteBoliger(List<Bolig> Liste)
@@ -26,7 +29,43 @@ namespace ProjektOpgave1Sem2019.View_Model
                 if (tjek)
                     phlist.Remove(o);
             });
-            BoligListe = phlist.Cast<SolgtBolig>().ToList();
+            var phsbolig = new SolgtBolig();
+            phlist.ForEach(o => { phsbolig = phsbolig.SælgBolig(o, 1, 1, DateTime.Now); BoligListe.Add(phsbolig); });
+           // BoligListe = phlist.Cast<SolgtBolig>().ToList();
+
+            BoligListe = BoligTabelDB.GetSolgtDetaljerFraListe(BoligListe);
+        }
+        public void SorterEfter2datoer(DateTime offset, DateTime end)
+        {
+            SorteretListe.Clear();
+            SorteretListe = BoligListe;
+            SorteretListe = BoligListe.Where(o => o.KøbsDato > offset && o.KøbsDato < end).ToList();
+            AntalHuse = SorteretListe.Count;
+            var phliste = new List<SolgtBolig>();
+            phliste = BoligListe;
+            phliste = phliste.GroupBy(o => o.EjendomsmæglerID).Select(o => o.First()).ToList();
+            AntalSælgere = phliste.Count;
+        }
+
+        public string[,] KonverterTilArray()
+        {
+            string[,] array = new string[AntalHuse, AntalSælgere];
+            for (int i = 0; i < array.GetUpperBound(0) + 1; i++)
+            {
+                //fix 2dim array :((
+
+                for (int x = 0; x < array.GetUpperBound(1) + 1; x++)
+                {
+                   
+                        array[i, 0] = SorteretListe[i].EjendomsmæglerID.ToString();
+                        array[0, x] = SorteretListe[i].KøbsPris.ToString();
+
+
+
+                }
+
+            }
+            return array;
         }
     }
 }

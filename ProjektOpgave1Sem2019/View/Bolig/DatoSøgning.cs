@@ -24,5 +24,24 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
+
+        private void fyldboks()
+        {
+            string[,] array = ViewModel.KonverterTilArray();
+            for (int i = 0; i < array.GetUpperBound(0) + 1; i++)
+                {
+                for(int x = 0; x < array.GetUpperBound(1) + 1; x++)
+                rtbContent.AppendText(array[i, x].PadLeft(10));
+                rtbContent.AppendText("\r\n");
+                
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ViewModel.SorterEfter2datoer(dtpStart.Value, dtpSlut.Value);
+            fyldboks();
+        }
     }
 }

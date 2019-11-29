@@ -95,7 +95,7 @@ namespace ProjektOpgave1Sem2019
 
         public void SælgBoligToFront(Bolig b, BoligDetails instans)
         {
-            var S = new SælgBolig(b, instans);
+            var S = new SælgBolig(b, instans, ViewModel);
             
             Controls.Add(S);
             S.BringToFront();

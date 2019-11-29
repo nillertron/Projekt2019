@@ -31,10 +31,15 @@ namespace ProjektOpgave1Sem2019
         {
             view = parent;
             boliger = BoligTabelDB.GetAll();
-            
+            FyldPostnummerListe();
             //FillListView(boliger);
-            postNumre = PostNrTabelDB.GetAllPostnumre();
+
             Details = new BoligDetails(this);
+        }
+        public void FyldPostnummerListe()
+        {
+            postNumre.Clear();
+            postNumre = PostNrTabelDB.GetAllPostnumre();
         }
 
         public void AddBoligToList(Bolig bolig)

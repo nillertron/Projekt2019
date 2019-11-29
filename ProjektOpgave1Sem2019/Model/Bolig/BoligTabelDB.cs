@@ -348,6 +348,19 @@ namespace ProjektOpgave1Sem2019
                 return success;
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+        #region Nichlas
         //Har lige brug for at lave en metode til at tjekke om en bolig er solgt, du er velkommen til at lave din egen og slette denne :)
         //niklas
         public static bool TjekBoligSolgt(Bolig b)
@@ -404,6 +417,42 @@ namespace ProjektOpgave1Sem2019
             }
             return liste;
         }
+        public static List<SolgtBolig> GetSolgtDetaljerFraListe(List<SolgtBolig> liste)
+        {
 
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+                {
+
+                    liste.ForEach(o =>
+                    {
+                        conn.Open();
+                        SqlDataReader dataReader;
+                        using (SqlCommand command = new SqlCommand("select KøberID, Købspris, KøbsDato from SolgtBolig where BoligID =" +o.ID, conn))
+                        {
+                            Sælger sælger = new Sælger();
+                            dataReader = command.ExecuteReader();
+                            while (dataReader.Read())
+                            {
+                                o.SetValues(dataReader.GetInt32(0), Convert.ToDouble(dataReader.GetValue(1)), dataReader.GetDateTime(2));
+
+                            }
+
+                            conn.Close();
+
+
+                        }
+                    });
+
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return liste;
+        }
+        #endregion
     }
 }

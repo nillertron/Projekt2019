@@ -28,34 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.dtpSlut = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.rtbContent = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtpStart
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(0, 33);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpStart.Location = new System.Drawing.Point(0, 33);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(200, 20);
+            this.dtpStart.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dtpSlut
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(0, 74);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 1;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(322, 23);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(330, 243);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.dtpSlut.Location = new System.Drawing.Point(0, 74);
+            this.dtpSlut.Name = "dtpSlut";
+            this.dtpSlut.Size = new System.Drawing.Size(200, 20);
+            this.dtpSlut.TabIndex = 1;
             // 
             // label1
             // 
@@ -77,15 +70,34 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Slut Dato";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 163);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // rtbContent
+            // 
+            this.rtbContent.Location = new System.Drawing.Point(227, 33);
+            this.rtbContent.Name = "rtbContent";
+            this.rtbContent.Size = new System.Drawing.Size(425, 237);
+            this.rtbContent.TabIndex = 6;
+            this.rtbContent.Text = "";
+            // 
             // DatoSøgning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rtbContent);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpSlut);
+            this.Controls.Add(this.dtpStart);
             this.Location = new System.Drawing.Point(350, 50);
             this.Name = "DatoSøgning";
             this.Size = new System.Drawing.Size(680, 289);
@@ -97,10 +109,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.DateTimePicker dtpSlut;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox rtbContent;
     }
 }
