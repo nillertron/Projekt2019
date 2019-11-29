@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnUdskriv = new System.Windows.Forms.Button();
+            this.lblBy = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbPostNr
@@ -92,10 +93,21 @@
             this.btnUdskriv.UseVisualStyleBackColor = true;
             this.btnUdskriv.Click += new System.EventHandler(this.btnUdskriv_Click);
             // 
+            // lblBy
+            // 
+            this.lblBy.AutoSize = true;
+            this.lblBy.ForeColor = System.Drawing.Color.Black;
+            this.lblBy.Location = new System.Drawing.Point(139, 39);
+            this.lblBy.Name = "lblBy";
+            this.lblBy.Size = new System.Drawing.Size(18, 13);
+            this.lblBy.TabIndex = 6;
+            this.lblBy.Text = "by";
+            // 
             // BoligSøgning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblBy);
             this.Controls.Add(this.btnUdskriv);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.label2);
@@ -120,5 +132,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Button btnUdskriv;
+        private System.Windows.Forms.Label lblBy;
     }
 }

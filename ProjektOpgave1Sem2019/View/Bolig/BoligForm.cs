@@ -105,12 +105,17 @@ namespace ProjektOpgave1Sem2019
 
         private void btnUdskrivAlleBoligerIkkeSolgt_Click(object sender, EventArgs e)
         {
-            ViewModel.UdskrivBoligerTilTxtFil();
+            bool b = false;
+            var SøgForm = new BoligSøgning(ViewModel,b);
+            if (!Controls.Contains(SøgForm))
+                Controls.Add(SøgForm);
+            SøgForm.BringToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var SøgForm = new BoligSøgning(ViewModel);
+            bool b = true;
+            var SøgForm = new BoligSøgning(ViewModel,b);
             if (!Controls.Contains(SøgForm))
                 Controls.Add(SøgForm);
             SøgForm.BringToFront();
