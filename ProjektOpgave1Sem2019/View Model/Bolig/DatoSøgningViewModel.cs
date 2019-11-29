@@ -75,5 +75,69 @@ namespace ProjektOpgave1Sem2019.View_Model
             }
             return array;
         }
+
+        public string[,] KonverterTilArrayKarl()
+        {
+           
+
+
+
+            string[,] arr = new string[ AntalHuse + 1, AntalSælgere ];
+            List<Bolig> distinctSælgere = new List<Bolig>();
+            int counter = 0; 
+
+            //fill sælgere
+            for(int i = 0; i < phListe.Count; i++)
+            {
+                //check om sælger allerede eksisterer 
+                Bolig b = phListe[i];
+                bool doesExists = false;
+
+                for (int j = 0; j < arr.GetLength(1); j++)
+                    if (arr[0, j] == b.SælgerID.ToString())
+                        doesExists = true;
+
+                if (!doesExists)
+                {
+                    //add sælger 
+                    arr[0, counter] = b.SælgerID.ToString();
+                    counter++;
+                }
+            }
+
+           
+
+         for(int i = 0;i < phListe.Count; i++)
+            {
+                Bolig b = phListe[i]; 
+
+
+               
+                //find tilhørende sælger 
+                for(int j = 0; j < arr.GetLength(1); j++)
+                {
+                
+                    if(arr[0,j] == b.SælgerID.ToString())
+                    {
+                        int count = 1;
+
+                        while (arr[count, j] != null)
+                            count++;
+
+
+                        arr[count, j] = b.ID.ToString(); //her indsættes den værdi som man gerne vil gemme for hver sælger, behøver ikke være boligID, opgaven beskriver ikke nøjagtig hvilke oplysninger som skal gemmes fra boligen i arrayet
+                    }
+                }
+            }
+
+
+
+           
+            return arr;
+
+                
+        }
+     
+       
     }
 }

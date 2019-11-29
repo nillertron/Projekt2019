@@ -18,6 +18,9 @@ namespace ProjektOpgave1Sem2019
         {
             InitializeComponent();
             ViewModel = new DatoSøgningViewModel(liste);
+
+
+
         }
 
         private void DatoSøgning_Load(object sender, EventArgs e)
@@ -27,14 +30,32 @@ namespace ProjektOpgave1Sem2019
 
         private void fyldboks()
         {
-            string[,] array = ViewModel.KonverterTilArray();
-            for (int i = 0; i < array.GetUpperBound(0) + 1; i++)
+            //niclas udkommenteret
+            // string[,] array = ViewModel.KonverterTilArray();
+
+
+            //for (int i = 0; i < array.GetUpperBound(0) + 1; i++)
+            //    {
+            //    for(int x = 0; x < array.GetUpperBound(1) + 1; x++)
+            //    rtbContent.AppendText(array[i, x].PadLeft(10));
+            //    rtbContent.AppendText("\r\n");
+
+            //}
+
+            string[,] arr = ViewModel.KonverterTilArrayKarl();
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                for(int x = 0; x < array.GetUpperBound(1) + 1; x++)
-                rtbContent.AppendText(array[i, x].PadLeft(10));
-                rtbContent.AppendText("\r\n");
-                
+                    if (arr[i, j] != null)
+                        rtbContent.AppendText(arr[i, j].PadLeft(10));
+                    else
+                        rtbContent.AppendText("".PadLeft(10));
+                }
+
+            rtbContent.AppendText("\r\n");
             }
+
 
         }
 
@@ -42,6 +63,7 @@ namespace ProjektOpgave1Sem2019
         {
             ViewModel.SorterEfter2datoer(dtpStart.Value, dtpSlut.Value);
             fyldboks();
+           
         }
     }
 }
