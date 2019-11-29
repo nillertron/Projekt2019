@@ -19,6 +19,7 @@ namespace ProjektOpgave1Sem2019
         BoligViewModel viewModel;
         bool editMode;
         Bolig selectedBolig;
+        Ejendomsmægler valgtEMægl = null;
         bool isEditMode;
         public BoligDetails(BoligViewModel model)
         {
@@ -54,11 +55,11 @@ namespace ProjektOpgave1Sem2019
 
             DTPOpretDato.Value = DateTime.Now; //på nuværende tidspunkt kan kun oprettes dags dato
             
-
+            BtnVælgE.Enabled = true;
             LabelMode.Text = "CREATE MODE";
         }
 
-        public void InitializeEditMode(Bolig b)
+        public void InitializeEditMode(Bolig b, Ejendomsmægler e)
         {
             editMode = true;
             selectedBolig = b;
@@ -79,6 +80,8 @@ namespace ProjektOpgave1Sem2019
             TBPostNr.ReadOnly = true;
 
             LabelID.Text = b.ID.ToString();
+
+            BtnVælgE.Enabled = false;
 
             DTPOpretDato.Value = b.OprettelsesDato;
             DTPOpretDato.Enabled = false; //Oprettelses datoen er fast.
@@ -172,6 +175,12 @@ namespace ProjektOpgave1Sem2019
                 }
             }
         }
+        private void BtnVælgE_Click(object sender, EventArgs e)
+        {
+            Form VælgEMægler = new VælgEMæglerForm(this.viewModel);
+            VælgEMægler.ShowDialog(); //Åbner ny form til valg af Ejendomsmægler
+            BtnVælgE.Enabled = false;
+        }
 
         private void BoligDetails_Load(object sender, EventArgs e)
         {
@@ -192,5 +201,7 @@ namespace ProjektOpgave1Sem2019
             viewModel.SælgBolig(selectedBolig, this);
 
         }
+
+
     }        /// 
 }

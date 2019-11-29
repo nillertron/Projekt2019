@@ -44,6 +44,7 @@
             this.LBLPris = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BTNSolgt = new System.Windows.Forms.Button();
+            this.BtnVælgE = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TBAdresse
@@ -206,10 +207,21 @@
             this.BTNSolgt.UseVisualStyleBackColor = true;
             this.BTNSolgt.Click += new System.EventHandler(this.BTNSolgt_Click);
             // 
+            // BtnVælgE
+            // 
+            this.BtnVælgE.Location = new System.Drawing.Point(164, 182);
+            this.BtnVælgE.Name = "BtnVælgE";
+            this.BtnVælgE.Size = new System.Drawing.Size(75, 23);
+            this.BtnVælgE.TabIndex = 17;
+            this.BtnVælgE.Text = "Vælg E";
+            this.BtnVælgE.UseVisualStyleBackColor = true;
+            this.BtnVælgE.Click += new System.EventHandler(this.BtnVælgE_Click);
+            // 
             // BoligDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnVælgE);
             this.Controls.Add(this.BTNSolgt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LBLPris);
@@ -254,5 +266,6 @@
         private System.Windows.Forms.Label LBLPris;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button BTNSolgt;
+        private System.Windows.Forms.Button BtnVælgE;
     }
 }

@@ -181,6 +181,7 @@ namespace ProjektOpgave1Sem2019.Model
             {
                 cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = id;
 
+                DBHelper.Conn.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     reader.Read();
@@ -189,6 +190,7 @@ namespace ProjektOpgave1Sem2019.Model
                                 reader.GetString(3), reader.GetDateTime(4), reader.GetInt32(5),
                                 reader.GetString(6), reader.GetString(7));
                 }
+                DBHelper.Conn.Close();
             }
 
             return e;
