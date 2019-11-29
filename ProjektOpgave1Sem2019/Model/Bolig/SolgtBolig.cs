@@ -14,7 +14,7 @@ namespace ProjektOpgave1Sem2019
         private double _KøbsPris;
         public double KøbsPris { get { return _KøbsPris; } private set { if (value > 0) _KøbsPris = value; else throw new FormatException("Den er da ikke solgt gratis?"); } }
         private DateTime _KøbsDato;
-        public DateTime KøbsDato { get { return _KøbsDato; } private set { if (value.Year > 2015 && value.Year <= DateTime.Today.Year) _KøbsDato = value; else throw new FormatException("år skal være mellem 2015 og nuværende år"); } }
+        public DateTime KøbsDato { get { return _KøbsDato; } private set { if (value.Year > 0 && value.Year <= DateTime.Today.Year) _KøbsDato = value; else throw new FormatException("år skal være mellem 2015 og nuværende år"); } }
         public SolgtBolig(int ID, string Adresse, double Pris, int SælgerID, int Kvm, DateTime OprettelsesDato, int EjendomsmæglerID, int PostNr, int KøberID, double KøbsPris, DateTime KøbsDato):base(ID, Adresse, Pris, SælgerID, Kvm, OprettelsesDato, EjendomsmæglerID, PostNr)
         {
             this.KøberID = KøberID;
@@ -42,6 +42,12 @@ namespace ProjektOpgave1Sem2019
         public SolgtBolig()
         {
 
+        }
+        public void SetValues(int id, double pris, DateTime købsdato)
+        {
+            this.KøberID = id;
+            this.KøbsPris = pris;
+            this.KøbsDato = købsdato;
         }
         //Martin
         public new int CompareTo(object obj)

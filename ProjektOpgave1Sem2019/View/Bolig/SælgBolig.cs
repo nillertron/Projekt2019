@@ -18,13 +18,15 @@ namespace ProjektOpgave1Sem2019
         Bolig ValgtBolig;
         SælgBoligViewModel ViewModel;
         BoligDetails parent;
-        public SælgBolig(Bolig b, BoligDetails instans)
+        BoligViewModel BoligView;
+        public SælgBolig(Bolig b, BoligDetails instans, BoligViewModel bview)
         {
             InitializeComponent();
             parent = instans;
             ViewModel = new SælgBoligViewModel();
             ValgtBolig = b;
             Start();
+            BoligView = bview;
 
         }
 
@@ -57,6 +59,8 @@ namespace ProjektOpgave1Sem2019
                 var solgtBolig = new SolgtBolig();
                 solgtBolig = solgtBolig.SælgBolig(ValgtBolig, køber.Id, Convert.ToDouble(tbKøbsPris.Text), dtpKøbsDato.Value);
                 parent.BTNSolgt.Hide();
+                ViewModel.IndsætSolgtBolig(solgtBolig);
+                BoligView.FyldPostnummerListe();
                 this.Dispose();
 
             }

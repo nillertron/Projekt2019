@@ -37,6 +37,7 @@
             this.CBKriterie = new System.Windows.Forms.ComboBox();
             this.btnUdskrivAlleBoligerIkkeSolgt = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnDatoSøgning = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TBInput
@@ -130,10 +131,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnDatoSøgning
+            // 
+            this.btnDatoSøgning.ForeColor = System.Drawing.Color.Black;
+            this.btnDatoSøgning.Location = new System.Drawing.Point(756, 2);
+            this.btnDatoSøgning.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDatoSøgning.Name = "btnDatoSøgning";
+            this.btnDatoSøgning.Size = new System.Drawing.Size(139, 37);
+            this.btnDatoSøgning.TabIndex = 15;
+            this.btnDatoSøgning.Text = "Statistik over boliger i valgt periode";
+            this.btnDatoSøgning.UseVisualStyleBackColor = true;
+            this.btnDatoSøgning.Click += new System.EventHandler(this.btnDatoSøgning_Click);
+            // 
             // BoligForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDatoSøgning);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnUdskrivAlleBoligerIkkeSolgt);
             this.Controls.Add(this.CBKriterie);
@@ -162,5 +176,6 @@
         private System.Windows.Forms.ComboBox CBKriterie;
         public System.Windows.Forms.Button btnUdskrivAlleBoligerIkkeSolgt;
         public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnDatoSøgning;
     }
 }

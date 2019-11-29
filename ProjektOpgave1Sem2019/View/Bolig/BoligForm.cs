@@ -95,7 +95,7 @@ namespace ProjektOpgave1Sem2019
 
         public void SælgBoligToFront(Bolig b, BoligDetails instans)
         {
-            var S = new SælgBolig(b, instans);
+            var S = new SælgBolig(b, instans, ViewModel);
             
             Controls.Add(S);
             S.BringToFront();
@@ -120,6 +120,14 @@ namespace ProjektOpgave1Sem2019
                 Controls.Add(SøgForm);
             SøgForm.BringToFront();
 
+        }
+
+        private void btnDatoSøgning_Click(object sender, EventArgs e)
+        {
+            var SøgDato = new DatoSøgning(ViewModel.boliger);
+            if (!Controls.Contains(SøgDato))
+                Controls.Add(SøgDato);
+            SøgDato.BringToFront();
         }
     }
 }

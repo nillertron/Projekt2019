@@ -150,7 +150,7 @@ namespace ProjektOpgave1Sem2019
                 using (SqlCommand cmd = new SqlCommand()) 
                 {
                 string query = " INSERT INTO Bolig( Adresse, Pris, SælgerID, Kvm, OprettelsesDato, EjendomsmæglerID, PostNr) ";
-                query += $" VALUES ( '{b.Adresse}', {b.Pris}, {b.SælgerID}, {b.Kvm}, {b.OprettelsesDato.ToString("yyyy - MM - dd HH: mm:ss.fff")}, {b.EjendomsmæglerID}, {b.PostNr} )";
+                query += $" VALUES ( '{b.Adresse}', {b.Pris}, {b.SælgerID}, {b.Kvm}, {b.OprettelsesDato.ToString("yyyy - MM - dd ")}, {b.EjendomsmæglerID}, {b.PostNr} )";
                
                 cmd.Connection = DBHelper.Conn;
                 cmd.CommandText = query;
@@ -201,7 +201,7 @@ namespace ProjektOpgave1Sem2019
      
 
 
-
+   
 
         public static bool Update(Bolig b)
         {
@@ -226,14 +226,14 @@ namespace ProjektOpgave1Sem2019
                 $" Pris = {b.Pris}, " +
                 $" SælgerID = {b.SælgerID}, " +
                 $" Kvm = {b.Kvm}, " +
-                $" OprettelsesDato = {b.OprettelsesDato.ToString("yyyy - MM - dd HH: mm:ss.fff")}, " +
+                $" OprettelsesDato = {b.OprettelsesDato.ToString("yyyy - MM - dd ")}, " +
                 $" EjendomsmæglerID = {b.EjendomsmæglerID}, " +
                 $" PostNr = {b.PostNr} " +
                 $" WHERE ID = {b.ID}";
             cmd.CommandText = query;
             cmd.Connection = DBHelper.Conn;
-
-
+        
+                
                 try
                 {
                     cmd.ExecuteNonQuery();
@@ -325,7 +325,7 @@ namespace ProjektOpgave1Sem2019
                 string query = $" INSERT INTO SolgtBolig " +
                     $" (BoligID, KøberID, Købspris, KøbsDato) " +
                     $" VALUES " +
-                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, {b.OprettelsesDato.ToString("yyyy - MM - dd HH: mm:ss.fff")}) ";
+                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, {b.OprettelsesDato.ToString("yyyy - MM - dd ")}) ";
                 cmd.CommandText = query;
                 cmd.Connection = DBHelper.Conn;
                 
@@ -348,6 +348,19 @@ namespace ProjektOpgave1Sem2019
                 return success;
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+        #region Nichlas
         //Har lige brug for at lave en metode til at tjekke om en bolig er solgt, du er velkommen til at lave din egen og slette denne :)
         //niklas
         public static bool TjekBoligSolgt(Bolig b)
@@ -404,6 +417,42 @@ namespace ProjektOpgave1Sem2019
             }
             return liste;
         }
+        public static List<SolgtBolig> GetSolgtDetaljerFraListe(List<SolgtBolig> liste)
+        {
 
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+                {
+
+                    liste.ForEach(o =>
+                    {
+                        conn.Open();
+                        SqlDataReader dataReader;
+                        using (SqlCommand command = new SqlCommand("select KøberID, Købspris, KøbsDato from SolgtBolig where BoligID =" +o.ID, conn))
+                        {
+                            Sælger sælger = new Sælger();
+                            dataReader = command.ExecuteReader();
+                            while (dataReader.Read())
+                            {
+                                o.SetValues(dataReader.GetInt32(0), Convert.ToDouble(dataReader.GetValue(1)), dataReader.GetDateTime(2));
+
+                            }
+
+                            conn.Close();
+
+
+                        }
+                    });
+
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return liste;
+        }
+        #endregion
     }
 }

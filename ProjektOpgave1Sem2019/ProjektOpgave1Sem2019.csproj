@@ -59,6 +59,7 @@
     <Compile Include="Model\Post\PostNrTabelDB.cs" />
     <Compile Include="Model\Post\PostNumre.cs" />
     <Compile Include="View Model\Bolig\BoligViewModel.cs" />
+    <Compile Include="View Model\Bolig\DatoSøgningViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
     <Compile Include="View Model\Bolig\SælgBoligViewModel.cs" />
@@ -79,6 +80,12 @@
     </Compile>
     <Compile Include="View\Bolig\BoligSøgning.Designer.cs">
       <DependentUpon>BoligSøgning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bolig\DatoSøgning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\DatoSøgning.Designer.cs">
+      <DependentUpon>DatoSøgning.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.cs">
       <SubType>UserControl</SubType>
@@ -122,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\BoligSøgning.resx">
       <DependentUpon>BoligSøgning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Bolig\DatoSøgning.resx">
+      <DependentUpon>DatoSøgning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\SælgBolig.resx">
       <DependentUpon>SælgBolig.cs</DependentUpon>
