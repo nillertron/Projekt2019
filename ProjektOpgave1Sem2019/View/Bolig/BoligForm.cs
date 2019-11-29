@@ -24,7 +24,7 @@ namespace ProjektOpgave1Sem2019
             CBKriterie.Items.AddRange(kriterier);
             FyldListView(ViewModel.FillListView());
             CBKriterie.SelectedIndex = 0;
-            Details = new BoligDetails(this.ViewModel);
+            Details = ViewModel.Details;
             Controls.Add(Details);
 
         }
@@ -83,13 +83,14 @@ namespace ProjektOpgave1Sem2019
             var Valgt = ViewModel.GetBolig(LWSearchResults.FocusedItem.Name);
             ViewModel.FillListView().ForEach(o => { if (o.ID.ToString() == LWSearchResults.FocusedItem.Name) Valgt = o; });
 
-            Details.InitializeEditMode(Valgt);
+            ViewModel.Edit(Valgt);
+            //Details.InitializeEditMode(Valgt);
 
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            Details.InitializeCreateMode();
+            ViewModel.Opret();
         }
 
         public void SælgBoligToFront(Bolig b, BoligDetails instans)
