@@ -68,7 +68,7 @@ namespace ProjektOpgave1Sem2019
         {
             //Get Ejendomsmægler knyttet til bolig
             Ejendomsmægler e = EjendomsmæglerTabelDB.GetEjendomsmægler(b.EjendomsmæglerID);
-            Details.Show();
+            //Details.Show();
             Details.InitializeEditMode(b, e);
         }
 
