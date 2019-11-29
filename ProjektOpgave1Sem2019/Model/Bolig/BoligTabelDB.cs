@@ -201,10 +201,7 @@ namespace ProjektOpgave1Sem2019
      
 
 
-        private static void wr(string s)
-        {
-            System.Diagnostics.Debug.WriteLine(s);
-        }
+   
 
         public static bool Update(Bolig b)
         {
@@ -235,9 +232,7 @@ namespace ProjektOpgave1Sem2019
                 $" WHERE ID = {b.ID}";
             cmd.CommandText = query;
             cmd.Connection = DBHelper.Conn;
-                wr("f");
-                wr("f");
-                wr(query);
+        
                 
                 try
                 {
