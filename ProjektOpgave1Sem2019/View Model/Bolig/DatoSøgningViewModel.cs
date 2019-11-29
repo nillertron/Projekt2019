@@ -57,8 +57,8 @@ namespace ProjektOpgave1Sem2019.View_Model
                 for (int x = 0; x < array.GetUpperBound(1) + 1; x++)
                 {
                    
-                        array[i, 0] = SorteretListe[i].EjendomsmæglerID.ToString();
-                        array[0, x] = SorteretListe[i].KøbsPris.ToString();
+                        array[i, x] = SorteretListe[i].EjendomsmæglerID.ToString();
+                        array[i, x] = SorteretListe[i].KøbsPris.ToString();
 
 
 
