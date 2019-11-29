@@ -20,7 +20,8 @@ namespace ProjektOpgave1Sem2019
         public int Kvm { protected set { if (value > 0 && value < 2000) _Kvm = value; else throw new FormatException("Kvm skal være mellem 1 og 2000"); } get { return _Kvm; } }
 
         private DateTime _OprettelsesDato;
-        public DateTime OprettelsesDato { protected set { if (value.Year >= 2015) _OprettelsesDato = value; else throw new FormatException("Oprettelsesåret minimum er 2015"); } get { return _OprettelsesDato; } }
+        public DateTime OprettelsesDato { protected set { if (value.Year >= 2015) _OprettelsesDato = value; else 
+                    throw new FormatException("Oprettelsesåret minimum er 2015"); } get { return _OprettelsesDato; } }
 
         private int _EjendomsmæglerID;
         public int EjendomsmæglerID { protected set { if (value > 0) _EjendomsmæglerID = value; else throw new FormatException("ID skal være størrere end 0"); } get { return _EjendomsmæglerID; }}
@@ -69,20 +70,7 @@ namespace ProjektOpgave1Sem2019
         //Martin
         public int CompareTo(object obj)
         {
-            int returnValue;
-            if(Pris.CompareTo(((Bolig)obj).Pris) < 0)
-            {
-                returnValue = -1;
-            }
-            else if(Pris.CompareTo(((Bolig)obj).Pris) > 0)
-            {
-                returnValue = 1;
-            }
-            else
-            {
-                returnValue = 0;
-            }
-            return returnValue;
+            return this.OprettelsesDato.CompareTo(((Bolig)obj).OprettelsesDato);
         }
         //Martin
         public void UpdatePris(double d)
