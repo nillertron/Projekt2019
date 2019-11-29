@@ -20,7 +20,7 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         public void IndsætSolgtBolig(SolgtBolig bolig)
         {
-            //BoligTabelDB.CreateSolgtBolig??
+            BoligTabelDB.CreateSolgtBolig(bolig);
             PostNrTabelDB.OpdaterGennemsnitsPrisPrM2IEtPostNummer(bolig.PostNr);
         }
 

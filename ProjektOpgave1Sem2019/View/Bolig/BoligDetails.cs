@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ProjektOpgave1Sem2019;
 using ProjektOpgave1Sem2019.Model;
 using ProjektOpgave1Sem2019.View;
+using ProjektOpgave1Sem2019.View.Bolig;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -19,28 +20,36 @@ namespace ProjektOpgave1Sem2019
         BoligViewModel viewModel;
         bool editMode;
         Bolig selectedBolig;
+        BoligForm parent;
         Ejendomsmægler valgtEMægl = null;
         bool isEditMode;
-        public BoligDetails(BoligViewModel model)
+        public BoligDetails(BoligViewModel model, BoligForm parent)
         {
             InitializeComponent();
             editMode = false;
+
+            this.parent = parent; //Bruges til opdatering af listen
 
             viewModel = model;
             CBPostNr.DataSource = model.postNumre;
             CBPostNr.DisplayMember = "PostNummer";
 
+            TBEMæglerNavn.ReadOnly = true;
+
             Hide();
         }
         public void InitializeCreateMode()
         {
+            viewModel.SetSelEMæglerNull(); //Sætter Valgt Emægler til null, bruges til evaluering senere
             editMode = false;
             Show();
             CBPostNr.Show(); //Hides unnecessary controls
             TBPostNr.Hide();
             LabelID.Hide();
             BTNSolgt.Hide();
+            BtnDelete.Enabled = false; //Kan ikke slette i Create mode
 
+            //makes things that are unchangeable in editMode, changeable
             TBAdresse.ReadOnly = false;
             TBAdresse.Text = "";
 
@@ -53,6 +62,9 @@ namespace ProjektOpgave1Sem2019
 
             LabelID.Text = "";
 
+            TBEMæglerNavn.Text = "";
+
+            DTPOpretDato.Enabled = false; //Date er altid idag. -Martin
             DTPOpretDato.Value = DateTime.Now; //på nuværende tidspunkt kan kun oprettes dags dato
             
             BtnVælgE.Enabled = true;
@@ -80,10 +92,15 @@ namespace ProjektOpgave1Sem2019
 
             LabelID.Text = viewModel.ValgtBolig.ID.ToString();
 
-            BtnVælgE.Enabled = false;
+            BtnVælgE.Enabled = false; //Kan ikke vælge EMægler i edit
+
+            BtnDelete.Enabled = true; //Kan slette i editMode
 
             DTPOpretDato.Value = viewModel.ValgtBolig.OprettelsesDato;
-            DTPOpretDato.Enabled = false; //Oprettelses datoen er fast.
+            DTPOpretDato.Enabled = false; //Kan ikke ændre dato
+
+            TBEMæglerNavn.Text = viewModel.ValgtEmægler.ToString(); //Tostring metoden er overridet
+                                                                //Til at vise navn
 
             LabelMode.Text = "EDIT MODE";
             //tjekker om boligen er solgt, for så skal denne knap ikke vises!
@@ -102,17 +119,24 @@ namespace ProjektOpgave1Sem2019
             }
             else
             {
-                //Sælgerid hentes fra en liste sælgere, implementeres senere
-                viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text),
-                                            //EjendomsmæglerID hentes fra en liste af ejendomsmæglere, implementeres senere
-                                            Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
-                                            ((PostNumre)CBPostNr.SelectedItem).PostNummer);
+                if (viewModel.ValgtEmægler != null)
+                {
+                    viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text),
+                                                Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
+                                                ((PostNumre)CBPostNr.SelectedItem).PostNummer);
 
-                //BoligTabelDB.Create(newBolig);
-                this.Hide();
+                    //BoligTabelDB.Create(newBolig);
+                    this.Hide();
+                    parent.FyldListView(viewModel.FillListView());
+                }
+                else
+                {
+                    MessageBox.Show("Vælg en Ejendomsmægler via knappen 'Vælg E' Først");
+                    BtnVælgE.Enabled = true;
+                }
             }
             //MessageBox.Show("Boop, pranked, Im out");
-            Hide();
+            //Hide(); //Gammel Hide() -Martin
         }
 
         //public bool InputsAreValid()
@@ -178,7 +202,18 @@ namespace ProjektOpgave1Sem2019
         {
             Form VælgEMægler = new VælgEMæglerForm(this.viewModel);
             VælgEMægler.ShowDialog(); //Åbner ny form til valg af Ejendomsmægler
+            TBEMæglerNavn.Text = viewModel.ValgtEmægler.ToString(); //overridet, giver navn og ID
             BtnVælgE.Enabled = false;
+        }
+        private void BtnVælgBillede_Click(object sender, EventArgs e) //Til valg af billede til hus
+        {   //endnu ikke fuldt implementeret.
+            Form pictureForm = new ImageSelectorForm();
+            pictureForm.ShowDialog();
+        }
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            viewModel.Delete(viewModel.ValgtBolig);
+            parent.FyldListView(viewModel.FillListView()); //reset listen når der slettes
         }
 
         private void BoligDetails_Load(object sender, EventArgs e)
@@ -186,6 +221,7 @@ namespace ProjektOpgave1Sem2019
 
         }
         /// Nichlas leger her
+        /// 
 
         private void CBPostNr_SelectedIndexChanged(object sender, EventArgs e)
         {

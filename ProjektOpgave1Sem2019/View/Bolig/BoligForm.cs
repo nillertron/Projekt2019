@@ -29,9 +29,12 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        private void FyldListView(List<Bolig> liste)
+        public void FyldListView(List<Bolig> liste) //Har gjort den her public til brug I BoligDetails -Martin
         {
-            //LWSearchResults.Items.Clear(); //Sikrer at Listen bliver clearet hver gang den skal opdateres (Maybe) -Martin
+            //THIS WRONG, SUCKS, DONT LISTEN TO PAST MARTIN!!! -MARTIN
+            //TBInput.Text = ""; //Resetter listen hver gang der slettes eller oprettes
+            //Derfor skal der ikke være nogen søgning efterfølgende -Martin
+            LWSearchResults.Items.Clear(); //Sikrer at Listen bliver clearet hver gang den skal opdateres (Maybe) -Martin
             liste.ForEach(o => 
             {
                 var enhed = new ListViewItem(o.Adresse);
@@ -95,7 +98,7 @@ namespace ProjektOpgave1Sem2019
 
         public void SælgBoligToFront(Bolig b, BoligDetails instans)
         {
-            var S = new SælgBolig(b, instans);
+            var S = new SælgBolig(b, instans, ViewModel);
             
             Controls.Add(S);
             S.BringToFront();

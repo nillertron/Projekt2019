@@ -45,6 +45,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BTNSolgt = new System.Windows.Forms.Button();
             this.BtnVælgE = new System.Windows.Forms.Button();
+            this.BtnVælgBillede = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.TBEMæglerNavn = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TBAdresse
@@ -209,6 +212,7 @@
             // 
             // BtnVælgE
             // 
+            this.BtnVælgE.ForeColor = System.Drawing.Color.Black;
             this.BtnVælgE.Location = new System.Drawing.Point(164, 182);
             this.BtnVælgE.Name = "BtnVælgE";
             this.BtnVælgE.Size = new System.Drawing.Size(75, 23);
@@ -217,10 +221,43 @@
             this.BtnVælgE.UseVisualStyleBackColor = true;
             this.BtnVælgE.Click += new System.EventHandler(this.BtnVælgE_Click);
             // 
+            // BtnVælgBillede
+            // 
+            this.BtnVælgBillede.ForeColor = System.Drawing.Color.Black;
+            this.BtnVælgBillede.Location = new System.Drawing.Point(378, 183);
+            this.BtnVælgBillede.Name = "BtnVælgBillede";
+            this.BtnVælgBillede.Size = new System.Drawing.Size(75, 23);
+            this.BtnVælgBillede.TabIndex = 18;
+            this.BtnVælgBillede.Text = "Vælg Billede";
+            this.BtnVælgBillede.UseVisualStyleBackColor = true;
+            this.BtnVælgBillede.Click += new System.EventHandler(this.BtnVælgBillede_Click);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.ForeColor = System.Drawing.Color.Black;
+            this.BtnDelete.Location = new System.Drawing.Point(144, 231);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(95, 33);
+            this.BtnDelete.TabIndex = 19;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // TBEMæglerNavn
+            // 
+            this.TBEMæglerNavn.ForeColor = System.Drawing.Color.Black;
+            this.TBEMæglerNavn.Location = new System.Drawing.Point(245, 185);
+            this.TBEMæglerNavn.Name = "TBEMæglerNavn";
+            this.TBEMæglerNavn.Size = new System.Drawing.Size(100, 20);
+            this.TBEMæglerNavn.TabIndex = 20;
+            // 
             // BoligDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TBEMæglerNavn);
+            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnVælgBillede);
             this.Controls.Add(this.BtnVælgE);
             this.Controls.Add(this.BTNSolgt);
             this.Controls.Add(this.label2);
@@ -267,5 +304,8 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button BTNSolgt;
         private System.Windows.Forms.Button BtnVælgE;
+        private System.Windows.Forms.Button BtnVælgBillede;
+        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.TextBox TBEMæglerNavn;
     }
 }

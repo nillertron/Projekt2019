@@ -31,10 +31,15 @@ namespace ProjektOpgave1Sem2019
         {
             view = parent;
             boliger = BoligTabelDB.GetAll();
-            
+            FyldPostnummerListe();
             //FillListView(boliger);
+
+            Details = new BoligDetails(this, parent);
+        }
+        public void FyldPostnummerListe()
+        {
+            postNumre.Clear();
             postNumre = PostNrTabelDB.GetAllPostnumre();
-            Details = new BoligDetails(this);
         }
 
         public void AddBoligToList(Bolig bolig)
@@ -76,9 +81,19 @@ namespace ProjektOpgave1Sem2019
             Details.InitializeEditMode();
         }
 
-        public void Delete(Bolig b)
+        public bool Delete(Bolig b)
         {
-
+            bool returnBool = false;
+            if (BoligTabelDB.Delete(b)) //Vis deletion lykkes
+            {
+                returnBool = true;
+                boliger.Remove(b);
+            }
+            else
+            {
+                returnBool = false;
+            }
+            return returnBool;
         }
 
         public Bolig GetBolig(string id)
@@ -94,22 +109,22 @@ namespace ProjektOpgave1Sem2019
             return null;
         }
 
-        public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory) //Unused så vidt jeg ved - Martin
-        {
-            //string searchTerm = parentForm.Input.Text.ToLower();
-            //string searchCategory = parentForm.Kriterie.Text;
+        //public List<Bolig> DisplaySearchResults(string searchTerm, string searchCategory) //Unused så vidt jeg ved - Martin
+        //{
+        //    //string searchTerm = parentForm.Input.Text.ToLower();
+        //    //string searchCategory = parentForm.Kriterie.Text;
 
-            List<Bolig> searchResults = new List<Bolig>();
+        //    List<Bolig> searchResults = new List<Bolig>();
 
-            searchResults = SearchFor(searchCategory, searchTerm);
+        //    searchResults = SearchFor(searchCategory, searchTerm);
 
-            return searchResults;
-        }
+        //    return searchResults;
+        //}
 
         
 
         public List<Bolig> SearchFor(string category, string term)
-        {
+        { //Søgefunktion, kaldes hver gang søgning ændres i BoligForm
             List<Bolig> returnList = new List<Bolig>();
             switch (category)
             {
@@ -251,6 +266,11 @@ namespace ProjektOpgave1Sem2019
         public List<Ejendomsmægler> GetAllEMægler()
         {
             return EjendomsmæglerTabelDB.GetAll();
+        }
+
+        public void SetSelEMæglerNull() //null skal bruges til evaluering når man opretter ny bolig
+        {
+            valgtEmægler = null;
         }
 
 

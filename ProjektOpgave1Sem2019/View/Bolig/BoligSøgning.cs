@@ -41,7 +41,6 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 
             saveFileDialog2.FileOk += (o, e) => tbSti.Text = saveFileDialog2.FileName;
             cbPostNr.SelectedIndexChanged += (o, e) => { var by = cbPostNr.SelectedItem as PostNumre; lblBy.Text = by.Distrikt; };
-            cbPostNr.SelectedIndex = 1;
         }
 
         private void BoligSøgning_Load(object sender, EventArgs e)

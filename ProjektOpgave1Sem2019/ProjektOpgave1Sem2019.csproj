@@ -58,6 +58,7 @@
     <Compile Include="Model\Ejendomsmægler\EjendomsmæglerTabelDB.cs" />
     <Compile Include="Model\Post\PostNrTabelDB.cs" />
     <Compile Include="Model\Post\PostNumre.cs" />
+    <Compile Include="Model\Services\PictureHelper.cs" />
     <Compile Include="View Model\Bolig\BoligViewModel.cs" />
     <Compile Include="View Model\Bolig\DatoSøgningViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
@@ -86,6 +87,12 @@
     </Compile>
     <Compile Include="View\Bolig\DatoSøgning.Designer.cs">
       <DependentUpon>DatoSøgning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bolig\ImageSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\ImageSelectorForm.Designer.cs">
+      <DependentUpon>ImageSelectorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.cs">
       <SubType>UserControl</SubType>
@@ -132,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\DatoSøgning.resx">
       <DependentUpon>DatoSøgning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Bolig\ImageSelectorForm.resx">
+      <DependentUpon>ImageSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\SælgBolig.resx">
       <DependentUpon>SælgBolig.cs</DependentUpon>
