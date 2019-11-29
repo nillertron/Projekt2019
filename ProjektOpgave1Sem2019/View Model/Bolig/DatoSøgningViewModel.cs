@@ -99,11 +99,8 @@ namespace ProjektOpgave1Sem2019.View_Model
         public string[,] KonverterTilArrayKarl()
         {
            
-
-
-
             string[,] arr = new string[ AntalHuse + 1, AntalSælgere ];
-            List<Bolig> distinctSælgere = new List<Bolig>();
+            
             int counter = 0; 
 
             //fill sælgere
