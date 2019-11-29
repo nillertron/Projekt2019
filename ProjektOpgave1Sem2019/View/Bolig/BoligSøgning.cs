@@ -14,17 +14,34 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 {
     public partial class BoligSøgning : UserControl
     {
+        //Nichlas
         BoligViewModel ViewModel;
         Stream myStream;
         SaveFileDialog saveFileDialog2 = new SaveFileDialog();
         private bool mode;
-        public BoligSøgning(BoligViewModel ViewModel)
+        public BoligSøgning(BoligViewModel ViewModel, bool mode)
         {
             InitializeComponent();
             this.ViewModel = ViewModel;
-            cbPostNr.DataSource = ViewModel.postNumre;
-            cbPostNr.DisplayMember = "PostNummer";
+
+            if (mode)
+            {
+                cbPostNr.DataSource = ViewModel.postNumre;
+                cbPostNr.DisplayMember = "PostNummer";
+                label1.Show();
+                cbPostNr.Show();
+                this.mode = mode;
+            }
+            else
+            {
+                label1.Hide();
+                cbPostNr.Hide();
+                this.mode = mode;
+            }
+
             saveFileDialog2.FileOk += (o, e) => tbSti.Text = saveFileDialog2.FileName;
+            cbPostNr.SelectedIndexChanged += (o, e) => { var by = cbPostNr.SelectedItem as PostNumre; lblBy.Text = by.Distrikt; };
+            cbPostNr.SelectedIndex = 1;
         }
 
         private void BoligSøgning_Load(object sender, EventArgs e)
@@ -56,9 +73,18 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 
         private void btnUdskriv_Click(object sender, EventArgs e)
         {
-            var postnummer = cbPostNr.SelectedItem as PostNumre;
             var path = @"" + tbSti.Text;
-            ViewModel.UdskrivBoligerFraByTilTxtFil(postnummer.PostNummer, path);
+            if (mode)
+            {
+                var postnummer = cbPostNr.SelectedItem as PostNumre;
+                ViewModel.UdskrivBoligerFraByTilTxtFil(postnummer.PostNummer, path);
+
+            }
+            else
+            {
+                ViewModel.UdskrivBoligerTilTxtFil(path);
+            }
+
         }
     }
 }

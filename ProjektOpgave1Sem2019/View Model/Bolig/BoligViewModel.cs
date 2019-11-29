@@ -264,12 +264,11 @@ namespace ProjektOpgave1Sem2019
         {
             view.SælgBoligToFront(b,instans);
         }
-        internal void UdskrivBoligerTilTxtFil()
+        internal void UdskrivBoligerTilTxtFil(string path)
         {
             var liste = new List<Bolig>();
             boliger.ForEach(o => liste.Add(o));
             boliger.ForEach(o => { bool Solgt = BoligTabelDB.TjekBoligSolgt(o); if (Solgt) liste.Remove(o); });
-            var path = @"C:\Text\Udksrift.txt"; //tænker at vi kan lave noget GUI hvor vi vælger en path
             FileWriter.BoligerTilSalgToFile(path, liste);
 
         }
