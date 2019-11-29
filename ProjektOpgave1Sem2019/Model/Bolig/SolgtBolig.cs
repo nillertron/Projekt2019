@@ -43,10 +43,10 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
-        ////Martin
-        //public int CompareTo(object obj)
-        //{
-        //    return this.KøbsDato.CompareTo(((SolgtBolig)obj).KøbsDato);
-        //}
+        //Martin
+        public new int CompareTo(object obj)
+        {
+            return this.KøbsDato.CompareTo(((SolgtBolig)obj).KøbsDato);
+        }
     }
 }
