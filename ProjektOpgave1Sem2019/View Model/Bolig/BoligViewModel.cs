@@ -15,7 +15,7 @@ namespace ProjektOpgave1Sem2019
     public class BoligViewModel
     {
         public List<PostNumre> postNumre = new List<PostNumre>();
-        List<Bolig> boliger = new List<Bolig>();
+        public List<Bolig> boliger = new List<Bolig>();
         private BoligDetails boligDetails;
         public BoligDetails Details { get { return boligDetails; } private set { boligDetails = value; } }
 

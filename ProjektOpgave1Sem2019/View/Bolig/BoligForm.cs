@@ -121,5 +121,13 @@ namespace ProjektOpgave1Sem2019
             SøgForm.BringToFront();
 
         }
+
+        private void btnDatoSøgning_Click(object sender, EventArgs e)
+        {
+            var SøgDato = new DatoSøgning(ViewModel.boliger);
+            if (!Controls.Contains(SøgDato))
+                Controls.Add(SøgDato);
+            SøgDato.BringToFront();
+        }
     }
 }
