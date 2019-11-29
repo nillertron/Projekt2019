@@ -372,6 +372,35 @@ namespace ProjektOpgave1Sem2019
             }
             return ErSolgt;
         }
+        //og en mere til at gemme sælger info når der skal udskrives til fil
+        public static List<Bolig> GetAllBoligMedSælger()
+        {
+            var liste = new List<Bolig>();
+             try
+                {
+                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+                {
+                    conn.Open();
+                    SqlDataReader dataReader;
+                    using (SqlCommand command = new SqlCommand("select * from Bolig inner join Sælger on sælger.ID = bolig.SælgerID", conn))
+                    {
+                        Sælger sælger = new Sælger();
+                        dataReader = command.ExecuteReader();
+                        while (dataReader.Read())
+                        liste.Add(new Bolig(dataReader.GetInt32(0), dataReader.GetString(1), Convert.ToDouble(dataReader.GetValue(2)), dataReader.GetInt32(3), dataReader.GetInt32(4), dataReader.GetDateTime(5), dataReader.GetInt32(6), dataReader.GetInt32(7), sælger = new Sælger(dataReader.GetInt32(8), dataReader.GetString(9), dataReader.GetString(10), dataReader.GetString(11), dataReader.GetString(12), dataReader.GetInt32(13), dataReader.GetString(14))));
+                        
+
+
+
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return liste;
+        }
 
     }
 }

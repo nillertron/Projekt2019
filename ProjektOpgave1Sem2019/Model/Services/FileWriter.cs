@@ -54,6 +54,38 @@ namespace ProjektOpgave1Sem2019.Model
 
         }
 
+        //Nichlas laver lige en ekstra kopieret metode for at udskrive sælger info
+        public static void UdskrivBoligerIbestemtPostNr(string filePath, List<Bolig> list)
+        {
+            list = list.OrderBy(o => o.Adresse).ToList(); 
+            FileStream fs;
 
+            try
+            {
+                fs = File.OpenWrite(filePath);
+            }
+            catch (FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
+            {
+                fs = File.Create(filePath);
+            } 
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(fs))
+                {
+                    writer.WriteLine("Adresse".PadRight(10) + "PostNr".PadRight(8) + "Pris".PadRight(10) + "Areal (m^2)".PadRight(10) + "OprettelsesDato".PadRight(20) + "Sælger navn".PadRight(20) + "Sælger Tlf".PadRight(10)); //Formatering
+                    foreach (Bolig b in list)
+                    {
+                        writer.WriteLine(b.Adresse.PadRight(10) + b.PostNr.ToString().PadRight(8) +
+                                            b.Pris.ToString().PadRight(10) + b.Kvm.ToString().PadRight(10) + b.OprettelsesDato.ToString().PadRight(25) + b.sælger.Navn.PadRight(15) + b.sælger.TelefonNr.PadRight(10) ); //Skriver bolig i fil
+                    }
+                }
+            }
+            catch (IOException ee) //Formentlig unødvendig try catch, men bare for at kunne returnere successkriteriet.
+            {
+                System.Windows.Forms.MessageBox.Show(ee.Message);
+            }
+
+        }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019.View;
+using ProjektOpgave1Sem2019.View.Bolig;
 //Nichlas
 namespace ProjektOpgave1Sem2019
 {
@@ -104,6 +105,15 @@ namespace ProjektOpgave1Sem2019
         private void btnUdskrivAlleBoligerIkkeSolgt_Click(object sender, EventArgs e)
         {
             ViewModel.UdskrivBoligerTilTxtFil();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var SøgForm = new BoligSøgning(ViewModel);
+            if (!Controls.Contains(SøgForm))
+                Controls.Add(SøgForm);
+            SøgForm.BringToFront();
+
         }
     }
 }

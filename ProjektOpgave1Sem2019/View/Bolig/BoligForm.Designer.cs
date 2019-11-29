@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.CBKriterie = new System.Windows.Forms.ComboBox();
             this.btnUdskrivAlleBoligerIkkeSolgt = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TBInput
@@ -117,10 +118,23 @@
             this.btnUdskrivAlleBoligerIkkeSolgt.UseVisualStyleBackColor = true;
             this.btnUdskrivAlleBoligerIkkeSolgt.Click += new System.EventHandler(this.btnUdskrivAlleBoligerIkkeSolgt_Click);
             // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(613, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 37);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Udskriv til txtfil:Boliger i bestsemt område";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BoligForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnUdskrivAlleBoligerIkkeSolgt);
             this.Controls.Add(this.CBKriterie);
             this.Controls.Add(this.TBInput);
@@ -147,5 +161,6 @@
         public System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox CBKriterie;
         public System.Windows.Forms.Button btnUdskrivAlleBoligerIkkeSolgt;
+        public System.Windows.Forms.Button button1;
     }
 }

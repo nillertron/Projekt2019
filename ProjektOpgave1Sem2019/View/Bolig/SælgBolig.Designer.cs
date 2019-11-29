@@ -1,4 +1,4 @@
-﻿namespace ProjektOpgave1Sem2019.View
+﻿namespace ProjektOpgave1Sem2019
 {
     partial class SælgBolig
     {

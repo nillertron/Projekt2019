@@ -40,5 +40,9 @@ namespace ProjektOpgave1Sem2019
             this.PostNr = PostNr;
             this.Addresse = Addresse;
         }
+        public Person()
+        {
+
+        }
     }
 }

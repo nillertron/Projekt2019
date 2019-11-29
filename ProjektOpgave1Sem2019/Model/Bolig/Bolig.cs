@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektOpgave1Sem2019.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,8 @@ namespace ProjektOpgave1Sem2019
 
         private int _PostNr;
         public int PostNr { protected set { if (value > 500 && value < 10000) _PostNr = value; } get { return _PostNr; } }
+
+        public Sælger sælger { get; set; }
         public Bolig()
         {
 
@@ -40,6 +43,18 @@ namespace ProjektOpgave1Sem2019
             this.OprettelsesDato = OprettelsesDato;
             this.EjendomsmæglerID = EjendomsmæglerID;
             this.PostNr = PostNr;
+        }
+        public Bolig(int ID, string Adresse, double Pris, int SælgerID, int Kvm, DateTime OprettelsesDato, int EjendomsmæglerID, int PostNr, Sælger sælger)
+        {
+            this.ID = ID;
+            this.Adresse = Adresse;
+            this.Pris = Pris;
+            this.SælgerID = SælgerID;
+            this.Kvm = Kvm;
+            this.OprettelsesDato = OprettelsesDato;
+            this.EjendomsmæglerID = EjendomsmæglerID;
+            this.PostNr = PostNr;
+            this.sælger = sælger;
         }
         public Bolig(string Adresse, double Pris, int SælgerID, int Kvm, DateTime OprettelsesDato, int EjendomsmæglerID, int PostNr)
         {
