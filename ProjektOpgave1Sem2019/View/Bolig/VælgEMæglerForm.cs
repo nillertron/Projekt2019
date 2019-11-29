@@ -48,6 +48,7 @@ namespace ProjektOpgave1Sem2019
         private void BtnVælg_Click(object sender, EventArgs e)
         {
             viewModel.SetValgtEMægler((Ejendomsmægler)LBEMæglere.SelectedItem);
+
             this.Close();
         }
     }
