@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektOpgave1Sem2019
 {
-    class SolgtBolig:Bolig
+    class SolgtBolig:Bolig,IComparable
     {
         public Bolig bolig;
         private int _KøberID;
@@ -43,6 +43,10 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
-
+        ////Martin
+        //public int CompareTo(object obj)
+        //{
+        //    return this.KøbsDato.CompareTo(((SolgtBolig)obj).KøbsDato);
+        //}
     }
 }

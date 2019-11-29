@@ -69,20 +69,7 @@ namespace ProjektOpgave1Sem2019
         //Martin
         public int CompareTo(object obj)
         {
-            int returnValue;
-            if(Pris.CompareTo(((Bolig)obj).Pris) < 0)
-            {
-                returnValue = -1;
-            }
-            else if(Pris.CompareTo(((Bolig)obj).Pris) > 0)
-            {
-                returnValue = 1;
-            }
-            else
-            {
-                returnValue = 0;
-            }
-            return returnValue;
+            return this.OprettelsesDato.CompareTo(((Bolig)obj).OprettelsesDato);
         }
         //Martin
         public void UpdatePris(double d)

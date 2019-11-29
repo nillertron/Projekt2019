@@ -98,7 +98,7 @@ namespace ProjektOpgave1Sem2019
         {
             if (editMode)
             {
-                viewModel.SaveEdit(selectedBolig, Convert.ToDouble(TBPris.Text)); //Forsøger at holde logik og datamanipulation i ViewModel
+                viewModel.SaveEdit(viewModel.ValgtBolig, Convert.ToDouble(TBPris.Text)); //Forsøger at holde logik og datamanipulation i ViewModel
             }
             else
             {
