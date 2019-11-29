@@ -225,7 +225,6 @@ namespace ProjektOpgave1Sem2019
         {
             return BoligTabelDB.TjekBoligSolgt(selectedBolig);
         }
-        //internal void SælgBolig(Bolig b)
         internal void SælgBolig(Bolig b, BoligDetails instans)
         {
             view.SælgBoligToFront(b,instans);
