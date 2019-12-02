@@ -8,6 +8,7 @@ using ProjektOpgave1Sem2019.Model;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019;
 using ProjektOpgave1Sem2019.View;
+using ProjektOpgave1Sem2019.Model.Kunde;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -21,6 +22,8 @@ namespace ProjektOpgave1Sem2019
 
         Ejendomsmægler valgtEmægler = null; //Bruges i forbindelse med valg af Boligs EMægler
         public Ejendomsmægler ValgtEmægler { get { return valgtEmægler; } private set { valgtEmægler = value; } }
+        Sælger valgtSælger = null; //I forbindelse med valg af boligs sælger;
+        public Sælger ValgtSælger { get { return valgtSælger; } set { valgtSælger = value; } }
         Bolig valgtBolig = null;
         public Bolig ValgtBolig { get { return valgtBolig; } private set { valgtBolig = value; } }
         //List<Bolig> resultatListe = 
@@ -76,6 +79,7 @@ namespace ProjektOpgave1Sem2019
         {
             //Get Ejendomsmægler knyttet til bolig
             ValgtEmægler = EjendomsmæglerTabelDB.GetEjendomsmægler(b.EjendomsmæglerID);
+            ValgtSælger = KundeDBTabel.GetSælger(b.SælgerID);
             ValgtBolig = b;
             //Details.Show();
             Details.InitializeEditMode();
@@ -240,7 +244,7 @@ namespace ProjektOpgave1Sem2019
             if (valgtEmægler != null)
             {
                 int ejendomsmæglerID = valgtEmægler.Id;
-                int sælgerID = 1;
+                int sælgerID = valgtSælger.Id;
 
                 Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
                 newBolig = BoligTabelDB.Create(newBolig);
@@ -263,14 +267,22 @@ namespace ProjektOpgave1Sem2019
             return valgtEmægler;
         }
 
-        public List<Ejendomsmægler> GetAllEMægler()
+        public List<Ejendomsmægler> GetAllEMægler() //Til valg af ejendomsmægler
         {
             return EjendomsmæglerTabelDB.GetAll();
+        }
+        public List<Sælger> GetAllSælger() //Til valg af sælger
+        {
+            return KundeDBTabel.GetAllSælgere();
         }
 
         public void SetSelEMæglerNull() //null skal bruges til evaluering når man opretter ny bolig
         {
             valgtEmægler = null;
+        }
+        public void SetValgtSælgerNull() //Til validering af sælger under oprettelse af Bolig
+        {
+            valgtSælger = null;
         }
 
 

@@ -453,6 +453,40 @@ namespace ProjektOpgave1Sem2019
             }
             return liste;
         }
+        public static List<SolgtBolig> GetAllSolgteBoliger()
+        {
+            var liste = new List<SolgtBolig>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+                {
+
+
+                        conn.Open();
+                        SqlDataReader dataReader;
+                        using (SqlCommand command = new SqlCommand("select Id, adresse, pris, sælgerid, kvm, OprettelsesDato,EjendomsmæglerID,PostNr,KøberID,Købspris,KøbsDato from bolig inner join solgtbolig on bolig.ID = SolgtBolig.BoligID", conn))
+                        {
+                            Sælger sælger = new Sælger();
+                            dataReader = command.ExecuteReader();
+                            while (dataReader.Read())
+                            {
+                            liste.Add(new SolgtBolig(dataReader.GetInt32(0), dataReader.GetString(1), Convert.ToDouble(dataReader.GetValue(2)), dataReader.GetInt32(3), dataReader.GetInt32(4), dataReader.GetDateTime(5), dataReader.GetInt32(6), dataReader.GetInt32(7), dataReader.GetInt32(8), Convert.ToDouble(dataReader.GetValue(9)), dataReader.GetDateTime(10)));
+                            }
+
+
+
+                        }
+                   
+
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return liste;
+        }
         #endregion
     }
 }

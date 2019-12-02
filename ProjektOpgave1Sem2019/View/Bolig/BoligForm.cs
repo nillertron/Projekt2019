@@ -132,5 +132,13 @@ namespace ProjektOpgave1Sem2019
                 Controls.Add(SøgDato);
             SøgDato.BringToFront();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var UdskrivKontrakt = new UdskrivKontraktView();
+                if (!Controls.Contains(UdskrivKontrakt))
+                Controls.Add(UdskrivKontrakt);
+            UdskrivKontrakt.BringToFront();
+        }
     }
 }

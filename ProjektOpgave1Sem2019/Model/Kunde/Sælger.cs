@@ -22,7 +22,14 @@ namespace ProjektOpgave1Sem2019.Model
         }
         public override void SendContract(string FP, SolgtBolig b)
         {
-            FileWriter.UdskrivSælgerKontrakt(this,FP,b);
+            FileWriter.UdskrivSælgerKontrakt(FP,b);
         }
+
+        //Martin
+        public override string ToString() //ToString bliver brugt til hvad der vises i ListBox i VælgSælgerForm
+        {
+            return Id + " " + Navn + " " + Efternavn;
+        }
+        //Martin Slut
     }
 }

@@ -10,6 +10,59 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
 {
     class KundeDBTabel
     {
+        public static Køber GetSpecifikKøberMedID(int id)
+        {
+            var køber = new Køber();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+                {
+                    conn.Open();
+                    SqlDataReader dataReader;
+                    using (SqlCommand command = new SqlCommand("Select * from Køber where id = "+id, conn))
+                    {
+                        dataReader = command.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            køber = new Køber(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4), dataReader.GetInt32(5), dataReader.GetString(6));
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return køber;
+
+        }
+        public static Sælger GetSpecifikSælgerMedID(int id)
+        {
+            var sælger = new Sælger();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
+                {
+                    conn.Open();
+                    SqlDataReader dataReader;
+                    using (SqlCommand command = new SqlCommand("select * from Sælger where id="+id, conn))
+                    {
+                        dataReader = command.ExecuteReader();
+                        while (dataReader.Read())
+                            sælger=new Sælger(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4), dataReader.GetInt32(5), dataReader.GetString(6));
+
+
+
+
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return sælger;
+        }
         public static List<Køber> GetAllKøbere()
         {
 
@@ -210,9 +263,30 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
 
         }
 
+        //Martin
+        public static Sælger GetSælger(int id) //Til at få enkelt sælger under Edit bolig
+        {
+            Sælger returnSælger;
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = DBHelper.Conn;
+                cmd.CommandText = "SELECT * FROM Sælger WHERE ID = @ID";
 
+                cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = id;
 
-
+                DBHelper.Conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+                    returnSælger = new Sælger(reader.GetInt32(0), reader.GetString(1),
+                                        reader.GetString(2), reader.GetString(3),
+                                        reader.GetString(4), reader.GetInt32(5), reader.GetString(6));
+                }
+                DBHelper.Conn.Close();
+            }
+            return returnSælger;
+        }
+        //Martin slut
     }
    
 }

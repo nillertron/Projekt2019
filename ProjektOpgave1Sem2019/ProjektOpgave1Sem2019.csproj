@@ -46,7 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View Model\Bolig\UdskrivKontraktViewModel.cs" />
     <Compile Include="View Model\Kunde\KundeViewModel.cs" />
+    <Compile Include="View\Bolig\UdskrivKontraktView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\UdskrivKontraktView.Designer.cs">
+      <DependentUpon>UdskrivKontraktView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Kunde\KundeForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,6 +148,9 @@
     <Compile Include="View\Bolig\VælgEMæglerForm.Designer.cs">
       <DependentUpon>VælgEMæglerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Bolig\UdskrivKontraktView.resx">
+      <DependentUpon>UdskrivKontraktView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Kunde\KundeForm.resx">
       <DependentUpon>KundeForm.cs</DependentUpon>
     </EmbeddedResource>

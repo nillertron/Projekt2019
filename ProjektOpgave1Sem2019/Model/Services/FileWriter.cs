@@ -87,17 +87,17 @@ namespace ProjektOpgave1Sem2019.Model
             }
 
         }
-        public static void UdskrivKøberKontrakt  (Køber data, string filePath, SolgtBolig b)
+        public static void UdskrivKøberKontrakt  ( string filePath, SolgtBolig b)
         {
             FileStream fs;
 
             try
             {
-                fs = File.OpenWrite("KøberKontrakt" + b.Adresse+filePath);
+                fs = File.OpenWrite(filePath+"/KøberKontrakt" + b.Adresse+".txt");
             }
             catch (FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
             {
-                fs = File.Create("KøberKontrakt"+b.Adresse+filePath);
+                fs = File.Create(filePath + "/KøberKontrakt" + b.Adresse + ".txt");
             }
 
             try
@@ -106,9 +106,11 @@ namespace ProjektOpgave1Sem2019.Model
                     using (StreamWriter writer = new StreamWriter(fs))
                     {
                         writer.WriteLine($"Kontrakt til køber vedr. hus på Adresse {b.Adresse} i postnummer {b.PostNr}");
-                        writer.WriteLine($"Aftalt pris lyder på {b.KøbsPris} og købs dato er på {b.KøbsDato}");
-                    writer.WriteLine($"Køber underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-YYYY")}");
-                    writer.WriteLine($"Sælger underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-YYYY")}");
+                        writer.WriteLine($"Aftalt pris lyder på {b.KøbsPris} og købs dato er på {b.KøbsDato.ToString("dd-MM-yyyy")}");
+                    writer.WriteLine($"Du er som køber: {b.køber.Navn} {b.køber.Efternavn} og den registrerede sælger er {b.sælger.Navn} {b.sælger.Efternavn} ");
+
+                    writer.WriteLine($"Køber underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-yyyy")}");
+                    writer.WriteLine($"Sælger underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-yyyy")}");
 
 
                 }
@@ -121,17 +123,17 @@ namespace ProjektOpgave1Sem2019.Model
 
         }
                   
-public static void UdskrivSælgerKontrakt(Sælger data, string filePath, SolgtBolig b)
+public static void UdskrivSælgerKontrakt(string filePath, SolgtBolig b)
 {
     FileStream fs;
 
     try
     {
-        fs = File.OpenWrite("KøberKontrakt" + b.Adresse + filePath);
+        fs = File.OpenWrite(filePath + "/SælgerKontrakt" + b.Adresse + ".txt");
     }
     catch (FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
     {
-        fs = File.Create("KøberKontrakt" + b.Adresse + filePath);
+        fs = File.Create(filePath + "/SælgerKontrakt" + b.Adresse + ".txt");
     }
 
     try
@@ -140,15 +142,16 @@ public static void UdskrivSælgerKontrakt(Sælger data, string filePath, SolgtBo
         using (StreamWriter writer = new StreamWriter(fs))
         {
             writer.WriteLine($"Kontrakt til sælger vedr. hus på Adresse {b.Adresse} i postnummer {b.PostNr}");
-            writer.WriteLine($"Aftalt pris lyder på {b.KøbsPris} og købs dato er på {b.KøbsDato}");
-            writer.WriteLine($"Køber underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-YYYY")}");
-            writer.WriteLine($"Sælger underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-YYYY")}");
+            writer.WriteLine($"Aftalt pris lyder på {b.KøbsPris} og købs dato er på {b.KøbsDato.ToString("dd-MM-yyyy")}");
+           writer.WriteLine($"Du er som sælger: {b.sælger.Navn} {b.sælger.Efternavn} og den registrerede køber er {b.køber.Navn} {b.køber.Efternavn}");
+            writer.WriteLine($"Køber underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-yyyy")}");
+            writer.WriteLine($"Sælger underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-yyyy")}");
 
 
         }
 
     }
-    catch (IOException ee) //Formentlig unødvendig try catch, men bare for at kunne returnere successkriteriet.
+    catch (IOException ee)
     {
         System.Windows.Forms.MessageBox.Show(ee.Message);
     }
