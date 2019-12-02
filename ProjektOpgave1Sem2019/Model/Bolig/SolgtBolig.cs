@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektOpgave1Sem2019
 {
-    class SolgtBolig:Bolig,IComparable
+    public class SolgtBolig:Bolig,IComparable
     {
         public Bolig bolig;
         private int _KøberID;

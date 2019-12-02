@@ -237,6 +237,9 @@ namespace ProjektOpgave1Sem2019
 
         }
 
+        private void btnKontrakter_Click(object sender, EventArgs e)
+        {
 
+        }
     }        /// 
 }

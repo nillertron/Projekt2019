@@ -87,5 +87,72 @@ namespace ProjektOpgave1Sem2019.Model
             }
 
         }
+        public static void UdskrivKøberKontrakt  (Køber data, string filePath, SolgtBolig b)
+        {
+            FileStream fs;
+
+            try
+            {
+                fs = File.OpenWrite("KøberKontrakt" + b.Adresse+filePath);
+            }
+            catch (FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
+            {
+                fs = File.Create("KøberKontrakt"+b.Adresse+filePath);
+            }
+
+            try
+            {
+
+                    using (StreamWriter writer = new StreamWriter(fs))
+                    {
+                        writer.WriteLine($"Kontrakt til køber vedr. hus på Adresse {b.Adresse} i postnummer {b.PostNr}");
+                        writer.WriteLine($"Aftalt pris lyder på {b.KøbsPris} og købs dato er på {b.KøbsDato}");
+                    writer.WriteLine($"Køber underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-YYYY")}");
+                    writer.WriteLine($"Sælger underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-YYYY")}");
+
+
+                }
+
+            }
+            catch (IOException ee) //Formentlig unødvendig try catch, men bare for at kunne returnere successkriteriet.
+            {
+                System.Windows.Forms.MessageBox.Show(ee.Message);
+            }
+
+        }
+                  
+public static void UdskrivSælgerKontrakt(Sælger data, string filePath, SolgtBolig b)
+{
+    FileStream fs;
+
+    try
+    {
+        fs = File.OpenWrite("KøberKontrakt" + b.Adresse + filePath);
+    }
+    catch (FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
+    {
+        fs = File.Create("KøberKontrakt" + b.Adresse + filePath);
+    }
+
+    try
+    {
+
+        using (StreamWriter writer = new StreamWriter(fs))
+        {
+            writer.WriteLine($"Kontrakt til sælger vedr. hus på Adresse {b.Adresse} i postnummer {b.PostNr}");
+            writer.WriteLine($"Aftalt pris lyder på {b.KøbsPris} og købs dato er på {b.KøbsDato}");
+            writer.WriteLine($"Køber underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-YYYY")}");
+            writer.WriteLine($"Sælger underskrift________________________________ Dato: {DateTime.Now.ToString("dd-MM-YYYY")}");
+
+
+        }
+
+    }
+    catch (IOException ee) //Formentlig unødvendig try catch, men bare for at kunne returnere successkriteriet.
+    {
+        System.Windows.Forms.MessageBox.Show(ee.Message);
+    }
+
+}
     }
 }
