@@ -15,9 +15,6 @@ namespace ProjektOpgave1Sem2019
     public partial class KundeForm : UserControl
     {
         KundeViewModel ViewModel;
-        //bool isSælgerMode = false; //Test bool, fjernes senere når ViewModel har
-        //List<Person> people = new List<Person>(); //Test list fjernes senere
-        //List<Person> sælgere = new List<Person>(); //test list, fjernes senere
         public KundeForm()
         {
             InitializeComponent();
@@ -27,19 +24,13 @@ namespace ProjektOpgave1Sem2019
         {
             AddSearchCategories();
             CBKriterie.SelectedIndex = 0;
-            //Test liste, fjernes senere
-            //people.Add(new Køber(1, "Martin", "Sørensen", "20304059", "in22", 6100, "HejVej"));
-            //people.Add(new Køber(2, "Karl", "Mogensen", "33445566", "te22", 7500, "Okovej"));
-            ////test list, remove later
-            //sælgere.Add(new Sælger(1, "HAns", "Karlsen", "22334112", "ijdf", 4400, "Sælgervej"));
-            //sælgere.Add(new Sælger(2, "Trine", "Gertsen", "99334411", "idsjf2", 4569, "Googlevej"));
             FillListView(ViewModel.GetAll());
         }
 
         private void FillListView(List<Person> personList) //Fylder listview med Person typer fra en list
         {
             LWSearchResults.Items.Clear();
-            foreach (Person p in personList)
+            foreach (Person p in personList) //Person er både Køber og Sælger (Og EMægler, men ikke relevant her)
             {
                 var item = LWSearchResults.Items.Add(p.Navn);
                 item.SubItems.Add(p.Efternavn);
@@ -48,7 +39,7 @@ namespace ProjektOpgave1Sem2019
         }
 
         private void AddSearchCategories() //Tilføjer søgekategorier. Flere kan tilføjes her.
-        {                                   //Skal også tilføjes i ViewModel DisplaySearchResults()
+        {                                   //nye tilføjede Skal også tilføjes i ViewModel DisplaySearchResults()
             CBKriterie.Items.Add("Fornavn");
             CBKriterie.Items.Add("Efternavn");
             CBKriterie.Items.Add("Adresse");
@@ -57,27 +48,26 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnMode_Click(object sender, EventArgs e)
         {
-            if(ViewModel.isSælgerMode) //ViewModel udkommenteres når ViewModel er implementeret
+            if(ViewModel.isSælgerMode)//Check om vi arbejder med sælger eller køber
             {
                 BtnMode.Text = "Skift til sælger Mode";
                 LabelMode.Text = "Køber mode";
                 ViewModel.isSælgerMode = false;
-                //FillListView(people); //test, skal fjernes
             }
             else
             {
                 BtnMode.Text = "Skift til køber Mode";
                 LabelMode.Text = "Sælger mode";
                 ViewModel.isSælgerMode = true;
-                //FillListView(sælgere); //Test, skal fjernes senere
             }
             FillListView(ViewModel.GetAll()); //Fylder listview med kunder, ViewModel ved om den skal give sælger eller køber
         }
 
         private void TBInput_TextChanged(object sender, EventArgs e)
         {
-            string kriterie = CBKriterie.SelectedItem.ToString();
+            string kriterie = CBKriterie.SelectedItem.ToString(); //Der er strings i CB
             string input = TBInput.Text;
+            //input bliver lavet lowercase her så søgning er case insensitive
             FillListView(ViewModel.DisplaySearchResults(kriterie, input.ToLower()));
         }
     }
