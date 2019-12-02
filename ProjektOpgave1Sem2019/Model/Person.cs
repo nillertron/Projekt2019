@@ -44,5 +44,10 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
+
+        public virtual void SendContract(string FP, SolgtBolig b)
+        {
+
+        }
     }
 }
