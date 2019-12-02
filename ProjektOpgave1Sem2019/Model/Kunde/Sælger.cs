@@ -16,5 +16,9 @@ namespace ProjektOpgave1Sem2019.Model
         {
 
         }
+        public Sælger( string Navn, string Efternavn, string TelefonNr, string KontoNr, int PostNr, string Adresse) : base( Navn, Efternavn, TelefonNr, KontoNr, PostNr, Adresse)
+        {
+
+        }
     }
 }
