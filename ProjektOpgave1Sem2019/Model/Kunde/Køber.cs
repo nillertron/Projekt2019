@@ -17,5 +17,10 @@ namespace ProjektOpgave1Sem2019.Model
 
         }
 
+
+        public override void SendContract(string FP, SolgtBolig b)
+        {
+            FileWriter.UdskrivKøberKontrakt(this, FP, b);
+        }
     }
 }
