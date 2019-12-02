@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View Model\Bolig\UdskrivKontraktViewModel.cs" />
     <Compile Include="View Model\Kunde\KundeViewModel.cs" />
     <Compile Include="View\Bolig\UdskrivKontraktView.cs">
       <SubType>UserControl</SubType>
