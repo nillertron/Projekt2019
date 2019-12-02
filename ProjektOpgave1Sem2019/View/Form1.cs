@@ -36,10 +36,13 @@ namespace ProjektOpgave1Sem2019
             BTNEjendomsmæglere.FlatAppearance.BorderSize = 0;
             button4.FlatAppearance.BorderSize = 0;
             #endregion
-
+      
+        
         }
-     
+       
+       
 
+     
         private void Form1_Load(object sender, EventArgs e)
         { 
 
@@ -51,6 +54,7 @@ namespace ProjektOpgave1Sem2019
             EjendomsmæglereForm eForm = new EjendomsmæglereForm();
             if (!this.Controls.Contains(eForm))
                 this.Controls.Add(eForm);
+            eForm.BringToFront();
 
         }
 
@@ -61,6 +65,19 @@ namespace ProjektOpgave1Sem2019
 
         private void valgtEjendomsMæglerDetails1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+                var bolig = new BoligForm();
+                if (!this.Controls.Contains(bolig))
+            {
+                Controls.Add(bolig);
+                bolig.Anchor = AnchorStyles.Top + Left;
+                bolig.BringToFront();
+            }
 
         }
     }

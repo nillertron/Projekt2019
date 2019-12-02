@@ -29,5 +29,10 @@ namespace ProjektOpgave1Sem2019
             this.PostNr = NyeVærdier.PostNr;
             this.Addresse = NyeVærdier.Addresse;
         }
+
+        public override string ToString() //ListBox i Addejendomsmægler. Sprørg Martin før ændring.
+        {
+            return Id.ToString() + ". " + Navn + " " + Efternavn;
+        }
     }
 }

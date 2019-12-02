@@ -19,6 +19,8 @@ namespace ProjektOpgave1Sem2019.Model
 
             List<Ejendomsmægler> returnList = new List<Ejendomsmægler>();
 
+
+
             DBHelper.Conn.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -75,19 +77,23 @@ namespace ProjektOpgave1Sem2019.Model
                 }
                 e.Id = id;
 
-                    try
-                    {
-                        DBHelper.Conn.Open();
-                        cmd.ExecuteNonQuery();
-                        DBHelper.Conn.Close();
-                        wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
-                    }
-                    catch (SqlException ee)
-                    {
-                        wasSuccess = false; //Noget gik galt
+                try
+                {
+                    DBHelper.Conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
+                }
+                catch (SqlException ee)
+                {
+                    wasSuccess = false; //Noget gik galt
                     MessageBox.Show(ee.Message);
-                    }
-                
+                }
+                finally
+                {
+                    DBHelper.Conn.Close();
+                }
+
             }
             return wasSuccess;
         }
@@ -114,7 +120,6 @@ namespace ProjektOpgave1Sem2019.Model
                 {
                     DBHelper.Conn.Open();
                     cmd.ExecuteNonQuery();
-                    DBHelper.Conn.Close();
                     wasSuccess = true; //Hvis NonQuery lykkes, er det en success, kommer aldrig her hvis Exception bliver thrown
                 }
                 catch (SqlException q)
@@ -122,6 +127,10 @@ namespace ProjektOpgave1Sem2019.Model
                     
                     wasSuccess = false; //Noget gik galt
                     MessageBox.Show(q.Message);
+                }
+                finally
+                {
+                    DBHelper.Conn.Close();
                 }
 
             }
@@ -146,7 +155,6 @@ namespace ProjektOpgave1Sem2019.Model
                 {
                     DBHelper.Conn.Open();
                     cmd.ExecuteNonQuery();
-                    DBHelper.Conn.Close();
                     wasSuccessful = true;
                 }
                 catch(SqlException ee)
@@ -154,9 +162,38 @@ namespace ProjektOpgave1Sem2019.Model
                     wasSuccessful = false;
                     MessageBox.Show(ee.Message);
                 }
+                finally
+                {
+                    DBHelper.Conn.Close();
+                }
                 
             }
             return wasSuccessful;
+        }
+
+        public static Ejendomsmægler GetEjendomsmægler(int id) //Find enkelt ejendomsmægler -Martin
+        {       //Bruges i BoligViewModel
+            string cmdString = "SELECT * FROM Ejendomsmægler WHERE ID = @ID";
+
+            Ejendomsmægler e;
+
+            using (SqlCommand cmd = new SqlCommand(cmdString, DBHelper.Conn))
+            {
+                cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = id;
+
+                DBHelper.Conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+
+                    e = new Ejendomsmægler(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                                reader.GetString(3), reader.GetDateTime(4), reader.GetInt32(5),
+                                reader.GetString(6), reader.GetString(7));
+                }
+                DBHelper.Conn.Close();
+            }
+
+            return e;
         }
 
         //Martin slut
@@ -189,21 +226,21 @@ namespace ProjektOpgave1Sem2019.Model
         //    }
         //}
 
-        //public static List<Ejendomsmægler> GetAllEjendomsmæglere()
+        //public static List<PostNumre> GetAllPostnumre()
         //{
-        //    var liste = new List<Ejendomsmægler>();
+        //    var liste = new List<PostNumre>();
         //    try
         //    {
         //        using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
         //        {
         //            conn.Open();
         //            SqlDataReader dataReader;
-        //            using (SqlCommand command = new SqlCommand("Select Id, Fornavn, Efternavn, Tlf, KontoNr, Fødselsdato From ejendomsmægler", conn))
+        //            using (SqlCommand command = new SqlCommand("Select PostNr, Distrikt From Post", conn))
         //            {
         //                dataReader = command.ExecuteReader();
         //                while (dataReader.Read())
         //                {
-        //                    liste.Add(new Ejendomsmægler(Convert.ToInt32(dataReader.GetValue(0)), dataReader.GetValue(1).ToString(), dataReader.GetValue(2).ToString(), dataReader.GetValue(3).ToString(), Convert.ToDateTime(dataReader.GetValue(5)), dataReader.GetValue(4).ToString()));
+        //                    liste.Add(new PostNumre { PostNummer = Convert.ToInt32(dataReader.GetValue(0)), Distrikt= dataReader.GetValue(1).ToString() });
         //                }
         //            }
         //        }
