@@ -50,54 +50,16 @@
     <Compile Include="Model\Bolig\BoligTabelDB.cs" />
     <Compile Include="Model\Bolig\SolgtBolig.cs" />
     <Compile Include="Model\Ejendomsmægler\Ejendomsmægler.cs" />
-    <Compile Include="Model\Services\FileWriter.cs" />
-    <Compile Include="Model\Services\InputValidation.cs" />
-    <Compile Include="Model\Kunde\KundeDBTabel.cs" />
+    <Compile Include="Model\FileWriter.cs" />
     <Compile Include="Model\Kunde\Køber.cs" />
     <Compile Include="Model\Kunde\Sælger.cs" />
     <Compile Include="Model\Ejendomsmægler\EjendomsmæglerTabelDB.cs" />
-    <Compile Include="Model\Post\PostNrTabelDB.cs" />
-    <Compile Include="Model\Post\PostNumre.cs" />
-    <Compile Include="Model\Services\PictureHelper.cs" />
-    <Compile Include="View Model\Bolig\BoligViewModel.cs" />
-    <Compile Include="View Model\Bolig\DatoSøgningViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
-    <Compile Include="View Model\Bolig\SælgBoligViewModel.cs" />
-    <Compile Include="View\Bolig\BoligDetails.cs">
+    <Compile Include="View\EjendomsmæglereForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Bolig\BoligDetails.Designer.cs">
-      <DependentUpon>BoligDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Bolig\BoligForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Bolig\BoligForm.Designer.cs">
-      <DependentUpon>BoligForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Bolig\BoligSøgning.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Bolig\BoligSøgning.Designer.cs">
-      <DependentUpon>BoligSøgning.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Bolig\DatoSøgning.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Bolig\DatoSøgning.Designer.cs">
-      <DependentUpon>DatoSøgning.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Bolig\ImageSelectorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Bolig\ImageSelectorForm.Designer.cs">
-      <DependentUpon>ImageSelectorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.Designer.cs">
+    <Compile Include="View\EjendomsmæglereForm.Designer.cs">
       <DependentUpon>EjendomsmæglereForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form1.cs">
@@ -106,50 +68,17 @@
     <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Services\DBHelper.cs" />
+    <Compile Include="Model\DBHelper.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.cs">
+    <Compile Include="View\ValgtEjendomsMæglerDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.Designer.cs">
+    <Compile Include="View\ValgtEjendomsMæglerDetails.Designer.cs">
       <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Bolig\SælgBolig.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Bolig\SælgBolig.Designer.cs">
-      <DependentUpon>SælgBolig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Bolig\VælgEMæglerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Bolig\VælgEMæglerForm.Designer.cs">
-      <DependentUpon>VælgEMæglerForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="View\Bolig\BoligDetails.resx">
-      <DependentUpon>BoligDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Bolig\BoligForm.resx">
-      <DependentUpon>BoligForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Bolig\BoligSøgning.resx">
-      <DependentUpon>BoligSøgning.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Bolig\DatoSøgning.resx">
-      <DependentUpon>DatoSøgning.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Bolig\ImageSelectorForm.resx">
-      <DependentUpon>ImageSelectorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Bolig\SælgBolig.resx">
-      <DependentUpon>SælgBolig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Bolig\VælgEMæglerForm.resx">
-      <DependentUpon>VælgEMæglerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Ejendomsmægler\EjendomsmæglereForm.resx">
+    <EmbeddedResource Include="View\EjendomsmæglereForm.resx">
       <DependentUpon>EjendomsmæglereForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
@@ -165,7 +94,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\Ejendomsmægler\ValgtEjendomsMæglerDetails.resx">
+    <EmbeddedResource Include="View\ValgtEjendomsMæglerDetails.resx">
       <DependentUpon>ValgtEjendomsMæglerDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -181,7 +110,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View Model\Bolig\" />
+    <Folder Include="View\Bolig\" />
+    <Folder Include="View\Ejendomsmægler\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="husikon.png" />
     <None Include="Resources\house_home_fire_burning_burn_smoke-512.png" />
