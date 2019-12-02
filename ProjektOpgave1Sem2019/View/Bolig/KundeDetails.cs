@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using ProjektOpgave1Sem2019.Model;
 
 namespace ProjektOpgave1Sem2019.View.Bolig
-{
-    public partial class KundeDetails : UserControl
+{                                                       //karl
+    partial class KundeDetails : UserControl
     {
         private KundeViewModel ViewModel;
         private KundeForm Parent;
@@ -36,7 +36,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 
 
 
-            if (Parent.IsSælgerMode)
+            if (ViewModel.IsSælgerMode)
             {
                 LblTitel.Text = "Opret Sælger";
                 BtnAction.Text = "Opret Sælger";
@@ -72,7 +72,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
         
 
             
-            LblId.Text = Parent.SelectedKunde.ID;
+            LblId.Text = ViewModel.SelectedKunde.Id.ToString();
             Person kunde = ViewModel.SelectedKunde;
 
             TbFornavn.Text = kunde.Navn;
@@ -86,7 +86,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             
 
             
-            if (Parent.IsSælgerMode)
+            if (ViewModel.IsSælgerMode)
             {
                 LblTitel.Text = "Opdater Sælger";
                 BtnAction.Text = "Opdater Sælger"; 
@@ -115,14 +115,15 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             {
                 case "Opret Sælger":
                     Sælger sælgerToCreate = new Sælger(fornavn, efternavn, tlf, kontoNr, postNr, adresse);
-                    if (ViewModel.CreateSælger(sælgerToCreate))
+                    if (ViewModel.OpretSælger(sælgerToCreate))
                         MessageBox.Show("Sælger oprettet!");
                     else
                         MessageBox.Show("Der skete en fejl, sælger blev ikke oprettet");
                         break;
+
                 case "Opdater Sælger":
 
-                    Sælger sælgerToUpdate = new Sælger(ViewModel.SelectedKunde.ID, fornavn, efternavn, tlf, kontoNr, postNr, adresse);
+                    Sælger sælgerToUpdate = new Sælger(ViewModel.SelectedKunde.Id, fornavn, efternavn, tlf, kontoNr, postNr, adresse);
                     if (ViewModel.OpdaterSælger(sælgerToUpdate))
                         MessageBox.Show("Sælger opdateret!");
                     else
@@ -144,7 +145,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 
 
                 case "Opdater Køber":
-                    Køber køberToUpdate = new Køber(ViewModel.SelectedKunde.ID, fornavn, efternavn, tlf, kontoNr, postNr, adresse);
+                    Køber køberToUpdate = new Køber(ViewModel.SelectedKunde.Id, fornavn, efternavn, tlf, kontoNr, postNr, adresse);
                     if (ViewModel.OpdaterKøber(køberToUpdate))
                         MessageBox.Show("Køber opdateret!");
                     else

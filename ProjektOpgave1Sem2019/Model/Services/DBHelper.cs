@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ProjektOpgave1Sem2019.Model
 {
@@ -22,7 +23,34 @@ namespace ProjektOpgave1Sem2019.Model
         private static SqlConnection conn = new SqlConnection(connString);
         public static SqlConnection Conn { get { return conn; }  }
 
+        public static int GetNewestIdFromTabel(string TabelNavn, SqlConnection OpenConn)
+        {
+            int newId = 0;
+            
+                try
+                {
+                        using (SqlCommand getIdCmd = new SqlCommand($"SELECT MAX(ID) AS ID FROM {TabelNavn} "))
+                        {
+                            getIdCmd.Connection = OpenConn;
+                            using (SqlDataReader reader = getIdCmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                            newId = Convert.ToInt32(reader["ID"]);
 
+                                }
+                            }
+                        }
+                    
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
 
+            return newId;
+        }
     }
+
+    
 }

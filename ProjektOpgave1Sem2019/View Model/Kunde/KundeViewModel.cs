@@ -10,9 +10,11 @@ namespace ProjektOpgave1Sem2019
 {
     class KundeViewModel
     {
-        public bool isSælgerMode = false; //Start i køber mode
+        public bool IsSælgerMode = false; //Start i køber mode
         private List<Køber> købere = new List<Køber>();
         private List<Sælger> sælgere = new List<Sælger>();
+        public Person SelectedKunde; 
+        
 
         //Martin
         public KundeViewModel()
@@ -24,7 +26,7 @@ namespace ProjektOpgave1Sem2019
         public List<Person> GetAll()
         {
             List<Person> returnList = new List<Person>();
-            if(isSælgerMode)
+            if(IsSælgerMode)
             {
                 foreach(Sælger s in sælgere)
                 {
@@ -44,7 +46,7 @@ namespace ProjektOpgave1Sem2019
         public List<Person> DisplaySearchResults(string kriterie, string input)
         {
             List<Person> returnList = new List<Person>();
-            if (isSælgerMode)
+            if (IsSælgerMode)
             {
                 switch (kriterie)
                 {
@@ -131,5 +133,71 @@ namespace ProjektOpgave1Sem2019
             return returnList;
         }
         //Martin Slut
+
+
+            //karl
+
+        public bool OpretSælger(Sælger s)
+        {
+            bool success = false;
+
+            try
+            {
+            Sælger nySælger = KundeDBTabel.OpretSælger(s);
+            sælgere.Add(nySælger);
+
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+
+            return success;
+        }
+
+        public bool OpdaterSælger(Sælger s)
+        {
+            bool success = false;
+
+            if (KundeDBTabel.UpdateSælger(s))
+                success = true;
+            else
+                success = false;
+
+            return success;
+        }
+
+        public bool OpretKøber(Køber k)
+        {
+            bool success = false;
+
+            //try
+            //{
+            //    //Køber nyKøber = KundeDBTabel.OpretKøber(k);
+            //}
+            //catch (Exception e)
+            //{
+
+            //}
+            if (KundeDBTabel.OpretKøber(k))
+                success = true;
+            else
+                success = false;
+
+            return success;
+        }
+
+        public bool OpdaterKøber(Køber k)
+        {
+            bool success = false;
+
+            if (KundeDBTabel.UpdateKøber(k))
+                success = true;
+            else
+                success = false;
+
+            return success;
+        }
     }
+
 }
