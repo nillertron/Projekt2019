@@ -14,6 +14,7 @@ namespace ProjektOpgave1Sem2019
         private List<Køber> købere = new List<Køber>();
         private List<Sælger> sælgere = new List<Sælger>();
 
+        //Martin
         public KundeViewModel()
         {
             købere = KundeDBTabel.GetAllKøbere();
@@ -129,5 +130,6 @@ namespace ProjektOpgave1Sem2019
             }
             return returnList;
         }
+        //Martin Slut
     }
 }
