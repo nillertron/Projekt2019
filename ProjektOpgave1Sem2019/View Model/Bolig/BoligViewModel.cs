@@ -243,7 +243,6 @@ namespace ProjektOpgave1Sem2019
                 int sælgerID = 1;
 
                 Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
-                System.Diagnostics.Debug.WriteLine(newBolig.OprettelsesDato + " here");
                 newBolig = BoligTabelDB.Create(newBolig);
                 AddBoligToList(newBolig);
             }
