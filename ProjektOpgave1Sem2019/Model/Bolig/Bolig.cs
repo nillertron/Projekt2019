@@ -29,7 +29,7 @@ namespace ProjektOpgave1Sem2019
         private int _PostNr;
         public int PostNr { protected set { if (value > 500 && value < 10000) _PostNr = value; } get { return _PostNr; } }
 
-        public Sælger sælger { get; set; }
+        public Sælger sælger { get; protected set; }
         public Bolig()
         {
 

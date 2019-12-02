@@ -61,6 +61,7 @@
     <Compile Include="Model\Services\PictureHelper.cs" />
     <Compile Include="View Model\Bolig\BoligViewModel.cs" />
     <Compile Include="View Model\Bolig\DatoSøgningViewModel.cs" />
+    <Compile Include="View Model\Bolig\UdskrivKontraktViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\EjendomsmæglerViewModel.cs" />
     <Compile Include="View Model\Ejendomsmægler\Form1ViewModel.cs" />
     <Compile Include="View Model\Bolig\SælgBoligViewModel.cs" />
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="View\Bolig\ImageSelectorForm.Designer.cs">
       <DependentUpon>ImageSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bolig\UdskrivKontraktView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\UdskrivKontraktView.Designer.cs">
+      <DependentUpon>UdskrivKontraktView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.cs">
       <SubType>UserControl</SubType>
@@ -145,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\SælgBolig.resx">
       <DependentUpon>SælgBolig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Bolig\UdskrivKontraktView.resx">
+      <DependentUpon>UdskrivKontraktView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\VælgEMæglerForm.resx">
       <DependentUpon>VælgEMæglerForm.cs</DependentUpon>
