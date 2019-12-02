@@ -101,6 +101,12 @@
     <Compile Include="View\Bolig\ImageSelectorForm.Designer.cs">
       <DependentUpon>ImageSelectorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Bolig\KundeDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\KundeDetails.Designer.cs">
+      <DependentUpon>KundeDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Ejendomsmægler\EjendomsmæglereForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\ImageSelectorForm.resx">
       <DependentUpon>ImageSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Bolig\KundeDetails.resx">
+      <DependentUpon>KundeDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Bolig\SælgBolig.resx">
       <DependentUpon>SælgBolig.cs</DependentUpon>
