@@ -135,6 +135,15 @@
     <Compile Include="View\Bolig\VælgEMæglerForm.Designer.cs">
       <DependentUpon>VælgEMæglerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Bolig\VælgSælgerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Bolig\VælgSælgerForm.Designer.cs">
+      <DependentUpon>VælgSælgerForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Bolig\VælgSælgerForm.resx">
+      <DependentUpon>VælgSælgerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Kunde\KundeForm.resx">
       <DependentUpon>KundeForm.cs</DependentUpon>
     </EmbeddedResource>

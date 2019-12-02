@@ -35,12 +35,14 @@ namespace ProjektOpgave1Sem2019
             CBPostNr.DisplayMember = "PostNummer";
 
             TBEMæglerNavn.ReadOnly = true;
+            TBValgtSælger.ReadOnly = true;
 
             Hide();
         }
         public void InitializeCreateMode()
         {
             viewModel.SetSelEMæglerNull(); //Sætter Valgt Emægler til null, bruges til evaluering senere
+            viewModel.SetValgtSælgerNull(); //Sætter valgt sælger null, bruges til evaluering senere
             editMode = false;
             Show();
             CBPostNr.Show(); //Hides unnecessary controls
@@ -63,11 +65,13 @@ namespace ProjektOpgave1Sem2019
             LabelID.Text = "";
 
             TBEMæglerNavn.Text = "";
+            TBValgtSælger.Text = "";
 
             DTPOpretDato.Enabled = false; //Date er altid idag. -Martin
             DTPOpretDato.Value = DateTime.Now; //på nuværende tidspunkt kan kun oprettes dags dato
             
             BtnVælgE.Enabled = true;
+            BtnVælgSælger.Enabled = true;
             LabelMode.Text = "CREATE MODE";
         }
 
@@ -93,6 +97,7 @@ namespace ProjektOpgave1Sem2019
             LabelID.Text = viewModel.ValgtBolig.ID.ToString();
 
             BtnVælgE.Enabled = false; //Kan ikke vælge EMægler i edit
+            BtnVælgSælger.Enabled = false; //Kan ikke ændre sælger i edit
 
             BtnDelete.Enabled = true; //Kan slette i editMode
 
@@ -100,7 +105,7 @@ namespace ProjektOpgave1Sem2019
             DTPOpretDato.Enabled = false; //Kan ikke ændre dato
 
             TBEMæglerNavn.Text = viewModel.ValgtEmægler.ToString(); //Tostring metoden er overridet
-                                                                //Til at vise navn
+            TBValgtSælger.Text = viewModel.ValgtSælger.ToString();                                                      //Til at vise navn
 
             LabelMode.Text = "EDIT MODE";
             //tjekker om boligen er solgt, for så skal denne knap ikke vises!
@@ -119,9 +124,9 @@ namespace ProjektOpgave1Sem2019
             }
             else
             {
-                if (viewModel.ValgtEmægler != null)
+                if (viewModel.ValgtEmægler != null && viewModel.ValgtSælger != null) //HVis både Emægler og sælger er valgt
                 {
-                    viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text),
+                    viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text), //Ny bolig
                                                 Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
                                                 ((PostNumre)CBPostNr.SelectedItem).PostNummer);
 
@@ -129,10 +134,15 @@ namespace ProjektOpgave1Sem2019
                     this.Hide();
                     parent.FyldListView(viewModel.FillListView());
                 }
-                else
+                else if(viewModel.ValgtEmægler == null) //Hvis ejendomsmægler ikke er valgt
                 {
                     MessageBox.Show("Vælg en Ejendomsmægler via knappen 'Vælg E' Først");
                     BtnVælgE.Enabled = true;
+                }
+                else if(viewModel.ValgtSælger == null) //Hvis sælger ikke er valgt.
+                {
+                    MessageBox.Show("Vælg en sælger via knappen 'Vælg S' Først");
+                    BtnVælgSælger.Enabled = true;
                 }
             }
             //MessageBox.Show("Boop, pranked, Im out");
@@ -202,8 +212,21 @@ namespace ProjektOpgave1Sem2019
         {
             Form VælgEMægler = new VælgEMæglerForm(this.viewModel);
             VælgEMægler.ShowDialog(); //Åbner ny form til valg af Ejendomsmægler
-            TBEMæglerNavn.Text = viewModel.ValgtEmægler.ToString(); //overridet, giver navn og ID
-            BtnVælgE.Enabled = false;
+            if (viewModel.ValgtEmægler != null)
+            {
+                TBEMæglerNavn.Text = viewModel.ValgtEmægler.ToString(); //overridet, giver navn og ID
+                //BtnVælgE.Enabled = false; //Tillad at vælge efter valg
+            }
+        }
+        private void BtnVælgSælger_Click(object sender, EventArgs e)
+        {
+            Form VælgSælger = new VælgSælgerForm(this.viewModel);
+            VælgSælger.ShowDialog(); //Åbner ny form til valg af sælger, skal lukkes før denne metode fortsætter
+            if (viewModel.ValgtSælger != null)
+            {
+                TBValgtSælger.Text = viewModel.ValgtSælger.ToString(); //Giver sælgers navn
+                //BtnVælgSælger.Enabled = false; //Tillad at ændre efter valg
+            }
         }
         private void BtnVælgBillede_Click(object sender, EventArgs e) //Til valg af billede til hus
         {   //endnu ikke fuldt implementeret.
@@ -241,5 +264,7 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
+
+        
     }        /// 
 }
