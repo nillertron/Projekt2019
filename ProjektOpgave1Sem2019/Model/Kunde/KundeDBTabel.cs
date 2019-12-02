@@ -255,6 +255,31 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             }
             return succes;
         }
+
+        //Martin
+        public static Sælger GetSælger(int id) //Til at få enkelt sælger under Edit bolig
+        {
+            Sælger returnSælger;
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = DBHelper.Conn;
+                cmd.CommandText = "SELECT * FROM Sælger WHERE ID = @ID";
+
+                cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = id;
+
+                DBHelper.Conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+                    returnSælger = new Sælger(reader.GetInt32(0), reader.GetString(1),
+                                        reader.GetString(2), reader.GetString(3),
+                                        reader.GetString(4), reader.GetInt32(5), reader.GetString(6));
+                }
+                DBHelper.Conn.Close();
+            }
+            return returnSælger;
+        }
+        //Martin slut
     }
    
 }
