@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View Model\Kunde\KundeViewModel.cs" />
     <Compile Include="View\Kunde\KundeForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
