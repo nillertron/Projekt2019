@@ -60,6 +60,10 @@ namespace ProjektOpgave1Sem2019
 
         private void button2_Click(object sender, EventArgs e)
         {
+            KundeForm kForm = new KundeForm();
+            if (!this.Controls.Contains(kForm))
+                this.Controls.Add(kForm);
+            kForm.BringToFront();
 
         }
 

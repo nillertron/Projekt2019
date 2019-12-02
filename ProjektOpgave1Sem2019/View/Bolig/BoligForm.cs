@@ -63,7 +63,7 @@ namespace ProjektOpgave1Sem2019
             {
                 var input = TBInput.Text;
                 var kriterie = CBKriterie.SelectedItem.ToString();
-                bool ok = ViewModel.ValiderInput(input, kriterie);
+                bool ok = ViewModel.ValiderInput(input, kriterie); //Valider input, da man kan søge på integer og double
                 if (!ok && TBInput.TextLength != 0)
                     LWSearchResults.Items.Add("Fejl i søgnings input");
                 else
