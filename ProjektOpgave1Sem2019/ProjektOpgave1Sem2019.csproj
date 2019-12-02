@@ -111,6 +111,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="View Model\Bolig\" />
+    <Folder Include="View\Bolig\" />
     <Folder Include="View\Ejendomsmægler\" />
   </ItemGroup>
   <ItemGroup>
