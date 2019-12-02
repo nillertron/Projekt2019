@@ -232,10 +232,12 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             }
             return succes;
         }
-        public static bool OpretSælger(Sælger k)
-        {
 
-            bool succes = false;
+
+        public static Sælger OpretSælger(Sælger k)
+        {
+            int newId = 0; 
+            
             try
             {
                 using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
@@ -245,15 +247,20 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
                         "Values ('" + k.Navn + "'),('" + k.Efternavn + "'),('" + k.TelefonNr + "'),('" + k.KontoNr + "')," + k.PostNr + ",('" + k.Addresse + "')", conn))
                     {
                         command.ExecuteNonQuery();
-                        succes = true;
+                        
                     }
+
+                    newId = DBHelper.GetNewestIdFromTabel("Sælger", conn);
                 }
             }
             catch (SqlException ee)
             {
                 MessageBox.Show(ee.Message);
             }
-            return succes;
+
+            Sælger newSælger = new Sælger(newId, k.Navn, k.Efternavn, k.TelefonNr, k.KontoNr, k.PostNr, k.Addresse);
+            return newSælger;
+
         }
 
         //Martin
