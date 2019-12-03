@@ -20,11 +20,11 @@ namespace ProjektOpgave1Sem2019.Model
         {
 
         }
-        //Martin
-        public Køber(string Navn, string Efternavn, string TelefonNr, string KontoNr, int PostNr, string Adresse):base(Navn, Efternavn, TelefonNr, KontoNr, PostNr, Adresse)
-        {
+        ////Martin
+        //public Køber(string Navn, string Efternavn, string TelefonNr, string KontoNr, int PostNr, string Adresse):base(Navn, Efternavn, TelefonNr, KontoNr, PostNr, Adresse)
+        //{
 
-        }
+        //}
 
         public override void SendContract(string FP, SolgtBolig b)
         {
