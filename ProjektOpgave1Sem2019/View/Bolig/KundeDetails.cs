@@ -22,7 +22,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             this.ViewModel = ViewModel;
             this.Parent = Parent;
 
-
+            this.Location = new Point(450, 80); //Ændrer location, midlertidig for at jeg ikke fucker design ved at åbne designer -MArtin
 
 
         }
@@ -34,7 +34,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             ShowThese(controlsToDisplay);
 
 
-
+            ClearData(); //-Martin, må gerne laves om hvis du vil
 
             if (ViewModel.IsSælgerMode)
             {
@@ -56,6 +56,18 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                 c.BringToFront();
             }
         }
+
+        //Martin, gerne ændres hvis du vil, kaldes også fra KundeForm når mode skiftes
+        public void ClearData()
+        {
+            TbFornavn.Text = "";
+            TbEfternavn.Text = "";
+            TbAdresse.Text = "";
+            TbPostNr.Text = "";
+            TbTlf.Text = "";
+            TbKontoNr.Text = "";
+        }
+        //Martin Slut
 
         private void LockThese(Control[] controls)
         {
