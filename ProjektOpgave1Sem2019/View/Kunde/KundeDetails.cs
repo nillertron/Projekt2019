@@ -22,10 +22,18 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             this.ViewModel = ViewModel;
             this.Parent = Parent;
 
-            this.Location = new Point(450, 80); //Ændrer location, midlertidig for at jeg ikke fucker design ved at åbne designer -MArtin
+            this.Location = new Point(450, 80); //Ændrer location, midlertidig for at jeg ikke fucker design ved at åbne designer -MArtin 
 
-
+            LoadItems(); 
+            
         }
+        private void LoadItems()
+        {
+            foreach (PostNumre postNr in ViewModel.postNumre)
+                CbPostNr.Items.Add(postNr.PostNummer);
+        }
+
+
 
         public void InitializeCreateMode()
         {
@@ -63,7 +71,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             TbFornavn.Text = "";
             TbEfternavn.Text = "";
             TbAdresse.Text = "";
-            TbPostNr.Text = "";
+            CbPostNr.Text = "";
             TbTlf.Text = "";
             TbKontoNr.Text = "";
         }
@@ -84,13 +92,13 @@ namespace ProjektOpgave1Sem2019.View.Bolig
         
 
             
-            LblId.Text = ViewModel.SelectedKunde.Id.ToString();
+            LblId.Text = "ID: " + ViewModel.SelectedKunde.Id.ToString();
             Person kunde = ViewModel.SelectedKunde;
 
             TbFornavn.Text = kunde.Navn;
             TbEfternavn.Text = kunde.Efternavn;
             TbAdresse.Text = kunde.Addresse;
-            TbPostNr.Text = kunde.PostNr.ToString();
+            CbPostNr.Text = kunde.PostNr.ToString();
             TbTlf.Text = kunde.TelefonNr;
             TbKontoNr.Text = kunde.KontoNr;
 
@@ -117,10 +125,10 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 
             string fornavn = TbFornavn.Text;
             string efternavn = TbEfternavn.Text;
-            string adresse = TbKontoNr.Text;
+            string adresse = TbAdresse.Text;
             string tlf = TbTlf.Text;
             string kontoNr = TbKontoNr.Text;
-            int postNr = Convert.ToInt32(TbPostNr.Text);
+            int postNr = Convert.ToInt32(CbPostNr.Text);
 
 
             switch (buttonFunction)
@@ -128,7 +136,9 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                 case "Opret Sælger":
                     Sælger sælgerToCreate = new Sælger(fornavn, efternavn, tlf, kontoNr, postNr, adresse);
                     if (ViewModel.OpretSælger(sælgerToCreate))
+                    {
                         MessageBox.Show("Sælger oprettet!");
+                    }
                     else
                         MessageBox.Show("Der skete en fejl, sælger blev ikke oprettet");
                         break;
@@ -165,6 +175,9 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     break;
 
             }
+
+            Parent.UpdateListViewWithCurrentSearchTerms();
+
         }
     }
 }

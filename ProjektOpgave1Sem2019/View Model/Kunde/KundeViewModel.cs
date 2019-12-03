@@ -13,7 +13,8 @@ namespace ProjektOpgave1Sem2019
         public bool IsSælgerMode = false; //Start i køber mode
         private List<Køber> købere = new List<Køber>();
         private List<Sælger> sælgere = new List<Sælger>();
-        public Person SelectedKunde; 
+        public Person SelectedKunde;
+        public List<PostNumre> postNumre = new List<PostNumre>();
         
 
         //Martin
@@ -21,6 +22,7 @@ namespace ProjektOpgave1Sem2019
         {
             købere = KundeDBTabel.GetAllKøbere();
             sælgere = KundeDBTabel.GetAllSælgere();
+            postNumre = PostNrTabelDB.GetAllPostnumre();
         }
 
         public List<Person> GetAll()
@@ -171,6 +173,7 @@ namespace ProjektOpgave1Sem2019
             sælgere.Add(nySælger);
                 success = true;
 
+
             }
             catch (Exception e)
             {
@@ -178,6 +181,7 @@ namespace ProjektOpgave1Sem2019
             }
 
             return success;
+
         }
 
         public bool OpdaterSælger(Sælger s)
@@ -185,7 +189,15 @@ namespace ProjektOpgave1Sem2019
             bool success = false;
 
             if (KundeDBTabel.UpdateSælger(s))
+            {
+                for (int i = 0; i < sælgere.Count; i++)
+                {
+                    Sælger sælger = sælgere[i];
+                    if (sælger.Id == s.Id)
+                        sælgere[i] = s; 
+                }
                 success = true;
+            }
             else
                 success = false;
 
@@ -198,8 +210,8 @@ namespace ProjektOpgave1Sem2019
 
             try
             {
-                Køber nyKøber = KundeDBTabel.OpretKøber(k);
-                købere.Add(nyKøber);
+                KundeDBTabel.OpretKøber(k);
+                købere.Add(k);
                 success = true;
             }
             catch (Exception e)
@@ -216,7 +228,15 @@ namespace ProjektOpgave1Sem2019
             bool success = false;
 
             if (KundeDBTabel.UpdateKøber(k))
+            {
+                for(int i = 0; i < købere.Count; i++)
+                {
+                    Køber køber = købere[i];
+                    if (køber.Id == k.Id)
+                        købere[i] = k; 
+                }
                 success = true;
+            }
             else
                 success = false;
 

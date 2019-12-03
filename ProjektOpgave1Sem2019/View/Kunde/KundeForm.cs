@@ -82,6 +82,17 @@ namespace ProjektOpgave1Sem2019
             FillListView(ViewModel.DisplaySearchResults(kriterie, input.ToLower()));
         }
 
+
+        //karl start (Jeg har bare kopieret hele body'en fra metoden ovenfor, så jeg kan tilgå den fra view model)
+        public void UpdateListViewWithCurrentSearchTerms()
+        {
+            string kriterie = CBKriterie.SelectedItem.ToString(); //Der er strings i CB
+            string input = TBInput.Text;
+            //input bliver lavet lowercase her så søgning er case insensitive
+            FillListView(ViewModel.DisplaySearchResults(kriterie, input.ToLower()));
+        }
+        //karl stop
+
         private void LWSearchResults_DoubleClick(object sender, EventArgs e)
         {
             //Åben details her
