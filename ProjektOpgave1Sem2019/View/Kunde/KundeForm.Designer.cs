@@ -79,6 +79,7 @@
             this.LWSearchResults.TabIndex = 3;
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
+            this.LWSearchResults.DoubleClick += new System.EventHandler(this.LWSearchResults_DoubleClick);
             // 
             // Fornavn
             // 

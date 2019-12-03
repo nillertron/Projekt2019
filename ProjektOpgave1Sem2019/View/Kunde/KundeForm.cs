@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019.Model;
+using ProjektOpgave1Sem2019.View.Bolig;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -15,10 +16,12 @@ namespace ProjektOpgave1Sem2019
     public partial class KundeForm : UserControl
     {
         KundeViewModel ViewModel;
+        KundeDetails Details;
         public KundeForm()
         {
             InitializeComponent();
             ViewModel = new KundeViewModel();
+
         }
         private void KundeForm_Load(object sender, EventArgs e)
         {
@@ -69,6 +72,11 @@ namespace ProjektOpgave1Sem2019
             string input = TBInput.Text;
             //input bliver lavet lowercase her så søgning er case insensitive
             FillListView(ViewModel.DisplaySearchResults(kriterie, input.ToLower()));
+        }
+
+        private void LWSearchResults_DoubleClick(object sender, EventArgs e)
+        {
+            //Åben details her
         }
     }
 }
