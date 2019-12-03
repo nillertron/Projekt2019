@@ -128,7 +128,7 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
                 using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
                 {
                     conn.Open();
-                    using (SqlCommand command = new SqlCommand("Update Køber set Adresse ="+k.Addresse+",efternavn = "+k.Efternavn+", Kontonr ="+k.KontoNr+", PostNr = "+k.PostNr+",Tlf="+k.TelefonNr+",fornavn = "+k.Navn+"where ID = "+k.Id,conn))
+                    using (SqlCommand command = new SqlCommand("Update Køber set Adresse ='"+k.Addresse+"',efternavn = '"+k.Efternavn+"', Kontonr ='"+k.KontoNr+"', PostNr = "+k.PostNr+",Tlf='"+k.TelefonNr+"',fornavn = '"+k.Navn+"' where ID = "+k.Id,conn))
                     {
                         command.ExecuteNonQuery();
                         succes = true;
@@ -150,7 +150,7 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
                 using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
                 {
                     conn.Open();
-                    using (SqlCommand command = new SqlCommand("Update Sælger set Adresse =" + k.Addresse + ",efternavn = " + k.Efternavn + ", Kontonr =" + k.KontoNr + ", PostNr = " + k.PostNr + ",Tlf=" + k.TelefonNr + ",fornavn = " + k.Navn + "where ID = " + k.Id, conn))
+                    using (SqlCommand command = new SqlCommand("Update Sælger set Adresse ='" + k.Addresse + "',efternavn = '" + k.Efternavn + "', Kontonr ='" + k.KontoNr + "', PostNr = " + k.PostNr + ",Tlf='" + k.TelefonNr + "',fornavn = '" + k.Navn + "' where ID = " + k.Id, conn))
                     {
                         command.ExecuteNonQuery();
                         succes = true;
@@ -209,28 +209,37 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             return succes;
         }
 
-        public static bool OpretKøber(Køber k)
+        public static Køber OpretKøber(Køber k)
         {
 
-            bool succes = false;
+            
             try
             {
                 using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
                 {
                     conn.Open();
                     using (SqlCommand command = new SqlCommand("Insert into Køber (Fornavn, Efternavn, Tlf, KontoNr, PostNr, Adresse) " +
-                        "Values ('"+k.Navn+"'),('"+k.Efternavn+"'),('"+k.TelefonNr+"'),('"+k.KontoNr+"'),"+k.PostNr+",('"+k.Addresse+"')", conn))
+                        "Values ('" + k.Navn + "','" + k.Efternavn + "','" + k.TelefonNr + "','" + k.KontoNr + "'," + k.PostNr + ",'" + k.Addresse + "')", conn))
                     {
                         command.ExecuteNonQuery();
-                        succes = true;
+                    }
+                    SqlDataReader reader;
+                    using (SqlCommand command = new SqlCommand("SELECT TOP 1 ID FROM Køber ORDER BY ID DESC", conn))
+                    {
+                        reader = command.ExecuteReader();
+                        while (reader.Read())
+                            k.Id = reader.GetInt32(0);
                     }
                 }
+            
+
+                
             }
             catch (SqlException ee)
             {
                 MessageBox.Show(ee.Message);
             }
-            return succes;
+            return k;
         }
 
 
@@ -244,7 +253,7 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
                 {
                     conn.Open();
                     using (SqlCommand command = new SqlCommand("Insert into Sælger (Fornavn, Efternavn, Tlf, KontoNr, PostNr, Adresse) " +
-                        "Values ('" + k.Navn + "'),('" + k.Efternavn + "'),('" + k.TelefonNr + "'),('" + k.KontoNr + "')," + k.PostNr + ",('" + k.Addresse + "')", conn))
+                                          "Values ('" + k.Navn + "','" + k.Efternavn + "','" + k.TelefonNr + "','" + k.KontoNr + "'," + k.PostNr + ",'" + k.Addresse + "')", conn))
                     {
                         command.ExecuteNonQuery();
                         
