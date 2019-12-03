@@ -67,6 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(29, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 17);
@@ -76,6 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(29, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 17);
@@ -85,6 +87,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(24, 247);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 17);
@@ -94,6 +97,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(29, 156);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 17);
@@ -102,6 +106,7 @@
             // 
             // TbAdresse
             // 
+            this.TbAdresse.ForeColor = System.Drawing.Color.Black;
             this.TbAdresse.Location = new System.Drawing.Point(90, 128);
             this.TbAdresse.Name = "TbAdresse";
             this.TbAdresse.Size = new System.Drawing.Size(177, 22);
@@ -109,6 +114,7 @@
             // 
             // TbPostNr
             // 
+            this.TbPostNr.ForeColor = System.Drawing.Color.Black;
             this.TbPostNr.Location = new System.Drawing.Point(90, 156);
             this.TbPostNr.Name = "TbPostNr";
             this.TbPostNr.Size = new System.Drawing.Size(66, 22);
@@ -116,6 +122,7 @@
             // 
             // TbTlf
             // 
+            this.TbTlf.ForeColor = System.Drawing.Color.Black;
             this.TbTlf.Location = new System.Drawing.Point(90, 195);
             this.TbTlf.Name = "TbTlf";
             this.TbTlf.Size = new System.Drawing.Size(177, 22);
@@ -123,6 +130,7 @@
             // 
             // TbKontoNr
             // 
+            this.TbKontoNr.ForeColor = System.Drawing.Color.Black;
             this.TbKontoNr.Location = new System.Drawing.Point(90, 242);
             this.TbKontoNr.Name = "TbKontoNr";
             this.TbKontoNr.Size = new System.Drawing.Size(177, 22);
@@ -132,6 +140,7 @@
             // 
             this.LblTitel.AutoSize = true;
             this.LblTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitel.ForeColor = System.Drawing.Color.Black;
             this.LblTitel.Location = new System.Drawing.Point(29, 16);
             this.LblTitel.Name = "LblTitel";
             this.LblTitel.Size = new System.Drawing.Size(45, 24);
@@ -140,6 +149,7 @@
             // 
             // BtnAction
             // 
+            this.BtnAction.ForeColor = System.Drawing.Color.Black;
             this.BtnAction.Location = new System.Drawing.Point(313, 337);
             this.BtnAction.Name = "BtnAction";
             this.BtnAction.Size = new System.Drawing.Size(179, 54);
@@ -150,6 +160,7 @@
             // LblFornavn
             // 
             this.LblFornavn.AutoSize = true;
+            this.LblFornavn.ForeColor = System.Drawing.Color.Black;
             this.LblFornavn.Location = new System.Drawing.Point(24, 74);
             this.LblFornavn.Name = "LblFornavn";
             this.LblFornavn.Size = new System.Drawing.Size(64, 17);
@@ -159,6 +170,7 @@
             // 
             // TbFornavn
             // 
+            this.TbFornavn.ForeColor = System.Drawing.Color.Black;
             this.TbFornavn.Location = new System.Drawing.Point(90, 71);
             this.TbFornavn.Name = "TbFornavn";
             this.TbFornavn.Size = new System.Drawing.Size(177, 22);
@@ -168,6 +180,7 @@
             // LblEfternavn
             // 
             this.LblEfternavn.AutoSize = true;
+            this.LblEfternavn.ForeColor = System.Drawing.Color.Black;
             this.LblEfternavn.Location = new System.Drawing.Point(14, 102);
             this.LblEfternavn.Name = "LblEfternavn";
             this.LblEfternavn.Size = new System.Drawing.Size(73, 17);
@@ -177,6 +190,7 @@
             // 
             // TbEfternavn
             // 
+            this.TbEfternavn.ForeColor = System.Drawing.Color.Black;
             this.TbEfternavn.Location = new System.Drawing.Point(90, 100);
             this.TbEfternavn.Name = "TbEfternavn";
             this.TbEfternavn.Size = new System.Drawing.Size(177, 22);
@@ -186,6 +200,7 @@
             // LblId
             // 
             this.LblId.AutoSize = true;
+            this.LblId.ForeColor = System.Drawing.Color.Black;
             this.LblId.Location = new System.Drawing.Point(24, 51);
             this.LblId.Name = "LblId";
             this.LblId.Size = new System.Drawing.Size(23, 17);
