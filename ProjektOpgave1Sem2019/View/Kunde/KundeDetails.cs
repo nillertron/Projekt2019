@@ -130,26 +130,42 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             string kontoNr = TbKontoNr.Text;
             int postNr = Convert.ToInt32(CbPostNr.Text);
 
-
+            bool success = false;
             switch (buttonFunction)
             {
+                
                 case "Opret Sælger":
-                    Sælger sælgerToCreate = new Sælger(fornavn, efternavn, tlf, kontoNr, postNr, adresse);
-                    if (ViewModel.OpretSælger(sælgerToCreate))
+                    try
                     {
-                        MessageBox.Show("Sælger oprettet!");
+                    Sælger sælgerToCreate = new Sælger(fornavn, efternavn, tlf, kontoNr, postNr, adresse);
+                        success = ViewModel.OpretSælger(sælgerToCreate);
                     }
-                    else
+                    catch
+                    {
                         MessageBox.Show("Der skete en fejl, sælger blev ikke oprettet");
+                    }
+
+                    if (success)
+                        MessageBox.Show("Sælger oprettet!");
+                       
                         break;
 
                 case "Opdater Sælger":
 
+                    try
+                    {
                     Sælger sælgerToUpdate = new Sælger(ViewModel.SelectedKunde.Id, fornavn, efternavn, tlf, kontoNr, postNr, adresse);
-                    if (ViewModel.OpdaterSælger(sælgerToUpdate))
-                        MessageBox.Show("Sælger opdateret!");
-                    else
+                        success = ViewModel.OpdaterSælger(sælgerToUpdate);
+                    }
+                    catch
+                    {
                         MessageBox.Show("Der skete en fejl, sælger blev ikke opdateret");
+                    }
+
+                    if(success)
+                        MessageBox.Show("Sælger opdateret!");
+                    
+                       
                     break;
 
                     
@@ -158,25 +174,43 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 
 
                 case "Opret Køber":
+                    try
+                    {
                     Køber køberToCreate = new Køber(fornavn, efternavn, tlf, kontoNr, postNr, adresse);
-                    if (ViewModel.OpretKøber(køberToCreate))
-                        MessageBox.Show("Køber oprettet!");
-                    else
+                        success = ViewModel.OpretKøber(køberToCreate);
+                    }
+                    catch
+                    {
                         MessageBox.Show("Der skete en fejl, køber blev ikke oprettet");
+                    }
+                    if(success)
+                        MessageBox.Show("Køber oprettet!");
+                    
+                        
                     break;
 
 
                 case "Opdater Køber":
+                    try
+                    {
                     Køber køberToUpdate = new Køber(ViewModel.SelectedKunde.Id, fornavn, efternavn, tlf, kontoNr, postNr, adresse);
-                    if (ViewModel.OpdaterKøber(køberToUpdate))
-                        MessageBox.Show("Køber opdateret!");
-                    else
+                        success = ViewModel.OpdaterKøber(køberToUpdate);
+                    }
+                    catch
+                    {
                         MessageBox.Show("Der skete en fejl, køber blev ikke opdateret");
+                    }
+
+                    if(success)
+                        MessageBox.Show("Køber opdateret!");
+                    
+                        
                     break;
 
             }
 
             Parent.UpdateListViewWithCurrentSearchTerms();
+            
 
         }
     }
