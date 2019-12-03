@@ -132,6 +132,30 @@ namespace ProjektOpgave1Sem2019
             }
             return returnList;
         }
+
+        public void SetSelectedPerson(string id) //Sætter valgt kunde til edit mode
+        {
+            if(IsSælgerMode)
+            {
+                foreach(Person p in sælgere)
+                {
+                    if(p.Id == Convert.ToInt32(id))
+                    {
+                        SelectedKunde = p;
+                    }
+                }
+            }
+            else
+            {
+                foreach(Person p in købere)
+                {
+                    if(p.Id == Convert.ToInt32(id))
+                    {
+                        SelectedKunde = p;
+                    }
+                }
+            }
+        }
         //Martin Slut
 
 

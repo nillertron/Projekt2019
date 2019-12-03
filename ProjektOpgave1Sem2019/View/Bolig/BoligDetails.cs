@@ -41,6 +41,7 @@ namespace ProjektOpgave1Sem2019
         }
         public void InitializeCreateMode()
         {
+            BringToFront();
             viewModel.SetSelEMæglerNull(); //Sætter Valgt Emægler til null, bruges til evaluering senere
             viewModel.SetValgtSælgerNull(); //Sætter valgt sælger null, bruges til evaluering senere
             editMode = false;
@@ -77,6 +78,7 @@ namespace ProjektOpgave1Sem2019
 
         public void InitializeEditMode()
         {
+            BringToFront();
             editMode = true;
             Show();
             TBPostNr.Show();

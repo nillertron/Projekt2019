@@ -49,8 +49,8 @@ namespace ProjektOpgave1Sem2019
         {
             boliger.Add(bolig);
             //Note til senere
-            MessageBox.Show("Ny bolig tilføjet til liste i BoligViewModel. Husk at opdatere listen I" 
-                        + " UI laget via FillListView eller DisplaySearchResults. Denne messagebox kan slettes når det er gjort");
+            //MessageBox.Show("Ny bolig tilføjet til liste i BoligViewModel. Husk at opdatere listen I" 
+              //          + " UI laget via FillListView eller DisplaySearchResults. Denne messagebox kan slettes når det er gjort");
             //FillListView(boliger);
         }
 

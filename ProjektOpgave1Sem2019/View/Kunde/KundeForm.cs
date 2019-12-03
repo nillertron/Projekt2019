@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjektOpgave1Sem2019.Model;
+using ProjektOpgave1Sem2019.View.Bolig;
 
 namespace ProjektOpgave1Sem2019
 {
@@ -15,16 +16,19 @@ namespace ProjektOpgave1Sem2019
     public partial class KundeForm : UserControl
     {
         KundeViewModel ViewModel;
+        KundeDetails Details;
         public KundeForm()
         {
             InitializeComponent();
             ViewModel = new KundeViewModel();
+            Details = new KundeDetails(ViewModel, this);
         }
         private void KundeForm_Load(object sender, EventArgs e)
         {
             AddSearchCategories();
             CBKriterie.SelectedIndex = 0;
             FillListView(ViewModel.GetAll());
+            
         }
 
         private void FillListView(List<Person> personList) //Fylder listview med Person typer fra en list
@@ -48,15 +52,22 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnMode_Click(object sender, EventArgs e)
         {
+            if(!Controls.Contains(Details)) //Add details hvis ikke added
+            {
+                Controls.Add(Details);
+            }
+            Details.ClearData(); //Clear textboxes
             if(ViewModel.IsSælgerMode)//Check om vi arbejder med sælger eller køber
             {
                 BtnMode.Text = "Skift til sælger Mode";
+                BtnOpret.Text = "Opret Køber";
                 LabelMode.Text = "Køber mode";
                 ViewModel.IsSælgerMode = false;
             }
             else
             {
                 BtnMode.Text = "Skift til køber Mode";
+                BtnOpret.Text = "Opret Sælger";
                 LabelMode.Text = "Sælger mode";
                 ViewModel.IsSælgerMode = true;
             }
@@ -69,6 +80,27 @@ namespace ProjektOpgave1Sem2019
             string input = TBInput.Text;
             //input bliver lavet lowercase her så søgning er case insensitive
             FillListView(ViewModel.DisplaySearchResults(kriterie, input.ToLower()));
+        }
+
+        private void LWSearchResults_DoubleClick(object sender, EventArgs e)
+        {
+            //Åben details her
+            ViewModel.SetSelectedPerson(LWSearchResults.FocusedItem.Name);
+            if (!Controls.Contains(Details)) //Add details hvis ikke added
+            {
+                Controls.Add(Details);
+            }
+            Details.BringToFront();
+            Details.InitializeEditMode();
+        }
+
+        private void BtnOpret_Click(object sender, EventArgs e)
+        {
+            if(!Controls.Contains(Details)) //Add details hvis ikke added
+            {
+                Controls.Add(Details);
+            }
+            Details.InitializeCreateMode();
         }
     }
 }

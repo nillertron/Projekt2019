@@ -58,6 +58,8 @@ namespace ProjektOpgave1Sem2019
             TBEfternavn.Text = E.Efternavn;
                 TBTelefon.Text = E.TelefonNr;
             LBLoverskrift.Text = "Rediger";
+            BTNSlet.Show();
+            BTNEdit.Show();
 
             CBPostNr.SelectedIndex = ViewModel.PostNummerListe.FindIndex(o => o.PostNummer == E.PostNr);
 
@@ -134,9 +136,16 @@ namespace ProjektOpgave1Sem2019
         {
             if (edit)
             {
-                ViewModel.Delete(E);
-                ClearTekstBokse();
-                ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
+                try
+                {
+                    ViewModel.Delete(E);
+                    ClearTekstBokse();
+                    ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
+                }
+                catch(Exception eee)
+                {
+                    MessageBox.Show(eee.Message);
+                }
 
                 
             }

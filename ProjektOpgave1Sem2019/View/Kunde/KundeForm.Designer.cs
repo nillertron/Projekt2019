@@ -36,6 +36,7 @@
             this.Efternavn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BtnMode = new System.Windows.Forms.Button();
             this.LabelMode = new System.Windows.Forms.Label();
+            this.BtnOpret = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -79,6 +80,7 @@
             this.LWSearchResults.TabIndex = 3;
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
+            this.LWSearchResults.DoubleClick += new System.EventHandler(this.LWSearchResults_DoubleClick);
             // 
             // Fornavn
             // 
@@ -113,10 +115,21 @@
             this.LabelMode.TabIndex = 5;
             this.LabelMode.Text = "Køber mode";
             // 
+            // BtnOpret
+            // 
+            this.BtnOpret.Location = new System.Drawing.Point(478, 44);
+            this.BtnOpret.Name = "BtnOpret";
+            this.BtnOpret.Size = new System.Drawing.Size(116, 31);
+            this.BtnOpret.TabIndex = 6;
+            this.BtnOpret.Text = "Opret Køber";
+            this.BtnOpret.UseVisualStyleBackColor = true;
+            this.BtnOpret.Click += new System.EventHandler(this.BtnOpret_Click);
+            // 
             // KundeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnOpret);
             this.Controls.Add(this.LabelMode);
             this.Controls.Add(this.BtnMode);
             this.Controls.Add(this.LWSearchResults);
@@ -142,5 +155,6 @@
         private System.Windows.Forms.ColumnHeader Efternavn;
         private System.Windows.Forms.Button BtnMode;
         private System.Windows.Forms.Label LabelMode;
+        private System.Windows.Forms.Button BtnOpret;
     }
 }
