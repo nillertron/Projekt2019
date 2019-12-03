@@ -48,17 +48,17 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnMode_Click(object sender, EventArgs e)
         {
-            if(ViewModel.isSælgerMode)//Check om vi arbejder med sælger eller køber
+            if(ViewModel.IsSælgerMode)//Check om vi arbejder med sælger eller køber
             {
                 BtnMode.Text = "Skift til sælger Mode";
                 LabelMode.Text = "Køber mode";
-                ViewModel.isSælgerMode = false;
+                ViewModel.IsSælgerMode = false;
             }
             else
             {
                 BtnMode.Text = "Skift til køber Mode";
                 LabelMode.Text = "Sælger mode";
-                ViewModel.isSælgerMode = true;
+                ViewModel.IsSælgerMode = true;
             }
             FillListView(ViewModel.GetAll()); //Fylder listview med kunder, ViewModel ved om den skal give sælger eller køber
         }
