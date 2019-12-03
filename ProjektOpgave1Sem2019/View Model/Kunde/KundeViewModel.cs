@@ -169,6 +169,7 @@ namespace ProjektOpgave1Sem2019
             {
             Sælger nySælger = KundeDBTabel.OpretSælger(s);
             sælgere.Add(nySælger);
+                success = true;
 
             }
             catch (Exception e)
@@ -195,20 +196,19 @@ namespace ProjektOpgave1Sem2019
         {
             bool success = false;
 
-            //try
-            //{
-            //    //Køber nyKøber = KundeDBTabel.OpretKøber(k);
-            //}
-            //catch (Exception e)
-            //{
-
-            //}
-            if (KundeDBTabel.OpretKøber(k))
+            try
+            {
+                Køber nyKøber = KundeDBTabel.OpretKøber(k);
+                købere.Add(nyKøber);
                 success = true;
-            else
-                success = false;
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
 
             return success;
+          
         }
 
         public bool OpdaterKøber(Køber k)

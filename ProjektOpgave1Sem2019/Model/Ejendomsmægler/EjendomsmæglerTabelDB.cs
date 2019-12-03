@@ -53,13 +53,17 @@ namespace ProjektOpgave1Sem2019.Model
                 commandString += "@Efternavn, ";
                 commandString += "@Tlf,";
                 commandString += "@Fødselsdag, ";
-                commandString += "@KontoNr)"; //End of commandstring
+                commandString += "@PostNr, ";
+                commandString += "@KontoNr, ";
+                commandString += "@Adresse)";//End of commandstring
                 cmd.CommandText = commandString;
                 cmd.Parameters.Add("@Fornavn", System.Data.SqlDbType.NVarChar).Value = e.Navn;
                 cmd.Parameters.Add("@Efternavn", System.Data.SqlDbType.NVarChar).Value = e.Efternavn;
                 cmd.Parameters.Add("@Tlf", System.Data.SqlDbType.NVarChar).Value = e.TelefonNr; //Telefonnummer i klasse er string, database er int, skal måske nok ændres
                 cmd.Parameters.Add("@Fødselsdag", System.Data.SqlDbType.DateTime).Value = e.Fødseldato;
+                cmd.Parameters.Add("@PostNr", System.Data.SqlDbType.Int).Value = e.PostNr;
                 cmd.Parameters.Add("@KontoNr", System.Data.SqlDbType.NVarChar).Value = e.KontoNr;
+                cmd.Parameters.Add("@Adresse", System.Data.SqlDbType.NVarChar).Value = e.Addresse;
 
                 int id = 0;
                 using (SqlCommand cmd2 = new SqlCommand())

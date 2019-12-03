@@ -21,7 +21,7 @@ namespace ProjektOpgave1Sem2019
         {
             InitializeComponent();
             ViewModel = new KundeViewModel();
-            Details = new KundeDetails(ViewModel, this);
+            //Details = new KundeDetails(ViewModel, this);
         }
         private void KundeForm_Load(object sender, EventArgs e)
         {
@@ -52,11 +52,11 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnMode_Click(object sender, EventArgs e)
         {
-            if(!Controls.Contains(Details)) //Add details hvis ikke added
-            {
-                Controls.Add(Details);
-            }
-            Details.ClearData(); //Clear textboxes
+            //if(!Controls.Contains(Details)) //Add details hvis ikke added
+            //{
+            //    Controls.Add(Details); OVERFLØDIG PROBABLY NU, vi INSTANTIERER HVER GANG ISTEDET
+            //}
+            //Details.ClearData(); //Clear textboxes
             if(ViewModel.IsSælgerMode)//Check om vi arbejder med sælger eller køber
             {
                 BtnMode.Text = "Skift til sælger Mode";
@@ -86,6 +86,8 @@ namespace ProjektOpgave1Sem2019
         {
             //Åben details her
             ViewModel.SetSelectedPerson(LWSearchResults.FocusedItem.Name);
+            
+            Details = new KundeDetails(ViewModel, this);
             if (!Controls.Contains(Details)) //Add details hvis ikke added
             {
                 Controls.Add(Details);
@@ -96,10 +98,14 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnOpret_Click(object sender, EventArgs e)
         {
-            if(!Controls.Contains(Details)) //Add details hvis ikke added
+
+
+            Details = new KundeDetails(ViewModel, this);
+            if (!Controls.Contains(Details)) //Add details hvis ikke added
             {
                 Controls.Add(Details);
             }
+            Details.BringToFront();
             Details.InitializeCreateMode();
         }
     }
