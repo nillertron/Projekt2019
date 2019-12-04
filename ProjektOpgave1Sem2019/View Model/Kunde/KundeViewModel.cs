@@ -169,9 +169,8 @@ namespace ProjektOpgave1Sem2019
 
             try
             {
-            Sælger nySælger = KundeDBTabel.OpretSælger(s);
-            sælgere.Add(nySælger);
-                success = true;
+           success = KundeDBTabel.OpretSælger(s);
+            sælgere.Add(s);
 
 
             }
