@@ -179,10 +179,13 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelContainer.Location = new System.Drawing.Point(395, 121);
+            this.panelContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelContainer.Location = new System.Drawing.Point(206, 128);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1334, 599);
+            this.panelContainer.Size = new System.Drawing.Size(1523, 746);
             this.panelContainer.TabIndex = 2;
             // 
             // Form1
