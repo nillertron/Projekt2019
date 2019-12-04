@@ -29,12 +29,10 @@ namespace ProjektOpgave1Sem2019
             button2.MouseLeave += (o, e) => button2.BackColor = Color.Transparent;
             BTNEjendomsmæglere.MouseEnter += (o, e) => BTNEjendomsmæglere.BackColor = Color.FromArgb(185, 55, 55);
             BTNEjendomsmæglere.MouseLeave += (o, e) => BTNEjendomsmæglere.BackColor = Color.Transparent;
-            button4.MouseEnter += (o, e) => button4.BackColor = Color.FromArgb(185, 55, 55);
-            button4.MouseLeave += (o, e) => button4.BackColor = Color.Transparent;
+
             button1.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.BorderSize = 0;
             BTNEjendomsmæglere.FlatAppearance.BorderSize = 0;
-            button4.FlatAppearance.BorderSize = 0;
             #endregion
       
         
