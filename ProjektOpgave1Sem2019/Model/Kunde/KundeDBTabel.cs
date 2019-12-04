@@ -36,6 +36,8 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             return køber;
 
         }
+
+
         public static Sælger GetSpecifikSælgerMedID(int id)
         {
             var sælger = new Sælger();
@@ -63,6 +65,9 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             }
             return sælger;
         }
+
+
+        //karl 
         public static List<Køber> GetAllKøbere()
         {
 

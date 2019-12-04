@@ -165,19 +165,11 @@ namespace ProjektOpgave1Sem2019
 
         public bool OpretSælger(Sælger s)
         {
-            bool success = false;
 
-            try
-            {
-           success = KundeDBTabel.OpretSælger(s);
-            sælgere.Add(s);
+            bool success = KundeDBTabel.OpretSælger(s);
 
-
-            }
-            catch (Exception e)
-            {
-                System.Windows.Forms.MessageBox.Show(e.ToString());
-            }
+            if(success)
+                sælgere.Add(s);
 
             return success;
 
@@ -185,38 +177,29 @@ namespace ProjektOpgave1Sem2019
 
         public bool OpdaterSælger(Sælger s)
         {
-            bool success = false;
+            bool success = KundeDBTabel.UpdateSælger(s);
 
-            if (KundeDBTabel.UpdateSælger(s))
+            if (success)
             {
                 for (int i = 0; i < sælgere.Count; i++)
                 {
+                    //opdater sælger
                     Sælger sælger = sælgere[i];
                     if (sælger.Id == s.Id)
                         sælgere[i] = s; 
                 }
-                success = true;
             }
-            else
-                success = false;
+
 
             return success;
         }
 
         public bool OpretKøber(Køber k)
         {
-            bool success = false;
+            bool success = KundeDBTabel.OpretKøber(k);
 
-            try
-            {
-                KundeDBTabel.OpretKøber(k);
+            if (success)
                 købere.Add(k);
-                success = true;
-            }
-            catch (Exception e)
-            {
-                System.Windows.Forms.MessageBox.Show(e.ToString());
-            }
 
             return success;
           
@@ -224,9 +207,9 @@ namespace ProjektOpgave1Sem2019
 
         public bool OpdaterKøber(Køber k)
         {
-            bool success = false;
+            bool success = KundeDBTabel.UpdateKøber(k);
 
-            if (KundeDBTabel.UpdateKøber(k))
+            if (success)
             {
                 for(int i = 0; i < købere.Count; i++)
                 {
@@ -234,10 +217,7 @@ namespace ProjektOpgave1Sem2019
                     if (køber.Id == k.Id)
                         købere[i] = k; 
                 }
-                success = true;
             }
-            else
-                success = false;
 
             return success;
         }
