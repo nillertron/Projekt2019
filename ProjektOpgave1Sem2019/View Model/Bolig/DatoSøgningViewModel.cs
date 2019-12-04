@@ -98,68 +98,69 @@ namespace ProjektOpgave1Sem2019.View_Model
 
         public string[,] KonverterTilArrayKarl()
         {
-            List<int> sælgerID = new List<int>();
-            foreach (SolgtBolig sb in SorteretListe)
-                if (!sælgerID.Contains(sb.SælgerID))
-                    sælgerID.Add(sb.SælgerID);
+          
+            List<int> ejendomsmæglerIds = new List<int>();
 
-            int antalSælgerID = 0;
-            System.Diagnostics.Debug.WriteLine(phListe.Count);  
-            string[,] arr = new string[ AntalHuse + 1, sælgerID.Count ];
             
-            int counter = 0; 
-
-            //fill sælgere
-            for(int i = 0; i < SorteretListe.Count; i++)
+            //få antal ejendomsmæglere
+            foreach(SolgtBolig sb in SorteretListe)
             {
-                //check om sælger allerede eksisterer 
-                Bolig b = SorteretListe[i];
-                bool doesExists = false;
-
-                for (int j = 0; j < arr.GetLength(1); j++)
-                    if (arr[0, j] == b.SælgerID.ToString())
-                        doesExists = true;
-
-                if (!doesExists)
-                {
-                    //add sælger 
-                    arr[0, counter] = b.SælgerID.ToString();
-                    counter++;
-                }
+                if (!ejendomsmæglerIds.Contains(sb.EjendomsmæglerID))
+                    ejendomsmæglerIds.Add(sb.EjendomsmæglerID);
             }
 
-           
+            
 
-         for(int i = 0;i < SorteretListe.Count; i++)
+            int antalEjendomsmæglere = ejendomsmæglerIds.Count;
+            int antalSolgteBoliger = SorteretListe.Count;
+
+  
+            string[,] arr = new string[ antalEjendomsmæglere , antalSolgteBoliger + 2];
+
+
+
+            
+
+            
+            //fill ejendomsmæglerId
+            for(int i = 0; i < ejendomsmæglerIds.Count; i++)
             {
-                Bolig b = SorteretListe[i]; 
+                arr[i, 0] = ejendomsmæglerIds[i].ToString();
+                arr[i, 1] = "Solgte Boligers ID -> ";
+
+            }
+
+            
+
+         
+            //fill solgteboliger
+          
 
 
-               
-                //find tilhørende sælger 
-                for(int j = 0; j < arr.GetLength(1); j++)
+            for(int i = 0; i < arr.GetLength(0); i++)//foreach ejendomsmægler
+            {
+                string ejendomsmæglerId = arr[i, 0];
+                int counter = 2; 
+
+                for(int j = 0; j < SorteretListe.Count; j++)//foreach solgt bolig
                 {
-                
-                    if(arr[0,j] == b.SælgerID.ToString())
+                    SolgtBolig b = SorteretListe[j];
+                    if (b.EjendomsmæglerID.ToString() == ejendomsmæglerId)//if house is sold by ejendomsmægler
                     {
-                        int count = 1;
-
-                        while (arr[count, j] != null)
-                            count++;
-
-
-                        arr[count, j] = b.Adresse; //her indsættes den værdi som man gerne vil gemme for hver sælger, behøver ikke være boligID, opgaven beskriver ikke nøjagtig hvilke oplysninger som skal gemmes fra boligen i arrayet
+                        arr[i, counter] = b.ID.ToString();//assign house to ejendomsmægler row
+                        counter++;
                     }
                 }
             }
 
 
-
+            
            
             return arr;
 
                 
         }
+      
      
        
     }

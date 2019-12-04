@@ -42,22 +42,41 @@ namespace ProjektOpgave1Sem2019
 
             //}
 
+
+            //karl
+
+            LwResultater.Items.Clear();
+
             string[,] arr = ViewModel.KonverterTilArrayKarl();
+
+            //set listView  row længde
+            if(LwResultater.Columns.Count < 2)
+            for(int i = 0; i < arr.GetLength(1) - 1; i++)
+            {
+                if(i == 0)
+                    LwResultater.Columns.Add("", 120);
+                else
+                    LwResultater.Columns.Add("", 50);
+            }
+
+
+           
+            //add elements to listview
             for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
-                    if (arr[i, j] != null)
-                        rtbContent.AppendText(arr[i, j].PadLeft(10));
-                    else
-                        rtbContent.AppendText("".PadLeft(10));
-                }
+                ListViewItem item = new ListViewItem(arr[i,0]);
 
-            rtbContent.AppendText("\r\n");
+                for (int j = 1; j < arr.GetLength(1); j++)
+                    if (arr[i, j] != null)
+                        item.SubItems.Add(arr[i,j]);
+
+                LwResultater.Items.Add(item); 
             }
-            
+  //karl slut          
 
         }
+  
+
 
         private void button1_Click(object sender, EventArgs e)
         {
