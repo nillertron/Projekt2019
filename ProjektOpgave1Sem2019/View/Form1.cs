@@ -33,6 +33,9 @@ namespace ProjektOpgave1Sem2019
             button1.FlatAppearance.BorderSize = 0;
             button2.FlatAppearance.BorderSize = 0;
             BTNEjendomsmæglere.FlatAppearance.BorderSize = 0;
+            //panelContainer.Anchor = AnchorStyles.Bottom;
+            //panelContainer.Dock = DockStyle.Fill;
+            //panelContainer.BringToFront();
             #endregion
       
         
@@ -50,17 +53,19 @@ namespace ProjektOpgave1Sem2019
         private void BTNEjendomsmæglere_Click(object sender, EventArgs e)
         {
             EjendomsmæglereForm eForm = new EjendomsmæglereForm();
-            if (!this.Controls.Contains(eForm))
-                this.Controls.Add(eForm);
-            eForm.BringToFront();
+            if (!this.panelContainer.Controls.Contains(eForm))
+                this.panelContainer.Controls.Add(eForm);
+            eForm.Dock = DockStyle.Fill;
+           eForm.BringToFront();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             KundeForm kForm = new KundeForm();
-            if (!this.Controls.Contains(kForm))
-                this.Controls.Add(kForm);
+            if (!this.panelContainer.Controls.Contains(kForm))
+                this.panelContainer.Controls.Add(kForm);
+            kForm.Dock = DockStyle.Fill;
             kForm.BringToFront();
 
         }
@@ -73,13 +78,11 @@ namespace ProjektOpgave1Sem2019
         private void button1_Click(object sender, EventArgs e)
         {
 
-                var bolig = new BoligForm();
-                if (!this.Controls.Contains(bolig))
-            {
-                Controls.Add(bolig);
-                bolig.Anchor = AnchorStyles.Top + Left;
-                bolig.BringToFront();
-            }
+            var bolig = new BoligForm();
+            if (!this.panelContainer.Controls.Contains(bolig))
+                this.panelContainer.Controls.Add(bolig);
+            bolig.Dock = DockStyle.Fill;
+            bolig.BringToFront();
 
         }
     }

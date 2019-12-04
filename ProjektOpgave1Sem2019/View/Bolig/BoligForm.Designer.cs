@@ -43,10 +43,10 @@
             // 
             // TBInput
             // 
-            this.TBInput.Location = new System.Drawing.Point(177, 10);
-            this.TBInput.Margin = new System.Windows.Forms.Padding(2);
+            this.TBInput.Location = new System.Drawing.Point(236, 12);
+            this.TBInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TBInput.Name = "TBInput";
-            this.TBInput.Size = new System.Drawing.Size(128, 20);
+            this.TBInput.Size = new System.Drawing.Size(169, 22);
             this.TBInput.TabIndex = 11;
             this.TBInput.TextChanged += new System.EventHandler(this.TBInput_TextChanged);
             // 
@@ -54,10 +54,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(2, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(3, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Søg efter: ";
             // 
@@ -68,10 +67,10 @@
             this.PostNr});
             this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
-            this.LWSearchResults.Location = new System.Drawing.Point(13, 36);
-            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(2);
+            this.LWSearchResults.Location = new System.Drawing.Point(17, 44);
+            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LWSearchResults.Name = "LWSearchResults";
-            this.LWSearchResults.Size = new System.Drawing.Size(310, 419);
+            this.LWSearchResults.Size = new System.Drawing.Size(412, 515);
             this.LWSearchResults.TabIndex = 9;
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
@@ -90,10 +89,10 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(327, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Location = new System.Drawing.Point(436, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 37);
+            this.button2.Size = new System.Drawing.Size(185, 46);
             this.button2.TabIndex = 7;
             this.button2.Text = "Opret ny bolig";
             this.button2.UseVisualStyleBackColor = true;
@@ -103,18 +102,19 @@
             // 
             this.CBKriterie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBKriterie.FormattingEnabled = true;
-            this.CBKriterie.Location = new System.Drawing.Point(51, 10);
+            this.CBKriterie.Location = new System.Drawing.Point(68, 12);
+            this.CBKriterie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CBKriterie.Name = "CBKriterie";
-            this.CBKriterie.Size = new System.Drawing.Size(121, 21);
+            this.CBKriterie.Size = new System.Drawing.Size(160, 24);
             this.CBKriterie.TabIndex = 12;
             // 
             // btnUdskrivAlleBoligerIkkeSolgt
             // 
             this.btnUdskrivAlleBoligerIkkeSolgt.ForeColor = System.Drawing.Color.Black;
-            this.btnUdskrivAlleBoligerIkkeSolgt.Location = new System.Drawing.Point(470, 2);
-            this.btnUdskrivAlleBoligerIkkeSolgt.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUdskrivAlleBoligerIkkeSolgt.Location = new System.Drawing.Point(627, 2);
+            this.btnUdskrivAlleBoligerIkkeSolgt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUdskrivAlleBoligerIkkeSolgt.Name = "btnUdskrivAlleBoligerIkkeSolgt";
-            this.btnUdskrivAlleBoligerIkkeSolgt.Size = new System.Drawing.Size(139, 37);
+            this.btnUdskrivAlleBoligerIkkeSolgt.Size = new System.Drawing.Size(185, 46);
             this.btnUdskrivAlleBoligerIkkeSolgt.TabIndex = 13;
             this.btnUdskrivAlleBoligerIkkeSolgt.Text = "Udskriv til txtfil:Ikke solgte boligere";
             this.btnUdskrivAlleBoligerIkkeSolgt.UseVisualStyleBackColor = true;
@@ -123,10 +123,10 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(613, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(817, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 37);
+            this.button1.Size = new System.Drawing.Size(185, 46);
             this.button1.TabIndex = 14;
             this.button1.Text = "Udskriv til txtfil:Boliger i bestsemt område";
             this.button1.UseVisualStyleBackColor = true;
@@ -135,10 +135,10 @@
             // btnDatoSøgning
             // 
             this.btnDatoSøgning.ForeColor = System.Drawing.Color.Black;
-            this.btnDatoSøgning.Location = new System.Drawing.Point(756, 2);
-            this.btnDatoSøgning.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDatoSøgning.Location = new System.Drawing.Point(1008, 2);
+            this.btnDatoSøgning.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDatoSøgning.Name = "btnDatoSøgning";
-            this.btnDatoSøgning.Size = new System.Drawing.Size(139, 37);
+            this.btnDatoSøgning.Size = new System.Drawing.Size(185, 46);
             this.btnDatoSøgning.TabIndex = 15;
             this.btnDatoSøgning.Text = "Statistik over boliger i valgt periode";
             this.btnDatoSøgning.UseVisualStyleBackColor = true;
@@ -147,10 +147,10 @@
             // button3
             // 
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(899, 2);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Location = new System.Drawing.Point(1199, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 37);
+            this.button3.Size = new System.Drawing.Size(185, 46);
             this.button3.TabIndex = 16;
             this.button3.Text = "Udskriv Kundekontrakt";
             this.button3.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
             // 
             // BoligForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnDatoSøgning);
@@ -169,10 +169,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LWSearchResults);
             this.Controls.Add(this.button2);
-            this.Location = new System.Drawing.Point(150, 105);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "BoligForm";
-            this.Size = new System.Drawing.Size(1148, 500);
+            this.Size = new System.Drawing.Size(1531, 615);
             this.Load += new System.EventHandler(this.BoligView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
