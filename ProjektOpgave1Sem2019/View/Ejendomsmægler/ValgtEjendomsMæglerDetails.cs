@@ -101,9 +101,10 @@ namespace ProjektOpgave1Sem2019
             if (edit)
             {
                 PostNumre valgt = CBPostNr.SelectedItem as PostNumre;
-                var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
+                
                 try
                 {
+                    var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
                     E.Opdater(phobj);
                     ViewModel.Edit(E);
 
