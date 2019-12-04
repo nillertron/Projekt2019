@@ -112,7 +112,7 @@ namespace ProjektOpgave1Sem2019.Model
                 cmd.CommandText = commandString;
                 cmd.Parameters.Add("@Fornavn", System.Data.SqlDbType.NVarChar).Value = e.Navn;
                 cmd.Parameters.Add("@Efternavn", System.Data.SqlDbType.NVarChar).Value = e.Efternavn;
-                cmd.Parameters.Add("@Tlf", System.Data.SqlDbType.Int).Value = Convert.ToInt32(e.TelefonNr); //Telefonnummer i klasse er string, database er int, skal måske nok ændres
+                cmd.Parameters.Add("@Tlf", System.Data.SqlDbType.NVarChar).Value = e.TelefonNr;
                 cmd.Parameters.Add("@Fødselsdag", System.Data.SqlDbType.DateTime).Value = e.Fødseldato;
                 cmd.Parameters.Add("@KontoNr", System.Data.SqlDbType.NVarChar).Value = e.KontoNr;
                 cmd.Parameters.Add("@PostNr", System.Data.SqlDbType.Int).Value = e.PostNr;

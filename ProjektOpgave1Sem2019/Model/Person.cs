@@ -20,7 +20,8 @@ namespace ProjektOpgave1Sem2019
         private string _KontoNr;
         public string KontoNr { protected set { if (value.Length > 0 && value.Length <= 15) _KontoNr = value; else throw new FormatException("KontoNr skal være mellem 0 og 15 tegn"); } get { return _KontoNr; } }
         public int PostNr { get;  protected set; }
-        public string Addresse { get; protected set; }
+        private string _Adresse;
+        public string Addresse { get { return _Adresse; } protected set { if (value.Length <= 50) { _Adresse = value; } else { throw new FormatException("Adresse kan ikke være længere end 50 tegn"); } } }
         public Person(int Id, string Navn, string Efternavn, string TelefonNr, string KontoNr, int PostNr, string Addresse)
         {
             this.Id = Id;
