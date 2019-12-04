@@ -22,7 +22,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             this.ViewModel = ViewModel;
             this.Parent = Parent;
 
-            this.Location = new Point(450, 80); //Ændrer location, midlertidig for at jeg ikke fucker design ved at åbne designer -MArtin 
+            this.Location = new Point(370, 80); //Ændrer location, midlertidig for at jeg ikke fucker design ved at åbne designer -MArtin 
 
             LoadItems(); 
             

@@ -59,6 +59,7 @@
             this.TBAdresse.Name = "TBAdresse";
             this.TBAdresse.Size = new System.Drawing.Size(103, 20);
             this.TBAdresse.TabIndex = 0;
+            this.TBAdresse.TextChanged += new System.EventHandler(this.TBAdresse_TextChanged);
             // 
             // TBPris
             // 
@@ -257,7 +258,7 @@
             // 
             this.BtnVælgSælger.ForeColor = System.Drawing.Color.Black;
             this.BtnVælgSælger.Location = new System.Drawing.Point(164, 155);
-            this.BtnVælgSælger.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnVælgSælger.Margin = new System.Windows.Forms.Padding(2);
             this.BtnVælgSælger.Name = "BtnVælgSælger";
             this.BtnVælgSælger.Size = new System.Drawing.Size(73, 21);
             this.BtnVælgSælger.TabIndex = 21;
@@ -268,7 +269,7 @@
             // TBValgtSælger
             // 
             this.TBValgtSælger.Location = new System.Drawing.Point(245, 159);
-            this.TBValgtSælger.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBValgtSælger.Margin = new System.Windows.Forms.Padding(2);
             this.TBValgtSælger.Name = "TBValgtSælger";
             this.TBValgtSælger.Size = new System.Drawing.Size(100, 20);
             this.TBValgtSælger.TabIndex = 22;

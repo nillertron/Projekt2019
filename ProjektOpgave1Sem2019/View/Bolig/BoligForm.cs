@@ -140,5 +140,17 @@ namespace ProjektOpgave1Sem2019
                 Controls.Add(UdskrivKontrakt);
             UdskrivKontrakt.BringToFront();
         }
+
+        private void CBKriterie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TBInput.Text.Length > 0)
+            {
+                FyldListView(ViewModel.SearchFor(CBKriterie.SelectedItem.ToString(), TBInput.Text.ToLower()));
+            }
+            else
+            {
+                FyldListView(ViewModel.FillListView());
+            }
+        }
     }
 }

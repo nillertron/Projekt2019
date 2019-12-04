@@ -77,7 +77,7 @@ namespace ProjektOpgave1Sem2019
                 if (!this.Controls.Contains(bolig))
             {
                 Controls.Add(bolig);
-                bolig.Anchor = AnchorStyles.Top + Left;
+                //bolig.Anchor = AnchorStyles.Top + Left;
                 bolig.BringToFront();
             }
 
