@@ -102,8 +102,16 @@ namespace ProjektOpgave1Sem2019
             {
                 PostNumre valgt = CBPostNr.SelectedItem as PostNumre;
                 var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
-                E.Opdater(phobj);
-                ViewModel.Edit(E);
+                try
+                {
+                    E.Opdater(phobj);
+                    ViewModel.Edit(E);
+
+                }
+                catch (FormatException eee)
+                {
+                    MessageBox.Show(eee.Message);
+                }
 
                 
                 ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
