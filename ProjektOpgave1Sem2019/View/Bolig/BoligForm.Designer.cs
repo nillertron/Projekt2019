@@ -107,6 +107,7 @@
             this.CBKriterie.Name = "CBKriterie";
             this.CBKriterie.Size = new System.Drawing.Size(160, 24);
             this.CBKriterie.TabIndex = 12;
+            this.CBKriterie.SelectedIndexChanged += new System.EventHandler(this.CBKriterie_SelectedIndexChanged);
             // 
             // btnUdskrivAlleBoligerIkkeSolgt
             // 

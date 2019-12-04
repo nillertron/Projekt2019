@@ -55,11 +55,16 @@ namespace ProjektOpgave1Sem2019
             //makes things that are unchangeable in editMode, changeable
             TBAdresse.ReadOnly = false;
             TBAdresse.Text = "";
+            TBAdresse.BackColor = Color.Red;
 
             TBAreal.ReadOnly = false;
             TBAreal.Text = "";
+            TBAreal.BackColor = Color.Red; //Tomt felt er ikke godkendt som input
+
+            BtnSave.Enabled = false;
 
             TBPris.Text = "";
+            TBPris.BackColor = Color.Red; //Tomt felt er ikke godtkendt som input
 
             TBPostNr.Text = "";
 
@@ -83,10 +88,11 @@ namespace ProjektOpgave1Sem2019
             Show();
             TBPostNr.Show();
             TBAdresse.Text = viewModel.ValgtBolig.Adresse;
+            TBAdresse.BackColor = Color.LightGray;
             TBAdresse.ReadOnly = true; //Adresse ændres ikke medmindre vi henter en kæmpe lastbil.
 
             TBAreal.Text = viewModel.ValgtBolig.Kvm.ToString();
-            TBAreal.BackColor = Color.Gray;
+            TBAreal.BackColor = Color.LightGray;
             TBAreal.ReadOnly = true; //Areal ændres ikke
 
             TBPris.Text = viewModel.ValgtBolig.Pris.ToString();
@@ -128,13 +134,15 @@ namespace ProjektOpgave1Sem2019
             {
                 if (viewModel.ValgtEmægler != null && viewModel.ValgtSælger != null) //HVis både Emægler og sælger er valgt
                 {
-                    viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text), //Ny bolig
-                                                Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
-                                                ((PostNumre)CBPostNr.SelectedItem).PostNummer);
+                    
+                        viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text), //Ny bolig
+                                                    Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
+                                                    ((PostNumre)CBPostNr.SelectedItem).PostNummer);
 
-                    //BoligTabelDB.Create(newBolig);
-                    this.Hide();
-                    parent.FyldListView(viewModel.FillListView());
+                        //BoligTabelDB.Create(newBolig);
+                        this.Hide();
+                        parent.FyldListView(viewModel.FillListView());
+                    
                 }
                 else if(viewModel.ValgtEmægler == null) //Hvis ejendomsmægler ikke er valgt
                 {
@@ -184,7 +192,7 @@ namespace ProjektOpgave1Sem2019
             else
             {
                 TBPris.BackColor = Color.White;
-                if (TBAreal.BackColor != Color.Red) //Check at den anden inputvalidering ikke også er fejlet tidligere
+                if (TBAreal.BackColor != Color.Red && TBAdresse.BackColor != Color.Red) //Check at den anden inputvalidering ikke også er fejlet tidligere
                 {
                     BtnSave.Enabled = true;
                 }
@@ -203,7 +211,7 @@ namespace ProjektOpgave1Sem2019
                 else
                 {
                     TBAreal.BackColor = Color.White;
-                    if (TBPris.BackColor != Color.Red) //Check at anden inputværdi ikke har fejlet validering tidligere
+                    if (TBPris.BackColor != Color.Red &&TBAdresse.BackColor != Color.Red) //Check at anden inputværdi ikke har fejlet validering tidligere
                     {
                         BtnSave.Enabled = true;
                     }
@@ -239,6 +247,22 @@ namespace ProjektOpgave1Sem2019
         {
             viewModel.Delete(viewModel.ValgtBolig);
             parent.FyldListView(viewModel.FillListView()); //reset listen når der slettes
+        }
+        private void TBAdresse_TextChanged(object sender, EventArgs e)
+        {
+            if(TBAdresse.Text.Length > 0)
+            {
+                TBAdresse.BackColor = Color.White;
+                if(TBAreal.BackColor != Color.Red && TBPris.BackColor != Color.Red)
+                {
+                    BtnSave.Enabled = true;
+                }
+            }
+            else
+            {
+                TBAdresse.BackColor = Color.Red;
+                BtnSave.Enabled = false;
+            }
         }
 
         private void BoligDetails_Load(object sender, EventArgs e)
