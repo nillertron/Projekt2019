@@ -74,6 +74,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             CbPostNr.Text = "";
             TbTlf.Text = "";
             TbKontoNr.Text = "";
+            
         }
         //Martin Slut
 
