@@ -146,7 +146,10 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     }
 
                     if (success)
+                    {
                         MessageBox.Show("Sælger oprettet!");
+                        ClearData();
+                    }
                        
                         break;
 
@@ -183,8 +186,11 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     {
                         MessageBox.Show("Der skete en fejl, køber blev ikke oprettet");
                     }
-                    if(success)
+                    if (success)
+                    {
                         MessageBox.Show("Køber oprettet!");
+                        ClearData();
+                    }
                     
                         
                     break;
