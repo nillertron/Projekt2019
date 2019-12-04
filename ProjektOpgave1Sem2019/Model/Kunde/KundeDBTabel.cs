@@ -209,10 +209,10 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             return succes;
         }
 
-        public static Køber OpretKøber(Køber k)
+        public static bool OpretKøber(Køber k)
         {
 
-            
+            var succes = false;
             try
             {
                 using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
@@ -228,8 +228,12 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
                     {
                         reader = command.ExecuteReader();
                         while (reader.Read())
+                        {
                             k.Id = reader.GetInt32(0);
+
+                        }
                     }
+                    succes = true;
                 }
             
 
@@ -239,7 +243,7 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             {
                 MessageBox.Show(ee.Message);
             }
-            return k;
+            return succes;
         }
 
 
