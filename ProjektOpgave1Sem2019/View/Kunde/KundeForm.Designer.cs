@@ -43,10 +43,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(60, 58);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(45, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 17);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Søg efter:";
             // 
@@ -54,18 +53,16 @@
             // 
             this.CBKriterie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBKriterie.FormattingEnabled = true;
-            this.CBKriterie.Location = new System.Drawing.Point(139, 54);
-            this.CBKriterie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CBKriterie.Location = new System.Drawing.Point(104, 44);
             this.CBKriterie.Name = "CBKriterie";
-            this.CBKriterie.Size = new System.Drawing.Size(160, 24);
+            this.CBKriterie.Size = new System.Drawing.Size(121, 21);
             this.CBKriterie.TabIndex = 1;
             // 
             // TBInput
             // 
-            this.TBInput.Location = new System.Drawing.Point(308, 54);
-            this.TBInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBInput.Location = new System.Drawing.Point(231, 44);
             this.TBInput.Name = "TBInput";
-            this.TBInput.Size = new System.Drawing.Size(143, 22);
+            this.TBInput.Size = new System.Drawing.Size(108, 20);
             this.TBInput.TabIndex = 2;
             this.TBInput.TextChanged += new System.EventHandler(this.TBInput_TextChanged);
             // 
@@ -76,12 +73,11 @@
             this.Efternavn});
             this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
-            this.LWSearchResults.Location = new System.Drawing.Point(64, 89);
-            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LWSearchResults.Location = new System.Drawing.Point(48, 72);
             this.LWSearchResults.MultiSelect = false;
             this.LWSearchResults.Name = "LWSearchResults";
-            this.LWSearchResults.Size = new System.Drawing.Size(428, 511);
-            this.LWSearchResults.TabIndex = 3;
+            this.LWSearchResults.Size = new System.Drawing.Size(322, 416);
+            this.LWSearchResults.TabIndex = 5;
             this.LWSearchResults.UseCompatibleStateImageBehavior = false;
             this.LWSearchResults.View = System.Windows.Forms.View.Details;
             this.LWSearchResults.DoubleClick += new System.EventHandler(this.LWSearchResults_DoubleClick);
@@ -99,11 +95,10 @@
             // BtnMode
             // 
             this.BtnMode.ForeColor = System.Drawing.Color.Black;
-            this.BtnMode.Location = new System.Drawing.Point(453, 15);
-            this.BtnMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnMode.Location = new System.Drawing.Point(340, 12);
             this.BtnMode.Name = "BtnMode";
-            this.BtnMode.Size = new System.Drawing.Size(153, 28);
-            this.BtnMode.TabIndex = 4;
+            this.BtnMode.Size = new System.Drawing.Size(115, 23);
+            this.BtnMode.TabIndex = 3;
             this.BtnMode.Text = "Skift til Sælgermode";
             this.BtnMode.UseVisualStyleBackColor = true;
             this.BtnMode.Click += new System.EventHandler(this.BtnMode_Click);
@@ -114,27 +109,25 @@
             this.LabelMode.BackColor = System.Drawing.Color.Gray;
             this.LabelMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelMode.ForeColor = System.Drawing.Color.Maroon;
-            this.LabelMode.Location = new System.Drawing.Point(5, 5);
-            this.LabelMode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelMode.Location = new System.Drawing.Point(4, 4);
             this.LabelMode.Name = "LabelMode";
-            this.LabelMode.Size = new System.Drawing.Size(202, 39);
+            this.LabelMode.Size = new System.Drawing.Size(160, 31);
             this.LabelMode.TabIndex = 5;
             this.LabelMode.Text = "Køber mode";
             // 
             // BtnOpret
             // 
-            this.BtnOpret.Location = new System.Drawing.Point(637, 54);
-            this.BtnOpret.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnOpret.Location = new System.Drawing.Point(478, 44);
             this.BtnOpret.Name = "BtnOpret";
-            this.BtnOpret.Size = new System.Drawing.Size(155, 38);
-            this.BtnOpret.TabIndex = 6;
+            this.BtnOpret.Size = new System.Drawing.Size(116, 31);
+            this.BtnOpret.TabIndex = 4;
             this.BtnOpret.Text = "Opret Køber";
             this.BtnOpret.UseVisualStyleBackColor = true;
             this.BtnOpret.Click += new System.EventHandler(this.BtnOpret_Click);
             // 
             // KundeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.BtnOpret);
             this.Controls.Add(this.LabelMode);
@@ -143,9 +136,8 @@
             this.Controls.Add(this.TBInput);
             this.Controls.Add(this.CBKriterie);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "KundeForm";
-            this.Size = new System.Drawing.Size(1531, 615);
+            this.Size = new System.Drawing.Size(1148, 500);
             this.Load += new System.EventHandler(this.KundeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -57,7 +57,7 @@
             this.tbSælger.Location = new System.Drawing.Point(6, 61);
             this.tbSælger.Name = "tbSælger";
             this.tbSælger.Size = new System.Drawing.Size(100, 20);
-            this.tbSælger.TabIndex = 1;
+            this.tbSælger.TabIndex = 0;
             // 
             // LblAdresse
             // 
@@ -74,7 +74,7 @@
             this.dtpKøbsDato.Location = new System.Drawing.Point(6, 181);
             this.dtpKøbsDato.Name = "dtpKøbsDato";
             this.dtpKøbsDato.Size = new System.Drawing.Size(200, 20);
-            this.dtpKøbsDato.TabIndex = 3;
+            this.dtpKøbsDato.TabIndex = 2;
             // 
             // label2
             // 
@@ -93,7 +93,7 @@
             this.cbKøber.Location = new System.Drawing.Point(6, 116);
             this.cbKøber.Name = "cbKøber";
             this.cbKøber.Size = new System.Drawing.Size(121, 21);
-            this.cbKøber.TabIndex = 5;
+            this.cbKøber.TabIndex = 1;
             // 
             // label3
             // 
@@ -110,7 +110,7 @@
             this.tbSalgsPris.Location = new System.Drawing.Point(6, 229);
             this.tbSalgsPris.Name = "tbSalgsPris";
             this.tbSalgsPris.Size = new System.Drawing.Size(100, 20);
-            this.tbSalgsPris.TabIndex = 7;
+            this.tbSalgsPris.TabIndex = 3;
             // 
             // label4
             // 
@@ -137,7 +137,7 @@
             this.tbKøbsPris.Location = new System.Drawing.Point(145, 229);
             this.tbKøbsPris.Name = "tbKøbsPris";
             this.tbKøbsPris.Size = new System.Drawing.Size(100, 20);
-            this.tbKøbsPris.TabIndex = 10;
+            this.tbKøbsPris.TabIndex = 4;
             // 
             // btnSolgt
             // 
@@ -145,7 +145,7 @@
             this.btnSolgt.Location = new System.Drawing.Point(514, 229);
             this.btnSolgt.Name = "btnSolgt";
             this.btnSolgt.Size = new System.Drawing.Size(75, 23);
-            this.btnSolgt.TabIndex = 11;
+            this.btnSolgt.TabIndex = 5;
             this.btnSolgt.Text = "Marker Solgt";
             this.btnSolgt.UseVisualStyleBackColor = true;
             this.btnSolgt.Click += new System.EventHandler(this.btnSolgt_Click);

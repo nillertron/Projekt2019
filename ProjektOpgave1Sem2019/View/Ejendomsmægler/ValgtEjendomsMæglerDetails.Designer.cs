@@ -56,7 +56,7 @@
             this.TBNavn.Margin = new System.Windows.Forms.Padding(2);
             this.TBNavn.Name = "TBNavn";
             this.TBNavn.Size = new System.Drawing.Size(76, 20);
-            this.TBNavn.TabIndex = 0;
+            this.TBNavn.TabIndex = 1;
             // 
             // label1
             // 
@@ -86,7 +86,7 @@
             this.TBEfternavn.Margin = new System.Windows.Forms.Padding(2);
             this.TBEfternavn.Name = "TBEfternavn";
             this.TBEfternavn.Size = new System.Drawing.Size(76, 20);
-            this.TBEfternavn.TabIndex = 3;
+            this.TBEfternavn.TabIndex = 2;
             // 
             // TBTelefon
             // 
@@ -94,7 +94,7 @@
             this.TBTelefon.Margin = new System.Windows.Forms.Padding(2);
             this.TBTelefon.Name = "TBTelefon";
             this.TBTelefon.Size = new System.Drawing.Size(76, 20);
-            this.TBTelefon.TabIndex = 5;
+            this.TBTelefon.TabIndex = 4;
             // 
             // label3
             // 
@@ -144,7 +144,7 @@
             this.TBKonto.Margin = new System.Windows.Forms.Padding(2);
             this.TBKonto.Name = "TBKonto";
             this.TBKonto.Size = new System.Drawing.Size(76, 20);
-            this.TBKonto.TabIndex = 11;
+            this.TBKonto.TabIndex = 6;
             // 
             // BTNOpret
             // 
@@ -165,7 +165,7 @@
             this.BTNEdit.Margin = new System.Windows.Forms.Padding(2);
             this.BTNEdit.Name = "BTNEdit";
             this.BTNEdit.Size = new System.Drawing.Size(56, 19);
-            this.BTNEdit.TabIndex = 13;
+            this.BTNEdit.TabIndex = 8;
             this.BTNEdit.Text = "Edit";
             this.BTNEdit.UseVisualStyleBackColor = true;
             this.BTNEdit.Click += new System.EventHandler(this.button2_Click);
@@ -177,7 +177,7 @@
             this.BTNSlet.Margin = new System.Windows.Forms.Padding(2);
             this.BTNSlet.Name = "BTNSlet";
             this.BTNSlet.Size = new System.Drawing.Size(56, 19);
-            this.BTNSlet.TabIndex = 14;
+            this.BTNSlet.TabIndex = 9;
             this.BTNSlet.Text = "Slet";
             this.BTNSlet.UseVisualStyleBackColor = true;
             this.BTNSlet.Click += new System.EventHandler(this.BTNSlet_Click);
@@ -187,7 +187,7 @@
             this.TBFødselsdag.Location = new System.Drawing.Point(0, 152);
             this.TBFødselsdag.Name = "TBFødselsdag";
             this.TBFødselsdag.Size = new System.Drawing.Size(200, 20);
-            this.TBFødselsdag.TabIndex = 15;
+            this.TBFødselsdag.TabIndex = 3;
             // 
             // LBLoverskrift
             // 
@@ -217,7 +217,7 @@
             this.TBAdresse.Margin = new System.Windows.Forms.Padding(2);
             this.TBAdresse.Name = "TBAdresse";
             this.TBAdresse.Size = new System.Drawing.Size(165, 20);
-            this.TBAdresse.TabIndex = 19;
+            this.TBAdresse.TabIndex = 7;
             // 
             // label7
             // 
@@ -237,7 +237,7 @@
             this.CBPostNr.Location = new System.Drawing.Point(124, 201);
             this.CBPostNr.Name = "CBPostNr";
             this.CBPostNr.Size = new System.Drawing.Size(121, 21);
-            this.CBPostNr.TabIndex = 21;
+            this.CBPostNr.TabIndex = 5;
             // 
             // LBLdistrikt
             // 
