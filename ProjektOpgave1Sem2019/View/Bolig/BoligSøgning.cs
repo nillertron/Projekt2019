@@ -30,10 +30,12 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                 cbPostNr.DisplayMember = "PostNummer";
                 label1.Show();
                 cbPostNr.Show();
+                lblBy.Show();
                 this.mode = mode;
             }
             else
             {
+                lblBy.Hide();
                 label1.Hide();
                 cbPostNr.Hide();
                 this.mode = mode;

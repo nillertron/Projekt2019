@@ -247,10 +247,9 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
         }
 
 
-        public static Sælger OpretSælger(Sælger k)
+        public static bool OpretSælger(Sælger k)
         {
-            int newId = 0; 
-            
+            var succes = false;            
             try
             {
                 using (SqlConnection conn = new SqlConnection(DBHelper.ConnString))
@@ -263,7 +262,8 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
                         
                     }
 
-                    newId = DBHelper.GetNewestIdFromTabel("Sælger", conn);
+                    k.Id = DBHelper.GetNewestIdFromTabel("Sælger", conn);
+                    succes = true;
                 }
             }
             catch (SqlException ee)
@@ -271,8 +271,7 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
                 MessageBox.Show(ee.Message);
             }
 
-            Sælger newSælger = new Sælger(newId, k.Navn, k.Efternavn, k.TelefonNr, k.KontoNr, k.PostNr, k.Addresse);
-            return newSælger;
+            return succes;
 
         }
 
