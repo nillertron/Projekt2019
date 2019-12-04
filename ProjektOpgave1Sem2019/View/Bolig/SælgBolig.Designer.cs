@@ -141,6 +141,7 @@
             // 
             // btnSolgt
             // 
+            this.btnSolgt.ForeColor = System.Drawing.Color.Black;
             this.btnSolgt.Location = new System.Drawing.Point(514, 229);
             this.btnSolgt.Name = "btnSolgt";
             this.btnSolgt.Size = new System.Drawing.Size(75, 23);

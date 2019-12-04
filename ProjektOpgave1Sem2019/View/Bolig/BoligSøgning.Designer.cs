@@ -85,6 +85,7 @@
             // 
             // btnUdskriv
             // 
+            this.btnUdskriv.ForeColor = System.Drawing.Color.Black;
             this.btnUdskriv.Location = new System.Drawing.Point(3, 134);
             this.btnUdskriv.Name = "btnUdskriv";
             this.btnUdskriv.Size = new System.Drawing.Size(75, 23);

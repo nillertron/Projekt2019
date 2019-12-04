@@ -17,6 +17,7 @@ namespace ProjektOpgave1Sem2019
     {
         public List<PostNumre> postNumre = new List<PostNumre>();
         public List<Bolig> boliger = new List<Bolig>();
+
         private BoligDetails boligDetails;
         public BoligDetails Details { get { return boligDetails; } private set { boligDetails = value; } }
 
@@ -29,6 +30,7 @@ namespace ProjektOpgave1Sem2019
         //List<Bolig> resultatListe = 
 
         private BoligForm view;
+
 
         public BoligViewModel(BoligForm parent)
         {
@@ -311,6 +313,14 @@ namespace ProjektOpgave1Sem2019
             liste = liste.Where(o => o.PostNr == PostNummer).ToList();
             FileWriter.UdskrivBoligerIbestemtPostNr(path, liste);
 
+        }
+
+        public double GetKvmPrisMedPostNr(int postNr)
+        {
+            var obj = postNumre.First(o => o.PostNummer == postNr);
+            var kvmPris = obj.PrisPrm2;
+            return kvmPris;
+                
         }
         //
         //public void GetBoligSoldDateInterval(DateTime startDate, DateTime endDate)

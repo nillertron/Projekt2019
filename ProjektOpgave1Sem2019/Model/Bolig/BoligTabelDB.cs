@@ -227,7 +227,7 @@ namespace ProjektOpgave1Sem2019
                 $" Pris = {b.Pris}, " +
                 $" SælgerID = {b.SælgerID}, " +
                 $" Kvm = {b.Kvm}, " +
-                $" OprettelsesDato = '{b.OprettelsesDato.ToString("yyyy - MM - dd ")}', " +
+                $" OprettelsesDato = '{b.OprettelsesDato}', " +
                 $" EjendomsmæglerID = {b.EjendomsmæglerID}, " +
                 $" PostNr = {b.PostNr} " +
                 $" WHERE ID = {b.ID}";
@@ -326,7 +326,7 @@ namespace ProjektOpgave1Sem2019
                 string query = $" INSERT INTO SolgtBolig " +
                     $" (BoligID, KøberID, Købspris, KøbsDato) " +
                     $" VALUES " +
-                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, '{b.OprettelsesDato.ToString("yyyy - MM - dd ")}') ";
+                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, '{b.OprettelsesDato}') ";
                 cmd.CommandText = query;
                 cmd.Connection = DBHelper.Conn;
                 

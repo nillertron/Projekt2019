@@ -75,16 +75,24 @@ namespace ProjektOpgave1Sem2019.View.Bolig
         private void btnUdskriv_Click(object sender, EventArgs e)
         {
             var path = @"" + tbSti.Text;
-            if (mode)
+            try
             {
-                var postnummer = cbPostNr.SelectedItem as PostNumre;
-                ViewModel.UdskrivBoligerFraByTilTxtFil(postnummer.PostNummer, path);
+                if (mode)
+                {
+                    var postnummer = cbPostNr.SelectedItem as PostNumre;
+                    ViewModel.UdskrivBoligerFraByTilTxtFil(postnummer.PostNummer, path);
 
+                }
+                else
+                {
+                    ViewModel.UdskrivBoligerTilTxtFil(path);
+                }
             }
-            else
+            catch(IOException ee)
             {
-                ViewModel.UdskrivBoligerTilTxtFil(path);
+                MessageBox.Show(ee.Message);
             }
+
 
         }
     }

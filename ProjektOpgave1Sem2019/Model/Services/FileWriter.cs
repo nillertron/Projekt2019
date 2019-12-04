@@ -22,10 +22,18 @@ namespace ProjektOpgave1Sem2019.Model
             //var list = new List<Bolig>();
             list.Sort(); //Sorter liste. Bolig implementerer ICompareable, som sammenligner på pris og sorterer billigs først
             FileStream fs;
+            //En lille "metode til at sikre sig at det bliver en txt fil
+            var index = filePath.LastIndexOf('.');
+            if (index > 0)
+                filePath = filePath.Substring(0, index);
+            filePath += ".txt";
 
             try
             {
-                fs = File.OpenWrite(filePath); 
+                if (filePath == "")
+                    throw new IOException("Tom sti");
+                else
+                    fs = File.OpenWrite(filePath); 
             }
             catch(FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
             {
@@ -59,10 +67,17 @@ namespace ProjektOpgave1Sem2019.Model
         {
             list = list.OrderBy(o => o.Adresse).ToList(); 
             FileStream fs;
+            var index = filePath.LastIndexOf('.');
+            if (index > 0)
+                filePath = filePath.Substring(0, index);
+            filePath += ".txt";
 
             try
             {
-                fs = File.OpenWrite(filePath);
+                if (filePath == "")
+                    throw new IOException("Tom sti");
+                else
+                    fs = File.OpenWrite(filePath);
             }
             catch (FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
             {
@@ -93,7 +108,10 @@ namespace ProjektOpgave1Sem2019.Model
 
             try
             {
-                fs = File.OpenWrite(filePath+"/KøberKontrakt" + b.Adresse+".txt");
+                if (filePath == "")
+                    throw new IOException("Tom sti");
+                else
+                    fs = File.OpenWrite(filePath+"/KøberKontrakt" + b.Adresse+".txt");
             }
             catch (FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
             {
@@ -129,7 +147,10 @@ public static void UdskrivSælgerKontrakt(string filePath, SolgtBolig b)
 
     try
     {
-        fs = File.OpenWrite(filePath + "/SælgerKontrakt" + b.Adresse + ".txt");
+                if (filePath == "")
+                    throw new IOException("Tom sti");
+                else
+                    fs = File.OpenWrite(filePath + "/SælgerKontrakt" + b.Adresse + ".txt");
     }
     catch (FileNotFoundException) //Hvis filen ikke eksisterer, opret istedet
     {
