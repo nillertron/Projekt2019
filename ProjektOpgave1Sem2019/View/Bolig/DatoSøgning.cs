@@ -72,10 +72,10 @@ namespace ProjektOpgave1Sem2019
 
                 LwResultater.Items.Add(item); 
             }
-  //karl slut          
 
         }
   
+  //karl slut          
 
 
         private void button1_Click(object sender, EventArgs e)

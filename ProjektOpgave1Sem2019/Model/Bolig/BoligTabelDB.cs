@@ -133,7 +133,7 @@ namespace ProjektOpgave1Sem2019
          public static Bolig Create(Bolig b)
          {
 
-            int nyBoligId = 0;
+            
           
 
             try
@@ -172,26 +172,13 @@ namespace ProjektOpgave1Sem2019
                     }
                     
                 }
-                // get the id (autoincremented from DB):
-               
-                using (SqlCommand getIdCmd = new SqlCommand())
-                {
-                    string getIdQuery = "SELECT MAX(ID) AS ID FROM Bolig";
-                    getIdCmd.Connection = DBHelper.Conn;
-                    getIdCmd.CommandText = getIdQuery;
-                    using (SqlDataReader reader = getIdCmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            nyBoligId = Convert.ToInt32(reader["ID"]); 
-                        }
-                    }
-            }
 
-
-
+            // get the id (autoincremented from DB):
+            int nyBoligId = DBHelper.GetNewestIdFromTabel("Bolig", DBHelper.Conn);
+            
            Bolig nyBolig = new Bolig(nyBoligId, b.Adresse, b.Pris, b.SælgerID, b.Kvm, b.OprettelsesDato, b.EjendomsmæglerID, b.PostNr);
 
+            b = nyBolig;//skal vi bruge denne istedet for at returne en Bolig?
 
             DBHelper.Conn.Close(); 
             return nyBolig;
@@ -247,6 +234,8 @@ namespace ProjektOpgave1Sem2019
                     System.Windows.Forms.MessageBox.Show("Database acceptered ikke værdier, se debugger for detaljer");
                 }
             }
+
+            
 
 
             DBHelper.Conn.Close();
@@ -341,7 +330,8 @@ namespace ProjektOpgave1Sem2019
                 }
 
             }
-
+            
+            
 
 
 
