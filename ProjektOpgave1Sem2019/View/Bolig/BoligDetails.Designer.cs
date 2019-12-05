@@ -58,7 +58,7 @@
             this.TBAdresse.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.TBAdresse.Name = "TBAdresse";
             this.TBAdresse.Size = new System.Drawing.Size(103, 20);
-            this.TBAdresse.TabIndex = 0;
+            this.TBAdresse.TabIndex = 1;
             this.TBAdresse.TextChanged += new System.EventHandler(this.TBAdresse_TextChanged);
             // 
             // TBPris
@@ -67,7 +67,7 @@
             this.TBPris.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.TBPris.Name = "TBPris";
             this.TBPris.Size = new System.Drawing.Size(103, 20);
-            this.TBPris.TabIndex = 1;
+            this.TBPris.TabIndex = 0;
             this.TBPris.TextChanged += new System.EventHandler(this.TBPris_TextChanged);
             // 
             // LabelID
@@ -96,7 +96,7 @@
             this.DTPOpretDato.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.DTPOpretDato.Name = "DTPOpretDato";
             this.DTPOpretDato.Size = new System.Drawing.Size(135, 20);
-            this.DTPOpretDato.TabIndex = 4;
+            this.DTPOpretDato.TabIndex = 6;
             // 
             // CBPostNr
             // 
@@ -179,7 +179,7 @@
             this.TBPostNr.Location = new System.Drawing.Point(157, 85);
             this.TBPostNr.Name = "TBPostNr";
             this.TBPostNr.Size = new System.Drawing.Size(100, 20);
-            this.TBPostNr.TabIndex = 13;
+            this.TBPostNr.TabIndex = 2;
             // 
             // LBLPris
             // 
@@ -208,7 +208,7 @@
             this.BTNSolgt.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.BTNSolgt.Name = "BTNSolgt";
             this.BTNSolgt.Size = new System.Drawing.Size(113, 33);
-            this.BTNSolgt.TabIndex = 16;
+            this.BTNSolgt.TabIndex = 9;
             this.BTNSolgt.Text = "Marker solgt";
             this.BTNSolgt.UseVisualStyleBackColor = true;
             this.BTNSolgt.Click += new System.EventHandler(this.BTNSolgt_Click);
@@ -219,7 +219,7 @@
             this.BtnVælgE.Location = new System.Drawing.Point(164, 182);
             this.BtnVælgE.Name = "BtnVælgE";
             this.BtnVælgE.Size = new System.Drawing.Size(75, 23);
-            this.BtnVælgE.TabIndex = 17;
+            this.BtnVælgE.TabIndex = 5;
             this.BtnVælgE.Text = "Vælg E";
             this.BtnVælgE.UseVisualStyleBackColor = true;
             this.BtnVælgE.Click += new System.EventHandler(this.BtnVælgE_Click);
@@ -241,7 +241,7 @@
             this.BtnDelete.Location = new System.Drawing.Point(144, 231);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(95, 33);
-            this.BtnDelete.TabIndex = 19;
+            this.BtnDelete.TabIndex = 8;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -261,7 +261,7 @@
             this.BtnVælgSælger.Margin = new System.Windows.Forms.Padding(2);
             this.BtnVælgSælger.Name = "BtnVælgSælger";
             this.BtnVælgSælger.Size = new System.Drawing.Size(73, 21);
-            this.BtnVælgSælger.TabIndex = 21;
+            this.BtnVælgSælger.TabIndex = 4;
             this.BtnVælgSælger.Text = "Vælg S";
             this.BtnVælgSælger.UseVisualStyleBackColor = true;
             this.BtnVælgSælger.Click += new System.EventHandler(this.BtnVælgSælger_Click);

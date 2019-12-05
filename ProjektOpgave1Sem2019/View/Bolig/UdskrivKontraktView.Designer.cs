@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.lwSolgteBoliger = new System.Windows.Forms.ListView();
+            this.Adresse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Sælger = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Køber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnUdskriv = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSti = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.Adresse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Sælger = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Køber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lwSolgteBoliger
@@ -48,10 +48,24 @@
             this.lwSolgteBoliger.MultiSelect = false;
             this.lwSolgteBoliger.Name = "lwSolgteBoliger";
             this.lwSolgteBoliger.Size = new System.Drawing.Size(680, 142);
-            this.lwSolgteBoliger.TabIndex = 0;
+            this.lwSolgteBoliger.TabIndex = 1;
             this.lwSolgteBoliger.UseCompatibleStateImageBehavior = false;
             this.lwSolgteBoliger.View = System.Windows.Forms.View.Details;
             this.lwSolgteBoliger.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // Adresse
+            // 
+            this.Adresse.Text = "Adresse";
+            this.Adresse.Width = 430;
+            // 
+            // Sælger
+            // 
+            this.Sælger.Text = "Sælger";
+            this.Sælger.Width = 75;
+            // 
+            // Køber
+            // 
+            this.Køber.Text = "Køber";
             // 
             // btnUdskriv
             // 
@@ -59,7 +73,7 @@
             this.btnUdskriv.Location = new System.Drawing.Point(602, 263);
             this.btnUdskriv.Name = "btnUdskriv";
             this.btnUdskriv.Size = new System.Drawing.Size(75, 23);
-            this.btnUdskriv.TabIndex = 1;
+            this.btnUdskriv.TabIndex = 4;
             this.btnUdskriv.Text = "Udskriv";
             this.btnUdskriv.UseVisualStyleBackColor = true;
             this.btnUdskriv.Click += new System.EventHandler(this.btnUdskriv_Click);
@@ -79,7 +93,7 @@
             this.tbSti.Location = new System.Drawing.Point(6, 201);
             this.tbSti.Name = "tbSti";
             this.tbSti.Size = new System.Drawing.Size(271, 20);
-            this.tbSti.TabIndex = 3;
+            this.tbSti.TabIndex = 2;
             // 
             // btnBrowse
             // 
@@ -87,24 +101,10 @@
             this.btnBrowse.Location = new System.Drawing.Point(283, 198);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.TabIndex = 3;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // Adresse
-            // 
-            this.Adresse.Text = "Adresse";
-            this.Adresse.Width = 430;
-            // 
-            // Sælger
-            // 
-            this.Sælger.Text = "Sælger";
-            this.Sælger.Width = 75;
-            // 
-            // Køber
-            // 
-            this.Køber.Text = "Køber";
             // 
             // UdskrivKontraktView
             // 

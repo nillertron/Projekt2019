@@ -43,6 +43,7 @@
             // 
             // BtnVælg
             // 
+            this.BtnVælg.ForeColor = System.Drawing.Color.Black;
             this.BtnVælg.Location = new System.Drawing.Point(37, 180);
             this.BtnVælg.Name = "BtnVælg";
             this.BtnVælg.Size = new System.Drawing.Size(75, 23);

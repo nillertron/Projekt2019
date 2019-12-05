@@ -43,7 +43,7 @@
             this.cbPostNr.Location = new System.Drawing.Point(0, 32);
             this.cbPostNr.Name = "cbPostNr";
             this.cbPostNr.Size = new System.Drawing.Size(121, 21);
-            this.cbPostNr.TabIndex = 0;
+            this.cbPostNr.TabIndex = 1;
             // 
             // label1
             // 
@@ -78,17 +78,18 @@
             this.btnBrowse.Location = new System.Drawing.Point(245, 93);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.TabIndex = 3;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnUdskriv
             // 
+            this.btnUdskriv.ForeColor = System.Drawing.Color.Black;
             this.btnUdskriv.Location = new System.Drawing.Point(3, 134);
             this.btnUdskriv.Name = "btnUdskriv";
             this.btnUdskriv.Size = new System.Drawing.Size(75, 23);
-            this.btnUdskriv.TabIndex = 5;
+            this.btnUdskriv.TabIndex = 4;
             this.btnUdskriv.Text = "Udskriv";
             this.btnUdskriv.UseVisualStyleBackColor = true;
             this.btnUdskriv.Click += new System.EventHandler(this.btnUdskriv_Click);
