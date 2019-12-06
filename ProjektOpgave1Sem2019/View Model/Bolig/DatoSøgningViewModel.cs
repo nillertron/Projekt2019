@@ -96,7 +96,7 @@ namespace ProjektOpgave1Sem2019.View_Model
             return array;
         }
 
-        public string[,] KonverterTilArrayKarl()
+        public SolgtBolig[,] KonverterTilArrayKarl()
         {
           
             List<int> ejendomsmæglerIds = new List<int>();
@@ -115,7 +115,7 @@ namespace ProjektOpgave1Sem2019.View_Model
             int antalSolgteBoliger = SorteretListe.Count;
 
   
-            string[,] arr = new string[ antalEjendomsmæglere , antalSolgteBoliger + 2];
+            SolgtBolig[,] arr = new SolgtBolig[ antalEjendomsmæglere , antalSolgteBoliger + 1];
 
 
 
@@ -125,10 +125,11 @@ namespace ProjektOpgave1Sem2019.View_Model
             //fill ejendomsmæglerId
             for(int i = 0; i < ejendomsmæglerIds.Count; i++)
             {
-                arr[i, 0] = ejendomsmæglerIds[i].ToString();
-                arr[i, 1] = "Solgte Boligers ID -> ";
-
+                //jeg gør brug af solgtBolig med en constructor som kun har ejendomsmælgerID, og bruger dem til placeholder af ejendomsmægler ID, som bliver gemt i column 0 
+                SolgtBolig ejendomsmæglerPlaceholder = new SolgtBolig(ejendomsmæglerIds[i]);
+                arr[i, 0] = ejendomsmæglerPlaceholder;
             }
+                
 
             
 
@@ -139,15 +140,15 @@ namespace ProjektOpgave1Sem2019.View_Model
 
             for(int i = 0; i < arr.GetLength(0); i++)//foreach ejendomsmægler
             {
-                string ejendomsmæglerId = arr[i, 0];
-                int counter = 2; 
+                SolgtBolig placeholder = arr[i, 0];
+                int counter = 1; 
 
                 for(int j = 0; j < SorteretListe.Count; j++)//foreach solgt bolig
                 {
                     SolgtBolig b = SorteretListe[j];
-                    if (b.EjendomsmæglerID.ToString() == ejendomsmæglerId)//if house is sold by ejendomsmægler
+                    if (b.EjendomsmæglerID == placeholder.EjendomsmæglerID)//if house is sold by ejendomsmægler
                     {
-                        arr[i, counter] = b.ID.ToString();//assign house to ejendomsmægler row
+                        arr[i, counter] = b;//assign solgtbolig to ejendomsmælger row
                         counter++;
                     }
                 }

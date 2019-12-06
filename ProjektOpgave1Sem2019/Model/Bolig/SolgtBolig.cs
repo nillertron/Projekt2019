@@ -47,6 +47,11 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
+
+        public SolgtBolig(int ejendomsmæglerId)
+        {
+            this.EjendomsmæglerID = ejendomsmæglerId;
+        }
         public void SetValues(int id, double pris, DateTime købsdato)
         {
             this.KøberID = id;

@@ -28,52 +28,96 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        private void fyldboks()
+
+        //karl 
+        private void FyldListView(bool medPrisKriterie)
         {
-            //niclas udkommenteret
-            // string[,] array = ViewModel.KonverterTilArray();
+            
 
 
-            //for (int i = 0; i < array.GetUpperBound(0) + 1; i++)
-            //    {
-            //    for(int x = 0; x < array.GetUpperBound(1) + 1; x++)
-            //    rtbContent.AppendText(array[i, x].PadLeft(10));
-            //    rtbContent.AppendText("\r\n");
-
-            //}
-
-
-            //karl
 
             LwResultater.Items.Clear();
 
-            string[,] arr = ViewModel.KonverterTilArrayKarl();
+
+
+            SolgtBolig[,] arr = ViewModel.KonverterTilArrayKarl();
+
+
 
             //set listView  row længde
-            if(LwResultater.Columns.Count < 2)
+            if(LwResultater.Columns.Count < 3)
             for(int i = 0; i < arr.GetLength(1) - 1; i++)
             {
                 if(i == 0)
-                    LwResultater.Columns.Add("", 120);
+                    LwResultater.Columns.Add("", 50);
                 else
                     LwResultater.Columns.Add("", 50);
             }
 
 
-           
-            //add elements to listview
-            for (int i = 0; i < arr.GetLength(0); i++)
+
+            if (medPrisKriterie)
             {
-                ListViewItem item = new ListViewItem(arr[i,0]);
+                if (TbPrisKriterie.Text != "")
+                {
+                    if (Double.TryParse(TbPrisKriterie.Text, out double fraPris))
+                    {
+                        //add elements that correspond to search terms
+                        for (int i = 0; i < arr.GetLength(0); i++)
+                        {
+                            ListViewItem item = new ListViewItem(arr[i, 0].EjendomsmæglerID.ToString());
+                            for (int j = 1; j < arr.GetLength(1); j++)
+                            {
+                                if (arr[i, j] != null && arr[i, j].KøbsPris >= fraPris)
+                                    item.SubItems.Add(arr[i, j].ID.ToString());
+                            }
+                            LwResultater.Items.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("ugyldigt søgekriterie");
+                        TbPrisKriterie.Text = TbPrisKriterie.Text.Substring(0, TbPrisKriterie.Text.Length - 1);
+                    }
+                }
+                else//no input
+                    FyldListView(false);
+                    
 
-                for (int j = 1; j < arr.GetLength(1); j++)
+                
+            }
+            else//uden pris kriterie
+            {
+
+                
+            //add all elements to list view
+            for (int i = 0; i < arr.GetLength(0); i++)//foreach ejendomsmælger
+            {
+                ListViewItem item = new ListViewItem(arr[i,0].EjendomsmæglerID.ToString());
+
+                for (int j = 1; j < arr.GetLength(1); j++)//foreach solgtbolig
                     if (arr[i, j] != null)
-                        item.SubItems.Add(arr[i,j]);
+                        {
+                            write(arr[i, j].ID.ToString());
 
-                LwResultater.Items.Add(item); 
+                            item.SubItems.Add(arr[i,j].ID.ToString());
+                        }
+
+                LwResultater.Items.Add(item);
+
+            }
             }
 
         }
+        
+        private void write(string s)
+        {
+            System.Diagnostics.Debug.WriteLine(s);
+        }
+
+        
+
+        
   
   //karl slut          
 
@@ -81,8 +125,16 @@ namespace ProjektOpgave1Sem2019
         private void button1_Click(object sender, EventArgs e)
         {
             ViewModel.SorterEfter2datoer(dtpStart.Value, dtpSlut.Value);
-            fyldboks();
-           
+            FyldListView(false);
+
+            TbPrisKriterie.Show();
+            LblPris.Show();
+
+        }
+
+        private void TbPrisKriterie_TextChanged(object sender, EventArgs e)
+        {
+            FyldListView(true);
         }
     }
 }
