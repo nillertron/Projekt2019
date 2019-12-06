@@ -51,7 +51,7 @@ namespace ProjektOpgave1Sem2019.Model
                     foreach (Bolig b in list)
                     {
                         writer.WriteLine(b.Adresse.PadRight(10) + b.PostNr.ToString().PadRight(8) +
-                                            b.Pris.ToString().PadRight(10) + b.Kvm.ToString().PadRight(10) + b.OprettelsesDato.ToString()); //Skriver bolig i fil
+                                            b.Pris.ToString().PadRight(10) + b.Kvm.ToString().PadRight(10) + b.OprettelsesDato.ToString("dd-MM-yyyy")); //Skriver bolig i fil
                     }
                 }
                 wasSuccessful = true;
@@ -94,7 +94,7 @@ namespace ProjektOpgave1Sem2019.Model
                     foreach (Bolig b in list)
                     {
                         writer.WriteLine(b.Adresse.PadRight(10) + b.PostNr.ToString().PadRight(8) +
-                                            b.Pris.ToString().PadRight(10) + b.Kvm.ToString().PadRight(10) + b.OprettelsesDato.ToString().PadRight(25) + b.sælger.Navn.PadRight(15) + b.sælger.TelefonNr.PadRight(10) ); //Skriver bolig i fil
+                                            b.Pris.ToString().PadRight(10) + b.Kvm.ToString().PadRight(10) + b.OprettelsesDato.ToString("dd-MM-yyyy").PadRight(25) + b.sælger.Navn.PadRight(15) + b.sælger.TelefonNr.PadRight(10) ); //Skriver bolig i fil
                     }
                 }
             }
