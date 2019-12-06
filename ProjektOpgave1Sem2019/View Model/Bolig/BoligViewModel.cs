@@ -230,6 +230,8 @@ namespace ProjektOpgave1Sem2019
 
         public void SaveEdit(Bolig b, double d)
         {
+            double formerPrice = b.Pris;
+
             b.UpdatePris(d);
             if(BoligTabelDB.Update(b))
             {
@@ -238,6 +240,7 @@ namespace ProjektOpgave1Sem2019
             else
             {
                 MessageBox.Show("Boohoo, update failed :(");
+                b.UpdatePris(formerPrice);
             }
         }
 
