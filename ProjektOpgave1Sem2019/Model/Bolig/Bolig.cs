@@ -72,10 +72,11 @@ namespace ProjektOpgave1Sem2019
         {
             return this.OprettelsesDato.CompareTo(((Bolig)obj).OprettelsesDato);
         }
-        //Martin
+        
         public void UpdatePris(double d)
         {
             this.Pris = d;
         }
+        //Martin slut
     }
 }
