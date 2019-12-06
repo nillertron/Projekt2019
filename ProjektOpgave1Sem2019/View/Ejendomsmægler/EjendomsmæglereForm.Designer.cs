@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TBInput = new System.Windows.Forms.TextBox();
             this.DisplayEjendomsmæglerLocation = new System.Windows.Forms.PictureBox();
+            this.panelContent = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayEjendomsmæglerLocation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,11 +125,19 @@
             this.DisplayEjendomsmæglerLocation.TabIndex = 7;
             this.DisplayEjendomsmæglerLocation.TabStop = false;
             // 
+            // panelContent
+            // 
+            this.panelContent.Location = new System.Drawing.Point(327, 47);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(820, 452);
+            this.panelContent.TabIndex = 8;
+            // 
             // EjendomsmæglereForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.panelContent);
             this.Controls.Add(this.DisplayEjendomsmæglerLocation);
             this.Controls.Add(this.TBInput);
             this.Controls.Add(this.label1);
@@ -153,5 +162,6 @@
         private System.Windows.Forms.ColumnHeader Efternavn;
         public System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox DisplayEjendomsmæglerLocation;
+        public System.Windows.Forms.Panel panelContent;
     }
 }

@@ -47,10 +47,7 @@ namespace ProjektOpgave1Sem2019
 
             
         }
-        private void wr(string s)
-        {
-            System.Diagnostics.Debug.WriteLine(s);
-        }
+
         public void UpdateListView(List<Ejendomsmægler> ejendomsmæglere)
         {
             SearchResults.Items.Clear();
@@ -69,8 +66,13 @@ namespace ProjektOpgave1Sem2019
 
         private void LWSearchResults_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            
-            ViewModel.ShowEjendomsmægler();
+            var details = new ValgtEjendomsMæglerDetails(ViewModel, this);
+            if (!panelContent.Controls.Contains(details))
+                panelContent.Controls.Add(details);
+            details.BringToFront();
+            var ejendomsmægler = ViewModel.FindEjendomsmægler();
+
+            details.EditMode(ejendomsmægler);
         }
 
         private void EjendomsmæglereForm_Load(object sender, EventArgs e)
@@ -85,7 +87,11 @@ namespace ProjektOpgave1Sem2019
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ViewModel.NyEjendomsmægler();
+            var details = new ValgtEjendomsMæglerDetails(ViewModel,this);
+            if (!panelContent.Controls.Contains(details))
+                panelContent.Controls.Add(details);
+            details.BringToFront();
+            details.CreateMode();
         }
 
         private void CBKriterie_SelectedIndexChanged(object sender, EventArgs e)

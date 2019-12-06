@@ -23,6 +23,10 @@ namespace ProjektOpgave1Sem2019
         BoligForm parent;
         Ejendomsmægler valgtEMægl = null;
         bool isEditMode;
+        public BoligDetails()
+        {
+
+        }
         public BoligDetails(BoligViewModel model, BoligForm parent)
         {
             InitializeComponent();
@@ -40,7 +44,7 @@ namespace ProjektOpgave1Sem2019
             //Der stod nemlig bare 0kr da vi skifter til en textbox når man er i edit mode fra en combobox når man er i create
 
             //Udkommenteret da der kom formaterror
-            //TBPostNr.TextChanged += (o,e) =>  LBLPris.Text = viewModel.GetKvmPrisMedPostNr(Convert.ToInt32(TBPostNr.Text)).ToString() + " ,-KR";
+            TBPostNr.TextChanged += (o, e) => LBLPris.Text = viewModel.GetKvmPrisMedPostNr(Convert.ToInt32(TBPostNr.Text)).ToString() + " ,-KR";
             Hide();
         }
         public void InitializeCreateMode()
@@ -118,7 +122,7 @@ namespace ProjektOpgave1Sem2019
 
             TBEMæglerNavn.Text = viewModel.ValgtEmægler.ToString(); //Tostring metoden er overridet
             TBValgtSælger.Text = viewModel.ValgtSælger.ToString();                                                      //Til at vise navn
-
+            lblPost.Hide();
             LabelMode.Text = "EDIT MODE";
             //tjekker om boligen er solgt, for så skal denne knap ikke vises!
             var erSolgt = viewModel.TjekBoligSolgt(selectedBolig);
@@ -143,10 +147,12 @@ namespace ProjektOpgave1Sem2019
                                                     Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
                                                     ((PostNumre)CBPostNr.SelectedItem).PostNummer);
 
-                        //BoligTabelDB.Create(newBolig);
-                        this.Hide();
+                    //BoligTabelDB.Create(newBolig);
+                    MessageBox.Show("Bolig oprettet");
+
+                    this.Hide();
                         parent.FyldListView(viewModel.FillListView());
-                    
+
                 }
                 else if(viewModel.ValgtEmægler == null) //Hvis ejendomsmægler ikke er valgt
                 {
@@ -249,8 +255,17 @@ namespace ProjektOpgave1Sem2019
         }
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            viewModel.Delete(viewModel.ValgtBolig);
-            parent.FyldListView(viewModel.FillListView()); //reset listen når der slettes
+            try
+            {
+                viewModel.Delete(viewModel.ValgtBolig);
+                parent.FyldListView(viewModel.FillListView()); //reset listen når der slettes
+                MessageBox.Show("Bolig slettet");
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+
         }
         private void TBAdresse_TextChanged(object sender, EventArgs e)
         {
@@ -279,7 +294,8 @@ namespace ProjektOpgave1Sem2019
         private void CBPostNr_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = CBPostNr.SelectedItem as PostNumre;
-            LBLPris.Text = item.PrisPrm2.ToString() + " ,-KR"; 
+            LBLPris.Text = item.PrisPrm2.ToString() + " ,-KR";
+            lblPost.Text = item.Distrikt;
 
         }
 
@@ -295,6 +311,9 @@ namespace ProjektOpgave1Sem2019
 
         }
 
-        
+        private void TBPostNr_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }        /// 
 }

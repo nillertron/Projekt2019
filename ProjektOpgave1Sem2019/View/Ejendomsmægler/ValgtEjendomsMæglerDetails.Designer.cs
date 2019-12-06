@@ -166,7 +166,7 @@
             this.BTNEdit.Name = "BTNEdit";
             this.BTNEdit.Size = new System.Drawing.Size(56, 19);
             this.BTNEdit.TabIndex = 8;
-            this.BTNEdit.Text = "Edit";
+            this.BTNEdit.Text = "Gem ";
             this.BTNEdit.UseVisualStyleBackColor = true;
             this.BTNEdit.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -273,7 +273,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TBNavn);
-            this.Location = new System.Drawing.Point(470, 66);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ValgtEjendomsMæglerDetails";
             this.Size = new System.Drawing.Size(686, 429);

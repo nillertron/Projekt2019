@@ -77,14 +77,14 @@ namespace ProjektOpgave1Sem2019
             Details.InitializeCreateMode();
         }
 
-        public void Edit(Bolig b)
+        public void Edit(BoligDetails d, Bolig b)
         {
             //Get Ejendomsmægler knyttet til bolig
             ValgtEmægler = EjendomsmæglerTabelDB.GetEjendomsmægler(b.EjendomsmæglerID);
             ValgtSælger = KundeDBTabel.GetSælger(b.SælgerID);
             ValgtBolig = b;
             //Details.Show();
-            Details.InitializeEditMode();
+            d.InitializeEditMode();
         }
 
         public bool Delete(Bolig b)

@@ -117,6 +117,7 @@
             // 
             // BtnOpret
             // 
+            this.BtnOpret.ForeColor = System.Drawing.Color.Black;
             this.BtnOpret.Location = new System.Drawing.Point(478, 44);
             this.BtnOpret.Name = "BtnOpret";
             this.BtnOpret.Size = new System.Drawing.Size(116, 31);

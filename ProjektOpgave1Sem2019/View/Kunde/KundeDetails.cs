@@ -28,9 +28,12 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             
         }
         private void LoadItems()
+
         {
-            foreach (PostNumre postNr in ViewModel.postNumre)
-                CbPostNr.Items.Add(postNr.PostNummer);
+            CbPostNr.DataSource = ViewModel.postNumre;
+            CbPostNr.DisplayMember = "PostNummer";
+            //foreach (PostNumre postNr in ViewModel.postNumre)
+            //    CbPostNr.Items.Add(postNr.PostNummer);
         }
 
 
@@ -150,9 +153,11 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     {
                         MessageBox.Show("Sælger oprettet!");
                         ClearData();
+                        this.Dispose();
+
                     }
-                       
-                        break;
+
+                    break;
 
                 case "Opdater Sælger":
 
@@ -191,9 +196,11 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     {
                         MessageBox.Show("Køber oprettet!");
                         ClearData();
+                        this.Dispose();
+
                     }
-                    
-                        
+
+
                     break;
 
 
@@ -219,6 +226,17 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             Parent.UpdateListViewWithCurrentSearchTerms();
             
 
+        }
+
+        private void KundeDetails_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CbPostNr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var postnr = CbPostNr.SelectedItem as PostNumre;
+            lblPostNr.Text = postnr.Distrikt;
         }
     }
 }

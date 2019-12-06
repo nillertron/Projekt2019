@@ -51,13 +51,12 @@ namespace ProjektOpgave1Sem2019.View_Model
             ParentForm.SearchResults.Items.Add(item);
 
         }
-        public void ShowEjendomsmægler()
+        public Ejendomsmægler FindEjendomsmægler()
         {
             foreach (Ejendomsmægler e in EjendomsmæglerListe)
                 if (e.Id.ToString() == ParentForm.SearchResults.FocusedItem.Name)
                     ValgtEjendomsmægler = e;
-            ParentForm.Controls.Add(Details);
-            Details.EditMode(ValgtEjendomsmægler);
+            return ValgtEjendomsmægler;
 
 
 

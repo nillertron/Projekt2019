@@ -85,22 +85,28 @@ namespace ProjektOpgave1Sem2019
         {
             var Valgt = ViewModel.GetBolig(LWSearchResults.FocusedItem.Name);
             ViewModel.FillListView().ForEach(o => { if (o.ID.ToString() == LWSearchResults.FocusedItem.Name) Valgt = o; });
-
-            ViewModel.Edit(Valgt);
+            var edit = new BoligDetails(ViewModel, this);
+            if (!panelContent.Controls.Contains(edit))
+                panelContent.Controls.Add(edit);
+            ViewModel.Edit(edit,Valgt);
             //Details.InitializeEditMode(Valgt);
 
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            ViewModel.Opret();
+            var opret = new BoligDetails(ViewModel,this);
+            if (!panelContent.Controls.Contains(opret))
+                panelContent.Controls.Add(opret);
+
+            opret.InitializeCreateMode();
         }
 
         public void SælgBoligToFront(Bolig b, BoligDetails instans)
         {
             var S = new SælgBolig(b, instans, ViewModel);
-            
-            Controls.Add(S);
+            if (!panelContent.Controls.Contains(S))
+            panelContent.Controls.Add(S);
             S.BringToFront();
 
 
@@ -110,8 +116,8 @@ namespace ProjektOpgave1Sem2019
         {
             bool b = false;
             var SøgForm = new BoligSøgning(ViewModel,b);
-            if (!Controls.Contains(SøgForm))
-                Controls.Add(SøgForm);
+            if (!panelContent.Controls.Contains(SøgForm))
+                panelContent.Controls.Add(SøgForm);
             SøgForm.BringToFront();
         }
 
@@ -119,8 +125,8 @@ namespace ProjektOpgave1Sem2019
         {
             bool b = true;
             var SøgForm = new BoligSøgning(ViewModel,b);
-            if (!Controls.Contains(SøgForm))
-                Controls.Add(SøgForm);
+            if (!panelContent.Controls.Contains(SøgForm))
+                panelContent.Controls.Add(SøgForm);
             SøgForm.BringToFront();
 
         }
@@ -128,16 +134,16 @@ namespace ProjektOpgave1Sem2019
         private void btnDatoSøgning_Click(object sender, EventArgs e)
         {
             var SøgDato = new DatoSøgning(ViewModel.boliger);
-            if (!Controls.Contains(SøgDato))
-                Controls.Add(SøgDato);
+            if (!panelContent.Controls.Contains(SøgDato))
+                panelContent.Controls.Add(SøgDato);
             SøgDato.BringToFront();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             var UdskrivKontrakt = new UdskrivKontraktView();
-                if (!Controls.Contains(UdskrivKontrakt))
-                Controls.Add(UdskrivKontrakt);
+                if (!panelContent.Controls.Contains(UdskrivKontrakt))
+                panelContent.Controls.Add(UdskrivKontrakt);
             UdskrivKontrakt.BringToFront();
         }
 
@@ -151,6 +157,11 @@ namespace ProjektOpgave1Sem2019
             {
                 FyldListView(ViewModel.FillListView());
             }
+        }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

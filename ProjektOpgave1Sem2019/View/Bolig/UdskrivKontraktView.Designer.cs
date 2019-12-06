@@ -115,7 +115,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUdskriv);
             this.Controls.Add(this.lwSolgteBoliger);
-            this.Location = new System.Drawing.Point(350, 50);
             this.Name = "UdskrivKontraktView";
             this.Size = new System.Drawing.Size(680, 289);
             this.Load += new System.EventHandler(this.UdskrivKontraktView_Load);

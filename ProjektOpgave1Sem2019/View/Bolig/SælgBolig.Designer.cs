@@ -166,7 +166,6 @@
             this.Controls.Add(this.LblAdresse);
             this.Controls.Add(this.tbSælger);
             this.Controls.Add(this.label1);
-            this.Location = new System.Drawing.Point(350, 50);
             this.Name = "SælgBolig";
             this.Size = new System.Drawing.Size(680, 289);
             this.Load += new System.EventHandler(this.SælgBolig_Load);

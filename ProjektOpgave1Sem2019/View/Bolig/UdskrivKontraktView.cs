@@ -59,6 +59,8 @@ namespace ProjektOpgave1Sem2019
                 try
                 {
                     ViewModel.UdskrivTilFil(bolig, path);
+                    MessageBox.Show("Kontrakter udskrevet");
+
                 }
                 catch (IOException ee)
                 {
