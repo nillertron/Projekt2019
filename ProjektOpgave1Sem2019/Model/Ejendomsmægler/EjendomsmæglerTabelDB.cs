@@ -69,7 +69,7 @@ namespace ProjektOpgave1Sem2019.Model
                 using (SqlCommand cmd2 = new SqlCommand())
                 {
                     cmd2.Connection = DBHelper.Conn;
-                    cmd2.CommandText = "SELECT MAX(ID) + 1 FROM Ejendomsmægler";
+                    cmd2.CommandText = "SELECT ISNULL(MAX(ID) + 1,  1) FROM Ejendomsmægler";
 
                     DBHelper.Conn.Open();
                     using (SqlDataReader reader = cmd2.ExecuteReader())

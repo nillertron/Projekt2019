@@ -72,6 +72,7 @@ namespace ProjektOpgave1Sem2019
             TBId.Hide();
             BTNEdit.Hide();
             BTNSlet.Hide();
+            BTNOpret.Show();
             edit = false;
             LBLoverskrift.Text = "Opret";
         }

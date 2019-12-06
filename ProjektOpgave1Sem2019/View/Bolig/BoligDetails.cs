@@ -38,7 +38,9 @@ namespace ProjektOpgave1Sem2019
             TBValgtSælger.ReadOnly = true;
             //Nichlas har lige lavet en event handler til at hente prisen pr kvm fra postnummer listen
             //Der stod nemlig bare 0kr da vi skifter til en textbox når man er i edit mode fra en combobox når man er i create
-            TBPostNr.TextChanged += (o,e) =>  LBLPris.Text = viewModel.GetKvmPrisMedPostNr(Convert.ToInt32(TBPostNr.Text)).ToString() + " ,-KR";
+
+            //Udkommenteret da der kom formaterror
+            //TBPostNr.TextChanged += (o,e) =>  LBLPris.Text = viewModel.GetKvmPrisMedPostNr(Convert.ToInt32(TBPostNr.Text)).ToString() + " ,-KR";
             Hide();
         }
         public void InitializeCreateMode()
