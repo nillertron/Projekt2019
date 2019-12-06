@@ -306,7 +306,7 @@ namespace ProjektOpgave1Sem2019
             var liste = new List<Bolig>();
             boliger.ForEach(o => liste.Add(o));
             boliger.ForEach(o => { bool Solgt = BoligTabelDB.TjekBoligSolgt(o); if (Solgt) liste.Remove(o); });
-            FileWriter.BoligerTilSalgToFile(path, liste);
+            FileWriter.BoligerTilSalgToFile(path);
 
         }
         internal void UdskrivBoligerFraByTilTxtFil(int PostNummer, string path)

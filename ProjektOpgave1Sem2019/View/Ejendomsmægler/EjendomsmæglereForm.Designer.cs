@@ -43,7 +43,7 @@
             // 
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(324, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 37);
             this.button2.TabIndex = 3;
@@ -55,17 +55,18 @@
             // 
             this.CBKriterie.FormattingEnabled = true;
             this.CBKriterie.Items.AddRange(new object[] {
-            "Fulde Navn",
+            "Navn",
             "Fornavn",
             "Efternavn",
             "FødselsDato",
             "Tlf"});
             this.CBKriterie.Location = new System.Drawing.Point(67, 12);
-            this.CBKriterie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CBKriterie.Margin = new System.Windows.Forms.Padding(2);
             this.CBKriterie.Name = "CBKriterie";
             this.CBKriterie.Size = new System.Drawing.Size(92, 21);
             this.CBKriterie.TabIndex = 1;
             this.CBKriterie.Text = "Navn";
+            this.CBKriterie.SelectedIndexChanged += new System.EventHandler(this.CBKriterie_SelectedIndexChanged);
             // 
             // LWSearchResults
             // 
@@ -75,7 +76,7 @@
             this.LWSearchResults.FullRowSelect = true;
             this.LWSearchResults.HideSelection = false;
             this.LWSearchResults.Location = new System.Drawing.Point(10, 36);
-            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LWSearchResults.Margin = new System.Windows.Forms.Padding(2);
             this.LWSearchResults.Name = "LWSearchResults";
             this.LWSearchResults.Size = new System.Drawing.Size(310, 419);
             this.LWSearchResults.TabIndex = 4;
@@ -108,7 +109,7 @@
             // TBInput
             // 
             this.TBInput.Location = new System.Drawing.Point(163, 12);
-            this.TBInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBInput.Margin = new System.Windows.Forms.Padding(2);
             this.TBInput.Name = "TBInput";
             this.TBInput.Size = new System.Drawing.Size(128, 20);
             this.TBInput.TabIndex = 2;
@@ -117,7 +118,7 @@
             // DisplayEjendomsmæglerLocation
             // 
             this.DisplayEjendomsmæglerLocation.Location = new System.Drawing.Point(0, 0);
-            this.DisplayEjendomsmæglerLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DisplayEjendomsmæglerLocation.Margin = new System.Windows.Forms.Padding(2);
             this.DisplayEjendomsmæglerLocation.Name = "DisplayEjendomsmæglerLocation";
             this.DisplayEjendomsmæglerLocation.Size = new System.Drawing.Size(8, 10);
             this.DisplayEjendomsmæglerLocation.TabIndex = 7;

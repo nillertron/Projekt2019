@@ -87,6 +87,11 @@ namespace ProjektOpgave1Sem2019
         {
             ViewModel.NyEjendomsmægler();
         }
+
+        private void CBKriterie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

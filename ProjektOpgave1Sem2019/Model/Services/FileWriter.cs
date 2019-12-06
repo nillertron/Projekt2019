@@ -13,9 +13,11 @@ namespace ProjektOpgave1Sem2019.Model
     {
         
        //private static string filePath = @"C:\Users\marti\BoligListe.txt";
-        public static bool BoligerTilSalgToFile(string filePath, List<Bolig> list)
+        public static bool BoligerTilSalgToFile(string filePath)
         {
             bool wasSuccessful;
+            var list = new List<Bolig>();
+            list = BoligTabelDB.GetAllNotSold();
 
             //har lige udkommenteret denne linje
             //List<Bolig> list = BoligTabelDB.GetAllNotSold(); //Hent boliger fra database Per opgave 3.2 beskrivelse
