@@ -123,6 +123,7 @@ namespace ProjektOpgave1Sem2019
             TBEMæglerNavn.Text = viewModel.ValgtEmægler.ToString(); //Tostring metoden er overridet
             TBValgtSælger.Text = viewModel.ValgtSælger.ToString();                                                      //Til at vise navn
             lblPost.Hide();
+            LabelID.Show();
             LabelMode.Text = "EDIT MODE";
             //tjekker om boligen er solgt, for så skal denne knap ikke vises!
             var erSolgt = viewModel.TjekBoligSolgt(selectedBolig);
@@ -142,16 +143,23 @@ namespace ProjektOpgave1Sem2019
             {
                 if (viewModel.ValgtEmægler != null && viewModel.ValgtSælger != null) //HVis både Emægler og sælger er valgt
                 {
-                    
+                    try
+                    {
                         viewModel.SaveNewBolig(TBAdresse.Text, Convert.ToDouble(TBPris.Text), //Ny bolig
                                                     Convert.ToInt32(TBAreal.Text), DTPOpretDato.Value,
                                                     ((PostNumre)CBPostNr.SelectedItem).PostNummer);
 
-                    //BoligTabelDB.Create(newBolig);
-                    MessageBox.Show("Bolig oprettet");
+                        //BoligTabelDB.Create(newBolig);
+                        MessageBox.Show("Bolig oprettet");
 
-                    this.Hide();
+                        this.Hide();
                         parent.FyldListView(viewModel.FillListView());
+                    }
+                    catch(FormatException ee)
+                    {
+                        MessageBox.Show(ee.Message);
+                    }
+
 
                 }
                 else if(viewModel.ValgtEmægler == null) //Hvis ejendomsmægler ikke er valgt
