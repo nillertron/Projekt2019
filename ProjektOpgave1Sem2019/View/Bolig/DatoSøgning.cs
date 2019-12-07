@@ -33,26 +33,17 @@ namespace ProjektOpgave1Sem2019
         private void FyldListView(bool medPrisKriterie)
         {
             
-
-
-
             LwResultater.Items.Clear();
 
 
-
+            //get array 
             SolgtBolig[,] arr = ViewModel.KonverterTilArrayKarl();
 
 
-
-            //set listView  row længde
-            if(LwResultater.Columns.Count < 3)
-            for(int i = 0; i < arr.GetLength(1) - 1; i++)
-            {
-                if(i == 0)
-                    LwResultater.Columns.Add("", 50);
-                else
-                    LwResultater.Columns.Add("", 50);
-            }
+            //set listView  row mængde = max solgte boliger 
+            int columnWidth = 50;
+            while (LwResultater.Columns.Count < arr.GetLength(1) + 1)
+                LwResultater.Columns.Add("", columnWidth);
 
 
 
@@ -63,14 +54,14 @@ namespace ProjektOpgave1Sem2019
                     if (Double.TryParse(TbPrisKriterie.Text, out double fraPris))
                     {
                         //add elements that correspond to search terms
-                        for (int i = 0; i < arr.GetLength(0); i++)
+                        for (int i = 0; i < arr.GetLength(0); i++) //foreach ejendomsmægler
                         {
                             ListViewItem item = new ListViewItem(arr[i, 0].EjendomsmæglerID.ToString());
-                            for (int j = 1; j < arr.GetLength(1); j++)
-                            {
+
+                            for (int j = 1; j < arr.GetLength(1); j++)//foreach solgtbolig
                                 if (arr[i, j] != null && arr[i, j].KøbsPris >= fraPris)
                                     item.SubItems.Add(arr[i, j].ID.ToString());
-                            }
+
                             LwResultater.Items.Add(item);
                         }
                     }
@@ -82,10 +73,13 @@ namespace ProjektOpgave1Sem2019
                 }
                 else//no input
                     FyldListView(false);
-                    
-
-                
             }
+
+
+
+
+
+
             else//uden pris kriterie
             {
 
@@ -97,11 +91,7 @@ namespace ProjektOpgave1Sem2019
 
                 for (int j = 1; j < arr.GetLength(1); j++)//foreach solgtbolig
                     if (arr[i, j] != null)
-                        {
-                            write(arr[i, j].ID.ToString());
-
                             item.SubItems.Add(arr[i,j].ID.ToString());
-                        }
 
                 LwResultater.Items.Add(item);
 
@@ -110,10 +100,7 @@ namespace ProjektOpgave1Sem2019
 
         }
         
-        private void write(string s)
-        {
-            System.Diagnostics.Debug.WriteLine(s);
-        }
+
 
         
 
