@@ -61,6 +61,8 @@ namespace ProjektOpgave1Sem2019
                 parent.BTNSolgt.Hide();
                 ViewModel.IndsætSolgtBolig(solgtBolig);
                 BoligView.FyldPostnummerListe();
+                MessageBox.Show("Bolig solgt");
+
                 this.Dispose();
 
             }

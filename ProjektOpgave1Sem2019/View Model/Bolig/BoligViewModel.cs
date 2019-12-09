@@ -77,14 +77,14 @@ namespace ProjektOpgave1Sem2019
             Details.InitializeCreateMode();
         }
 
-        public void Edit(Bolig b)
+        public void Edit(BoligDetails d, Bolig b)
         {
             //Get Ejendomsmægler knyttet til bolig
             ValgtEmægler = EjendomsmæglerTabelDB.GetEjendomsmægler(b.EjendomsmæglerID);
             ValgtSælger = KundeDBTabel.GetSælger(b.SælgerID);
             ValgtBolig = b;
             //Details.Show();
-            Details.InitializeEditMode();
+            d.InitializeEditMode();
         }
 
         public bool Delete(Bolig b)
@@ -306,7 +306,7 @@ namespace ProjektOpgave1Sem2019
             var liste = new List<Bolig>();
             boliger.ForEach(o => liste.Add(o));
             boliger.ForEach(o => { bool Solgt = BoligTabelDB.TjekBoligSolgt(o); if (Solgt) liste.Remove(o); });
-            FileWriter.BoligerTilSalgToFile(path, liste);
+            FileWriter.BoligerTilSalgToFile(path);
 
         }
         internal void UdskrivBoligerFraByTilTxtFil(int PostNummer, string path)

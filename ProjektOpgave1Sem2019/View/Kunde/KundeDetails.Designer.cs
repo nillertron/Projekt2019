@@ -45,12 +45,13 @@
             this.TbEfternavn = new System.Windows.Forms.TextBox();
             this.LblId = new System.Windows.Forms.Label();
             this.CbPostNr = new System.Windows.Forms.ComboBox();
+            this.lblPostNr = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TbNavn
             // 
             this.TbNavn.Location = new System.Drawing.Point(68, 58);
-            this.TbNavn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbNavn.Margin = new System.Windows.Forms.Padding(2);
             this.TbNavn.Name = "TbNavn";
             this.TbNavn.Size = new System.Drawing.Size(134, 20);
             this.TbNavn.TabIndex = 0;
@@ -113,7 +114,7 @@
             // TbAdresse
             // 
             this.TbAdresse.Location = new System.Drawing.Point(68, 121);
-            this.TbAdresse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbAdresse.Margin = new System.Windows.Forms.Padding(2);
             this.TbAdresse.Name = "TbAdresse";
             this.TbAdresse.Size = new System.Drawing.Size(134, 20);
             this.TbAdresse.TabIndex = 3;
@@ -121,7 +122,7 @@
             // TbTlf
             // 
             this.TbTlf.Location = new System.Drawing.Point(68, 176);
-            this.TbTlf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbTlf.Margin = new System.Windows.Forms.Padding(2);
             this.TbTlf.Name = "TbTlf";
             this.TbTlf.Size = new System.Drawing.Size(134, 20);
             this.TbTlf.TabIndex = 5;
@@ -129,7 +130,7 @@
             // TbKontoNr
             // 
             this.TbKontoNr.Location = new System.Drawing.Point(68, 197);
-            this.TbKontoNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbKontoNr.Margin = new System.Windows.Forms.Padding(2);
             this.TbKontoNr.Name = "TbKontoNr";
             this.TbKontoNr.Size = new System.Drawing.Size(134, 20);
             this.TbKontoNr.TabIndex = 6;
@@ -150,7 +151,7 @@
             // 
             this.BtnAction.ForeColor = System.Drawing.Color.Black;
             this.BtnAction.Location = new System.Drawing.Point(235, 274);
-            this.BtnAction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnAction.Margin = new System.Windows.Forms.Padding(2);
             this.BtnAction.Name = "BtnAction";
             this.BtnAction.Size = new System.Drawing.Size(134, 44);
             this.BtnAction.TabIndex = 7;
@@ -172,7 +173,7 @@
             // TbFornavn
             // 
             this.TbFornavn.Location = new System.Drawing.Point(68, 58);
-            this.TbFornavn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbFornavn.Margin = new System.Windows.Forms.Padding(2);
             this.TbFornavn.Name = "TbFornavn";
             this.TbFornavn.Size = new System.Drawing.Size(134, 20);
             this.TbFornavn.TabIndex = 1;
@@ -193,7 +194,7 @@
             // TbEfternavn
             // 
             this.TbEfternavn.Location = new System.Drawing.Point(68, 81);
-            this.TbEfternavn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbEfternavn.Margin = new System.Windows.Forms.Padding(2);
             this.TbEfternavn.Name = "TbEfternavn";
             this.TbEfternavn.Size = new System.Drawing.Size(134, 20);
             this.TbEfternavn.TabIndex = 2;
@@ -216,15 +217,26 @@
             this.CbPostNr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbPostNr.FormattingEnabled = true;
             this.CbPostNr.Location = new System.Drawing.Point(68, 143);
-            this.CbPostNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CbPostNr.Margin = new System.Windows.Forms.Padding(2);
             this.CbPostNr.Name = "CbPostNr";
             this.CbPostNr.Size = new System.Drawing.Size(53, 21);
             this.CbPostNr.TabIndex = 4;
+            this.CbPostNr.SelectedIndexChanged += new System.EventHandler(this.CbPostNr_SelectedIndexChanged);
+            // 
+            // lblPostNr
+            // 
+            this.lblPostNr.AutoSize = true;
+            this.lblPostNr.ForeColor = System.Drawing.Color.Black;
+            this.lblPostNr.Location = new System.Drawing.Point(140, 151);
+            this.lblPostNr.Name = "lblPostNr";
+            this.lblPostNr.Size = new System.Drawing.Size(0, 13);
+            this.lblPostNr.TabIndex = 18;
             // 
             // KundeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblPostNr);
             this.Controls.Add(this.CbPostNr);
             this.Controls.Add(this.LblId);
             this.Controls.Add(this.TbEfternavn);
@@ -242,9 +254,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.LblNavn);
             this.Controls.Add(this.TbNavn);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "KundeDetails";
             this.Size = new System.Drawing.Size(390, 332);
+            this.Load += new System.EventHandler(this.KundeDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,5 +282,6 @@
         private System.Windows.Forms.TextBox TbEfternavn;
         private System.Windows.Forms.Label LblId;
         private System.Windows.Forms.ComboBox CbPostNr;
+        private System.Windows.Forms.Label lblPostNr;
     }
 }

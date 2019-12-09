@@ -108,6 +108,8 @@ namespace ProjektOpgave1Sem2019
                     var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
                     E.Opdater(phobj);
                     ViewModel.Edit(E);
+                    MessageBox.Show("Opdateret");
+
 
                 }
                 catch (FormatException eee)
@@ -132,6 +134,8 @@ namespace ProjektOpgave1Sem2019
                     var ny = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
                     ViewModel.Opret(ny);
                     ClearTekstBokse();
+                    MessageBox.Show("Oprettet");
+
                 }
                 catch (FormatException eee)
                 {

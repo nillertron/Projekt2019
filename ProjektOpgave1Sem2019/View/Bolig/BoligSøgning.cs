@@ -81,11 +81,15 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                 {
                     var postnummer = cbPostNr.SelectedItem as PostNumre;
                     ViewModel.UdskrivBoligerFraByTilTxtFil(postnummer.PostNummer, path);
+                    MessageBox.Show("Fil udskrevet");
+
 
                 }
                 else
                 {
                     ViewModel.UdskrivBoligerTilTxtFil(path);
+                    MessageBox.Show("Fil udskrevet");
+
                 }
             }
             catch(IOException ee)

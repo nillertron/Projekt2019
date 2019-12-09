@@ -50,6 +50,7 @@
             this.TBEMæglerNavn = new System.Windows.Forms.TextBox();
             this.BtnVælgSælger = new System.Windows.Forms.Button();
             this.TBValgtSælger = new System.Windows.Forms.TextBox();
+            this.lblPost = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TBAdresse
@@ -180,6 +181,7 @@
             this.TBPostNr.Name = "TBPostNr";
             this.TBPostNr.Size = new System.Drawing.Size(100, 20);
             this.TBPostNr.TabIndex = 2;
+            this.TBPostNr.TextChanged += new System.EventHandler(this.TBPostNr_TextChanged);
             // 
             // LBLPris
             // 
@@ -274,10 +276,20 @@
             this.TBValgtSælger.Size = new System.Drawing.Size(100, 20);
             this.TBValgtSælger.TabIndex = 22;
             // 
+            // lblPost
+            // 
+            this.lblPost.AutoSize = true;
+            this.lblPost.ForeColor = System.Drawing.Color.Black;
+            this.lblPost.Location = new System.Drawing.Point(263, 89);
+            this.lblPost.Name = "lblPost";
+            this.lblPost.Size = new System.Drawing.Size(0, 13);
+            this.lblPost.TabIndex = 23;
+            // 
             // BoligDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblPost);
             this.Controls.Add(this.TBValgtSælger);
             this.Controls.Add(this.BtnVælgSælger);
             this.Controls.Add(this.TBEMæglerNavn);
@@ -300,7 +312,6 @@
             this.Controls.Add(this.LabelID);
             this.Controls.Add(this.TBPris);
             this.Controls.Add(this.TBAdresse);
-            this.Location = new System.Drawing.Point(350, 50);
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "BoligDetails";
             this.Size = new System.Drawing.Size(680, 289);
@@ -334,5 +345,6 @@
         private System.Windows.Forms.TextBox TBEMæglerNavn;
         private System.Windows.Forms.Button BtnVælgSælger;
         private System.Windows.Forms.TextBox TBValgtSælger;
+        private System.Windows.Forms.Label lblPost;
     }
 }

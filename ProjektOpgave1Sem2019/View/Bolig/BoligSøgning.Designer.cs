@@ -100,9 +100,8 @@
             this.lblBy.ForeColor = System.Drawing.Color.Black;
             this.lblBy.Location = new System.Drawing.Point(139, 39);
             this.lblBy.Name = "lblBy";
-            this.lblBy.Size = new System.Drawing.Size(18, 13);
+            this.lblBy.Size = new System.Drawing.Size(0, 13);
             this.lblBy.TabIndex = 6;
-            this.lblBy.Text = "by";
             // 
             // BoligSøgning
             // 
@@ -115,7 +114,6 @@
             this.Controls.Add(this.tbSti);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbPostNr);
-            this.Location = new System.Drawing.Point(350, 50);
             this.Name = "BoligSøgning";
             this.Size = new System.Drawing.Size(680, 289);
             this.Load += new System.EventHandler(this.BoligSøgning_Load);
