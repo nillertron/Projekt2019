@@ -90,16 +90,13 @@ namespace ProjektOpgave1Sem2019.View_Model
             }
         }
 
-        public void Delete(Ejendomsmægler e)
+        public bool Delete(Ejendomsmægler e)
         {
             bool succes = EjendomsmæglerTabelDB.Delete(e);
             if (succes)
-            {
                 EjendomsmæglerListe.Remove(e);
-                MessageBox.Show($"{e.Navn} blev slettet");
-            }
-            else
-                MessageBox.Show("Error, try again");
+
+            return succes;
         }
 
 
