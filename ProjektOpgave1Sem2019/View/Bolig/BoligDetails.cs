@@ -263,16 +263,19 @@ namespace ProjektOpgave1Sem2019
         }
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            try
+
+            if (viewModel.Delete(viewModel.ValgtBolig))
             {
-                viewModel.Delete(viewModel.ValgtBolig);
                 parent.FyldListView(viewModel.FillListView()); //reset listen når der slettes
                 MessageBox.Show("Bolig slettet");
+
             }
-            catch (Exception ee)
+            else
             {
-                MessageBox.Show(ee.Message);
+                MessageBox.Show("Bolig kan ikke slettes da den er markeret som solgt");
             }
+            
+            
 
         }
         private void TBAdresse_TextChanged(object sender, EventArgs e)

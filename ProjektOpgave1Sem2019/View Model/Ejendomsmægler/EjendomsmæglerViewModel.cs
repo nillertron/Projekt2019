@@ -104,18 +104,16 @@ namespace ProjektOpgave1Sem2019.View_Model
 
 
 
-        public void Opret(Ejendomsmægler e)
+        public bool Opret(Ejendomsmægler e)
         {
-            bool succes = EjendomsmæglerTabelDB.Create(e);
-            if (succes)
+            bool success = false;
+            if (EjendomsmæglerTabelDB.Create(e))
             {
+                success = true;
                 EjendomsmæglerListe.Add(e);
-                MessageBox.Show($"{e.Navn} oprettet");
             }
-            else
-                MessageBox.Show("Error, try again");
 
-
+            return success;
         }
 
         public List<Ejendomsmægler> DisplaySearchResults(string kriterie, string input)

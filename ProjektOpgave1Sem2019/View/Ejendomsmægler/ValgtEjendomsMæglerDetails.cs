@@ -132,9 +132,17 @@ namespace ProjektOpgave1Sem2019
                     PostNumre valgt = CBPostNr.SelectedItem as PostNumre;
 
                     var ny = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
-                    ViewModel.Opret(ny);
+
+
+                    if (ViewModel.Opret(ny))
+                    {
                     ClearTekstBokse();
                     MessageBox.Show("Oprettet");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ikke oprettet");
+                    }
 
                 }
                 catch (FormatException eee)

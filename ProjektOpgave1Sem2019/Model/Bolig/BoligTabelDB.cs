@@ -279,7 +279,6 @@ namespace ProjektOpgave1Sem2019
                 catch (Exception e)
                 {
                     System.Diagnostics.Debug.WriteLine(e);
-                    System.Windows.Forms.MessageBox.Show("Database acceptered ikke værdier, se debugger for detaljer");
                 }
    
             }

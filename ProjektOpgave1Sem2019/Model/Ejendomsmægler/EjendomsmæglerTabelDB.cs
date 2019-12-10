@@ -44,7 +44,7 @@ namespace ProjektOpgave1Sem2019.Model
         public static bool Create(Ejendomsmægler e) //Metode der skal hookes op til Viewmodel
         {
             bool wasSuccess;
-
+            
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.Connection = DBHelper.Conn;
