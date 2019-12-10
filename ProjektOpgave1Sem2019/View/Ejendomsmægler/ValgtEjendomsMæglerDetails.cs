@@ -108,7 +108,6 @@ namespace ProjektOpgave1Sem2019
                     var phobj = new Ejendomsmægler(TBNavn.Text, TBEfternavn.Text, TBTelefon.Text, TBFødselsdag.Value, valgt.PostNummer, TBKonto.Text, TBAdresse.Text);
                     E.Opdater(phobj);
                     ViewModel.Edit(E);
-                    MessageBox.Show("Opdateret");
 
 
                 }
@@ -160,9 +159,13 @@ namespace ProjektOpgave1Sem2019
             {
                 try
                 {
-                    ViewModel.Delete(E);
-                    ClearTekstBokse();
-                    ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
+                    if (ViewModel.Delete(E))
+                    {
+                        ClearTekstBokse();
+                        ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
+                        MessageBox.Show("Ejendomsmægler slettet");
+                    }
+
                 }
                 catch(Exception eee)
                 {
