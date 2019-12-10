@@ -58,18 +58,24 @@ namespace ProjektOpgave1Sem2019
             {
                 var solgtBolig = new SolgtBolig();
                 solgtBolig = solgtBolig.SælgBolig(ValgtBolig, køber.Id, Convert.ToDouble(tbKøbsPris.Text), dtpKøbsDato.Value);
+                if (ViewModel.IndsætSolgtBolig(solgtBolig))
+                {
                 parent.BTNSolgt.Hide();
-                ViewModel.IndsætSolgtBolig(solgtBolig);
                 BoligView.FyldPostnummerListe();
                 MessageBox.Show("Bolig solgt");
-
                 this.Dispose();
-
+                }
+                
             }
             catch (FormatException ee)
             {
                 MessageBox.Show(ee.Message);
             }
+                
+
+
+            }
+           
         }
     }
-}
+

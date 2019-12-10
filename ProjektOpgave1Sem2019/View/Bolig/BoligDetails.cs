@@ -268,6 +268,7 @@ namespace ProjektOpgave1Sem2019
             {
                 parent.FyldListView(viewModel.FillListView()); //reset listen når der slettes
                 MessageBox.Show("Bolig slettet");
+                this.Dispose();
 
             }
             else

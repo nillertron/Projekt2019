@@ -18,10 +18,13 @@ namespace ProjektOpgave1Sem2019.View_Model
             KøberListe = KundeDBTabel.GetAllKøbere();
         }
 
-        public void IndsætSolgtBolig(SolgtBolig bolig)
+        public bool IndsætSolgtBolig(SolgtBolig bolig)
         {
-            BoligTabelDB.CreateSolgtBolig(bolig);
-            PostNrTabelDB.OpdaterGennemsnitsPrisPrM2IEtPostNummer(bolig.PostNr);
+            bool success = BoligTabelDB.CreateSolgtBolig(bolig);
+            if(success)
+                PostNrTabelDB.OpdaterGennemsnitsPrisPrM2IEtPostNummer(bolig.PostNr);
+
+            return success;
         }
 
     }
