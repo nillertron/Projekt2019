@@ -142,33 +142,32 @@ namespace ProjektOpgave1Sem2019
             }
             catch
             {
-                MessageBox.Show("DB forbindelse kunne ikke åbnes");
+                System.Diagnostics.Debug.WriteLine("Databasen kunne ikke åbnes"); 
             }
-         
 
+           
             
                 using (SqlCommand cmd = new SqlCommand()) 
                 {
                 string query = " INSERT INTO Bolig( Adresse, Pris, SælgerID, Kvm, OprettelsesDato, EjendomsmæglerID, PostNr) ";
-                query += $" VALUES ( '{b.Adresse}', {b.Pris}, {b.SælgerID}, {b.Kvm}, '{b.OprettelsesDato}', {b.EjendomsmæglerID}, {b.PostNr} )";
+                query += $" VALUES ( @Adresse, @Pris, @SælgerID, @SælgerID, @OprettelsesDato, @EjendomsmæglerID, @PostNr )";
                
                 cmd.Connection = DBHelper.Conn;
                 cmd.CommandText = query;
-               
-            
+
+
+                AddValueToParametersFromBolig(b, cmd);
 
 
 
-                    try
+                try
                     {
                         cmd.ExecuteNonQuery();
 
                     }
                     catch (Exception e)
                     {
-                    
-                        MessageBox.Show(e.Message);
-                        MessageBox.Show("Database acceptered ikke værdier, se debugger for detaljer");
+                    System.Diagnostics.Debug.WriteLine(e);
                     }
                     
                 }
@@ -186,7 +185,22 @@ namespace ProjektOpgave1Sem2019
 
 
 
+
+        private static void AddValueToParametersFromBolig(Bolig boligWithValues, SqlCommand cmd)
+        {
+            cmd.Parameters.AddWithValue("@Adresse", boligWithValues.Adresse);
+            cmd.Parameters.AddWithValue("@Pris", boligWithValues.Pris);
+            cmd.Parameters.AddWithValue("@SælgerID", boligWithValues.SælgerID);
+            cmd.Parameters.AddWithValue("@Kvm", boligWithValues.Kvm);
+            cmd.Parameters.AddWithValue("@OprettelsesDato", boligWithValues.OprettelsesDato);
+            cmd.Parameters.AddWithValue("@EjendomsmæglerID", boligWithValues.EjendomsmæglerID);
+            cmd.Parameters.AddWithValue("@PostNr", boligWithValues.PostNr);
+        }
+
      
+
+
+
 
 
    
@@ -210,16 +224,18 @@ namespace ProjektOpgave1Sem2019
             using(SqlCommand cmd = new SqlCommand())
             {
             string query = " UPDATE Bolig ";
-            query += $" SET Adresse = '{b.Adresse}', " +
-                $" Pris = {b.Pris}, " +
-                $" SælgerID = {b.SælgerID}, " +
-                $" Kvm = {b.Kvm}, " +
-                $" OprettelsesDato = '{b.OprettelsesDato}', " +
-                $" EjendomsmæglerID = {b.EjendomsmæglerID}, " +
-                $" PostNr = {b.PostNr} " +
-                $" WHERE ID = {b.ID}";
+            query += $" SET Adresse = @Adresse, " +
+                $" Pris = @Pris, " +
+                $" SælgerID = @SælgerID, " +
+                $" Kvm = @Kvm, " +
+                $" OprettelsesDato = @OprettelsesDato, " +
+                $" EjendomsmæglerID = @EjendomsmæglerID, " +
+                $" PostNr = @PostNr " +
+                $" WHERE ID = {b.ID}";//ingen parameters på id, da den aldrig opdateres og er intern sat
             cmd.CommandText = query;
             cmd.Connection = DBHelper.Conn;
+
+                AddValueToParametersFromBolig(b, cmd);
         
                 
                 try
@@ -229,9 +245,7 @@ namespace ProjektOpgave1Sem2019
                 }
                 catch (Exception e)
                 {
-
                     System.Diagnostics.Debug.WriteLine(e);
-                    System.Windows.Forms.MessageBox.Show("Database acceptered ikke værdier, se debugger for detaljer");
                 }
             }
 
@@ -305,7 +319,7 @@ namespace ProjektOpgave1Sem2019
             }
             catch
             {
-                System.Windows.Forms.MessageBox.Show("DB did not open");
+                System.Diagnostics.Debug.WriteLine("Database blev ikke åbnet");
             }
 
 
@@ -314,10 +328,15 @@ namespace ProjektOpgave1Sem2019
                 string query = $" INSERT INTO SolgtBolig " +
                     $" (BoligID, KøberID, Købspris, KøbsDato) " +
                     $" VALUES " +
-                    $" ({b.ID}, {b.KøberID}, {b.KøbsPris}, '{b.OprettelsesDato}') ";
+                    $" ({b.ID}, {b.KøberID}, @Købspris, '{b.OprettelsesDato}') ";
+
                 cmd.CommandText = query;
                 cmd.Connection = DBHelper.Conn;
-                
+
+           
+                cmd.Parameters.AddWithValue("@Købspris", b.KøbsPris); 
+               
+
                 try
                 {
                 cmd.ExecuteNonQuery();
@@ -325,7 +344,7 @@ namespace ProjektOpgave1Sem2019
                 }
                 catch
                 {
-                    System.Windows.Forms.MessageBox.Show("values not accepted in DB");
+                    System.Diagnostics.Debug.WriteLine("values not accepted in DB");
                 }
 
             }
