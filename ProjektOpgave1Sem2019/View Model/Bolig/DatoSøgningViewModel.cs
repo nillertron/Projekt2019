@@ -96,6 +96,7 @@ namespace ProjektOpgave1Sem2019.View_Model
             return array;
         }
 
+        //karl
         public SolgtBolig[,] KonverterTilArrayKarl()
         {
           

@@ -38,7 +38,7 @@ namespace ProjektOpgave1Sem2019
 
             //get array 
             SolgtBolig[,] arr = ViewModel.KonverterTilArrayKarl();
-
+    
 
             //set listView  row mængde = max solgte boliger 
             int columnWidth = 50;

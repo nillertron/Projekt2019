@@ -150,7 +150,7 @@ namespace ProjektOpgave1Sem2019
                 using (SqlCommand cmd = new SqlCommand()) 
                 {
                 string query = " INSERT INTO Bolig( Adresse, Pris, SælgerID, Kvm, OprettelsesDato, EjendomsmæglerID, PostNr) ";
-                query += $" VALUES ( @Adresse, @Pris, @SælgerID, @SælgerID, @OprettelsesDato, @EjendomsmæglerID, @PostNr )";
+                query += $" VALUES ( @Adresse, @Pris, @SælgerID, @Kvm, @OprettelsesDato, @EjendomsmæglerID, @PostNr )";
                
                 cmd.Connection = DBHelper.Conn;
                 cmd.CommandText = query;
