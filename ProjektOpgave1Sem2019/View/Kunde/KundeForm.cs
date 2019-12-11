@@ -63,6 +63,8 @@ namespace ProjektOpgave1Sem2019
                 BtnOpret.Text = "Opret Køber";
                 LabelMode.Text = "Køber mode";
                 ViewModel.IsSælgerMode = false;
+
+                Details.InitializeCreateMode();
             }
             else
             {
@@ -70,6 +72,8 @@ namespace ProjektOpgave1Sem2019
                 BtnOpret.Text = "Opret Sælger";
                 LabelMode.Text = "Sælger mode";
                 ViewModel.IsSælgerMode = true;
+
+                Details.InitializeCreateMode();
             }
             FillListView(ViewModel.GetAll()); //Fylder listview med kunder, ViewModel ved om den skal give sælger eller køber
         }

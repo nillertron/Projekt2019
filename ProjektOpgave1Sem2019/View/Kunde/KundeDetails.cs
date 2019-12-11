@@ -36,7 +36,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             //    CbPostNr.Items.Add(postNr.PostNummer);
         }
 
-
+     
 
         public void InitializeCreateMode()
         {
@@ -144,9 +144,9 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     Sælger sælgerToCreate = new Sælger(fornavn, efternavn, tlf, kontoNr, postNr, adresse);
                         success = ViewModel.OpretSælger(sælgerToCreate);
                     }
-                    catch
+                    catch(Exception ee)
                     {
-                        MessageBox.Show("Der skete en fejl, sælger blev ikke oprettet");
+                        MessageBox.Show(ee.Message);
                     }
 
                     if (success)
@@ -166,9 +166,9 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     Sælger sælgerToUpdate = new Sælger(ViewModel.SelectedKunde.Id, fornavn, efternavn, tlf, kontoNr, postNr, adresse);
                         success = ViewModel.OpdaterSælger(sælgerToUpdate);
                     }
-                    catch
+                    catch (Exception ee)
                     {
-                        MessageBox.Show("Der skete en fejl, sælger blev ikke opdateret");
+                        MessageBox.Show(ee.Message);
                     }
 
                     if(success)
@@ -188,9 +188,9 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     Køber køberToCreate = new Køber(fornavn, efternavn, tlf, kontoNr, postNr, adresse);
                         success = ViewModel.OpretKøber(køberToCreate);
                     }
-                    catch
+                    catch (Exception ee)
                     {
-                        MessageBox.Show("Der skete en fejl, køber blev ikke oprettet");
+                        MessageBox.Show(ee.Message);
                     }
                     if (success)
                     {
@@ -210,9 +210,9 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                     Køber køberToUpdate = new Køber(ViewModel.SelectedKunde.Id, fornavn, efternavn, tlf, kontoNr, postNr, adresse);
                         success = ViewModel.OpdaterKøber(køberToUpdate);
                     }
-                    catch
+                    catch (Exception ee)
                     {
-                        MessageBox.Show("Der skete en fejl, køber blev ikke opdateret");
+                        MessageBox.Show(ee.Message);
                     }
 
                     if(success)
