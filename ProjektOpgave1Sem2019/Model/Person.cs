@@ -12,13 +12,13 @@ namespace ProjektOpgave1Sem2019
         private int _Id;
         public int Id { set { if (value > 0) _Id = value; else throw new FormatException("ID skal være over 0"); } get { return _Id; } }
         private string _Navn;
-        public string Navn { protected set { if (value.Length > 0 && value.Length <= 50) _Navn = value; else throw new FormatException("Navn kan ikke være tom"); } get { return _Navn; } }
+        public string Navn { protected set { if (value.Length > 0 && value.Length <= 50) _Navn = value; else throw new FormatException("Navn skal være mellem 1 og 50 tegn"); } get { return _Navn; } }
         private string _Efternavn;
-        public string Efternavn { protected set { if (value.Length > 0 && value.Length <= 50) _Efternavn = value; else throw new FormatException("Efternavn må ikke være tom"); } get { return _Efternavn; } }
+        public string Efternavn { protected set { if (value.Length > 0 && value.Length <= 50) _Efternavn = value; else throw new FormatException("Efternavn skal være mellem 1 og 50 tegn"); } get { return _Efternavn; } }
         private string _TelefonNr;
-        public string TelefonNr { protected set { if (value.Length >= 8 && value.Length <= 11) _TelefonNr = value; else throw new FormatException("TelefonNr skal være mellem 8 og 15 tegn"); } get { return _TelefonNr; } }
+        public string TelefonNr { protected set { if (value.Length >= 8 && value.Length <= 11) _TelefonNr = value; else throw new FormatException("TelefonNr skal være mellem 8 og 11 tegn"); } get { return _TelefonNr; } }
         private string _KontoNr;
-        public string KontoNr { protected set { if (value.Length > 0 && value.Length <= 50) _KontoNr = value; else throw new FormatException("KontoNr skal være mellem 0 og 15 tegn"); } get { return _KontoNr; } }
+        public string KontoNr { protected set { if (value.Length > 0 && value.Length <= 15) _KontoNr = value; else throw new FormatException("KontoNr skal være mellem 0 og 15 tegn"); } get { return _KontoNr; } }
         public int PostNr { get;  protected set; }
         private string _Adresse;
         public string Addresse { get { return _Adresse; } protected set { if (value.Length <= 50) { _Adresse = value; } else { throw new FormatException("Adresse kan ikke være længere end 50 tegn"); } } }

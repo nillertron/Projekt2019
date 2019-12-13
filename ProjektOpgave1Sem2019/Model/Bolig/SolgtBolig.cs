@@ -13,7 +13,7 @@ namespace ProjektOpgave1Sem2019
         private int _KøberID;
         public int KøberID { get { return _KøberID; } private set { if (value > 0) _KøberID = value; else throw new FormatException("Køber ID skal være over 0"); } }
         private double _KøbsPris;
-        public double KøbsPris { get { return _KøbsPris; } private set { if (value > 0) _KøbsPris = value; else throw new FormatException("Den er da ikke solgt gratis?"); } }
+        public double KøbsPris { get { return _KøbsPris; } private set { if (value > 0 && value <= 2000000000) _KøbsPris = value; else throw new FormatException("Købspris skal være mellem 0 og 2 milliarder"); } }
         private DateTime _KøbsDato;
         public DateTime KøbsDato { get { return _KøbsDato; } private set { if (value.Year > 0 && value.Year <= DateTime.Today.Year) _KøbsDato = value; else throw new FormatException("år skal være mellem 2015 og nuværende år"); } }
         
@@ -63,7 +63,7 @@ namespace ProjektOpgave1Sem2019
         {
             return this.KøbsDato.CompareTo(((SolgtBolig)obj).KøbsDato);
         }
-
+        //MartinSlut
         public void SetSælgerOgKøberObjekter(int sælgerId, int køberID)
         {
             this.sælger = KundeDBTabel.GetSpecifikSælgerMedID(SælgerID);

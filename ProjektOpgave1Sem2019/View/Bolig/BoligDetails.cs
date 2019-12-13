@@ -137,7 +137,14 @@ namespace ProjektOpgave1Sem2019
         {
             if (editMode)
             {
-                viewModel.SaveEdit(viewModel.ValgtBolig, Convert.ToDouble(TBPris.Text)); //Forsøger at holde logik og datamanipulation i ViewModel
+                try
+                {
+                    viewModel.SaveEdit(viewModel.ValgtBolig, Convert.ToDouble(TBPris.Text)); //Forsøger at holde logik og datamanipulation i ViewModel
+                }
+                catch(FormatException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
@@ -159,7 +166,10 @@ namespace ProjektOpgave1Sem2019
                     {
                         MessageBox.Show(ee.Message);
                     }
-
+                    //catch(Exception ex) //Fanger exceptions der bliver kastet af Bolig klassen (måske)
+                    //{
+                    //    MessageBox.Show(ex.Message);
+                    //}
 
                 }
                 else if(viewModel.ValgtEmægler == null) //Hvis ejendomsmægler ikke er valgt
@@ -300,6 +310,8 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
+
+        
         /// Nichlas leger her
         /// 
 
