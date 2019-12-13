@@ -235,11 +235,11 @@ namespace ProjektOpgave1Sem2019
             b.UpdatePris(d);
             if(BoligTabelDB.Update(b))
             {
-                MessageBox.Show("Huzzah, update was a success. Probably change this message later");
+                MessageBox.Show("Opdatering successfuld");
             }
             else
             {
-                MessageBox.Show("Boohoo, update failed :(");
+                MessageBox.Show("Opdatering fejlede");
                 b.UpdatePris(formerPrice);
             }
         }
