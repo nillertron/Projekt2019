@@ -45,6 +45,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             Control[] controlsToDisplay = { LblFornavn, TbFornavn, LblEfternavn, TbEfternavn }; 
             ShowThese(controlsToDisplay);
             BtnDelete.Hide();
+            LblId.Hide();
 
             ClearData(); //-Martin, må gerne laves om hvis du vil
 
