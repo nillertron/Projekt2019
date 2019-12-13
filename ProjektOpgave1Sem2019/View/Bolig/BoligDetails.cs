@@ -125,12 +125,20 @@ namespace ProjektOpgave1Sem2019
             lblPost.Hide();
             LabelID.Show();
             LabelMode.Text = "EDIT MODE";
+            BTNSolgt.Show();
+
             //tjekker om boligen er solgt, for så skal denne knap ikke vises!
             var erSolgt = viewModel.TjekBoligSolgt(selectedBolig);
             if (erSolgt)
+            {
                 BTNSolgt.Hide();
-            else
-                BTNSolgt.Show();
+                BtnDelete.Hide();
+                LabelMode.Text = "Solgt bolig";
+                BtnSave.Hide();
+                BtnVælgE.Hide();
+                BtnVælgSælger.Hide();
+            }
+           
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
