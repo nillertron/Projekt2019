@@ -47,9 +47,19 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnVælg_Click(object sender, EventArgs e)
         {
+            VælgEMæglerOgLuk();
+        }
+
+        private void VælgEMæglerOgLuk()
+        {
             viewModel.SetValgtEMægler((Ejendomsmægler)LBEMæglere.SelectedItem);
 
             this.Close();
+        }
+
+        private void LBEMæglere_DoubleClick(object sender, EventArgs e)
+        {
+            VælgEMæglerOgLuk();
         }
     }
 }

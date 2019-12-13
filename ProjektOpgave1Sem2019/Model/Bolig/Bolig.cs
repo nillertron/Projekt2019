@@ -11,9 +11,10 @@ namespace ProjektOpgave1Sem2019
     {
         private int _ID;
         public int ID { protected set { if (value > 0) _ID = value; else throw new FormatException("ID skal være over 0"); } get { return _ID; } }
-        public string Adresse { protected set; get; }
+        private string _Adresse;
+        public string Adresse { protected set { if (value.Length > 0 && value.Length <= 50) { _Adresse = value; } else { throw new FormatException("Adresse skal være mellem 1 og 50 karakterer"); } } get { return _Adresse; } }
         private double _Pris;
-        public double Pris { protected set { if (value > 0) _Pris = value; else throw new FormatException("Pris skal være over 0"); } get { return _Pris; } }
+        public double Pris { protected set { if (value > 0 && value <= 2000000000) _Pris = value; else throw new FormatException("Pris skal være over 0 og under 2 milliarder"); } get { return _Pris; } }
         private int _SælgerID;
         public int SælgerID { protected set { if (value > 0) _SælgerID = value; else throw new FormatException("ID skal være over 0"); } get { return _SælgerID; } }
         private int _Kvm;

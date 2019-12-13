@@ -40,6 +40,7 @@
             this.LBSælgere.Size = new System.Drawing.Size(120, 134);
             this.LBSælgere.TabIndex = 0;
             this.LBSælgere.SelectedIndexChanged += new System.EventHandler(this.LBSælgere_SelectedIndexChanged);
+            this.LBSælgere.DoubleClick += new System.EventHandler(this.LBSælgere_DoubleClick);
             // 
             // BtnVælg
             // 
@@ -56,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(154, 202);
             this.Controls.Add(this.BtnVælg);
             this.Controls.Add(this.LBSælgere);
             this.Name = "VælgSælgerForm";

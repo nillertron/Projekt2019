@@ -24,6 +24,11 @@ namespace ProjektOpgave1Sem2019
 
         private void BtnVælg_Click(object sender, EventArgs e)
         {
+            VælgSælgerOgLuk();
+        }
+
+        private void VælgSælgerOgLuk()
+        {
             ViewModel.ValgtSælger = (Sælger)LBSælgere.SelectedItem;
 
             Close();
@@ -50,6 +55,11 @@ namespace ProjektOpgave1Sem2019
             {
                 LBSælgere.Items.Add(s);
             }
+        }
+
+        private void LBSælgere_DoubleClick(object sender, EventArgs e)
+        {
+            VælgSælgerOgLuk();
         }
     }
 }
