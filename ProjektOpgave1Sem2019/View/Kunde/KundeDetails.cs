@@ -248,7 +248,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             bool success = false;
 
             string buttonFunction = BtnDelete.Text;
-            if (buttonFunction.Contains("sælger"))
+            if (buttonFunction.ToLower().Contains("sælger"))
                 success = ViewModel.SletSælger(ViewModel.SelectedKunde.Id);
             else
                 success = ViewModel.SletKøber(ViewModel.SelectedKunde.Id);
