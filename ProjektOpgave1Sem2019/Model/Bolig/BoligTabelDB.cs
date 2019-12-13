@@ -325,16 +325,22 @@ namespace ProjektOpgave1Sem2019
 
             using(SqlCommand cmd = new SqlCommand())
             {
+                //string query = $" INSERT INTO SolgtBolig " +
+                //    $" (BoligID, KøberID, Købspris, KøbsDato) " +
+                //    $" VALUES " +
+                //    $" ({b.ID}, {b.KøberID}, @Købspris, '{b.OprettelsesDato}') ";
+
                 string query = $" INSERT INTO SolgtBolig " +
                     $" (BoligID, KøberID, Købspris, KøbsDato) " +
                     $" VALUES " +
-                    $" ({b.ID}, {b.KøberID}, @Købspris, '{b.OprettelsesDato}') ";
+                    $" ({b.ID}, {b.KøberID}, @Købspris, @Dato) ";
 
                 cmd.CommandText = query;
                 cmd.Connection = DBHelper.Conn;
 
            
-                cmd.Parameters.AddWithValue("@Købspris", b.KøbsPris); 
+                cmd.Parameters.AddWithValue("@Købspris", b.KøbsPris);
+                cmd.Parameters.Add("@Dato", System.Data.SqlDbType.DateTime).Value = b.KøbsDato;
                
 
                 try
