@@ -40,10 +40,11 @@ namespace ProjektOpgave1Sem2019.View.Bolig
 
         public void InitializeCreateMode()
         {
+            
             //generelt for create mode
             Control[] controlsToDisplay = { LblFornavn, TbFornavn, LblEfternavn, TbEfternavn }; 
             ShowThese(controlsToDisplay);
-
+            BtnDelete.Hide();
 
             ClearData(); //-Martin, må gerne laves om hvis du vil
 
