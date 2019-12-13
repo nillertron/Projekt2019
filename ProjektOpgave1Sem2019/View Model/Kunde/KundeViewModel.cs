@@ -221,6 +221,42 @@ namespace ProjektOpgave1Sem2019
 
             return success;
         }
+        public bool SletSælger(int id)
+        {
+            Sælger sælgerToDelete = new Sælger();
+            bool success = false;
+            foreach(Sælger s in sælgere)
+                if(s.Id == id)
+                    if (KundeDBTabel.SletSælger(s))
+                    {
+                        success = true;
+                        sælgerToDelete = s;
+                    }
+
+            if (success)
+                sælgere.Remove(sælgerToDelete);
+
+            return success;
+        }
+        public bool SletKøber(int id)
+        {
+            Køber køberToDelete = new Køber();
+            bool success = false;
+            foreach(Køber k in købere)
+            {
+                if(k.Id == id)
+                    if (KundeDBTabel.SletKøber(k))
+                    {
+                        success = true;
+                        køberToDelete = k; 
+                    }
+            }
+            
+            if(success)
+              købere.Remove(køberToDelete);
+
+            return success;
+        }
     }
 
 }

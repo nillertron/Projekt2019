@@ -91,7 +91,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
         public void InitializeEditMode()
         {
             //generelt for edit mode
-            Control[] controlsToDisplay = { LblFornavn, TbFornavn, LblEfternavn, TbEfternavn, LblId };
+            Control[] controlsToDisplay = { LblFornavn, TbFornavn, LblEfternavn, TbEfternavn, LblId, BtnDelete};
             ShowThese(controlsToDisplay);
         
 
@@ -113,12 +113,14 @@ namespace ProjektOpgave1Sem2019.View.Bolig
             if (ViewModel.IsSælgerMode)
             {
                 LblTitel.Text = "Opdater Sælger";
-                BtnAction.Text = "Opdater Sælger"; 
+                BtnAction.Text = "Opdater Sælger";
+                BtnDelete.Text = "Slet Sælger"; 
             }
             else // er køber
             {
                 LblTitel.Text = "Opdater Køber";
                 BtnAction.Text = "Opdater Køber";
+                BtnDelete.Text = "Slet Køber";
             }
         }
 
@@ -237,6 +239,28 @@ namespace ProjektOpgave1Sem2019.View.Bolig
         {
             var postnr = CbPostNr.SelectedItem as PostNumre;
             lblPostNr.Text = postnr.Distrikt;
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            bool success = false;
+
+            string buttonFunction = BtnDelete.Text;
+            if (buttonFunction.Contains("sælger"))
+                success = ViewModel.SletSælger(ViewModel.SelectedKunde.Id);
+            else
+                success = ViewModel.SletKøber(ViewModel.SelectedKunde.Id);
+
+
+            if (success)
+            {
+                MessageBox.Show("Slettet");
+                Parent.UpdateListViewWithCurrentSearchTerms();
+                this.Dispose();
+            }
+            else
+                MessageBox.Show("fejl! kunde blev ikke slettet");
+            
         }
     }
 }
