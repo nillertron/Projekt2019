@@ -221,37 +221,23 @@ namespace ProjektOpgave1Sem2019
 
             return success;
         }
-        public bool SletSælger(int id)
+        public bool SletSælger()
         {
-            Sælger sælgerToDelete = new Sælger();
-            bool success = false;
-            foreach(Sælger s in sælgere)
-                if(s.Id == id)
-                    if (KundeDBTabel.SletSælger(s))
-                    {
-                        success = true;
-                        sælgerToDelete = s;
-                    }
+            Sælger sælgerToDelete = (Sælger)this.SelectedKunde;
+            bool success = KundeDBTabel.SletSælger(sælgerToDelete);
 
             if (success)
                 sælgere.Remove(sælgerToDelete);
 
-            return success;
-        }
-        public bool SletKøber(int id)
-        {
-            Køber køberToDelete = new Køber();
-            bool success = false;
-            foreach(Køber k in købere)
-            {
-                if(k.Id == id)
-                    if (KundeDBTabel.SletKøber(k))
-                    {
-                        success = true;
-                        køberToDelete = k; 
-                    }
-            }
+            return success; 
             
+        }
+
+        public bool SletKøber()
+        {
+            Køber køberToDelete = (Køber)this.SelectedKunde;
+            bool success = KundeDBTabel.SletKøber(køberToDelete);
+
             if(success)
               købere.Remove(køberToDelete);
 

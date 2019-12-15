@@ -247,11 +247,10 @@ namespace ProjektOpgave1Sem2019.View.Bolig
         {
             bool success = false;
 
-            string buttonFunction = BtnDelete.Text;
-            if (buttonFunction.ToLower().Contains("sælger"))
-                success = ViewModel.SletSælger(ViewModel.SelectedKunde.Id);
+            if (ViewModel.IsSælgerMode)
+                success = ViewModel.SletSælger();
             else
-                success = ViewModel.SletKøber(ViewModel.SelectedKunde.Id);
+                success = ViewModel.SletKøber();
 
 
             if (success)
@@ -261,7 +260,7 @@ namespace ProjektOpgave1Sem2019.View.Bolig
                 this.Dispose();
             }
             else
-                MessageBox.Show("fejl! kunde blev ikke slettet");
+                MessageBox.Show("Fejl! Kunde blev ikke slettet");
             
         }
     }
