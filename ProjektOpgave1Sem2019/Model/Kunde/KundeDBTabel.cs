@@ -227,7 +227,7 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             }
             catch (SqlException ee)
             {
-                MessageBox.Show(ee.Message);
+                System.Diagnostics.Debug.Write(ee.Message);
             }
             return succes;
         }
