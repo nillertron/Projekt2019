@@ -9,7 +9,7 @@ using ProjektOpgave1Sem2019;
 
 namespace ProjektOpgave1Sem2019.View_Model
 {
-    //Nichlas
+    //Nichlas & Karl
     public class EjendomsmæglerViewModel
     {
         public List<Ejendomsmægler> EjendomsmæglerListe;
@@ -32,7 +32,7 @@ namespace ProjektOpgave1Sem2019.View_Model
            
         }
    
-
+        //nichlas
         private void FyldPostnumre()
         {
             PostNummerListe = PostNrTabelDB.GetAllPostnumre();
@@ -51,6 +51,7 @@ namespace ProjektOpgave1Sem2019.View_Model
             ParentForm.SearchResults.Items.Add(item);
 
         }
+        //nichlas
         public Ejendomsmægler FindEjendomsmægler()
         {
             foreach (Ejendomsmægler e in EjendomsmæglerListe)
@@ -64,7 +65,6 @@ namespace ProjektOpgave1Sem2019.View_Model
         }
         public void NyEjendomsmægler()
         {
-            //skal have vist user control herfra også
             ParentForm.Controls.Add(Details);
             Details.CreateMode();
 
@@ -89,7 +89,7 @@ namespace ProjektOpgave1Sem2019.View_Model
                 MessageBox.Show("Fejl!");
             }
         }
-
+        //nichlas
         public bool Delete(Ejendomsmægler e)
         {
             bool succes = EjendomsmæglerTabelDB.Delete(e);
@@ -100,7 +100,7 @@ namespace ProjektOpgave1Sem2019.View_Model
         }
 
 
-
+        //Nichlas
         public bool Opret(Ejendomsmægler e)
         {
             bool success = false;
@@ -112,7 +112,7 @@ namespace ProjektOpgave1Sem2019.View_Model
 
             return success;
         }
-
+        //karl
         public List<Ejendomsmægler> DisplaySearchResults(string kriterie, string input)
         {
           
