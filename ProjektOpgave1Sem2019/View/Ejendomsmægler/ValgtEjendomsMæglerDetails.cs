@@ -95,7 +95,7 @@ namespace ProjektOpgave1Sem2019
         {
 
         }
-
+        //nichlas
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -121,7 +121,7 @@ namespace ProjektOpgave1Sem2019
 
             }
         }
-
+        //Nichlas
         private void BTNOpret_Click(object sender, EventArgs e)
         {
             if (!edit)
@@ -152,7 +152,7 @@ namespace ProjektOpgave1Sem2019
                 ParentForm.UpdateListView(ViewModel.DisplaySearchResults());
             }
         }
-
+        //Nichlas
         private void BTNSlet_Click(object sender, EventArgs e)
         {
             if (edit)

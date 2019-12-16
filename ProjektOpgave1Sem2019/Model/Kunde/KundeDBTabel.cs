@@ -77,7 +77,6 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
         }
 
 
-        //karl 
         public static List<Køber> GetAllKøbere()
         {
 
@@ -284,11 +283,15 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
                         reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            k.Id = reader.GetInt32(0);
+                            if (reader.HasRows)
+                            {
+                                k.Id = reader.GetInt32(0);
+                                succes = true;
+
+                            }
 
                         }
                     }
-                    succes = true;
                 }
             
 
@@ -323,8 +326,10 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
 
                         command.ExecuteNonQuery();
                     }
+                    //karl 
 
                     k.Id = DBHelper.GetNewestIdFromTabel("Sælger", conn);
+                    //karl slut
                     succes = true;
                 }
             }
@@ -336,6 +341,7 @@ namespace ProjektOpgave1Sem2019.Model.Kunde
             return succes;
 
         }
+        //Nichlas slut
 
         //Martin
         public static Sælger GetSælger(int id) //Til at få enkelt sælger under Edit bolig
