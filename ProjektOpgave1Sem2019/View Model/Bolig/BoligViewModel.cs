@@ -230,7 +230,7 @@ namespace ProjektOpgave1Sem2019
 
         public void SaveEdit(Bolig b, double d)
         {
-            double formerPrice = b.Pris;
+            double formerPrice = b.Pris; //til reversering af opdatering I objektet hvis database operation fejler
 
             b.UpdatePris(d);
             if(BoligTabelDB.Update(b))
@@ -240,22 +240,23 @@ namespace ProjektOpgave1Sem2019
             else
             {
                 MessageBox.Show("Opdatering fejlede");
-                b.UpdatePris(formerPrice);
+                b.UpdatePris(formerPrice); //reversering af objekt
             }
         }
 
         public void SaveNewBolig(string adresse, double pris, int areal, DateTime opretDato, int postNr)
         {
-            if (valgtEmægler != null)
+            if (valgtEmægler != null) //Overflødigt tjek. Dette bliver tjekket i Details nu
             {
                 int ejendomsmæglerID = valgtEmægler.Id;
                 int sælgerID = valgtSælger.Id;
 
+                //Ny bolig der skal gemmes
                 Bolig newBolig = new Bolig(adresse, pris, sælgerID, areal, opretDato, ejendomsmæglerID, postNr);
-                newBolig = BoligTabelDB.Create(newBolig);
+                newBolig = BoligTabelDB.Create(newBolig); //Create() returnerer en ny bolig med samme værdier der også har den id tildelt af databasen
                 AddBoligToList(newBolig);
             }
-            else
+            else //Overflødig, dette tjek sker i Details nu
             {
                 MessageBox.Show("Fejl, har du husket at tilføje en ejendomsmægler?");
             }

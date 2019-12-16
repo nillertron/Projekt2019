@@ -47,11 +47,11 @@ namespace ProjektOpgave1Sem2019.Model
             {
                 using (StreamWriter writer = new StreamWriter(fs))
                 {
-                    writer.WriteLine("Adresse".PadRight(10) + "PostNr".PadRight(8) + "Pris".PadRight(10) + "Areal (m^2)".PadRight(10) + "OprettelsesDato".PadRight(10)); //Formatering
+                    writer.WriteLine("Adresse".PadRight(25) + "PostNr".PadRight(8) + "Pris".PadRight(20) + "Areal (m^2)".PadRight(10) + "OprettelsesDato".PadRight(10)); //Formatering
                     foreach (Bolig b in list)
                     {
-                        writer.WriteLine(b.Adresse.PadRight(10) + b.PostNr.ToString().PadRight(8) +
-                                            b.Pris.ToString().PadRight(10) + b.Kvm.ToString().PadRight(10) + b.OprettelsesDato.ToString("dd-MM-yyyy")); //Skriver bolig i fil
+                        writer.WriteLine(b.Adresse.PadRight(25) + b.PostNr.ToString().PadRight(8) +
+                                            b.Pris.ToString().PadRight(20) + b.Kvm.ToString().PadRight(10) + b.OprettelsesDato.ToString("dd-MM-yyyy")); //Skriver bolig i fil
                     }
                 }
                 wasSuccessful = true;
